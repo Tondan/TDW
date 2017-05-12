@@ -23,10 +23,16 @@ CREATE TABLE Servizio
 	Tipo_Servizio VARCHAR(20) not null
 );
 
-CREATE TABLE Menu
+CREATE TABLE Header
 (
-	ID_Menu INT AUTO_INCREMENT PRIMARY KEY,
-    Nome VARCHAR(20) NOT NULL,
+	ID_Header INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Immagine
+(
+	Nome_Img VARCHAR(20) PRIMARY KEY,
+	Img BLOB
 );
 
 CREATE TABLE Slider
@@ -35,4 +41,87 @@ CREATE TABLE Slider
     Img BLOB
 );
 
-CREATE TABLE 
+CREATE TABLE Home
+(
+	ID_Home INT auto_increment PRIMARY KEY,
+    Titolo VARCHAR(20),
+    Descrizione TEXT,
+    Img BLOB,
+		FOREIGN KEY(Img)
+			REFERENCES Immagine(Nome_Img)
+);
+
+CREATE TABLE Gallery
+(
+	ID_Gallery INT auto_increment PRIMARY KEY,
+    Img BLOB,
+		FOREIGN KEY(Img)
+			REFERENCES Immagine(Nome_Img)
+);
+
+CREATE TABLE Caffetteria
+(
+	ID_Caffetteria INT PRIMARY KEY,
+    Descrizione TEXT,
+    Img BLOB,
+		FOREIGN KEY(Img)
+			REFERENCES Immagine(Nome_Img)
+);
+
+CREATE TABLE Storia
+(
+	ID_Storia INT PRIMARY KEY,
+	Descrizione TEXT,
+    Img BLOB,
+		FOREIGN KEY(Img)
+			REFERENCES Immagine(Nome_Img)
+);
+
+CREATE TABLE Piatto
+(
+	Nome_Piatto VARCHAR(20) PRIMARY KEY,
+    Descrizione TEXT,
+    Ingredienti VARCHAR(50) NOT NULL,
+    Prezzo NUMERIC(8,2) NOT NULL,
+    Img BLOB,
+		FOREIGN KEY(Img)
+			REFERENCES Immagine(Nome_Img)
+);
+
+CREATE TABLE Menu
+(
+	ID_Menu INT auto_increment PRIMARY KEY,
+    Piatto VARCHAR(20),
+		FOREIGN KEY (Piatto)
+			REFERENCES Piatto(Nome_Piatto),
+	Img BLOB,
+		FOREIGN KEY(Img)
+			REFERENCES Immagine(Nome_Img)
+)
+
+CREATE TABLE Rist_Pizz
+(
+	ID_Rist_Pizz INT PRIMARY KEY,
+    Descrizione TEXT,
+	Menu INT,
+		FOREIGN KEY (Menu)
+			REFERENCES Menu(ID_Menu)
+);
+
+CREATE TABLE FAQ
+(
+	Domanda VARCHAR(50) PRIMARY KEY,
+	Risposta TEXT NOT NULL
+);
+
+CREATE TABLE Evento
+(
+	ID_Evento INT auto_increment PRIMARY KEY,
+	Data Date NOT NULL,
+    Nome VARCHAR(20),
+    Descrizione TEXT,
+    Menu INT,
+		FOREIGN KEY (Menu)
+			REFERENCES Menu(ID_Menu)
+);
+
