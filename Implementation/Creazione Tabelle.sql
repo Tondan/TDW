@@ -37,7 +37,7 @@ CREATE TABLE Immagine
 CREATE TABLE Slider
 (
 	ID_Slider INT PRIMARY KEY,
-    Img BLOB,
+    Img VARCHAR(20),
 		FOREIGN KEY(Img)
 			REFERENCES Immagine(Nome_Img)
 );
@@ -47,7 +47,7 @@ CREATE TABLE Home
 	ID_Home INT PRIMARY KEY,
     Titolo VARCHAR(20) UNIQUE NOT NULL,
     Descrizione TEXT,
-    Img BLOB,
+    Img VARCHAR(20),
 		FOREIGN KEY(Img)
 			REFERENCES Immagine(Nome_Img)
 );
@@ -55,7 +55,7 @@ CREATE TABLE Home
 CREATE TABLE Gallery
 (
 	ID_Gallery INT PRIMARY KEY,
-    Img BLOB,
+    Img VARCHAR(20),
 		FOREIGN KEY(Img)
 			REFERENCES Immagine(Nome_Img)
 );
@@ -64,7 +64,7 @@ CREATE TABLE Caffetteria
 (
 	ID_Caffetteria INT PRIMARY KEY,
     Descrizione TEXT,
-    Img BLOB,
+    Img VARCHAR(20),
 		FOREIGN KEY(Img)
 			REFERENCES Immagine(Nome_Img)
 );
@@ -73,7 +73,7 @@ CREATE TABLE Storia
 (
 	ID_Storia INT PRIMARY KEY,
 	Descrizione TEXT,
-    Img BLOB,
+    Img VARCHAR(20),
 		FOREIGN KEY(Img)
 			REFERENCES Immagine(Nome_Img)
 );
@@ -84,7 +84,7 @@ CREATE TABLE Piatto
     Descrizione TEXT,
     Ingredienti VARCHAR(50) NOT NULL,
     Prezzo NUMERIC(8,2) NOT NULL,
-    Img BLOB,
+    Img VARCHAR(20),
 		FOREIGN KEY(Img)
 			REFERENCES Immagine(Nome_Img)
 );
@@ -95,32 +95,18 @@ CREATE TABLE Menu
     Piatto VARCHAR(20),
 		FOREIGN KEY (Piatto)
 			REFERENCES Piatto(Nome_Piatto),
-	Img BLOB,
+	Img VARCHAR(20),
 		FOREIGN KEY(Img)
 			REFERENCES Immagine(Nome_Img)
 );
 
-CREATE TABLE Prenotazione
-(
-	ID_Prenotazione INT auto_increment PRIMARY KEY,
-	Nome_Cl VARCHAR(20) NOT NULL,
-    Data TIMESTAMP NOT NULL,
-    Evento INT,
-		FOREIGN KEY (Evento)
-			REFERENCES Evento(ID_Evento),
-	N_Presone INT NOT NULL,
-);
-    
 CREATE TABLE Rist_Pizz
 (
 	ID_Rist_Pizz INT PRIMARY KEY,
     Descrizione TEXT,
-	Menu INT,
+	Menu VARCHAR(20),
 		FOREIGN KEY (Menu)
-			REFERENCES Menu(ID_Menu),
-	Prenotazione INT,
-		FOREIGN KEY (Prenotazione)
-			REFERENCES Prenotazione(ID_Prenotazione)
+			REFERENCES Menu(Nome_Menu)
 );
 
 CREATE TABLE FAQ
@@ -136,13 +122,25 @@ CREATE TABLE Evento
 	Data Date NOT NULL,
     Nome VARCHAR(20),
     Descrizione TEXT,
-    Menu INT,
+    Menu VARCHAR(20),
 		FOREIGN KEY (Menu)
-			REFERENCES Menu(ID_Menu),
-	Prenotazione INT,
-		FOREIGN KEY (Prenotazione)
-			REFERENCES Prenotazione(ID_Prenotazione)
+			REFERENCES Menu(Nome_Menu),
+	Img VARCHAR(20),
+		FOREIGN KEY (Img)
+			REFERENCES Immagine(Nome_Img)
 );
+
+CREATE TABLE Prenotazione
+(
+	ID_Prenotazione INT auto_increment PRIMARY KEY,
+	Nome_Cl VARCHAR(20) NOT NULL,
+    Data TIMESTAMP NOT NULL,
+    Evento INT,
+		FOREIGN KEY (Evento)
+			REFERENCES Evento(ID_Evento),
+	N_Presone INT NOT NULL
+);
+    
 
 CREATE TABLE Contatti
 (
