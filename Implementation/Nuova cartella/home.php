@@ -8,8 +8,8 @@ require ("include/template2.inc.php");
 require ("include/dbms.inc.php");
 
 
-$main = new Template("template/index.html");
-$body = new Template("template/home.html");
+$main = new Template("html/index.html");
+$body = new Template("html/home.html");
 
 $main->setContent("body", $body->get());
 $main->close();
