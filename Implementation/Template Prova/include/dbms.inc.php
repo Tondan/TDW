@@ -26,10 +26,9 @@
             $this->status = UNCONNECTED;
         }
          
-        
         function connect() {
              
-            $this->link = mysqli_connect($this->host, $this->user, $this->pass, $this->name);
+            $this->link = mysql_connect($this->host, $this->user, $this->pass, $this->name);
              
             if ($this->link) {
                 $this->status = CONNECTED;
@@ -49,7 +48,7 @@
          
         function query($query) {
              
-            $this->handle = mysqli_query($this->link, $query);
+            $this->handle = mysql_query($this->link, $query);
              
             if (!$this->handle) {
                 $this->status = ERROR;
@@ -71,7 +70,7 @@
             $result = false;
              
             do {
-                $data = mysqli_fetch_assoc($this->handle);
+                $data = mysql_fetch_assoc($this->handle);
                  
                 if ($data) {
                     $result[] = $data;
@@ -87,10 +86,5 @@
 
     $db = new DBMS("localhost", "tdw", "tdw", "tdw");
     $db->connect();
-    
-    if (!$db->isConnected()) {
-        Header("Location: error.php?code=001");
-        exit;
-    }
 
 ?>
