@@ -1,6 +1,7 @@
 <?php
 
-	Class headerMenu extends TagLibrary {
+
+    Class headerMenu extends TagLibrary {
 		
 		function dummy() {
 			
@@ -8,19 +9,20 @@
 		
 		function getmenu($name, $data, $pars) {
 			
-			$menu = new Template("template/{$pars['template']}.html");
+			$menu = new Template("html/{$pars['template']}.html");
 			
 			if (!isset($pars['parent'])) {
 				$pars['parent'] = $data;
 			}
 			
-			$oid = mysql_query("SELECT * FROM header");
+              
+			$oid = mysqli_query("SELECT * FROM header");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
 			
 			do {
-				$data = mysql_fetch_array($oid);
+				$data = mysqli_fetch_array($oid);
 				
 				if ($data) {
 					$menu->setContent($data);
