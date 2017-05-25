@@ -31,7 +31,7 @@ CREATE TABLE Header
 CREATE TABLE Immagine
 (
 	Nome_Img VARCHAR(20) PRIMARY KEY,
-	Img BLOB
+	Link VARCHAR(50)
 );
 
 CREATE TABLE Slider
