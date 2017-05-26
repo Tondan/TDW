@@ -9,7 +9,7 @@
 		
 		function getmenu($name, $data, $pars) {
 			
-			$menu = new Template("template/{$pars['template']}.html");
+			$menu = new Template("html/{$pars['template']}.html");
 			
 			if (!isset($pars['parent'])) {
 				$pars['parent'] = $data;
