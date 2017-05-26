@@ -30,16 +30,15 @@ CREATE TABLE Header
 
 CREATE TABLE Immagine
 (
-	Nome_Img VARCHAR(20) PRIMARY KEY,
-	Link VARCHAR(50)
+	Link VARCHAR(50) PRIMARY KEY
 );
 
 CREATE TABLE Slider
 (
 	ID_Slider INT PRIMARY KEY,
-    Img VARCHAR(20),
+    Img VARCHAR(50),
 		FOREIGN KEY(Img)
-			REFERENCES Immagine(Nome_Img)
+			REFERENCES Immagine(Link)
 );
 
 CREATE TABLE Home
@@ -47,35 +46,35 @@ CREATE TABLE Home
 	ID_Home INT PRIMARY KEY,
     Titolo VARCHAR(20) UNIQUE NOT NULL,
     Descrizione TEXT,
-    Img VARCHAR(20),
+    Img VARCHAR(50),
 		FOREIGN KEY(Img)
-			REFERENCES Immagine(Nome_Img)
+			REFERENCES Immagine(Link)
 );
 
 CREATE TABLE Gallery
 (
 	ID_Gallery INT PRIMARY KEY,
-    Img VARCHAR(20),
+    Img VARCHAR(50),
 		FOREIGN KEY(Img)
-			REFERENCES Immagine(Nome_Img)
+			REFERENCES Immagine(Link)
 );
 
 CREATE TABLE Caffetteria
 (
 	ID_Caffetteria INT PRIMARY KEY,
     Descrizione TEXT,
-    Img VARCHAR(20),
+    Img VARCHAR(50),
 		FOREIGN KEY(Img)
-			REFERENCES Immagine(Nome_Img)
+			REFERENCES Immagine(Link)
 );
 
 CREATE TABLE Storia
 (
 	ID_Storia INT PRIMARY KEY,
 	Descrizione TEXT,
-    Img VARCHAR(20),
+    Img VARCHAR(50),
 		FOREIGN KEY(Img)
-			REFERENCES Immagine(Nome_Img)
+			REFERENCES Immagine(Link)
 );
 
 CREATE TABLE Piatto
@@ -84,9 +83,9 @@ CREATE TABLE Piatto
     Descrizione TEXT,
     Ingredienti VARCHAR(50) NOT NULL,
     Prezzo NUMERIC(8,2) NOT NULL,
-    Img VARCHAR(20),
+    Img VARCHAR(50),
 		FOREIGN KEY(Img)
-			REFERENCES Immagine(Nome_Img)
+			REFERENCES Immagine(Link)
 );
 
 CREATE TABLE Menu
@@ -95,9 +94,9 @@ CREATE TABLE Menu
     Piatto VARCHAR(20),
 		FOREIGN KEY (Piatto)
 			REFERENCES Piatto(Nome_Piatto),
-	Img VARCHAR(20),
+	Img VARCHAR(50),
 		FOREIGN KEY(Img)
-			REFERENCES Immagine(Nome_Img)
+			REFERENCES Immagine(Link)
 );
 
 CREATE TABLE Rist_Pizz
@@ -125,9 +124,9 @@ CREATE TABLE Evento
     Menu VARCHAR(20),
 		FOREIGN KEY (Menu)
 			REFERENCES Menu(Nome_Menu),
-	Img VARCHAR(20),
+	Img VARCHAR(50),
 		FOREIGN KEY (Img)
-			REFERENCES Immagine(Nome_Img)
+			REFERENCES Immagine(Link)
 );
 
 CREATE TABLE Prenotazione

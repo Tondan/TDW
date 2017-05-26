@@ -16,7 +16,7 @@
 			}
 			
               
-			$oid = mysql_query("SELECT * FROM header");
+			$oid = mysql_query("SELECT * FROM Header");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
