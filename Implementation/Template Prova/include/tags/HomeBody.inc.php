@@ -1,7 +1,7 @@
 <?php
 
 
-    class homeBody extends TagLibrary {
+    Class HomeBody extends TagLibrary {
 		
 		function dummy() {
 			
@@ -9,14 +9,14 @@
 		
 		function getSlider($name, $data, $pars) {
 			
-			$slider = new Template("html/{$pars['template']}.html");
+			$menu = new Template("template/{$pars['template']}.html");
 			
 			if (!isset($pars['parent'])) {
 				$pars['parent'] = $data;
 			}
 			
               
-			$oid = mysql_query("SELECT * FROM tdw.Slider");
+			$oid = mysql_query("SELECT * FROM Slider");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
@@ -25,16 +25,16 @@
 				$data = mysql_fetch_array($oid);
 				
 				if ($data) {
-					$slider->setContent($data);
+					$menu->setContent($data);
 					//$menu->setContent("link", $data['link']);
 					//$menu->setContent("entry", $data['entry']);
 				}
 			} while ($data);
-			echo "Sono qui";
-			return $slider->get();
+			
+			return $menu->get();
 		}
 		
-     /*   function getHome($name, $data, $pars) {
+        function getHome($name, $data, $pars) {
 			
 			$menu = new Template("template/{$pars['template']}.html");
 			
@@ -88,6 +88,4 @@
 			return $menu->get();
 		}
         
-	}*/
-    }
-?>
+	}
