@@ -1,6 +1,6 @@
 <?php
 
-
+    
     class headerMenu extends TagLibrary {
 		
 		function dummy() {
@@ -16,20 +16,20 @@
 			}
 			
               
-			$oid = mysql_query("SELECT * FROM Header");
+			$oid = mysql_query("SELECT * FROM tdw.Header");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
-        
+            
 			do {
 				$data = mysql_fetch_array($oid);
 				if ($data) {
 					$menu->setContent($data);
-					//$menu->setContent("link", $data['link']);
-					//$menu->setContent("entry", $data['entry']);
+					//$menu->setContent("Nome", $data['Nome']);
+					//$menu->setContent("Link", $data['Link']);
 				}
 			} while ($data);
-            
+        
 			return $menu->get();
 		}
 		

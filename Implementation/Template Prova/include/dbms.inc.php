@@ -86,5 +86,4 @@
 
     $db = new DBMS("localhost", "tdw", "tdw", "tdw");
     $db->connect();
-
 ?>
