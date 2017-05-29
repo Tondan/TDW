@@ -7,7 +7,7 @@
 			
 		}
 		
-		function getSlider($name, $data, $pars) {
+		function getslider($name, $data, $pars) {
 
             $slider = new Template("html/{$pars['template']}.html");
 			
