@@ -33,8 +33,34 @@
             
 			return $slider->get();
 		}
-    }
 		
+    function getfoodimages($name, $data, $pars) {
+			
+			$food = new Template("html/{$pars['template']}.html");
+			
+			if (!isset($pars['parent'])) {
+				$pars['parent'] = $data;
+			}
+			
+              
+			$oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/food/' ");
+			if (!$oid) {
+				trigger_error("Menu error");
+			}
+			
+			do {
+				$data = mysql_fetch_array($oid);
+				
+				if ($data) {
+					$food->setContent($data);
+					//$menu->setContent("link", $data['link']);
+					//$menu->setContent("entry", $data['entry']);
+				}
+			} while ($data);
+            
+			return $food->get();
+		}
+    }
    /*     function getHome($name, $data, $pars) {
 			
 			$menu = new Template("template/{$pars['template']}.html");
