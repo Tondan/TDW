@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Mag 30, 2017 alle 09:34
+-- Creato il: Mag 30, 2017 alle 10:21
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -120,18 +120,25 @@ CREATE TABLE IF NOT EXISTS `Gruppo` (
 --
 
 CREATE TABLE IF NOT EXISTS `Header` (
+  `ID_Header` int(11) NOT NULL,
   `Nome` varchar(20) NOT NULL,
   `Link` varchar(40) NOT NULL,
-  `Posizione` varchar(10) NOT NULL
+  `Posizione` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `Header`
 --
 
-INSERT INTO `Header` (`Nome`, `Link`, `Posizione`) VALUES
-('Home', 'home.php', 'Sx'),
-('Storia', 'story.php', 'Sx');
+INSERT INTO `Header` (`ID_Header`, `Nome`, `Link`, `Posizione`) VALUES
+(1, 'Home', 'home.php', 'Sx'),
+(2, 'Storia', 'story.php', 'Sx'),
+(3, 'Ristorante/Pizzeria', 'rist/pizz.php', 'Sx'),
+(4, 'Caffetteria', 'caffetteria.php', 'Sx'),
+(5, 'Prenotazione', 'reservation.php', 'Dx'),
+(6, 'Eventi', 'events.php', 'Dx'),
+(7, 'Gallery', 'photo.php', 'Dx'),
+(8, 'Contatti', 'contact.php', 'Dx');
 
 -- --------------------------------------------------------
 
@@ -361,7 +368,7 @@ ALTER TABLE `Gruppo`
 -- Indici per le tabelle `Header`
 --
 ALTER TABLE `Header`
-  ADD PRIMARY KEY (`Nome`);
+  ADD PRIMARY KEY (`ID_Header`);
 
 --
 -- Indici per le tabelle `Home`
