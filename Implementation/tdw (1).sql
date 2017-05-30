@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Mag 29, 2017 alle 09:26
+-- Creato il: Mag 30, 2017 alle 09:34
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `Caffetteria` (
   `ID_Caffetteria` int(11) NOT NULL,
   `Descrizione` text,
-  `Img` varchar(50) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `Evento` (
   `Nome` varchar(20) DEFAULT NULL,
   `Descrizione` text,
   `Menu` varchar(20) DEFAULT NULL,
-  `Img` varchar(50) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `Footer` (
 
 CREATE TABLE IF NOT EXISTS `Gallery` (
   `ID_Gallery` int(11) NOT NULL,
-  `Img` varchar(50) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `Home` (
   `ID_Home` int(11) NOT NULL,
   `Titolo` varchar(20) NOT NULL,
   `Descrizione` text,
-  `Img` varchar(50) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -162,7 +162,26 @@ CREATE TABLE IF NOT EXISTS `Immagine` (
 
 INSERT INTO `Immagine` (`Link`) VALUES
 ('Img/2-1.jpg'),
-('Img/FILE-BLOG-2.jpg');
+('Img/FILE-BLOG-2.jpg'),
+('Img/Logo.png');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `Logo`
+--
+
+CREATE TABLE IF NOT EXISTS `Logo` (
+  `Logo` varchar(100) NOT NULL,
+  `Path` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Logo`
+--
+
+INSERT INTO `Logo` (`Logo`, `Path`) VALUES
+('Img/Logo.png', 'home.php');
 
 -- --------------------------------------------------------
 
@@ -173,7 +192,7 @@ INSERT INTO `Immagine` (`Link`) VALUES
 CREATE TABLE IF NOT EXISTS `Menu` (
   `Nome_Menu` varchar(20) NOT NULL,
   `Piatto` varchar(20) DEFAULT NULL,
-  `Img` varchar(50) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -199,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `Piatto` (
   `Descrizione` text,
   `Ingredienti` varchar(50) NOT NULL,
   `Prezzo` decimal(8,2) NOT NULL,
-  `Img` varchar(50) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -270,7 +289,7 @@ INSERT INTO `Slider` (`ID_Slider`, `Img`, `SliderTitle`, `SliderText`) VALUES
 CREATE TABLE IF NOT EXISTS `Storia` (
   `ID_Storia` int(11) NOT NULL,
   `Descrizione` text,
-  `Img` varchar(50) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -357,6 +376,12 @@ ALTER TABLE `Home`
 --
 ALTER TABLE `Immagine`
   ADD PRIMARY KEY (`Link`);
+
+--
+-- Indici per le tabelle `Logo`
+--
+ALTER TABLE `Logo`
+  ADD PRIMARY KEY (`Logo`);
 
 --
 -- Indici per le tabelle `Menu`
@@ -489,6 +514,12 @@ ALTER TABLE `Gruppo`
 --
 ALTER TABLE `Home`
   ADD CONSTRAINT `home_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+
+--
+-- Limiti per la tabella `Logo`
+--
+ALTER TABLE `Logo`
+  ADD CONSTRAINT `logo_ibfk_1` FOREIGN KEY (`Logo`) REFERENCES `Immagine` (`Link`);
 
 --
 -- Limiti per la tabella `Menu`
