@@ -16,7 +16,7 @@
 			}
 			
               
-			$oid = mysql_query("SELECT * FROM tdw.Logo");
+			$oid = mysql_query("SELECT * FROM tdw.Logo LIMIT 1");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
