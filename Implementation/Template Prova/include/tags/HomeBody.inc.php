@@ -34,7 +34,7 @@
 			return $slider->get();
 		}
 		
-    function getfoodimages($name, $data, $pars) {
+        function getfoodimages($name, $data, $pars) {
 			
 			$food = new Template("html/{$pars['template']}.html");
 			
@@ -43,7 +43,7 @@
 			}
 			
               
-			$oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/food/' ");
+			$oid = mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,4)='food'");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
@@ -61,6 +61,8 @@
 			return $food->get();
 		}
     }
+
+
    /*     function getHome($name, $data, $pars) {
 			
 			$menu = new Template("template/{$pars['template']}.html");

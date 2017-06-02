@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Mag 30, 2017 alle 10:21
+-- Creato il: Giu 02, 2017 alle 11:17
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -169,7 +169,29 @@ CREATE TABLE IF NOT EXISTS `Immagine` (
 
 INSERT INTO `Immagine` (`Link`) VALUES
 ('Img/2-1.jpg'),
+('Img/desserts/1.jpg'),
+('Img/desserts/2.jpg'),
+('Img/desserts/3.jpg'),
+('Img/desserts/4.jpg'),
+('Img/desserts/5.jpg'),
+('Img/desserts/6.jpg'),
+('Img/desserts/7(1).jpg'),
+('Img/desserts/7.jpg'),
+('Img/drinks/1.jpg'),
+('Img/drinks/2.jpg'),
+('Img/drinks/3.jpg'),
+('Img/drinks/4.jpg'),
+('Img/drinks/5.jpg'),
+('Img/drinks/6.jpg'),
+('Img/drinks/7.jpg'),
 ('Img/FILE-BLOG-2.jpg'),
+('Img/food/1.jpg'),
+('Img/food/2.jpg'),
+('Img/food/3.jpg'),
+('Img/food/4.jpg'),
+('Img/food/5.jpg'),
+('Img/food/6.jpg'),
+('Img/food/7.jpg'),
 ('Img/Logo.png');
 
 -- --------------------------------------------------------
