@@ -42,12 +42,20 @@
 				$pars['parent'] = $data;
 			}
 			
-              
-			$oid = mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,4)='food'");
+            $pippa=mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,4)='food'AND Attivo=1");  
+            if (!$oid) {
+				trigger_error("Menu error");
+            }
+            
+			$oid = mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,4)='food' AND Attivo=0");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
-			
+				$first = mysql_fetch_array($pippa);
+				
+				if ($first)
+					$food->setContent("First", $first['Link']);
+            
 			do {
 				$data = mysql_fetch_array($oid);
 				
