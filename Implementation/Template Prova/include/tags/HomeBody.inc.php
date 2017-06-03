@@ -42,12 +42,20 @@
 				$pars['parent'] = $data;
 			}
 			
-              
-			$oid = mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,4)='food'");
+            $pippa=mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,4)='food'AND Attivo=1");  
+            if (!$oid) {
+				trigger_error("Menu error");
+            }
+            
+			$oid = mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,4)='food' AND Attivo=0");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
-			
+				$first = mysql_fetch_array($pippa);
+				
+				if ($first)
+					$food->setContent("First", $first['Link']);
+            
 			do {
 				$data = mysql_fetch_array($oid);
 				
@@ -60,6 +68,42 @@
             
 			return $food->get();
 		}
+        
+        function getdessertsimages($name, $data, $pars) {
+			
+			$desserts = new Template("html/{$pars['template']}.html");
+			
+			if (!isset($pars['parent'])) {
+				$pars['parent'] = $data;
+			}
+			
+            $pippa=mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,8)='desserts'AND Attivo=1");  
+            if (!$oid) {
+				trigger_error("Menu error");
+            }
+            
+			$oid = mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,8)='desserts' AND Attivo=0");
+			if (!$oid) {
+				trigger_error("Menu error");
+			}
+				$first = mysql_fetch_array($pippa);
+				
+				if ($first)
+					$desserts->setContent("First", $first['Link']);
+            
+			do {
+				$data = mysql_fetch_array($oid);
+				
+				if ($data) {
+					$desserts->setContent($data);
+					//$menu->setContent("link", $data['link']);
+					//$menu->setContent("entry", $data['entry']);
+				}
+			} while ($data);
+            
+			return $desserts->get();
+		}
+        
     }
 
 
