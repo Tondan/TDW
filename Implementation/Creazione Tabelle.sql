@@ -49,8 +49,11 @@ CREATE TABLE Home
 	ID_Home INT PRIMARY KEY,
     Titolo VARCHAR(20) UNIQUE NOT NULL,
     Descrizione TEXT,
-    Img VARCHAR(50),
+    Img VARCHAR(100),
 		FOREIGN KEY(Img)
+			REFERENCES Immagine(Link),
+	Icona VARCHAR(100),
+		FOREIGN KEY(Icona)
 			REFERENCES Immagine(Link)
 );
 
