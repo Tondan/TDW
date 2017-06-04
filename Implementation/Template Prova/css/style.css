@@ -281,11 +281,6 @@ body {
   overflow-x: hidden;
 }
 
-#immaginepiccola{
-    max-width: 120px;
-    max-height: 120px;
-}
-
 
 #page {
   overflow: hidden;
