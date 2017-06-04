@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Giu 04, 2017 alle 08:06
+-- Creato il: Giu 04, 2017 alle 08:38
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -153,6 +153,13 @@ CREATE TABLE IF NOT EXISTS `Home` (
   `Img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `Home`
+--
+
+INSERT INTO `Home` (`ID_Home`, `Titolo`, `Descrizione`, `Img`) VALUES
+(1, 'Chi Siamo Noi?', 'Siamo due scemi che giocano a creare un sito internet di un bar/ristorante/pizzeria.\r\n\r\nIl nostro motto e'':\r\n\r\nRISTORIA PIZZORANTE, SE NON CI VIENI SEI IGNORANTE!', 'Img/saro.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -192,7 +199,8 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/food/5.jpg', 0),
 ('Img/food/6.jpg', 0),
 ('Img/food/7.jpg', 0),
-('Img/Loghi/bestlogo.png', 1);
+('Img/Loghi/bestlogo.png', 1),
+('Img/saro.jpg', 1);
 
 -- --------------------------------------------------------
 
