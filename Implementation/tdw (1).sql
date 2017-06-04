@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Giu 02, 2017 alle 11:17
+-- Creato il: Giu 04, 2017 alle 08:06
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `Header` (
 INSERT INTO `Header` (`ID_Header`, `Nome`, `Link`, `Posizione`) VALUES
 (1, 'Home', 'home.php', 'Sx'),
 (2, 'Storia', 'story.php', 'Sx'),
-(3, 'Ristorante/Pizzeria', 'rist/pizz.php', 'Sx'),
+(3, 'Ristorante/Pizzeria', 'rist_pizz.php', 'Sx'),
 (4, 'Caffetteria', 'caffetteria.php', 'Sx'),
 (5, 'Prenotazione', 'reservation.php', 'Dx'),
 (6, 'Eventi', 'events.php', 'Dx'),
@@ -160,39 +160,39 @@ CREATE TABLE IF NOT EXISTS `Home` (
 --
 
 CREATE TABLE IF NOT EXISTS `Immagine` (
-  `Link` varchar(100) NOT NULL
+  `Link` varchar(100) NOT NULL,
+  `Attivo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `Immagine`
 --
 
-INSERT INTO `Immagine` (`Link`) VALUES
-('Img/2-1.jpg'),
-('Img/desserts/1.jpg'),
-('Img/desserts/2.jpg'),
-('Img/desserts/3.jpg'),
-('Img/desserts/4.jpg'),
-('Img/desserts/5.jpg'),
-('Img/desserts/6.jpg'),
-('Img/desserts/7(1).jpg'),
-('Img/desserts/7.jpg'),
-('Img/drinks/1.jpg'),
-('Img/drinks/2.jpg'),
-('Img/drinks/3.jpg'),
-('Img/drinks/4.jpg'),
-('Img/drinks/5.jpg'),
-('Img/drinks/6.jpg'),
-('Img/drinks/7.jpg'),
-('Img/FILE-BLOG-2.jpg'),
-('Img/food/1.jpg'),
-('Img/food/2.jpg'),
-('Img/food/3.jpg'),
-('Img/food/4.jpg'),
-('Img/food/5.jpg'),
-('Img/food/6.jpg'),
-('Img/food/7.jpg'),
-('Img/Logo.png');
+INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
+('Img/2-1.jpg', 0),
+('Img/desserts/1.jpg', 1),
+('Img/desserts/2.jpg', 0),
+('Img/desserts/3.jpg', 0),
+('Img/desserts/4.jpg', 0),
+('Img/desserts/5.jpg', 0),
+('Img/desserts/6.jpg', 0),
+('Img/desserts/7.jpg', 0),
+('Img/drinks/1.jpg', 1),
+('Img/drinks/2.jpg', 0),
+('Img/drinks/3.jpg', 0),
+('Img/drinks/4.jpg', 0),
+('Img/drinks/5.jpg', 0),
+('Img/drinks/6.jpg', 0),
+('Img/drinks/7.jpg', 0),
+('Img/FILE-BLOG-2.jpg', 0),
+('Img/food/1.jpg', 1),
+('Img/food/2.jpg', 0),
+('Img/food/3.jpg', 0),
+('Img/food/4.jpg', 0),
+('Img/food/5.jpg', 0),
+('Img/food/6.jpg', 0),
+('Img/food/7.jpg', 0),
+('Img/Loghi/bestlogo.png', 1);
 
 -- --------------------------------------------------------
 
@@ -210,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `Logo` (
 --
 
 INSERT INTO `Logo` (`Logo`, `Path`) VALUES
-('Img/Logo.png', 'home.php');
+('Img/Loghi/bestlogo.png', 'home.php');
 
 -- --------------------------------------------------------
 
