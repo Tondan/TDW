@@ -148,12 +148,28 @@
 			}
 			
               
-			$oid = mysql_query("SELECT * FROM tdw.Home");
+			$oid = mysql_query("SELECT * FROM tdw.Home LIMIT 2");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
-			
-			do {
+			$data = mysql_fetch_array($oid);
+            if($data){
+                $home->setContent("Icona1",$data['Icona']);
+                $home->setContent("Titolo1",$data['Titolo']);
+                $home->setContent("Descrizione1",$data['Descrizione']);
+                $home->setContent("Img1",$data['Img']);
+            }
+            $data = mysql_fetch_array($oid);
+            if($data){
+                $home->setContent("Icona2",$data['Icona']);
+                $home->setContent("Titolo2",$data['Titolo']);
+                $home->setContent("Descrizione2",$data['Descrizione']);
+                $home->setContent("Img2",$data['Img']);
+            }
+            return $home->get();
+        
+            
+			/*do {
 				$data = mysql_fetch_array($oid);
 				
 				if ($data) {
@@ -163,7 +179,7 @@
 				}
 			} while ($data);
             
-			return $home->get();
+			return $home->get();*/
 		}
     }
 
