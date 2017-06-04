@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Giu 04, 2017 alle 08:38
+-- Creato il: Giu 04, 2017 alle 09:30
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -150,15 +150,16 @@ CREATE TABLE IF NOT EXISTS `Home` (
   `ID_Home` int(11) NOT NULL,
   `Titolo` varchar(20) NOT NULL,
   `Descrizione` text,
-  `Img` varchar(100) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL,
+  `Icona` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `Home`
 --
 
-INSERT INTO `Home` (`ID_Home`, `Titolo`, `Descrizione`, `Img`) VALUES
-(1, 'Chi Siamo Noi?', 'Siamo due scemi che giocano a creare un sito internet di un bar/ristorante/pizzeria.\r\n\r\nIl nostro motto e'':\r\n\r\nRISTORIA PIZZORANTE, SE NON CI VIENI SEI IGNORANTE!', 'Img/saro.jpg');
+INSERT INTO `Home` (`ID_Home`, `Titolo`, `Descrizione`, `Img`, `Icona`) VALUES
+(1, 'Chi Siamo Noi?', 'Siamo due scemi che giocano a creare un sito internet di un bar/ristorante/pizzeria.\r\n\r\nIl nostro motto e'':\r\n\r\nRISTORIA PIZZORANTE, SE NON CI VIENI SEI IGNORANTE!', 'Img/saro.jpg', 'Img/Loghi/logopiccolo.ico');
 
 -- --------------------------------------------------------
 
@@ -200,6 +201,7 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/food/6.jpg', 0),
 ('Img/food/7.jpg', 0),
 ('Img/Loghi/bestlogo.png', 1),
+('Img/Loghi/logopiccolo.ico', 1),
 ('Img/saro.jpg', 1);
 
 -- --------------------------------------------------------
@@ -406,7 +408,8 @@ ALTER TABLE `Header`
 ALTER TABLE `Home`
   ADD PRIMARY KEY (`ID_Home`),
   ADD UNIQUE KEY `Titolo` (`Titolo`),
-  ADD KEY `Img` (`Img`);
+  ADD KEY `Img` (`Img`),
+  ADD KEY `Icona` (`Icona`);
 
 --
 -- Indici per le tabelle `Immagine`
@@ -550,7 +553,8 @@ ALTER TABLE `Gruppo`
 -- Limiti per la tabella `Home`
 --
 ALTER TABLE `Home`
-  ADD CONSTRAINT `home_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+  ADD CONSTRAINT `home_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`),
+  ADD CONSTRAINT `home_ibfk_2` FOREIGN KEY (`Icona`) REFERENCES `Immagine` (`Link`);
 
 --
 -- Limiti per la tabella `Logo`
