@@ -280,6 +280,13 @@ body {
   position: relative;
   overflow-x: hidden;
 }
+
+#immaginepiccola{
+    max-width: 120;
+    max-height: 120;
+}
+
+
 #page {
   overflow: hidden;
 }
