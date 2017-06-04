@@ -104,6 +104,40 @@
 			return $desserts->get();
 		}
         
+        function getdrinksimages($name, $data, $pars) {
+			
+			$drinks = new Template("html/{$pars['template']}.html");
+			
+			if (!isset($pars['parent'])) {
+				$pars['parent'] = $data;
+			}
+			
+            $pippa=mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,6)='drinks'AND Attivo=1");  
+            if (!$oid) {
+				trigger_error("Menu error");
+            }
+            
+			$oid = mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,6)='drinks' AND Attivo=0");
+			if (!$oid) {
+				trigger_error("Menu error");
+			}
+				$first = mysql_fetch_array($pippa);
+				
+				if ($first)
+					$drinks->setContent("First", $first['Link']);
+            
+			do {
+				$data = mysql_fetch_array($oid);
+				
+				if ($data) {
+					$drinks->setContent($data);
+					//$menu->setContent("link", $data['link']);
+					//$menu->setContent("entry", $data['entry']);
+				}
+			} while ($data);
+            
+			return $drinks->get();
+		}
     }
 
 
