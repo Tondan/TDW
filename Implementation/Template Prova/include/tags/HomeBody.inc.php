@@ -138,6 +138,33 @@
             
 			return $drinks->get();
 		}
+        
+        function gethome($name, $data, $pars) {
+			
+			$home = new Template("html/{$pars['template']}.html");
+			
+			if (!isset($pars['parent'])) {
+				$pars['parent'] = $data;
+			}
+			
+              
+			$oid = mysql_query("SELECT * FROM tdw.Home");
+			if (!$oid) {
+				trigger_error("Menu error");
+			}
+			
+			do {
+				$data = mysql_fetch_array($oid);
+				
+				if ($data) {
+					$home->setContent($data);
+					//$menu->setContent("link", $data['link']);
+					//$menu->setContent("entry", $data['entry']);
+				}
+			} while ($data);
+            
+			return $home->get();
+		}
     }
 
 
