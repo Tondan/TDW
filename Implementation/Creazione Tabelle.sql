@@ -77,7 +77,8 @@ CREATE TABLE Caffetteria
 CREATE TABLE Storia
 (
 	ID_Storia INT PRIMARY KEY,
-	Descrizione TEXT,
+    Titolo VARCHAR(30) NOT NULL,
+	Descrizione TEXT NOT NULL,
     Img VARCHAR(50),
 		FOREIGN KEY(Img)
 			REFERENCES Immagine(Link)
