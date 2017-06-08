@@ -8,7 +8,7 @@
 </section>
 <!--End Header Image-->
 <!--Section Story-->
-<[foreach]>
+
 <section class="fly-story-box container-min fly-theme-color-4">
     <div class="container">
         <div class="row">
@@ -16,10 +16,12 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
+               <[foreach]>
                 <div class="fly-story-box-header"><h3 class="fly-story-box-title"><[TitoloGiallo]></h3>
 
                     <div class="fly-story-box-divider"></div>
                 </div>
+                </[foreach]>
                 <div class="fly-story-box-content"> <[DescrizioneGiallo]>
                 </div>
             </div>
@@ -31,9 +33,7 @@
 </section>
 
 <section class="fly-section-image fly-section-height-sm" style="background-image: url('<[ImgGiallo]>')"></section>   
-<[/foreach]>
-        
-<[foreach]>  
+
 <section class="fly-story-box container-min">
     <div class="container">
         <div class="row">

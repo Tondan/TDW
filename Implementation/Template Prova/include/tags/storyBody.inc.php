@@ -29,7 +29,7 @@
 				}
 			} while ($data);
             
-            $oid = mysql_query("SELECT * FROM tdw.Storia WHERE ID_Storia%2!=0");
+            $oid = mysql_query("SELECT * FROM tdw.Storia WHERE ID_Storia%2!=0 LIMIT=2");
 			if (!$oid) {
 				trigger_error("Menu error");
             }
@@ -44,7 +44,7 @@
 				}
             } while ($data);
             
-            $oid = mysql_query("SELECT * FROM tdw.Storia WHERE ID_Storia%2=0");
+            $oid = mysql_query("SELECT * FROM tdw.Storia WHERE ID_Storia%2=0 LIMIT 2");
 			if (!$oid) {
 				trigger_error("Menu error");
             }
