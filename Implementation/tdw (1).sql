@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Giu 04, 2017 alle 10:08
+-- Creato il: Giu 08, 2017 alle 17:25
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -159,7 +159,8 @@ CREATE TABLE IF NOT EXISTS `Home` (
 --
 
 INSERT INTO `Home` (`ID_Home`, `Titolo`, `Descrizione`, `Img`, `Icona`) VALUES
-(1, 'Chi Siamo Noi?', 'Siamo due scemi che giocano a creare un sito internet di un bar/ristorante/pizzeria.\r\n\r\nIl nostro motto e'':\r\n\r\nRISTORIA PIZZORANTE, SE NON CI VIENI SEI IGNORANTE!', 'Img/saro.jpg', 'Img/Loghi/logopiccolo.ico');
+(1, 'Chi Siamo Noi?', 'Siamo due scemi che giocano a creare un sito internet di un bar/ristorante/pizzeria.\r\n\r\nIl nostro motto e'':\r\n\r\nRISTORIA PIZZORANTE, SE NON CI VIENI SEI IGNORANTE!', 'Img/saro.jpg', 'Img/Loghi/logopiccolo.ico'),
+(2, 'Il Nostro Chef', 'Chef Tony gia'' all''eta'' di 15 anni dimostrava un grande talento nel tagliare le cose, e quando conobbe Edward mani di forbice e Jason di Venerdi'' 13 la sua vita comincio'' ad avere un senso. Infatti Jason lo introdusse nell''arte bellica insegnandoli a tagliare ananas al volo oppure cemento utilizzando un semplice coltello. Un giorno trovo'' un coltello pieno di energia chiamato Miracle Blade e senti'' subito la vocazione "Va'' per il mondo e divulgalo". Da quel giorno la sua vita fu segnata dal Miracle Blade, comincio'' infatti a produrre spot assieme al suo maestro di vita Jason (che in seguito lo lascio'' per dedicarsi al cinema, ma nei film usa ancora i Miracle Blade come ricordo).', 'Img/cheftony.jpg', 'Img/Loghi/logopiccolo.ico');
 
 -- --------------------------------------------------------
 
@@ -178,6 +179,7 @@ CREATE TABLE IF NOT EXISTS `Immagine` (
 
 INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/2-1.jpg', 0),
+('Img/cheftony.jpg', 1),
 ('Img/desserts/1.jpg', 1),
 ('Img/desserts/2.jpg', 0),
 ('Img/desserts/3.jpg', 0),
@@ -202,7 +204,12 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/food/7.jpg', 0),
 ('Img/Loghi/bestlogo.png', 1),
 ('Img/Loghi/logopiccolo.ico', 1),
-('Img/saro.jpg', 1);
+('Img/saro.jpg', 1),
+('Img/story.jpg', 1),
+('Img/story1.jpg', 1),
+('Img/story2.jpg', 1),
+('Img/story3.jpg', 1),
+('Img/story4.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -327,9 +334,20 @@ INSERT INTO `Slider` (`ID_Slider`, `Img`, `SliderTitle`, `SliderText`) VALUES
 
 CREATE TABLE IF NOT EXISTS `Storia` (
   `ID_Storia` int(11) NOT NULL,
-  `Descrizione` text,
-  `Img` varchar(100) DEFAULT NULL
+  `Titolo` varchar(30) NOT NULL,
+  `Descrizione` text NOT NULL,
+  `Img` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Storia`
+--
+
+INSERT INTO `Storia` (`ID_Storia`, `Titolo`, `Descrizione`, `Img`) VALUES
+(1, 'E Siamo Noi!', 'Siamo noi, a far casino SEMPRE NOI!', 'Img/story1.jpg'),
+(2, 'Siamo Ancora Noi!', 'E ci risiamo, stessa gente, stesso posto e stesso bar', 'Img/story2.jpg'),
+(3, 'Nobody cares about us', 'Solo te, che sei scemo e hai letto fino a qui XD', 'Img/story3.jpg'),
+(4, 'ANCORA STAI QUA???', 'MA SEI SCEMO DAVVERO ALLORA', 'Img/story4.jpg');
 
 -- --------------------------------------------------------
 
