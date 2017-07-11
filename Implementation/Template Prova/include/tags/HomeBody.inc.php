@@ -182,7 +182,7 @@
 			return $home->get();*/
 		}
         
-        function getLittleGallery($name, $data, $pars) {
+        function getlittlegallery($name, $data, $pars) {
 			
 			$littlegll = new Template("html/{$pars['template']}.html");
 			
@@ -191,7 +191,7 @@
 			}
 			
               
-			$oid = mysql_query("SELECT Link FROM tdw.Img WHERE SUBSTRING(Link,5,8)='LGallery' AND Attivo=1 LIMIT 6");
+			$oid = mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,8)='LGallery' AND Attivo=1 LIMIT 6");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
