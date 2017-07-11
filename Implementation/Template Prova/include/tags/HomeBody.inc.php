@@ -191,17 +191,25 @@
 			}
 			
               
-			$oid = mysql_query("SELECT Link FROM tdw.Immagine WHERE SUBSTRING(Link,5,8)='LGallery' AND Attivo=1 LIMIT 6");
+			$oid = mysql_query("SELECT * FROM tdw.Immagine WHERE SUBSTRING(Link,5,8)='LGallery' AND Attivo=1 LIMIT 6");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
-            $count=1;
-            foreach($oid as &$value){
-			$data = mysql_fetch_array($oid);
-            if($data)
-                $littlegll->setContent("Img{$count}",$data['Img']);
-                $count++;
+            for($i=1;$i<=6;$i++){
+                $data = mysql_fetch_array($oid);
+                if($data)
+                    $littlegll->setContent("Img".$i,$data['Link']); 
             }
+            
+            /*$count=1;
+            foreach($oid as &$value){
+                $data = mysql_fetch_array($value);
+                if($data){
+                    $str="Img".$count;
+                    $littlegll->setContent($str,$data['Link']);
+                    $count++;
+                }
+            }*/
             return $littlegll->get();
         }
     }
