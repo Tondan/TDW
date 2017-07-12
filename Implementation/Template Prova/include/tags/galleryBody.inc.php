@@ -31,7 +31,7 @@
 				}
 			} while ($data);
             
-            $op=mysql_query("SELECT Categoria FROM tdw.Gallery");
+/*            $op=mysql_query("SELECT Categoria FROM tdw.Gallery");
             if (!$op) {
 				trigger_error("Menu error");
             }
@@ -39,7 +39,7 @@
                 $data = mysql_fetch_array($op);
                 if($data)
                     $gallery->setContent("Cat".$i,$data['Categoria']); 
-            }
+            }*/
             
             $op=mysql_query("SELECT * FROM tdw.Gallery");
             if (!$op) {
