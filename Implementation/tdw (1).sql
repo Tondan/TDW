@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Giu 08, 2017 alle 17:25
+-- Creato il: Lug 12, 2017 alle 18:52
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -99,8 +99,30 @@ CREATE TABLE IF NOT EXISTS `Footer` (
 
 CREATE TABLE IF NOT EXISTS `Gallery` (
   `ID_Gallery` int(11) NOT NULL,
-  `Img` varchar(100) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL,
+  `Categoria` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Gallery`
+--
+
+INSERT INTO `Gallery` (`ID_Gallery`, `Img`, `Categoria`) VALUES
+(1, 'Img/Gallery/colazione.jpg', 'drinks'),
+(2, 'Img/Gallery/profitteroles.jpg', 'desserts'),
+(3, 'Img/Gallery/pesto.jpg', 'food'),
+(4, 'Img/Gallery/tortafrutta.jpg', 'desserts'),
+(5, 'Img/Gallery/tagliata.jpg', 'food'),
+(6, 'Img/Gallery/drink1.jpg', 'drinks'),
+(7, 'Img/Gallery/cappuccino.jpg', 'drinks'),
+(8, 'Img/Gallery/pizza1.jpg', 'food'),
+(9, 'Img/Gallery/cheesecake.jpg', 'desserts'),
+(10, 'Img/Gallery/pasta.jpg', 'food'),
+(11, 'Img/Gallery/tappi.jpg', 'drinks'),
+(12, 'Img/Gallery/panna-cotta.jpg', 'desserts'),
+(13, 'Img/Gallery/pizza2.jpg', 'food'),
+(14, 'Img/Gallery/drink2.jpg', 'drinks'),
+(15, 'Img/Gallery/dolci.jpg', 'desserts');
 
 -- --------------------------------------------------------
 
@@ -179,6 +201,9 @@ CREATE TABLE IF NOT EXISTS `Immagine` (
 
 INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/2-1.jpg', 0),
+('Img/avatars/avatar-1.jpg', 1),
+('Img/avatars/avatar-2.jpg', 1),
+('Img/avatars/avatar-3.jpg', 1),
 ('Img/cheftony.jpg', 1),
 ('Img/desserts/1.jpg', 1),
 ('Img/desserts/2.jpg', 0),
@@ -202,6 +227,28 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/food/5.jpg', 0),
 ('Img/food/6.jpg', 0),
 ('Img/food/7.jpg', 0),
+('Img/gallery.jpg', 1),
+('Img/Gallery/cappuccino.jpg', 1),
+('Img/Gallery/cheesecake.jpg', 1),
+('Img/Gallery/colazione.jpg', 1),
+('Img/Gallery/dolci.jpg', 1),
+('Img/Gallery/drink1.jpg', 1),
+('Img/Gallery/drink2.jpg', 1),
+('Img/Gallery/panna-cotta.jpg', 1),
+('Img/Gallery/pasta.jpg', 1),
+('Img/Gallery/pesto.jpg', 1),
+('Img/Gallery/pizza1.jpg', 1),
+('Img/Gallery/pizza2.jpg', 1),
+('Img/Gallery/profitteroles.jpg', 1),
+('Img/Gallery/tagliata.jpg', 1),
+('Img/Gallery/tappi.jpg', 1),
+('Img/Gallery/tortafrutta.jpg', 1),
+('Img/LGallery/AP1.jpg', 1),
+('Img/LGallery/Ap2.jpg', 1),
+('Img/LGallery/Baba.jpg', 1),
+('Img/LGallery/Cappuccino.jpg', 1),
+('Img/LGallery/Flambe.jpg', 1),
+('Img/LGallery/Prosciutto.jpg', 1),
 ('Img/Loghi/bestlogo.png', 1),
 ('Img/Loghi/logopiccolo.ico', 1),
 ('Img/saro.jpg', 1),
@@ -280,6 +327,27 @@ CREATE TABLE IF NOT EXISTS `Prenotazione` (
   `Evento` int(11) DEFAULT NULL,
   `N_Presone` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `Recensione`
+--
+
+CREATE TABLE IF NOT EXISTS `Recensione` (
+  `Nome` varchar(20) NOT NULL,
+  `Avatar` varchar(100) DEFAULT NULL,
+  `Testo` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Recensione`
+--
+
+INSERT INTO `Recensione` (`Nome`, `Avatar`, `Testo`) VALUES
+('Bryan Nylson', 'Img/avatars/avatar-1.jpg', 'When arriving in town, this is one of the first stops for something interesting and amazing to eat. The menu has choices for everyone and it is the kind of place you want to come back to. I love the fish and chips there as well.'),
+('Lisa Petterson', 'Img/avatars/avatar-3.jpg', 'I just wanted to thank you for providing a great birthday celebration for me. Your staff did an excellent job and the food was superb. Everyone was impressed. I will recommend your expertise to my friends for an event such as this. Thanks again!'),
+('Thomas Jefferson', 'Img/avatars/avatar-2.jpg', 'I wanted to write to say thank you for an amazing experience and delicious dinner tonight. You made my baby daughter and I feel very welcome! I look forward to coming back. Jenny was so wonderful with my daughter too and had her laughing most of the night. Best regards, Allison');
 
 -- --------------------------------------------------------
 
@@ -470,6 +538,13 @@ ALTER TABLE `Prenotazione`
   ADD KEY `Evento` (`Evento`);
 
 --
+-- Indici per le tabelle `Recensione`
+--
+ALTER TABLE `Recensione`
+  ADD PRIMARY KEY (`Nome`),
+  ADD KEY `Avatar` (`Avatar`);
+
+--
 -- Indici per le tabelle `Rist_Pizz`
 --
 ALTER TABLE `Rist_Pizz`
@@ -598,6 +673,12 @@ ALTER TABLE `Piatto`
 --
 ALTER TABLE `Prenotazione`
   ADD CONSTRAINT `prenotazione_ibfk_1` FOREIGN KEY (`Evento`) REFERENCES `Evento` (`ID_Evento`);
+
+--
+-- Limiti per la tabella `Recensione`
+--
+ALTER TABLE `Recensione`
+  ADD CONSTRAINT `recensione_ibfk_1` FOREIGN KEY (`Avatar`) REFERENCES `Immagine` (`Link`);
 
 --
 -- Limiti per la tabella `Rist_Pizz`
