@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 12, 2017 alle 18:52
+-- Creato il: Lug 13, 2017 alle 20:44
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -29,8 +29,19 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `Caffetteria` (
   `ID_Caffetteria` int(11) NOT NULL,
   `Descrizione` text,
-  `Img` varchar(100) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL,
+  `Titolo` varchar(50) DEFAULT NULL,
+  `Icona` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Caffetteria`
+--
+
+INSERT INTO `Caffetteria` (`ID_Caffetteria`, `Descrizione`, `Img`, `Titolo`, `Icona`) VALUES
+(1, 'Lasciati trasportare dal gusto inconfondibile del caffe'' Faraglia, l''unico in grado di farti iniziare la giornata nel migliore dei modi!', 'Img/caffe-faraglia.jpg', 'Una Carica Di Espresso!', 'Img/Loghi/logopiccolo.ico'),
+(2, 'Non lasciarti sfuggire l''occasione! Qui da noi la colazione sara'' un vero piacere! Lasciatevi tentare dal profumo dei nostri cornetti appena sfornati, e dalla vista di un ottimo cappuccino preparato per voi dalla mano esperta dei nostri maestri caffettieri!', 'Img/Gallery/colazione.jpg', 'Fai Colazione Insieme a Noi!', 'Img/Loghi/logopiccolo.ico'),
+(3, 'Che sia in tarda mattinata o in tardo pomeriggio, un aperitivo in compagnia e'' sempre una gran festa! Venite a provare la vasta gamma di aperitivi e cocktail che e'' in grado di preparare il nostro personale altamente qualificato! Ovviamente il tutto accompagnato da buona musica e cibo genuino!', 'Img/slide-aperitivo.jpg', 'Il Meglio Deve Ancora Arrivare!', 'Img/Loghi/logopiccolo.ico');
 
 -- --------------------------------------------------------
 
@@ -204,6 +215,8 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/avatars/avatar-1.jpg', 1),
 ('Img/avatars/avatar-2.jpg', 1),
 ('Img/avatars/avatar-3.jpg', 1),
+('Img/caffe-faraglia.jpg', 1),
+('Img/caffetteria.jpg', 1),
 ('Img/cheftony.jpg', 1),
 ('Img/desserts/1.jpg', 1),
 ('Img/desserts/2.jpg', 0),
@@ -252,6 +265,7 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/Loghi/bestlogo.png', 1),
 ('Img/Loghi/logopiccolo.ico', 1),
 ('Img/saro.jpg', 1),
+('Img/slide-aperitivo.jpg', 1),
 ('Img/story.jpg', 1),
 ('Img/story1.jpg', 1),
 ('Img/story2.jpg', 1),
@@ -311,8 +325,18 @@ CREATE TABLE IF NOT EXISTS `Piatto` (
   `Descrizione` text,
   `Ingredienti` varchar(50) NOT NULL,
   `Prezzo` decimal(8,2) NOT NULL,
-  `Img` varchar(100) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL,
+  `tipo_piatto` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Piatto`
+--
+
+INSERT INTO `Piatto` (`Nome_Piatto`, `Descrizione`, `Ingredienti`, `Prezzo`, `Img`, `tipo_piatto`) VALUES
+('funghi trifolati', 'eh..sono funghi trifolati', 'funghi ehm ehm', '12.69', NULL, 'primo'),
+('panna cotta', 'panna cottissima (alla vaniglia)', 'gelatine in foglie, panna, zucchero, vaniglia', '3.20', 'Img/desserts/3.jpg', 'dessert'),
+('Pizza brutta', 'questa l''hai cucinata tu', 'pepperoni suggo', '25.19', 'Img/food/1.jpg', 'primo');
 
 -- --------------------------------------------------------
 
@@ -439,7 +463,8 @@ CREATE TABLE IF NOT EXISTS `Utente` (
 --
 ALTER TABLE `Caffetteria`
   ADD PRIMARY KEY (`ID_Caffetteria`),
-  ADD KEY `Img` (`Img`);
+  ADD KEY `Img` (`Img`),
+  ADD KEY `Icona` (`Icona`);
 
 --
 -- Indici per le tabelle `Contatti`
@@ -615,7 +640,8 @@ ALTER TABLE `Utente`
 -- Limiti per la tabella `Caffetteria`
 --
 ALTER TABLE `Caffetteria`
-  ADD CONSTRAINT `caffetteria_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+  ADD CONSTRAINT `caffetteria_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`),
+  ADD CONSTRAINT `caffetteria_ibfk_2` FOREIGN KEY (`Icona`) REFERENCES `Immagine` (`Link`);
 
 --
 -- Limiti per la tabella `Evento`
