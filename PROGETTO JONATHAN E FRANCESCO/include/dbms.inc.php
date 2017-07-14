@@ -6,7 +6,7 @@
 	 */
 
 	$host = "localhost";
-	$username = "root";
+	$username = "root1";
 	$password = "webpass";
 	$database="progetto";
 
