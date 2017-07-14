@@ -21,7 +21,7 @@ echo $email,"<br>\n";
 echo $data,"<br>\n";
 echo $ora,"<br>\n";
 */
-$oid = mysql_query("INSERT INTO tdw.Prenotazione (ID_Prenotazione,Data,Persone,Time,Nome_Cl,Tel,Email,Notice) 
+$oid = mysql_query("INSERT INTO tdw.prenotazione (ID_Prenotazione,Data,Persone,Time,Nome_Cl,Tel,Email,Notice) 
                     VALUES (NULL, '$data', '$persone', '$ora', '$nome', '$tel', '$email', '$note')");
 if($oid){
 	header("location:home.php");
