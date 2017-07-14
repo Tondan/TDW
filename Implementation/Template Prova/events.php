@@ -9,7 +9,7 @@ require ("include/dbms.inc.php");
 
 
 $main = new Template("html/index.html");
-$body = new Template("html/news.html");
+$body = new Template("html/offers.html");
 
 $main->setContent("body", $body->get());
 $main->close();
