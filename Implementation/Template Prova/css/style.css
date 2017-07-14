@@ -1007,6 +1007,10 @@ input[type="password"],
 input[type="search"],
 input[type="url"],
 input[type="email"],
+input[type="tel"],
+input[type="time"],
+input[type="date"],
+input[type="number"],
 textarea,
 .field-select {
   border: 2px solid #999999;
@@ -1030,11 +1034,16 @@ textarea {
   overflow: auto;
   text-transform: none;
 }
+
 .ie8 input[type="text"],
 .ie8 input[type="password"],
 .ie8 input[type="search"],
 .ie8 input[type="url"],
-.ie8 input[type="email"] {
+.ie8 input[type="email"],
+.ie8 input[type="tel"],
+.ie8 input[type="time"],
+.ie8 input[type="date"],
+.ie8 input[type="number"],{
   line-height: 55px;
 }
 input[type="text"]:focus,
@@ -1042,6 +1051,10 @@ input[type="password"]:focus,
 input[type="search"]:focus,
 input[type="url"]:focus,
 input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="time"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
 textarea:focus {
   outline: none;
   border-color: #666666;
