@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 14, 2017 alle 16:02
+-- Creato il: Lug 14, 2017 alle 18:08
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -354,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `Prenotazione` (
   `Tel` varchar(15) DEFAULT NULL,
   `Email` varchar(50) NOT NULL,
   `Notice` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -650,7 +650,7 @@ ALTER TABLE `Gruppo`
 -- AUTO_INCREMENT per la tabella `Prenotazione`
 --
 ALTER TABLE `Prenotazione`
-  MODIFY `ID_Prenotazione` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Prenotazione` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT per la tabella `Servizio`
 --
