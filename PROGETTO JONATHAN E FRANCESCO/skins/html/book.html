@@ -1,0 +1,75 @@
+
+        	
+            	<div class="form-view">
+                    <form id="bookin_form" action="booking_add.php" method="POST">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="input-box">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" placeholder="Your Name" name="book_name" data-validation="required" >
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-box">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <input type="text" placeholder="Your Email" name="email" data-validation="email"  data-validation-error-msg="Incorrect e-mail address">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-box">
+                                    <i class="fa fa-calendar"></i>
+                                    <input type="date" placeholder="Select Date" name="Date"  data-validation="date" >
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-box">
+                                    <i class="fa fa-clock-o"></i>
+                                    <input type="text" placeholder="8:00 pm" name="Time" id="time_picker" data-validation="required">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="input-box">
+                                    <i class="fa fa-users"></i>
+                                    <input type="text" placeholder="Number of Person" name="People" data-validation="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-box">
+                                    <i class="fa fa-phone"></i>
+                                    <input type="text" placeholder="Phone Number" name="Phone" data-validation="required">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="input-box">
+                                    <i class="fa fa-map-marker"></i>
+                                    <div class="select-box">
+                                    	<select id="location_select" name="select">
+                                        	<option>terrazza con vista sul mare</option>
+                                            <option>sala interna</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="input-box">
+                                    <textarea name="request">Messaggi &amp; richieste speciali
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <div class="submit-slide">
+                                    
+                                    <input type="submit" value="effettua la prenotazione">
+                                </div>
+                            </div>
+                    	</div>
+                    </form>
+                </div>
+                
+            </div>
+        

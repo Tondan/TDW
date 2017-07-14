@@ -1,0 +1,57 @@
+<section class="news">
+            <div class="container">
+                <div class="row">
+                    <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+
+                   <div class="col-md-8 rightBar">
+                        <fieldset>
+                            <legend>Informazioni: </legend>
+                            <div class="crea">
+                                <h3 class="margin-reset">Crea una nuova informazione</h3><br />
+                                <section id="contact">
+                                    <form 
+                                   enctype="multipart/form-data" action="informazioni_add.php" method="POST" >
+
+                                        <fieldset>
+                                            <input type="hidden" name="page" value="1" />
+                                            <div>
+                                                <label class="border" for="nome">Nome</label>
+                                                <input class="mandatory" type="text" name="nome" id="nome" errormessage="Pippo!"/>
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="descrizione">Descrizione</label>
+                                                <textarea class="" name="descrizione" id="descrizione" cols="50" rows="10"></textarea>
+                                            </div>
+
+                                            <div>
+                                        <label class="border" for="classe">classe:</label>
+                                     
+                                        <input type="radio" name="classe" id="classe" value="fa fa-map-marker" /> mappa <br>
+                                        <label class="border"></label>   
+                                        <input type="radio" name="classe" id="classe" value="fa fa-phone" /> telefono <br>
+                                        <label class="border"></label>   
+                                        <input type="radio" name="classe" id="classe" value="fa fa-fax" /> fax <br>
+                                        <label class="border"></label>   
+                                        <input type="radio" name="classe" id="classe" value="fa fa-envelope" /> email <br><br>
+                                    </div>
+
+                                        </fieldset>
+                                        
+                                        <div class="btn-box" >
+                                            <label class="border"></label>
+                                            <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>     
+                            </div>
+                            <div class="btn-box" id="aggiungi">
+                                <a href="#" class="commonbtn style1 small" >aggiungi una informazione</a>
+                            </div>
+                              <[eventi::getmenu template="tabella-informazioni" library="tabella_informazioni" ]>          
+                        </fieldset>   
+                    </div>
+                </div>
+            </div>
+        </section>

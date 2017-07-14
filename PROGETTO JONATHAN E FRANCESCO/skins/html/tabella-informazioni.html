@@ -1,0 +1,55 @@
+<section class="accordion">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="accordion-box">
+
+                    <[foreach]>
+                        <div class="accordion-slide">
+                            <div class="title"><[nome]>
+                                <div class="icon fa">
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <form enctype="multipart/form-data" action="informazioni_update.php" method="POST">
+                                	<input type="hidden" name="key" value="<[ID]>" />
+				                	<div>
+				                   		<label class="border" for="nome">Nome</label>
+			                       		<input class="mandatory" type="text" name="nome" value="<[nome]>" >
+				                	</div>
+				                	<div>
+					                	<label class="border" for="descrizione">descrizione</label>
+				                    	<textarea class="" name="descrizione" id="descrizione"  cols="50" rows="10"><[descrizione]></textarea>
+				                	</div>
+
+				                	<div>
+                                    <label class="border" for="classe">classe:</label>
+                                    <input type="radio" name="classe" id="classe" value="fa fa-map-marker" /> mappa <br>
+                                    <label class="border"></label>   
+                                    <input type="radio" name="classe" id="classe" value="fa fa-phone" /> telefono <br>
+                                    <label class="border"></label>   
+                                    <input type="radio" name="classe" id="classe" value="fa fa-fax" /> fax <br>
+                                    <label class="border"></label>   
+                                    <input type="radio" name="classe" id="classe" value="fa fa-envelope" /> email <br>
+				                	</div>
+				                	<div class="btn-box2">
+                                    <label class="border"></label>
+                                        <input type="submit" class="commonbtn style13 small" id="submit" value="Aggiorna" />
+                                        <a href="informazioni_delete.php?key=<[ID]>"> 
+                                            <div  class="commonbtn style13 small" >Elimina</div>
+                                        </a>
+
+                                    </div>
+                                   
+				                </form>
+                            </div>
+                        </div>
+                    <[/foreach]>	
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

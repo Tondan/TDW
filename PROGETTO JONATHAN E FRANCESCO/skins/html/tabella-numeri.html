@@ -1,0 +1,56 @@
+<section class="accordion">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="accordion-box">
+
+                    <[foreach]>
+                        <div class="accordion-slide">
+                            <div class="title"><[qualita]>
+                                <div class="icon fa">
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <form enctype="multipart/form-data" action="numeri_update.php" method="POST">
+                                	<input type="hidden" name="key" value="<[ID]>" />
+				                	<div>
+				                   		<label class="border" for="quantita">Quantita</label>
+			                       		<input class="mandatory" type="text" name="quantita" value="<[quantita]>" >
+				                	</div>
+                                    <div>
+                                        <label class="border" for="qualita">Qualita</label>
+                                        <input class="" type="text" name="qualita" value="<[qualita]>" >
+                                    </div>
+				                	
+                                    <div>
+                                            <label class="border" for="immagine">immagine</label>
+                                            <img class="left" src="<[image_filename]>"  height="100" width="100" >
+                                            <input type="file" name="file_inviato" id="immagine">
+
+                                    </div>
+
+
+                                            
+
+
+				                	<div class="btn-box2">
+                                    <label class="border"></label>
+                                        <input type="submit" class="commonbtn style13 small" id="submit" value="Aggiorna" />
+                                        <a href="numeri_delete.php?key=<[ID]>"> 
+                                            <div  class="commonbtn style13 small" >Elimina</div>
+                                        </a>
+
+                                    </div>
+                                   
+				                </form>
+                            </div>
+                        </div>
+                    <[/foreach]>	
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

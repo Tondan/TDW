@@ -1,0 +1,66 @@
+
+<section class="news">
+            <div class="container">
+                <div class="row">
+                <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+               
+                   <div class="col-md-8 rightBar">
+                        <fieldset>
+                            <legend>Eventi: </legend>
+                            <div class="crea">
+                                <h3 class="margin-reset">Crea un evento</h3><br />
+                                <section id="contact">
+                                    <form action="eventi_add.php" method="POST" >
+
+
+
+
+                                        <fieldset>
+                                            <input type="hidden" name="page" value="1" />
+                                            <div>
+                                                <label class="border" for="titolo">Titolo</label>
+                                                <input class="mandatory" type="text" name="titolo" id="titolo" errormessage="Pippo!"/>
+                                            </div>
+                                            <div>
+                                                <label class="border" for="sottotitolo">Sottotitolo</label>
+                                                <input class="mandatory" type="text" name="sottotitolo" id="sottotitolo" errormessage="Pippo!"/>
+                                            </div>
+                                            <div>
+                                                <label class="border" for="testo">Testo</label>
+                                                <textarea class="" name="testo" id="testo" cols="50" rows="10"></textarea>
+                                            </div>
+                                            <div>
+                                                <label class="border" for="data">data</label>
+                                                <input type="date" name="data" id="data" />
+                                            </div>
+                                            <div>
+                                                <label class="border" for="nome">Scrittore</label>
+                                                <input type="text" name="nome" id="nome" />
+                                            </div>
+
+                                        </fieldset>
+<!-- non ho scritto il campo categoria perché 
+    la categoria viene messa automaticamente a 
+    evento dentro al codice eventi_add.php-->
+
+
+
+
+
+                                        <div class="btn-box" >
+                                            <label class="border"></label>
+                                            <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>     
+                            </div>
+                            <div class="btn-box" id="aggiungi">
+                                <a href="#" class="commonbtn style1 small" >aggiungi un evento</a>
+                            </div>
+                              <[eventi::getmenu template="tabella-eventi" library="tabella_eventi" ]>          
+                        </fieldset>   
+                    </div>
+                </div>
+            </div>
+        </section>

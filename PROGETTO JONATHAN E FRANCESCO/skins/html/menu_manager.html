@@ -1,0 +1,54 @@
+<section class="news">
+            <div class="container">
+                <div class="row">
+                    <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+
+                   <div class="col-md-8 rightBar">
+                        <fieldset>
+                            <legend>Menu: </legend>
+                            <div class="crea">
+                                <h3 class="margin-reset">menu</h3><br />
+                                <section id="contact">
+                                    <form action="menu_add.php" method="POST" >
+
+
+
+
+                                        <fieldset>
+                                            <input type="hidden" name="page" value="1" />
+                                            <div>
+                                                <label class="border" for="entry">entry</label>
+                                                <input class="mandatory" type="text" name="entry" id="entry" errormessage="Pippo!"/>
+                                            </div>
+                                            <div>
+                                                <label class="border" for="link">link</label>
+                                                <input class="mandatory" type="text" name="link" id="link" errormessage="Pippo!"/>
+                                            </div>
+                                            <div>
+                                                <label class="border" for="parent">parent</label>
+                                                <input class="" type="text" name="parent" id="parent" >
+                                            </div>
+                                            <div>
+                                                <label class="border" for="position">position</label>
+                                                <input type="text" name="position" id="position" />
+                                            </div>
+                                        </fieldset>
+
+                                        
+                                        <div class="btn-box" >
+                                            <label class="border"></label>
+                                            <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>     
+                            </div>
+                            <div class="btn-box" id="aggiungi">
+                                <a href="#" class="commonbtn style1 small" >aggiungi un campo al menu</a>
+                            </div>
+                              <[eventi::getmenu template="tabella-menu" library="tabella_menu" ]>          
+                        </fieldset>   
+                    </div>
+                </div>
+            </div>
+        </section>

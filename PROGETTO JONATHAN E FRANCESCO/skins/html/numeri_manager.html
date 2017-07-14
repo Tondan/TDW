@@ -1,0 +1,46 @@
+<section class="news">
+            <div class="container">
+                <div class="row">
+                    <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+
+                   <div class="col-md-8 rightBar">
+                        <fieldset>
+                            <legend>i nostri numeri vincenti </legend>
+                            <div class="crea">
+                                <h3 class="margin-reset">Inserisci un numero di cui andiamo fieri</h3><br />
+                                <section id="contact">
+                                    <form enctype="multipart/form-data" action="numeri_add.php" method="POST" >
+
+                                        <fieldset>
+                                            <input type="hidden" name="page" value="1" />
+                                            <div>
+                                                <label class="border" for="quantita">Quantita</label>
+                                                <input class="mandatory" type="text" name="quantita" id="quantita" errormessage="Pippo!"/>
+                                            </div>
+                                            <div>
+                                                <label class="border" for="qualita">Qualita (che cosa?)</label>
+                                                <input class="mandatory" type="text" name="qualita" id="qualita" errormessage="Pippo!"/>
+                                            </div>
+                                            <div>
+                                            <label class="border" for="immagine">immagine</label>
+                                            <input type="file" name="file_inviato" id="immagine">
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <div class="btn-box" >
+                                            <label class="border"></label>
+                                            <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>     
+                            </div>
+                            <div class="btn-box" id="aggiungi">
+                                <a href="#" class="commonbtn style1 small" >aggiungi qualcosa di cui andiamo fieri</a>
+                            </div>
+                              <[eventi::getmenu template="tabella-numeri" library="tabella_numeri" ]>          
+                        </fieldset>   
+                    </div>
+                </div>
+            </div>
+        </section>

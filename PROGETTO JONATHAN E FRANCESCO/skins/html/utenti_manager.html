@@ -1,0 +1,67 @@
+
+<section class="news">
+            <div class="container">
+                <div class="row">
+                <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+               
+                   <div class="col-md-8 rightBar">
+                        <fieldset>
+                            <legend>Utenti: </legend>
+                            <div class="crea">
+                                <h3 class="margin-reset">Aggiungi un utente</h3><br />
+                                <section id="contact">
+                                    <form action="utenti_add.php" method="POST" >
+                                        <fieldset>
+                                            <div>
+                                                <label class="border" for="username">Username</label>
+                                                <input class="mandatory" type="text" name="username" id="username" errormessage="Pippo!"/>
+                                            </div>
+                        
+                                            <div>
+                                                <label class="border" for="nome">Nome</label>
+                                                <input class="mandatory" type="text" name="nome" size="50" id="nome" errormessage="Pippo!"/>
+                                            </div>
+                        
+                                            <div>
+                                                <label class="border" for="cognome">Cognome</label>
+                                                <input class="mandatory" type="text" name="cognome" id="cognome" errormessage="Pippo!"/>
+                                            </div>
+                        
+                                            <div>
+                                                <label class="border" for="email">Email</label>
+                                                <input class="mandatory" type="text" name="email" id="email" errormessage="Pippo!"/>
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="password">Password</label>
+                                                <input class="mandatory" type="password" name="password" id="password" errormessage="Pippo!"/>
+                                            </div>
+                                            
+                                            <[foreach]>
+                                            <label class="border" for="gruppo" id="<[ID]>"></label>
+                                                
+                                                <input type="radio" id="gruppo" name="gruppo"  value="<[ID]>" />
+                                                <label  for="gruppo" ><[ID]> <[name]></label>
+                                                <br>
+                                            <[/foreach]>
+                                        </fieldset>
+                                        
+                                    
+
+                                        <div class="btn-box" >
+                                            <label class="border"></label>
+                                            <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>     
+                            </div>
+                            <div class="btn-box" id="aggiungi">
+                                <a href="#" class="commonbtn style1 small" >aggiungi un utente</a>
+                            </div>
+                              <[utenti::getmenu template="tabella-utenti" library="tabella_utenti" ]>          
+                        </fieldset>   
+                    </div>
+                </div>
+            </div>
+        </section>

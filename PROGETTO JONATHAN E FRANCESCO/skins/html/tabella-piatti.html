@@ -1,0 +1,88 @@
+<section class="accordion">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="accordion-box">
+
+                    <[foreach]>
+                        <div class="accordion-slide">
+                            <div class="title"><[nome]>
+                                <div class="icon fa">
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                            
+                                <form enctype="multipart/form-data" action="piatti_update.php" method="POST">
+                                	<input type="hidden" name="key" value="<[ID]>" />
+				                	<div>
+                                        <label class="border" for="nome">nome</label>
+                                        <input class="mandatory" type="text" name="nome" id="nome" value="<[nome]>" errormessage="Pippo!"/>
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="descrizione">descrizione</label>
+                                        <input class="mandatory" type="text" name="descrizione" id="descrizione" value="<[descrizione]>" errormessage="Pippo!"/>
+                                    </div>
+                                        
+                                    <div>
+                                        <label class="border" for="ingredienti">ingredienti</label>
+                                        <input class="mandatory" type="text" name="ingredienti" id="ingredienti" value="<[ingredienti]>" errormessage="Pippo!"/>
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="prezzo">prezzo</label>
+                                        <input class="mandatory" type="text" name="prezzo" id="prezzo" value="<[prezzo]>"errormessage="Pippo!"/>
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="immagine">immagine</label>
+                                        <img class="left" src="<[image_filename]>"  height="100" width="100" >
+                                        <input type="file" name="file_inviato" id="immagine">
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="pasto">pasto</label>
+                                        <select class="selectpicker" name="pasto" id="pasto">
+                                            <option value="<[orario_pasto]>" selected="selected"><[orario_pasto]> </option>
+                                            <option value="colazione" > colazione </option>
+                                            <option value="pranzo" > pranzo </option>
+                                            <option value="cena" > cena </option>
+                                        </select>
+                                    </div> 
+
+                                    <div>
+                                        <label class="border" for="piattodelgiorno">piatto del giorno</label>
+                                        <select class="selectpicker" name="piattodelgiorno" id="piattodelgiorno">
+                                            <option value="<[orario_pasto]>" selected="selected"><[flag_del_giorno]> </option>
+                                            <option value="1" > 1-SI </option>
+                                            <option value="2" > 0-NO </option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="presentazione">piatto di presentazione</label>
+                                        <select class="selectpicker" name="presentazione" id="presentazione">
+                                            <option value="<[orario_pasto]>" selected="selected"><[flag_presentazione]> </option>
+                                            <option value="1" > 1-SI </option>
+                                            <option value="0" > 0-NO </option>
+                                        </select>
+                                    </div> 
+
+				                	<div class="btn-box2">
+                                        <label class="border"></label>
+                                        <input type="submit" class="commonbtn style13 small" id="submit" value="Aggiorna" />
+                                        <a href="piatti_delete.php?key=<[ID]>"> 
+                                            <div  class="commonbtn style13 small" >Elimina</div>
+                                        </a>
+                                    </div>
+                                   
+				                </form>
+                            </div>
+                        </div>
+                    <[/foreach]>	
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

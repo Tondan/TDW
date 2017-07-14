@@ -1,0 +1,116 @@
+@CHARSET "UTF-8";
+.sbHolder{
+	height: 62px;
+	position: relative;
+	width: 100%;
+	background:url(../images/select-boxBg.png) no-repeat top left;
+	font-size:16px; 
+	color:#999999; 
+}
+.sbHolder:focus .sbSelector{
+	
+}
+.sbSelector:hover {text-decoration:none; color:#999; }
+.sbSelector:focus {outline:none; text-decoration:none; color:#999;}
+.sbSelector{
+	display: block;
+	height: 62px;
+	left: 0;
+	line-height: 62px;
+	outline: none;
+	overflow: hidden;
+	position: absolute;
+	text-indent: 40px;
+	top: 0;
+	width: 100%;
+	color:#999999; 
+}
+/*.sbSelector:link, .sbSelector:visited, .sbSelector:hover{
+	color: #EBB52D;
+	outline: none;
+	text-decoration: none;
+}*/
+.sbToggle{
+	background: url(../images/select-boxArrow.png) no-repeat top left; 
+	display: block;
+	height: 62px;
+	outline: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 52px;
+}
+/*.sbToggle:hover{
+	background: url(../img/select-icons.png) 0 -167px no-repeat;
+}
+.sbToggleOpen{
+	background: url(../img/select-icons.png) 0 -16px no-repeat;
+}
+.sbToggleOpen:hover{
+	background: url(../img/select-icons.png) 0 -66px no-repeat;
+}*/
+.sbHolderDisabled{
+	background-color: #3C3C3C;
+	border: solid 1px #515151;
+}
+.sbHolderDisabled .sbHolder{
+	
+}
+.sbHolderDisabled .sbToggle{
+	
+}
+.sbOptions{
+	background-color: #fff;
+	border: solid 1px #cccccc;
+	list-style: none;
+	left: 0px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 62px;
+	width: 100%;
+	z-index: 11;
+	overflow-y: auto;
+}
+.sbOptions li{
+	padding: 0 0;
+}
+.sbOptions a{
+	border-bottom: solid 1px #ccc;
+	display: block;
+	outline: none;
+	line-height:40px; 
+	padding: 0 40px;
+	color:#666;
+}
+.sbOptions a:link, .sbOptions a:visited{
+	color: #666;
+	text-decoration: none;
+}
+.sbOptions a:hover,
+.sbOptions a:focus,
+.sbOptions a.sbFocus{
+	color: #333;
+}
+.sbOptions li.last a{
+	border-bottom: none;
+}
+.sbOptions .sbDisabled{
+	border-bottom: dotted 1px #515151;
+	color: #999;
+	display: block;
+	padding: 7px 0 7px 3px;
+}
+.sbOptions .sbGroup{
+	border-bottom: dotted 1px #515151;
+	color: #EBB52D;
+	display: block;
+	font-weight: bold;
+	padding: 7px 0 7px 3px;
+}
+.sbOptions .sbSub{
+	padding-left: 17px;
+}
+.no-border .sbHolder {background:#fff; height:60px; }
+.no-border .sbToggle {background:url(../images/select-boxArrow2.png) no-repeat left top; height:60px; }
+.no-border .sbSelector {height:60px; line-height:60px; }

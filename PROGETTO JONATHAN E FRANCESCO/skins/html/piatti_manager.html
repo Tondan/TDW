@@ -1,0 +1,81 @@
+<section class="news">
+            <div class="container">
+                <div class="row">
+                    <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+
+                   <div class="col-md-8 rightBar">
+                        <fieldset>
+                            <legend>Piatti: </legend>
+                            <div class="crea">
+                                <h3 class="margin-reset">Aggiungi un piatto</h3><br />
+                                <section id="contact">
+                                    <form enctype="multipart/form-data" action="piatti_add.php" method="POST" >
+
+
+                                        <fieldset>
+                                        
+                                            <div>
+                                                <label class="border" for="nome">nome</label>
+                                                <input class="mandatory" type="text" name="nome" id="nome" errormessage="Pippo!"/>
+                                            </div>
+                                            <div>
+                                                <label class="border" for="descrizione">descrizione</label>
+                                                <input class="mandatory" type="text" name="descrizione" id="descrizione" errormessage="Pippo!"/>
+                                            </div>
+                                            <div>
+                                                <div>
+                                                <label class="border" for="ingredienti">ingredienti</label>
+                                                <input class="mandatory" type="text" name="ingredienti" id="ingredienti" errormessage="Pippo!"/>
+                                            </div>
+                                            </div>
+                                            <div>
+                                                <label class="border" for="prezzo">prezzo</label>
+                                                <input class="mandatory" type="text" name="prezzo" id="prezzo" errormessage="Pippo!"/>
+                                            </div>
+
+                                            <div>
+                                            <label class="border" for="immagine">immagine</label>
+                                            <input type="file" name="file_inviato" id="immagine">
+                                            </div>
+                                            
+                                            <div>
+                                                <label class="border" for="classe">tipo</label>
+                                                <input type="radio" name="tipo" id="classe" value="colazione" /> colazione <br>
+
+                                                <label class="border"></label>   
+                                                <input type="radio" name="tipo" id="classe" value="pranzo" /> pranzo <br>
+
+                                                <label class="border"></label>   
+                                                <input type="radio" name="tipo" id="classe" value="cena" /> cena <br><br>
+                                            </div>
+                                            <div>
+                                                <label class="border" for="giorno">piatto del giorno</label>
+                                                <input type="radio" name="piattodelgiorno" id="giorno" value="1" /> si 
+                                                <input type="radio" name="piattodelgiorno" id="giorno" value="0" /> no 
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="classe">piatto di presentazione</label>
+                                                <input type="radio" name="presentazione" id="presentazione" value="1" /> si 
+                                                <input type="radio" name="presentazione" id="presentazione" value="0"/> no 
+                                            </div>
+                                            
+                                        </fieldset>
+                                        
+                                        <div class="btn-box" >
+                                            <label class="border"></label>
+                                            <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>     
+                            </div>
+                            <div class="btn-box" id="aggiungi">
+                                <a href="#" class="commonbtn style1 small" >aggiungi un piatto</a>
+                            </div>
+                              <[eventi::getmenu template="tabella-piatti" library="tabella_piatti" ]>          
+                        </fieldset>   
+                    </div>
+                </div>
+            </div>
+        </section>

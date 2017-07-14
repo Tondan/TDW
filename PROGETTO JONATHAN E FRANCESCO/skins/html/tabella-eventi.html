@@ -1,0 +1,58 @@
+<section class="accordion">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="accordion-box">
+
+
+
+                    <[foreach]>
+                        <div class="accordion-slide">
+                            <div class="title"><[titolo]>
+                                <div class="icon fa">
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <form action="eventi_update.php" method="POST">
+                                	<input type="hidden" name="key" value="<[ID]>" />
+				                	<div>
+				                   		<label class="border" for="titolo">Titolo</label>
+			                       		<input class="mandatory" type="text" name="titolo" value="<[titolo]>" >
+				                	</div>
+                                    <div>
+                                        <label class="border" for="sottotitolo">Sottotitolo</label>
+                                        <input class="" type="text" name="sottotitolo" value="<[sottotitolo]>" >
+                                    </div>
+				                	<div>
+					                	<label class="border" for="testo">Testo</label>
+				                    	<textarea class="" name="testo" id="testo"  cols="50" rows="10"><[testo]></textarea>
+				                	</div>
+				                	<div>
+					                	<label class="border" for="data">data</label>
+					                	<input type="date" name="data"  value="<[data]>" >
+				                	</div>
+				                	<div>
+					                	<label class="border" for="nome_scrittore">Scrittore</label>
+					                	<input type="text" name="nome_scrittore"  value="<[nome_scrittore]>" >
+				                	</div>
+				                	<div class="btn-box2">
+                                    <label class="border"></label>
+                                        <input type="submit" class="commonbtn style13 small" id="submit" value="Aggiorna" />
+                                        <a href="eventi_delete.php?key=<[ID]>"> 
+                                            <div  class="commonbtn style13 small" >Elimina</div>
+                                        </a>
+
+                                    </div>
+                                   
+				                </form>
+                            </div>
+                        </div>
+                    <[/foreach]>	
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

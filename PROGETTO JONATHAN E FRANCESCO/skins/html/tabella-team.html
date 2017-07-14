@@ -1,0 +1,63 @@
+<section class="accordion">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="accordion-box">
+
+
+
+                    <[foreach]>
+                        <div class="accordion-slide">
+                            <div class="title"><[nome]> <[cognome]>
+                                <div class="icon fa">
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <form enctype="multipart/form-data" action="team_update.php" method="POST">
+                                	<input type="hidden" value="<[ID]>" name="key" />
+                                    <div>
+                                        <label class="border" for="nome"  >nome</label>
+                                        <input type="text" name="nome" id="nome" value="<[nome]>" >
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="cognome"  >cognome</label>
+                                        <input type="text" name="cognome" id="cognome" value="<[cognome]>" >
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="ruolo"  >ruolo</label>
+                                        <input type="text" name="ruolo" id="ruolo" value="<[ruolo]>" >
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="descrizione"  >descrizione</label>
+                                        <input type="text" name="descrizione" id="descrizione" value="<[descrizione]>" >
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="immagine">immagine</label>
+                                        <img class="left" src="<[image_filename]>"  height="100" width="100" >
+                                        <input type="file" name="file_inviato" id="immagine">
+                                    </div>
+                                
+				                	<div class="btn-box2">
+                                        <label class="border"></label>
+                                        <input type="submit" class="commonbtn style13 small" id="submit" value="Aggiorna" />
+                                        <a href="team_delete.php?team=<[ID]>"> 
+                                            <div  class="commonbtn style13 small" >Elimina</div>
+                                        </a>
+                                    </div>
+                                   
+				                </form>
+                            </div>
+                        </div>
+                    <[/foreach]>	
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

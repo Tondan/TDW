@@ -1,0 +1,61 @@
+<section class="accordion">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="accordion-box">
+
+
+                    <[foreach]>
+                        <div class="accordion-slide">
+                            <div class="title"><[name]>
+                                <div class="icon fa">
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <form action="servizi_update.php" method="POST">
+                                	<input type="hidden" name="key" value="<[script]>" />
+                                    <input type="hidden" value="<[keygroupservices]>" name="keygroupservices" />
+                                            <div>
+                                                <label class="border" for="nome">nome</label>
+                                                <input class="mandatory" type="text" name="nome" id="nome" errormessage="Pippo!" value="<[name]>"/>
+                                            </div>
+				                	
+                                            <div>
+                                                <label class="border" for="script">script</label>
+                                                <input class="mandatory" type="text" name="script" id="script" errormessage="Pippo!" value="<[script]>"/>
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="descrizione">descrizione</label>
+                                                <input class="mandatory" type="text" name="descrizione" id="descrizione" errormessage="Pippo!" value="<[description]>"/>
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="gruppo">gruppo</label>
+                                                <select class="selectpicker" name="gruppo" id="guppo">
+                                                <option value="<[id_group]>" selected="selected"><[id_group]>-<[gruppo]> </option>
+                                         <[gruppi::getmenu template="tabella-gruppi2" library="tabella_gruppi2" ]>
+                                                </select>
+                                            </div>
+                                       
+				                	<div class="btn-box2">
+                                    <label class="border"></label>
+                                        <input type="submit" class="commonbtn style13 small" id="submit" value="Aggiorna" />
+                                        <a href="servizi_delete.php?key=<[script]>"> 
+                                            <div  class="commonbtn style13 small" >Elimina</div>
+                                        </a>
+
+                                    </div>
+                                   
+				                </form>
+                            </div>
+                        </div>
+                    <[/foreach]>	
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

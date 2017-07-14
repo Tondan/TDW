@@ -1,0 +1,51 @@
+
+<section class="news">
+            <div class="container">
+                <div class="row">
+                <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+               
+                   <div class="col-md-8 rightBar">
+                        <fieldset>
+                            <legend>Gruppi: </legend>
+                            <div class="crea">
+                                <h3 class="margin-reset">Aggiungi un gruppo</h3><br />
+                                <section id="contact">
+                                    <form action="gruppi_add.php" method="POST" >
+                                        <fieldset>
+                                           <div>
+                                                <label class="border" for="nome">Nome</label>
+                                                <input class="mandatory" type="text" name="nome" id="nome" >
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="descrizione">Descrizione</label>
+                                                <input class="" type="text" name="descrizione" id="descrizione" >
+                                            </div>
+
+                                             <[foreach]>
+                                            <div>
+                                                <label class="border"></label>
+                                                <label class="border" for="script"><[name]></label>
+                                                <input class="mandatory" type="checkbox" name="script" id="script" value="<[script]>"errormessage="Pippo!"/>
+                                            </div>
+                                            <[/foreach]>
+                                            
+
+                                        </fieldset>
+                                        <div class="btn-box" >
+                                            <label class="border"></label>
+                                            <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>     
+                            </div>
+                            <div class="btn-box" id="aggiungi">
+                                <a href="#" class="commonbtn style1 small" >aggiungi un gruppo</a>
+                            </div>
+                              <[eventi::getmenu template="tabella-gruppi" library="tabella_gruppi" ]>          
+                        </fieldset>   
+                    </div>
+                </div>
+            </div>
+        </section>

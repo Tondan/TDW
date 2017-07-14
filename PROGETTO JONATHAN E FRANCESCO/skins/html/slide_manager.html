@@ -1,0 +1,50 @@
+<section class="news">
+            <div class="container">
+                <div class="row">
+                    <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+
+                   <div class="col-md-8 rightBar">
+                        <fieldset>
+                            <legend>Aggiungi una foto </legend>
+                            <div class="crea">
+
+                                <section id="contact"> 
+                                    <form enctype="multipart/form-data" action="slide_add.php" method="POST" >
+
+                                        <fieldset>
+                                            <div> 
+                                                <label class="border" for="immagine">immagine</label>
+                                                <input type="file" name="file_inviato" id="immagine">
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="position"  >posizione</label>
+                                                <input type="text" name="position" id="position" size="3">
+                                            </div>
+                        
+                                           
+                                           <div>
+                                                <label class="border" for="slider">slider:</label>
+                                                <[slide::getmenus template="sliders" library="slider2" ]>
+                                            </div>
+                        
+                                            
+                                        </fieldset>
+                                        
+                                        <div class="btn-box" >
+                                            <label class="border"></label>
+                                            <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>     
+                            </div>
+                            <div class="btn-box" id="aggiungi">
+                                <a href="#" class="commonbtn style1 small" >aggiungi slide</a>
+                            </div>
+                              <[slider::getmenu template="tabella-slide" library="tabella_slide" ]>          
+                        </fieldset>   
+                    </div>
+                </div>
+            </div>
+        </section>

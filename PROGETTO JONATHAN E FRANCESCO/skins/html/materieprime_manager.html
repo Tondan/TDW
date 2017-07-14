@@ -1,0 +1,61 @@
+<section class="news">
+            <div class="container">
+                <div class="row">
+                    <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+
+                   <div class="col-md-8 rightBar">
+                        <fieldset>
+                            <legend>Materie prime: </legend>
+                            <div class="crea">
+                                <h3 class="margin-reset">Nuova materia prima</h3><br />
+                                <section id="contact">
+                                    <form enctype="multipart/form-data" action="materieprime_add.php" method="POST" >
+
+
+
+
+                                        <fieldset>
+                                            <input type="hidden" name="page" value="1" />
+                                            <div>
+                                                <label class="border" for="nome">nome</label>
+                                                <input class="mandatory" type="nome" name="nome" id="nome" errormessage="Pippo!"/>
+                                            </div>
+                                            <div>
+                                                <label class="border" for="descrizione">descrizione</label>
+                                                <textarea class="" name="descrizione" id="descrizione" cols="50" rows="10"></textarea>
+                                            </div>
+                                            <div> 
+                                                <label class="border" for="immagine">immagine</label>
+                                                <input type="file" name="file_inviato" id="immagine">
+                                            </div>
+                                            <div>
+                                                <label class="border" for="position"  >posizione</label>
+                                                <input type="text" name="position" id="position" size="3">
+                                            </div>
+
+                                        </fieldset>
+<!-- non ho scritto il campo categoria perché 
+    la categoria viene messa automaticamente a 
+    evento dentro al codice eventi_add.php-->
+
+
+
+
+
+                                        <div class="btn-box" >
+                                            <label class="border"></label>
+                                            <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>     
+                            </div>
+                            <div class="btn-box" id="aggiungi">
+                                <a href="#" class="commonbtn style1 small" >aggiungi una materia prima</a>
+                            </div>
+                              <[eventi::getmenu template="tabella-materieprime" library="tabella_materieprime" ]>          
+                        </fieldset>   
+                    </div>
+                </div>
+            </div>
+        </section>

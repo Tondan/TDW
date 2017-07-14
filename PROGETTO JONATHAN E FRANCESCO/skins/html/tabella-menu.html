@@ -1,0 +1,59 @@
+<section class="accordion">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="accordion-box">
+
+
+
+                    <[foreach]>
+                        <div class="accordion-slide">
+                            <div class="title"><[entry]>
+                                <div class="icon fa">
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                <form action="menu_update.php" method="POST">
+                                	<input type="hidden" name="key" value="<[ID]>" />
+				                	<div>
+				                   		<label class="border" for="entry">entry</label>
+			                       		<input class="mandatory" type="text" name="entry" id="entry" value="<[entry]>" >
+				                	</div>
+                                    <div>
+                                        <label class="border" for="link">link</label>
+                                        <input class="" type="text" name="link" value="<[link]>" id="link" >
+                                    </div>
+				                	<div>
+					                	<label class="border" for="parent">parent</label>
+                                        <select class="selectpicker" name="parent" id="parent">
+                                            <option value="<[parent]>" selected="selected"><[parent]> </option>
+                                            <option value="1" > 1-header </option>
+                                            <option value="2" > 2-footer </option>
+                                        </select>
+				                	</div>
+				                	<div>
+					                	<label class="border" for="position">position</label>
+					                	<input type="text" name="position"  value="<[position]>" id="position">
+				                	</div>
+				                	
+				                	<div class="btn-box2">
+                                    <label class="border"></label>
+                                        <input type="submit" class="commonbtn style13 small" id="submit" value="Aggiorna" />
+                                        <a href="menu_delete.php?key=<[ID]>"> 
+                                            <div  class="commonbtn style13 small" >Elimina</div>
+                                        </a>
+
+                                    </div>
+                                   
+				                </form>
+                            </div>
+                        </div>
+                    <[/foreach]>	
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

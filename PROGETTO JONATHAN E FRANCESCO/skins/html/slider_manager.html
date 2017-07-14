@@ -1,0 +1,54 @@
+<section class="news">
+            <div class="container">
+                <div class="row">
+                    <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+
+                   <div class="col-md-8 rightBar">
+                        <fieldset>
+                            <legend>Slider: </legend>
+                            <div class="crea">
+                                <h3 class="margin-reset">Aggiungi slider </h3><br />
+                                <section id="contact">
+                                    <form 
+                                   enctype="multipart/form-data" action="slider_add.php" method="POST" >
+
+                                        <fieldset>
+                                           
+                                           <div>
+                                                <label class="border" for="titolo">Titolo</label>
+                                                <input class="mandatory" type="text" name="titolo" id="titolo" errormessage="Pippo!" />
+                                            </div>
+                        
+                                            <div>
+                                                <label class="border" for="sottotitolo">Sottotitolo</label>
+                                                <input class="mandatory" type="text" name="sottotitolo"  id="sottotitolo" errormessage="Pippo!"  />
+                                            </div>
+                        
+                                            <div>
+                                                <label class="border" for="button">Testo del pulsante</label>
+                                                <input class="mandatory" type="text" name="button" id="button" errormessage="Pippo!"  />
+                                            </div>
+                        
+                                            <div>
+                                                <label class="border" for="link">Link del pulsante</label>
+                                                <input class="mandatory" type="text" name="link" id="link" errormessage="Pippo!" />
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <div class="btn-box" >
+                                            <label class="border"></label>
+                                            <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>     
+                            </div>
+                            <div class="btn-box" id="aggiungi">
+                                <a href="#" class="commonbtn style1 small" >aggiungi slider</a>
+                            </div>
+                              <[slider::getmenu template="tabella-slider" library="tabella_slider" ]>          
+                        </fieldset>   
+                    </div>
+                </div>
+            </div>
+        </section>

@@ -1,0 +1,60 @@
+
+<section class="news">
+            <div class="container">
+                <div class="row">
+                <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+               
+                   <div class="col-md-8 rightBar">
+                        <fieldset>
+                            <legend>Servizi: </legend>
+                            <div class="crea">
+                                <h3 class="margin-reset">aggiungi un servizio</h3><br />
+                                <section id="contact">
+                                    <form action="servizi_add.php" method="POST" >
+
+                                        <fieldset>
+
+                                            <div>
+                                                <label class="border" for="nome">nome</label>
+                                                <input class="mandatory" type="text" name="nome" id="nome" errormessage="Pippo!" />
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="script">script</label>
+                                                <input class="mandatory" type="text" name="script" id="script" errormessage="Pippo!"/>
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="descrizione">descrizione</label>
+                                                <input class="mandatory" type="text" name="descrizione" id="descrizione" errormessage="Pippo!"/>
+                                            </div>
+
+                                            <[foreach]>
+                                            <label class="border" for="gruppo" id="<[ID]>"></label>
+                                                <input type="radio" id="gruppo" name="gruppo"  value="<[ID]>" />
+                                                <label  for="gruppo" ><[ID]>-<[name]></label>
+                                                
+                                                <br>
+                                            <[/foreach]>
+
+                                           
+
+                                        </fieldset>
+
+                                        <div class="btn-box" >
+                                            <label class="border"></label>
+                                            <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>     
+                            </div>
+                            <div class="btn-box" id="aggiungi">
+                                <a href="#" class="commonbtn style1 small" >aggiungi un servizio</a>
+                            </div>
+                              <[eventi::getmenu template="tabella-servizi" library="tabella_servizi" ]>          
+                        </fieldset>   
+                    </div>
+                </div>
+            </div>
+        </section>

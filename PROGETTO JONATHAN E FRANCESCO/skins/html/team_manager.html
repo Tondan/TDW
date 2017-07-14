@@ -1,0 +1,57 @@
+<section class="news">
+            <div class="container">
+                <div class="row">
+                    <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+
+                   <div class="col-md-8 rightBar">
+                        <fieldset>
+                            <legend>Aggiungi un operatore: </legend>
+                            <div class="crea">
+                                <section id="contact">
+                                    <form 
+                                   enctype="multipart/form-data" action="team_add.php" method="POST" >
+
+                                        <fieldset>
+                                            <div>
+                                                <label class="border" for="nome"  >nome</label>
+                                                <input type="text" name="nome" id="nome" >
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="cognome"  >cognome</label>
+                                                <input type="text" name="cognome" id="cognome" >
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="ruolo"  >ruolo</label>
+                                                <input type="text" name="ruolo" id="ruolo" >
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="descrizione"  >descrizione</label>
+                                                <input type="text" name="descrizione" id="descrizione" >
+                                            </div>
+
+                                            <div>
+                                                <label class="border" for="immagine">immagine</label>
+                                                <input type="file" name="file_inviato" id="immagine">
+                                            </div>
+                                        </fieldset>
+                                        
+                                        <div class="btn-box" >
+                                            <label class="border"></label>
+                                            <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" /> 
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </form>
+                                </section>     
+                            </div>
+                            <div class="btn-box" id="aggiungi">
+                                <a href="#" class="commonbtn style1 small" >aggiungi chef</a>
+                            </div>
+                            <[team::getmenu template="tabella-team" library="tabella_team" ]>          
+                        </fieldset>   
+                    </div>
+                </div>
+            </div>
+        </section>

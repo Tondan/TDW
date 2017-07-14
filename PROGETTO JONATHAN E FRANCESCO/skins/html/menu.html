@@ -1,0 +1,64 @@
+  
+    	
+        <section class="banner">
+            <div id="inner_banner"> 
+                <div class="item">
+                    <[about-us::gettitolo template="page" library="page" titolo="menu"]>
+                </div>
+            </div>
+        </section>
+        <section class="menu-view food-menu">
+            <div class="container">
+                <div class="top-title white">
+                    <h2>Il nostro menu</h2>
+                </div>
+            </div>
+            <div class="menu-tab">
+                <div class="tab-menu">
+                    <ul>
+                        <li class="active"><a href="javascript:;" class="breakfast_li">COLAZIONE</a></li>
+                        <li><a href="javascript:;" class="lunch_li">PRANZO</a></li>
+                        <li><a href="javascript:;" class="dinner_li">CENA</a></li>
+                    </ul>
+                </div>
+
+                <div class="tab-content breakfast">  
+                <[piatti::getmenu pasto="colazione" template="breakfast-menu" library="breakfastmenu"]>
+                </div>
+
+                <div class="tab-content lunch">
+                <[piatti::getmenu pasto="pranzo" template="breakfast-menu" library="breakfastmenu"]>
+                </div>
+
+                <div class="tab-content dinner">
+                 <[piatti::getmenu pasto="cena" template="breakfast-menu" library="breakfastmenu"]>   
+                </div>
+        </section>
+
+
+        <section class="dishes-ofDay" style="background-image:url(skins/images/normal-bg-img/img2.jpg);">
+            <div class="container">
+                <div class="top-title">
+                    <h2>piatti del giorno</h2>
+                </div>
+                <div class="slider-main">
+                    <div class="owl-carousel" id="dishes_slider">
+
+        <[menu::getpiattidelgiorno flag="1" template="piatti-del-giorno" library="piattidelgiorno"]>  
+        
+                    </div>
+                    <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+                    <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+                </div>
+            </div>
+        </section>
+         
+        <section class="book-tabel" style="background-image:url(skins/images/parallax-img/img2.jpg)">
+            <div class="container">
+                <div class="top-title white">
+                    <h2>prenota il tuo tavolo</h2>
+                </div>
+                <[booking::setbooking template="book" library="book"]>
+        </section>
+        
+        
