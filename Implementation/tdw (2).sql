@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 14, 2017 alle 18:08
+-- Creato il: Lug 14, 2017 alle 21:46
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -265,6 +265,7 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/Loghi/bestlogo.png', 1),
 ('Img/Loghi/logopiccolo.ico', 1),
 ('Img/reservation.jpg', 1),
+('Img/ristpizz.jpg', 1),
 ('Img/saro.jpg', 1),
 ('Img/slide-aperitivo.jpg', 1),
 ('Img/story.jpg', 1),
@@ -354,7 +355,14 @@ CREATE TABLE IF NOT EXISTS `Prenotazione` (
   `Tel` varchar(15) DEFAULT NULL,
   `Email` varchar(50) NOT NULL,
   `Notice` text
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Prenotazione`
+--
+
+INSERT INTO `Prenotazione` (`ID_Prenotazione`, `Data`, `Persone`, `Time`, `Nome_Cl`, `Tel`, `Email`, `Notice`) VALUES
+(25, '2017-07-12', 10, '20:00:00', 'Gatto', '88554411255', 'gatto@mask.vom', 'Mi Raccomando!');
 
 -- --------------------------------------------------------
 
@@ -650,7 +658,7 @@ ALTER TABLE `Gruppo`
 -- AUTO_INCREMENT per la tabella `Prenotazione`
 --
 ALTER TABLE `Prenotazione`
-  MODIFY `ID_Prenotazione` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `ID_Prenotazione` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT per la tabella `Servizio`
 --

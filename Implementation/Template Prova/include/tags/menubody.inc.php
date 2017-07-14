@@ -7,6 +7,32 @@
 			
 		}
         
+        function getimage($name, $data, $pars) {
+			
+			$img = new Template("html/{$pars['template']}.html");
+			
+			if (!isset($pars['parent'])) {
+				$pars['parent'] = $data;
+			}
+			
+              
+			$oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/ristpizz.jpg'");
+			if (!$oid) {
+				trigger_error("Menu error");
+			}
+			
+			do {
+				$data = mysql_fetch_array($oid);
+				
+				if ($data) {
+					$img->setContent($data);
+				}
+			} while ($data);
+            
+            
+			return $img->get();
+		}
+        
         function getprimi($name, $data, $pars) {
 			
 			$food1 = new Template("html/{$pars['template']}.html");
@@ -127,6 +153,33 @@
 			
               
 			$oid = mysql_query("SELECT * FROM tdw.piatto WHERE tipo_piatto='drink'");
+			if (!$oid) {
+				trigger_error("Menu error");
+			}
+			
+			do {
+				$data = mysql_fetch_array($oid);
+				
+				if ($data) {
+					$food1->setContent($data);
+				}
+			} while ($data);
+            
+            
+			return $food1->get();
+        }
+        
+        
+        function getpizze($name, $data, $pars) {
+			
+			$food1 = new Template("html/{$pars['template']}.html");
+			
+			if (!isset($pars['parent'])) {
+				$pars['parent'] = $data;
+			}
+			
+              
+			$oid = mysql_query("SELECT * FROM tdw.piatto WHERE tipo_piatto='pizza'");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
