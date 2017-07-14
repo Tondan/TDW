@@ -24,7 +24,7 @@ echo $ora,"<br>\n";
 $oid = mysql_query("INSERT INTO Prenotazione (ID_Prenotazione,Data,Persone,Time,Nome_Cl,Tel,Email,Notice) 
                     VALUES (NULL, '$data', '$persone', '$ora', '$nome', '$tel', '$email', '$note')");
 if($oid){
-	header("location:index.php");
+	header("location: index.php?page=booking&result=ok");
     echo("<br>prenotazione avvenuta correttamente");
 } 
 else{
