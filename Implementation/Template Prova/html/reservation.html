@@ -1,31 +1,9 @@
-
-        <section class="fly-section-image fly-header-image fly-section-overlay fly-section-height-md parallax"
-                 style="background-image: url('images/Reservation/reservation-header-bg.jpg')">
-            <div class="container">
-                <div class="row"><h3 class="fly-section-image-title-before">Make a</h3>
-
-                    <h2 class="fly-section-image-title-after">RESERVATION</h2></div>
-            </div>
-        </section>
-        <!--End Header Section-->
-        <!--Contact Form Wrap-->
-        <div class="fly-divider-space space-sm"></div>
-        <section class="fly-wrap-reservation-form container-min">
-            <div class="container">
-                <div class="row">
-                    <h2 class="fly-reservation-form-info-title">COME AND ENJOY THE<br>HOSPITALITY & FOOD</h2>
-                    <div class="fly-reservation-form-title-divider"></div>
-                    <div class="fly-reservation-form-info-block">
-                        <p class="fly-reservation-info">
-                            Most of the tables in our restaurants are kept unreserved so we can accommodate<br>
-                            anyone who visits us. You may have to wait, depending on what time of day<br>
-                            you visit, but we’ll be able to find you a table.
-                        </p>
-                    </div>
-                    <!--Contact Form-->
+    <[res::getreservation template="res" library="reservation"]>
+        
+        <!--Contact Form-->
                     <div class="fly-reservation-form">
                         <!--for redirect in a new page change : 'action="#"' with : 'action="send-reservation.php"'-->
-                         <form action="#" class="fly-form-reservation" method="post">
+                         <form action="reservation_add.php" class="fly-form-reservation" method="post">
                             <!-- Col Left-->
                             <div class="fly-form-col-left">
                                 <div class="fly-form-inner-col-left">
@@ -71,6 +49,7 @@
                 </div>
             </div>
         </section>
+
         <div class="fly-divider-space space-md"></div>
         <!--End Contact Form Wrap-->        <!--Section Go To Top-->
         <section class="fly-go-to-top fly-theme-color-4">
