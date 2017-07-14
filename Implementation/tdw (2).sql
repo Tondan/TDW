@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 13, 2017 alle 20:44
+-- Creato il: Lug 14, 2017 alle 16:02
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -264,6 +264,7 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/LGallery/Prosciutto.jpg', 1),
 ('Img/Loghi/bestlogo.png', 1),
 ('Img/Loghi/logopiccolo.ico', 1),
+('Img/reservation.jpg', 1),
 ('Img/saro.jpg', 1),
 ('Img/slide-aperitivo.jpg', 1),
 ('Img/story.jpg', 1),
@@ -346,11 +347,33 @@ INSERT INTO `Piatto` (`Nome_Piatto`, `Descrizione`, `Ingredienti`, `Prezzo`, `Im
 
 CREATE TABLE IF NOT EXISTS `Prenotazione` (
   `ID_Prenotazione` int(11) NOT NULL,
-  `Nome_Cl` varchar(20) NOT NULL,
-  `Data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Evento` int(11) DEFAULT NULL,
-  `N_Presone` int(11) NOT NULL
+  `Data` date NOT NULL,
+  `Persone` int(11) NOT NULL,
+  `Time` time NOT NULL,
+  `Nome_Cl` varchar(50) NOT NULL,
+  `Tel` varchar(15) DEFAULT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Notice` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `Presentazione_Reservation`
+--
+
+CREATE TABLE IF NOT EXISTS `Presentazione_Reservation` (
+  `Img` varchar(100) DEFAULT NULL,
+  `Titolo` varchar(50) NOT NULL,
+  `Descrizione` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Presentazione_Reservation`
+--
+
+INSERT INTO `Presentazione_Reservation` (`Img`, `Titolo`, `Descrizione`) VALUES
+('Img/reservation.jpg', 'COME AND ENJOY THE HOSPITALITY & FOOD', 'Most of the tables in our restaurants are kept unreserved so we can accommodate\r\nanyone who visits us. You may have to wait, depending on what time of day\r\nyou visit, but we''ll be able to find you a table.');
 
 -- --------------------------------------------------------
 
@@ -559,8 +582,14 @@ ALTER TABLE `Piatto`
 -- Indici per le tabelle `Prenotazione`
 --
 ALTER TABLE `Prenotazione`
-  ADD PRIMARY KEY (`ID_Prenotazione`),
-  ADD KEY `Evento` (`Evento`);
+  ADD PRIMARY KEY (`ID_Prenotazione`);
+
+--
+-- Indici per le tabelle `Presentazione_Reservation`
+--
+ALTER TABLE `Presentazione_Reservation`
+  ADD PRIMARY KEY (`Titolo`),
+  ADD KEY `Img` (`Img`);
 
 --
 -- Indici per le tabelle `Recensione`
@@ -695,10 +724,10 @@ ALTER TABLE `Piatto`
   ADD CONSTRAINT `piatto_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
 
 --
--- Limiti per la tabella `Prenotazione`
+-- Limiti per la tabella `Presentazione_Reservation`
 --
-ALTER TABLE `Prenotazione`
-  ADD CONSTRAINT `prenotazione_ibfk_1` FOREIGN KEY (`Evento`) REFERENCES `Evento` (`ID_Evento`);
+ALTER TABLE `Presentazione_Reservation`
+  ADD CONSTRAINT `presentazione_reservation_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
 
 --
 -- Limiti per la tabella `Recensione`
