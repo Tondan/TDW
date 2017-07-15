@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 15, 2017 alle 18:26
+-- Creato il: Lug 15, 2017 alle 20:37
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -80,10 +80,14 @@ CREATE TABLE IF NOT EXISTS `Evento` (
 --
 
 INSERT INTO `Evento` (`ID_Evento`, `Data`, `Nome`, `Descrizione`, `Img`) VALUES
+(0, NULL, 'Abbiamo Molto In Serbo Per Voi!', 'Ogni anno organizziamo molti eventi di diversa natura. Che siano per una festivita'', per una giornata importante o anche semplicemente per divertimento, solo una cosa e'' certa: il tutto sara'' accompagnato dalle nostre prelibatezze e dalla buona musica.', NULL),
 (1, '2017-07-28', 'E'' IL MIO COMPLEANNO!', 'Festeggiamo tutti insieme!', 'Img/cheers.jpg'),
 (2, '2017-04-16', 'PASQUA', 'Venite a trovarci a Pasqua! Un menu speciale vi aspetta!', 'Img/pasqua.jpg'),
 (3, '2017-12-25', 'NATALE', 'Venite a trovarci a Natale! Un menu speciale vi aspetta!', 'Img/natale.jpg'),
-(4, '2017-07-20', 'HAPPY HOUR!', 'Abbiamo organizzato un happy hour solo per voi!', 'Img/happyhour.jpg');
+(4, '2017-07-20', 'HAPPY HOUR!', 'Abbiamo organizzato un happy hour solo per voi!', 'Img/happyhour.jpg'),
+(5, '2017-07-20', 'LA BAMBAAAAA', NULL, 'Img/labamba.jpg'),
+(6, '2017-07-26', 'ROCCO E'' TRA NOI', NULL, 'Img/rocco.jpg'),
+(7, '2017-07-26', 'OOOOH YOU TOUCH MY TRALALA', NULL, 'Img/gunther.jpg');
 
 -- --------------------------------------------------------
 
@@ -268,8 +272,10 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/Gallery/tagliata.jpg', 1),
 ('Img/Gallery/tappi.jpg', 1),
 ('Img/Gallery/tortafrutta.jpg', 1),
+('Img/gunther.jpg', 1),
 ('Img/happyhour.jpg', 1),
 ('Img/impasto.jpg', 1),
+('Img/labamba.jpg', 1),
 ('Img/LGallery/AP1.jpg', 1),
 ('Img/LGallery/Ap2.jpg', 1),
 ('Img/LGallery/Baba.jpg', 1),
@@ -283,6 +289,7 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/pizza bella.jpg', 1),
 ('Img/reservation.jpg', 1),
 ('Img/ristpizz.jpg', 1),
+('Img/rocco.jpg', 1),
 ('Img/saro.jpg', 1),
 ('Img/slide-aperitivo.jpg', 1),
 ('Img/story.jpg', 1),
@@ -362,14 +369,15 @@ CREATE TABLE IF NOT EXISTS `Prenotazione` (
   `Tel` varchar(15) DEFAULT NULL,
   `Email` varchar(50) NOT NULL,
   `Notice` text
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `Prenotazione`
 --
 
 INSERT INTO `Prenotazione` (`ID_Prenotazione`, `Data`, `Persone`, `Time`, `Nome_Cl`, `Tel`, `Email`, `Notice`) VALUES
-(25, '2017-07-12', 10, '20:00:00', 'Gatto', '88554411255', 'gatto@mask.vom', 'Mi Raccomando!');
+(25, '2017-07-12', 10, '20:00:00', 'Gatto', '88554411255', 'gatto@mask.vom', 'Mi Raccomando!'),
+(26, '2017-12-18', 150, '06:00:00', 'Hawkeye', '0255514222556', 'hawkeye@fjjjfol.stronzo', 'siamo tantissimi');
 
 -- --------------------------------------------------------
 
@@ -662,7 +670,7 @@ ALTER TABLE `Gruppo`
 -- AUTO_INCREMENT per la tabella `Prenotazione`
 --
 ALTER TABLE `Prenotazione`
-  MODIFY `ID_Prenotazione` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+  MODIFY `ID_Prenotazione` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT per la tabella `Servizio`
 --
