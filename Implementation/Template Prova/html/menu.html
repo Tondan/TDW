@@ -1,15 +1,21 @@
 
-<[image::getimage template="menubody" library="menubody"]>
+<[image::getimage template="menuimage" library="menubody"]>
     
         <!--End Header Image-->
         <!--Divider-->
-        <section class="fly-divider-space space-md"></section>
+<!--        <section class="fly-divider-space space-md"></section>
         <!--End Divider-->
         <!--Dish Menu 1-->
          
        <div class="fly-quick-nav-item col-sm-6">
-        
-        
+    
+        <[descr::getarticle template="menuarticle" menu="ristorante" library="menubody"]>
+           
+           
+      
+      <section class="fly-divider-space space-md"></section>
+      
+      
         <section class="fly-dish-menu container-min col-sm-6" id="food">
             <div class="container">
                 <div class="row"><h3 class="fly-dish-menu-title">PRIMI PIATTI</h3>
@@ -17,7 +23,7 @@
                         
                         
                         
-                      <[food1::getprimi template="foodciclo" library="menubody"]>
+                      <[food1::getfood template="foodciclo" tipo="primo" library="menubody"]>
                       
                        
                     </ul>
@@ -35,7 +41,7 @@
                         
                         
                         
-                      <[food1::getsecondi template="foodciclo" library="menubody"]>
+                      <[food1::getfood template="foodciclo" tipo="secondo" library="menubody"]>
                       
                        
                     </ul>
@@ -51,7 +57,7 @@
                         
                         
                         
-                      <[food1::getcontorni template="foodciclo" library="menubody"]>
+                      <[food1::getfood template="foodciclo" tipo="contorno" library="menubody"]>
                       
                        
                     </ul>
@@ -68,7 +74,7 @@
                         
                         
                         
-                        <[food1::getdessert template="foodciclo" library="menubody"]>
+                        <[food1::getfood template="foodciclo" tipo="dessert" library="menubody"]>
                         
                         
                     </ul>
@@ -88,7 +94,7 @@
                         
                         
                         
-                       <[food1::getdrinks template="foodciclo" library="menubody"]> 
+                       <[food1::getfood template="foodciclo" tipo="drink" library="menubody"]> 
                         
                     </ul>
                 </div>
@@ -97,14 +103,21 @@
         <!--End Dish Menu 3-->
                 </div>
                 
-    <div class="fly-quick-nav-item col-sm-6">
+    <div class="fly-quick-nav-item col-sm-6 fly-theme-color-4">
+     
+        <[descr::getarticle template="menuarticle" menu="pizzeria" library="menubody"]>
+           
+            
+        
+            <section class="fly-divider-space space-md"></section>
+            
                <section class="fly-dish-menu container-min col-sm-6" id="drinks">
             <div class="container">
                 <div class="row"><h3 class="fly-dish-menu-title">PIZZE</h3>
                     <ul class="fly-dish-menu-content">
                         
                         
-                        <[food1::getpizze template="foodciclo" library="menubody"]>
+                        <[food1::getfood template="foodciclo" tipo="pizza" library="menubody"]>
                         
                         
                     </ul>

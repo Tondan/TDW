@@ -32,7 +32,6 @@ class caffbody extends TagLibrary {
 			for($i=1;$i<=3;$i++){
                 $data = mysql_fetch_array($oid);
                 if($data){
-                    $caff->setContent("Icona".$i,$data['Icona']);
 					$caff->setContent("Titolo".$i,$data['Titolo']);
                     $caff->setContent("Img".$i,$data['Img']);
                     $caff->setContent("Descrizione".$i,$data['Descrizione']);
