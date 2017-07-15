@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 14, 2017 alle 21:46
+-- Creato il: Lug 15, 2017 alle 18:26
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -30,18 +30,17 @@ CREATE TABLE IF NOT EXISTS `Caffetteria` (
   `ID_Caffetteria` int(11) NOT NULL,
   `Descrizione` text,
   `Img` varchar(100) DEFAULT NULL,
-  `Titolo` varchar(50) DEFAULT NULL,
-  `Icona` varchar(100) DEFAULT NULL
+  `Titolo` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `Caffetteria`
 --
 
-INSERT INTO `Caffetteria` (`ID_Caffetteria`, `Descrizione`, `Img`, `Titolo`, `Icona`) VALUES
-(1, 'Lasciati trasportare dal gusto inconfondibile del caffe'' Faraglia, l''unico in grado di farti iniziare la giornata nel migliore dei modi!', 'Img/caffe-faraglia.jpg', 'Una Carica Di Espresso!', 'Img/Loghi/logopiccolo.ico'),
-(2, 'Non lasciarti sfuggire l''occasione! Qui da noi la colazione sara'' un vero piacere! Lasciatevi tentare dal profumo dei nostri cornetti appena sfornati, e dalla vista di un ottimo cappuccino preparato per voi dalla mano esperta dei nostri maestri caffettieri!', 'Img/Gallery/colazione.jpg', 'Fai Colazione Insieme a Noi!', 'Img/Loghi/logopiccolo.ico'),
-(3, 'Che sia in tarda mattinata o in tardo pomeriggio, un aperitivo in compagnia e'' sempre una gran festa! Venite a provare la vasta gamma di aperitivi e cocktail che e'' in grado di preparare il nostro personale altamente qualificato! Ovviamente il tutto accompagnato da buona musica e cibo genuino!', 'Img/slide-aperitivo.jpg', 'Il Meglio Deve Ancora Arrivare!', 'Img/Loghi/logopiccolo.ico');
+INSERT INTO `Caffetteria` (`ID_Caffetteria`, `Descrizione`, `Img`, `Titolo`) VALUES
+(1, 'Lasciati trasportare dal gusto inconfondibile del caffe'' Faraglia, l''unico in grado di farti iniziare la giornata nel migliore dei modi!', 'Img/caffe-faraglia.jpg', 'Una Carica Di Espresso!'),
+(2, 'Non lasciarti sfuggire l''occasione! Qui da noi la colazione sara'' un vero piacere! Lasciatevi tentare dal profumo dei nostri cornetti appena sfornati, e dalla vista di un ottimo cappuccino preparato per voi dalla mano esperta dei nostri maestri caffettieri!', 'Img/Gallery/colazione.jpg', 'Fai Colazione Insieme a Noi!'),
+(3, 'Che sia in tarda mattinata o in tardo pomeriggio, un aperitivo in compagnia e'' sempre una gran festa! Venite a provare la vasta gamma di aperitivi e cocktail che e'' in grado di preparare il nostro personale altamente qualificato! Ovviamente il tutto accompagnato da buona musica e cibo genuino!', 'Img/slide-aperitivo.jpg', 'Il Meglio Deve Ancora Arrivare!');
 
 -- --------------------------------------------------------
 
@@ -70,12 +69,21 @@ CREATE TABLE IF NOT EXISTS `Contatti` (
 
 CREATE TABLE IF NOT EXISTS `Evento` (
   `ID_Evento` int(11) NOT NULL,
-  `Data` date NOT NULL,
-  `Nome` varchar(20) DEFAULT NULL,
+  `Data` date DEFAULT NULL,
+  `Nome` varchar(50) DEFAULT NULL,
   `Descrizione` text,
-  `Menu` varchar(20) DEFAULT NULL,
   `Img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Evento`
+--
+
+INSERT INTO `Evento` (`ID_Evento`, `Data`, `Nome`, `Descrizione`, `Img`) VALUES
+(1, '2017-07-28', 'E'' IL MIO COMPLEANNO!', 'Festeggiamo tutti insieme!', 'Img/cheers.jpg'),
+(2, '2017-04-16', 'PASQUA', 'Venite a trovarci a Pasqua! Un menu speciale vi aspetta!', 'Img/pasqua.jpg'),
+(3, '2017-12-25', 'NATALE', 'Venite a trovarci a Natale! Un menu speciale vi aspetta!', 'Img/natale.jpg'),
+(4, '2017-07-20', 'HAPPY HOUR!', 'Abbiamo organizzato un happy hour solo per voi!', 'Img/happyhour.jpg');
 
 -- --------------------------------------------------------
 
@@ -217,6 +225,8 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/avatars/avatar-3.jpg', 1),
 ('Img/caffe-faraglia.jpg', 1),
 ('Img/caffetteria.jpg', 1),
+('Img/carote.jpg', 1),
+('Img/cheers.jpg', 1),
 ('Img/cheftony.jpg', 1),
 ('Img/desserts/1.jpg', 1),
 ('Img/desserts/2.jpg', 0),
@@ -232,6 +242,8 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/drinks/5.jpg', 0),
 ('Img/drinks/6.jpg', 0),
 ('Img/drinks/7.jpg', 0),
+('Img/evento.jpg', 1),
+('Img/eventospecial.jpg', 1),
 ('Img/FILE-BLOG-2.jpg', 0),
 ('Img/food/1.jpg', 1),
 ('Img/food/2.jpg', 0),
@@ -256,6 +268,8 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/Gallery/tagliata.jpg', 1),
 ('Img/Gallery/tappi.jpg', 1),
 ('Img/Gallery/tortafrutta.jpg', 1),
+('Img/happyhour.jpg', 1),
+('Img/impasto.jpg', 1),
 ('Img/LGallery/AP1.jpg', 1),
 ('Img/LGallery/Ap2.jpg', 1),
 ('Img/LGallery/Baba.jpg', 1),
@@ -264,6 +278,9 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/LGallery/Prosciutto.jpg', 1),
 ('Img/Loghi/bestlogo.png', 1),
 ('Img/Loghi/logopiccolo.ico', 1),
+('Img/natale.jpg', 1),
+('Img/pasqua.jpg', 1),
+('Img/pizza bella.jpg', 1),
 ('Img/reservation.jpg', 1),
 ('Img/ristpizz.jpg', 1),
 ('Img/saro.jpg', 1),
@@ -272,7 +289,8 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/story1.jpg', 1),
 ('Img/story2.jpg', 1),
 ('Img/story3.jpg', 1),
-('Img/story4.jpg', 1);
+('Img/story4.jpg', 1),
+('Img/tricolore.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -291,18 +309,6 @@ CREATE TABLE IF NOT EXISTS `Logo` (
 
 INSERT INTO `Logo` (`Logo`, `Path`) VALUES
 ('Img/Loghi/bestlogo.png', 'home.php');
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `Menu`
---
-
-CREATE TABLE IF NOT EXISTS `Menu` (
-  `Nome_Menu` varchar(20) NOT NULL,
-  `Piatto` varchar(20) DEFAULT NULL,
-  `Img` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -338,6 +344,7 @@ CREATE TABLE IF NOT EXISTS `Piatto` (
 INSERT INTO `Piatto` (`Nome_Piatto`, `Descrizione`, `Ingredienti`, `Prezzo`, `Img`, `tipo_piatto`) VALUES
 ('funghi trifolati', 'eh..sono funghi trifolati', 'funghi ehm ehm', '12.69', NULL, 'primo'),
 ('panna cotta', 'panna cottissima (alla vaniglia)', 'gelatine in foglie, panna, zucchero, vaniglia', '3.20', 'Img/desserts/3.jpg', 'dessert'),
+('Pizza Bella', 'Sei tu la più bellaaaa', 'Cacca, caciocavallo, letame', '250.00', 'Img/pizza bella.jpg', 'pizza'),
 ('Pizza brutta', 'questa l''hai cucinata tu', 'pepperoni suggo', '25.19', 'Img/food/1.jpg', 'primo');
 
 -- --------------------------------------------------------
@@ -411,10 +418,22 @@ INSERT INTO `Recensione` (`Nome`, `Avatar`, `Testo`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `Rist_Pizz` (
-  `ID_Rist_Pizz` int(11) NOT NULL,
+  `ID_Rist_Pizz` int(11) NOT NULL DEFAULT '0',
+  `Titolo` varchar(50) DEFAULT NULL,
   `Descrizione` text,
-  `Menu` varchar(20) DEFAULT NULL
+  `Img` varchar(100) DEFAULT NULL,
+  `Categoria` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Rist_Pizz`
+--
+
+INSERT INTO `Rist_Pizz` (`ID_Rist_Pizz`, `Titolo`, `Descrizione`, `Img`, `Categoria`) VALUES
+(1, 'Vieni ad assaporare la genuinita''!', 'I nostri chef utilizzano solo ingredienti naturali di primissima qualita'', forniti da persone affidabili e che mettono il cuore nel loro lavoro!', 'Img/carote.jpg', 'ristorante'),
+(2, 'La Cucina', 'I nostri piatti sono ineguagliabili! I nostri chef hanno una fantasia incredibile e creano nuovi piatti sani e genuini ogni giorno, senza però rinunciare a lasciare la clientela senza parole per il sapore squisito!', 'Img/tricolore.jpg', 'ristorante'),
+(3, 'La Nostra Pizza', 'Si, facciamo anche la pizza! Ma, soprattutto, la impastiamo a mano!\r\nLa nostra pizza e'' preparata soltanto con ingredienti naturali, senza additivi ed è cotta nel forno a legna!', 'Img/impasto.jpg', 'pizzeria'),
+(4, 'La Facciamo Come Vuoi Tu!', 'Il nostro personale si prenderà cura di te in ogni singolo istante e i nostri mastri pizzaioli si impegneranno ad esaudire i tuoi desideri!', 'Img/pizza bella.jpg', 'pizzeria');
 
 -- --------------------------------------------------------
 
@@ -494,8 +513,7 @@ CREATE TABLE IF NOT EXISTS `Utente` (
 --
 ALTER TABLE `Caffetteria`
   ADD PRIMARY KEY (`ID_Caffetteria`),
-  ADD KEY `Img` (`Img`),
-  ADD KEY `Icona` (`Icona`);
+  ADD KEY `Img` (`Img`);
 
 --
 -- Indici per le tabelle `Contatti`
@@ -508,7 +526,6 @@ ALTER TABLE `Contatti`
 --
 ALTER TABLE `Evento`
   ADD PRIMARY KEY (`ID_Evento`),
-  ADD KEY `Menu` (`Menu`),
   ADD KEY `Img` (`Img`);
 
 --
@@ -566,14 +583,6 @@ ALTER TABLE `Logo`
   ADD PRIMARY KEY (`Logo`);
 
 --
--- Indici per le tabelle `Menu`
---
-ALTER TABLE `Menu`
-  ADD PRIMARY KEY (`Nome_Menu`),
-  ADD KEY `Piatto` (`Piatto`),
-  ADD KEY `Img` (`Img`);
-
---
 -- Indici per le tabelle `Orario`
 --
 ALTER TABLE `Orario`
@@ -611,7 +620,7 @@ ALTER TABLE `Recensione`
 --
 ALTER TABLE `Rist_Pizz`
   ADD PRIMARY KEY (`ID_Rist_Pizz`),
-  ADD KEY `Menu` (`Menu`);
+  ADD KEY `Img` (`Img`);
 
 --
 -- Indici per le tabelle `Servizio`
@@ -645,11 +654,6 @@ ALTER TABLE `Utente`
 --
 
 --
--- AUTO_INCREMENT per la tabella `Evento`
---
-ALTER TABLE `Evento`
-  MODIFY `ID_Evento` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT per la tabella `Gruppo`
 --
 ALTER TABLE `Gruppo`
@@ -677,15 +681,13 @@ ALTER TABLE `Utente`
 -- Limiti per la tabella `Caffetteria`
 --
 ALTER TABLE `Caffetteria`
-  ADD CONSTRAINT `caffetteria_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`),
-  ADD CONSTRAINT `caffetteria_ibfk_2` FOREIGN KEY (`Icona`) REFERENCES `Immagine` (`Link`);
+  ADD CONSTRAINT `caffetteria_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
 
 --
 -- Limiti per la tabella `Evento`
 --
 ALTER TABLE `Evento`
-  ADD CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`Menu`) REFERENCES `Menu` (`Nome_Menu`),
-  ADD CONSTRAINT `evento_ibfk_2` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+  ADD CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
 
 --
 -- Limiti per la tabella `Footer`
@@ -719,13 +721,6 @@ ALTER TABLE `Logo`
   ADD CONSTRAINT `logo_ibfk_1` FOREIGN KEY (`Logo`) REFERENCES `Immagine` (`Link`);
 
 --
--- Limiti per la tabella `Menu`
---
-ALTER TABLE `Menu`
-  ADD CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`Piatto`) REFERENCES `Piatto` (`Nome_Piatto`),
-  ADD CONSTRAINT `menu_ibfk_2` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
-
---
 -- Limiti per la tabella `Piatto`
 --
 ALTER TABLE `Piatto`
@@ -747,7 +742,7 @@ ALTER TABLE `Recensione`
 -- Limiti per la tabella `Rist_Pizz`
 --
 ALTER TABLE `Rist_Pizz`
-  ADD CONSTRAINT `rist_pizz_ibfk_1` FOREIGN KEY (`Menu`) REFERENCES `Menu` (`Nome_Menu`);
+  ADD CONSTRAINT `rist_pizz_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
 
 --
 -- Limiti per la tabella `Servizio`
