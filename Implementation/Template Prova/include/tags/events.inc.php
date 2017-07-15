@@ -100,7 +100,21 @@ function getimage($name, $data, $pars) {
 					//$menu->setContent("entry", $data['entry']);
 				}
             
-            $oid = mysql_query("SELECT * FROM tdw.Evento");
+            $oid = mysql_query("SELECT * FROM tdw.Evento WHERE ID_Evento=0");
+			if (!$oid) {
+				trigger_error("Menu error");
+			}
+			
+				$data = mysql_fetch_array($oid);
+				
+				if ($data) {
+					$all->setContent("TitoloP",$data['Nome']);
+                    $all->setContent("DescrizioneP",$data['Descrizione']);
+				}
+			
+            
+            
+            $oid = mysql_query("SELECT * FROM tdw.Evento WHERE ID_Evento<>0");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
@@ -109,9 +123,10 @@ function getimage($name, $data, $pars) {
 				$data = mysql_fetch_array($oid);
 				
 				if ($data) {
-					$all->setContent($data);
-					//$menu->setContent("link", $data['link']);
-					//$menu->setContent("entry", $data['entry']);
+					$all->setContent("Data",$data['Data']);
+					$all->setContent("Titolo",$data['Nome']);
+                    $all->setContent("Img",$data['Img']);
+                    $all->setContent("Descrizione",$data['Descrizione']);
 				}
 			} while ($data);
             
