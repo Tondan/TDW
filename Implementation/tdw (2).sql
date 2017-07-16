@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 15, 2017 alle 20:37
+-- Creato il: Lug 16, 2017 alle 11:34
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -50,16 +50,20 @@ INSERT INTO `Caffetteria` (`ID_Caffetteria`, `Descrizione`, `Img`, `Titolo`) VAL
 
 CREATE TABLE IF NOT EXISTS `Contatti` (
   `ID_Contatti` int(11) NOT NULL,
-  `Descrizione` text,
-  `Indirizzo_Az` varchar(30) DEFAULT NULL,
-  `Tel_Az` varchar(16) DEFAULT NULL,
-  `E_Mail_Az` varchar(30) DEFAULT NULL,
-  `Dscrizione` text,
-  `E_Mail_Cl` varchar(30) DEFAULT NULL,
-  `Nome_Cl` varchar(20) DEFAULT NULL,
-  `Oggetto_Msg` varchar(20) DEFAULT NULL,
-  `Messaggio` text
+  `Titolo` varchar(50) NOT NULL,
+  `Indirizzo` varchar(100) NOT NULL,
+  `Tel` varchar(20) NOT NULL,
+  `Fax` varchar(20) DEFAULT NULL,
+  `Email` varchar(30) NOT NULL,
+  `Descrizione` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Contatti`
+--
+
+INSERT INTO `Contatti` (`ID_Contatti`, `Titolo`, `Indirizzo`, `Tel`, `Fax`, `Email`, `Descrizione`) VALUES
+(1, 'WE''D LOVE TO HEAR FROM YOU', '49 Chigwell Road - South Woodford, London E18 1NG - United Kingdom', '(020) 8989 3831', '(020) 8989 38 32', 'info@flycoffee.uk', 'WE ARE OPEN FOR YOU');
 
 -- --------------------------------------------------------
 
@@ -99,19 +103,6 @@ CREATE TABLE IF NOT EXISTS `FAQ` (
   `ID_FAQ` int(11) NOT NULL,
   `Domanda` varchar(50) NOT NULL,
   `Risposta` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `Footer`
---
-
-CREATE TABLE IF NOT EXISTS `Footer` (
-  `ID_Footer` int(11) NOT NULL,
-  `Orario` varchar(10) DEFAULT NULL,
-  `Nome_Az` varchar(20) DEFAULT NULL,
-  `P_IVA` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -320,14 +311,49 @@ INSERT INTO `Logo` (`Logo`, `Path`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `Messaggi`
+--
+
+CREATE TABLE IF NOT EXISTS `Messaggi` (
+  `ID_Messaggio` int(11) NOT NULL,
+  `Nome` varchar(20) NOT NULL,
+  `Cognome` varchar(20) NOT NULL,
+  `Phone` varchar(20) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Message` text NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Messaggi`
+--
+
+INSERT INTO `Messaggi` (`ID_Messaggio`, `Nome`, `Cognome`, `Phone`, `Email`, `Message`) VALUES
+(1, 'Gatto', '', '5522545655', 'mfkdsfk@mmfkl.dkkd', ', vflermjwogfrnwgkljr mnglr moklirÃ²jsg\n');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `Orario`
 --
 
 CREATE TABLE IF NOT EXISTS `Orario` (
+  `ID_Giorno` int(3) NOT NULL,
   `Giorno` varchar(10) NOT NULL,
-  `Orario` time DEFAULT NULL,
-  `Chiuso` varchar(20) DEFAULT NULL
+  `Orario` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Orario`
+--
+
+INSERT INTO `Orario` (`ID_Giorno`, `Giorno`, `Orario`) VALUES
+(1, 'Lunedi', '7:30 - 15:30 / 18:00 - 01:00'),
+(2, 'Martedi', '7:30 - 15:30 / 18:00 - 01:00'),
+(3, 'Mercoledi', 'Chiuso'),
+(4, 'Giovedi', '7:30 - 15:30 / 18:00 - 01:00'),
+(5, 'Venerdi', '7:30 - 15:30 / 18:00 - 01:00'),
+(6, 'Sabato', '7:30 - 15:30 / 18:00 - 01:00'),
+(7, 'Domenica', '9:30 - 15:30 / 18:00 - 01:00');
 
 -- --------------------------------------------------------
 
@@ -543,13 +569,6 @@ ALTER TABLE `FAQ`
   ADD PRIMARY KEY (`ID_FAQ`);
 
 --
--- Indici per le tabelle `Footer`
---
-ALTER TABLE `Footer`
-  ADD PRIMARY KEY (`ID_Footer`),
-  ADD KEY `Orario` (`Orario`);
-
---
 -- Indici per le tabelle `Gallery`
 --
 ALTER TABLE `Gallery`
@@ -591,10 +610,16 @@ ALTER TABLE `Logo`
   ADD PRIMARY KEY (`Logo`);
 
 --
+-- Indici per le tabelle `Messaggi`
+--
+ALTER TABLE `Messaggi`
+  ADD PRIMARY KEY (`ID_Messaggio`);
+
+--
 -- Indici per le tabelle `Orario`
 --
 ALTER TABLE `Orario`
-  ADD PRIMARY KEY (`Giorno`);
+  ADD PRIMARY KEY (`ID_Giorno`);
 
 --
 -- Indici per le tabelle `Piatto`
@@ -667,6 +692,11 @@ ALTER TABLE `Utente`
 ALTER TABLE `Gruppo`
   MODIFY `ID_Gruppo` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT per la tabella `Messaggi`
+--
+ALTER TABLE `Messaggi`
+  MODIFY `ID_Messaggio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT per la tabella `Prenotazione`
 --
 ALTER TABLE `Prenotazione`
@@ -696,12 +726,6 @@ ALTER TABLE `Caffetteria`
 --
 ALTER TABLE `Evento`
   ADD CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
-
---
--- Limiti per la tabella `Footer`
---
-ALTER TABLE `Footer`
-  ADD CONSTRAINT `footer_ibfk_1` FOREIGN KEY (`Orario`) REFERENCES `Orario` (`Giorno`);
 
 --
 -- Limiti per la tabella `Gallery`
