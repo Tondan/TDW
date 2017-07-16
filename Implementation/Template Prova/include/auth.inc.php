@@ -14,7 +14,7 @@
               
                
                  
-                    $db->query("SELECT * FROM users WHERE username = '{$_POST['username']}' AND password = MD5('{$_POST['password']}')"); 
+                    $db->query("SELECT * FROM tdw.users WHERE username = '{$_POST['username']}' AND password1 = MD5('{$_POST['password']}')"); 
                   
                     if (!$db->isError()) { 
                           

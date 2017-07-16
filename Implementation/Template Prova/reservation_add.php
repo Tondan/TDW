@@ -27,7 +27,7 @@ if($oid){
 	header("location: pren_effettuata.php");
 } 
 else{
-    header("location: pren_effettuata.php");
+    header("location: pren_fallita.php");
 }
 
     
