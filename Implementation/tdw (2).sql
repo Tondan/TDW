@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 16, 2017 alle 11:34
+-- Creato il: Lug 16, 2017 alle 13:09
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -223,6 +223,7 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/carote.jpg', 1),
 ('Img/cheers.jpg', 1),
 ('Img/cheftony.jpg', 1),
+('Img/contact.jpg', 1),
 ('Img/desserts/1.jpg', 1),
 ('Img/desserts/2.jpg', 0),
 ('Img/desserts/3.jpg', 0),

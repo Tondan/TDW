@@ -15,7 +15,7 @@
 				$pars['parent'] = $data;
 			}
 			
-            $oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/contact.jpg");
+            $oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/contact.jpg'");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
