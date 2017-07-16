@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 16, 2017 alle 13:52
+-- Creato il: Lug 16, 2017 alle 14:26
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -141,12 +141,23 @@ INSERT INTO `Gallery` (`ID_Gallery`, `Img`, `Categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Gruppo`
+-- Struttura della tabella `groups`
 --
 
-CREATE TABLE IF NOT EXISTS `Gruppo` (
-  `ID_Gruppo` int(11) NOT NULL,
-  `Utente` int(11) DEFAULT NULL
+CREATE TABLE IF NOT EXISTS `groups` (
+  `id` int(10) unsigned NOT NULL,
+  `name1` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `groupservices`
+--
+
+CREATE TABLE IF NOT EXISTS `groupservices` (
+  `id_group` int(10) unsigned NOT NULL,
+  `id_service` int(10) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -169,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `Header` (
 INSERT INTO `Header` (`ID_Header`, `Nome`, `Link`, `Posizione`) VALUES
 (1, 'Home', 'home.php', 'Sx'),
 (2, 'Storia', 'story.php', 'Sx'),
-(3, 'Ristorante/Pizzeria', 'rist_pizz.php', 'Sx'),
+(3, 'Ristorante', 'rist_pizz.php', 'Sx'),
 (4, 'Caffetteria', 'caffetteria.php', 'Sx'),
 (5, 'Prenotazione', 'reservation.php', 'Dx'),
 (6, 'Eventi', 'events.php', 'Dx'),
@@ -317,8 +328,8 @@ INSERT INTO `Logo` (`Logo`, `Path`) VALUES
 
 CREATE TABLE IF NOT EXISTS `Messaggi` (
   `ID_Messaggio` int(11) NOT NULL,
-  `Nome` varchar(20) NOT NULL,
-  `Cognome` varchar(20) NOT NULL,
+  `Nome` text NOT NULL,
+  `Cognome` text NOT NULL,
   `Phone` varchar(20) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Message` text NOT NULL
@@ -329,7 +340,7 @@ CREATE TABLE IF NOT EXISTS `Messaggi` (
 --
 
 INSERT INTO `Messaggi` (`ID_Messaggio`, `Nome`, `Cognome`, `Phone`, `Email`, `Message`) VALUES
-(1, 'Gatto', '', '5522545655', 'mfkdsfk@mmfkl.dkkd', ', vflermjwogfrnwgkljr mnglr moklirÃ²jsg\n');
+(1, 'Gatto', 'Sul Tubo', '5522545655', 'mfkdsfk@mmfkl.dkkd', ', vflermjwogfrnwgkljr mnglr moklirÃ²jsg\n');
 
 -- --------------------------------------------------------
 
@@ -473,13 +484,14 @@ INSERT INTO `Rist_Pizz` (`ID_Rist_Pizz`, `Titolo`, `Descrizione`, `Img`, `Catego
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Servizio`
+-- Struttura della tabella `services`
 --
 
-CREATE TABLE IF NOT EXISTS `Servizio` (
-  `ID_Servizio` int(11) NOT NULL,
-  `Gruppo` int(11) DEFAULT NULL,
-  `Tipo_Servizio` varchar(20) NOT NULL
+CREATE TABLE IF NOT EXISTS `services` (
+  `id` int(10) unsigned NOT NULL,
+  `script` varchar(255) NOT NULL,
+  `name1` varchar(100) DEFAULT NULL,
+  `description` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -529,14 +541,26 @@ INSERT INTO `Storia` (`ID_Storia`, `Titolo`, `Descrizione`, `Img`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Utente`
+-- Struttura della tabella `users`
 --
 
-CREATE TABLE IF NOT EXISTS `Utente` (
-  `ID_Utente` int(11) NOT NULL,
-  `Nome_Utente` varchar(20) NOT NULL,
-  `Password` varchar(20) NOT NULL,
-  `Tipo_Utente` varchar(20) NOT NULL
+CREATE TABLE IF NOT EXISTS `users` (
+  `username` varchar(30) NOT NULL,
+  `password1` varchar(32) NOT NULL,
+  `name1` varchar(100) DEFAULT NULL,
+  `surname` varchar(100) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `users_groups`
+--
+
+CREATE TABLE IF NOT EXISTS `users_groups` (
+  `username` varchar(30) NOT NULL,
+  `id_group` int(10) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -577,11 +601,18 @@ ALTER TABLE `Gallery`
   ADD KEY `Img` (`Img`);
 
 --
--- Indici per le tabelle `Gruppo`
+-- Indici per le tabelle `groups`
 --
-ALTER TABLE `Gruppo`
-  ADD PRIMARY KEY (`ID_Gruppo`),
-  ADD KEY `Utente` (`Utente`);
+ALTER TABLE `groups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `groupservices`
+--
+ALTER TABLE `groupservices`
+  ADD PRIMARY KEY (`id_group`,`id_service`),
+  ADD KEY `id_group` (`id_group`),
+  ADD KEY `id_service` (`id_service`);
 
 --
 -- Indici per le tabelle `Header`
@@ -657,11 +688,10 @@ ALTER TABLE `Rist_Pizz`
   ADD KEY `Img` (`Img`);
 
 --
--- Indici per le tabelle `Servizio`
+-- Indici per le tabelle `services`
 --
-ALTER TABLE `Servizio`
-  ADD PRIMARY KEY (`ID_Servizio`),
-  ADD KEY `Gruppo` (`Gruppo`);
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indici per le tabelle `Slider`
@@ -678,20 +708,23 @@ ALTER TABLE `Storia`
   ADD KEY `Img` (`Img`);
 
 --
--- Indici per le tabelle `Utente`
+-- Indici per le tabelle `users`
 --
-ALTER TABLE `Utente`
-  ADD PRIMARY KEY (`ID_Utente`);
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indici per le tabelle `users_groups`
+--
+ALTER TABLE `users_groups`
+  ADD PRIMARY KEY (`username`,`id_group`),
+  ADD KEY `username` (`username`),
+  ADD KEY `id_group` (`id_group`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
 --
 
---
--- AUTO_INCREMENT per la tabella `Gruppo`
---
-ALTER TABLE `Gruppo`
-  MODIFY `ID_Gruppo` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT per la tabella `Messaggi`
 --
@@ -702,16 +735,6 @@ ALTER TABLE `Messaggi`
 --
 ALTER TABLE `Prenotazione`
   MODIFY `ID_Prenotazione` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
---
--- AUTO_INCREMENT per la tabella `Servizio`
---
-ALTER TABLE `Servizio`
-  MODIFY `ID_Servizio` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT per la tabella `Utente`
---
-ALTER TABLE `Utente`
-  MODIFY `ID_Utente` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Limiti per le tabelle scaricate
 --
@@ -735,10 +758,11 @@ ALTER TABLE `Gallery`
   ADD CONSTRAINT `gallery_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
 
 --
--- Limiti per la tabella `Gruppo`
+-- Limiti per la tabella `groupservices`
 --
-ALTER TABLE `Gruppo`
-  ADD CONSTRAINT `gruppo_ibfk_1` FOREIGN KEY (`Utente`) REFERENCES `Utente` (`ID_Utente`);
+ALTER TABLE `groupservices`
+  ADD CONSTRAINT `groupservices_ibfk_1` FOREIGN KEY (`id_group`) REFERENCES `groups` (`id`),
+  ADD CONSTRAINT `groupservices_ibfk_2` FOREIGN KEY (`id_service`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `Home`
@@ -778,12 +802,6 @@ ALTER TABLE `Rist_Pizz`
   ADD CONSTRAINT `rist_pizz_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
 
 --
--- Limiti per la tabella `Servizio`
---
-ALTER TABLE `Servizio`
-  ADD CONSTRAINT `servizio_ibfk_1` FOREIGN KEY (`Gruppo`) REFERENCES `Gruppo` (`ID_Gruppo`);
-
---
 -- Limiti per la tabella `Slider`
 --
 ALTER TABLE `Slider`
@@ -794,6 +812,13 @@ ALTER TABLE `Slider`
 --
 ALTER TABLE `Storia`
   ADD CONSTRAINT `storia_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+
+--
+-- Limiti per la tabella `users_groups`
+--
+ALTER TABLE `users_groups`
+  ADD CONSTRAINT `users_groups_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`),
+  ADD CONSTRAINT `users_groups_ibfk_2` FOREIGN KEY (`id_group`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
