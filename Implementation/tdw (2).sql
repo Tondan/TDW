@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 16, 2017 alle 14:26
+-- Creato il: Lug 16, 2017 alle 15:24
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -101,9 +101,18 @@ INSERT INTO `Evento` (`ID_Evento`, `Data`, `Nome`, `Descrizione`, `Img`) VALUES
 
 CREATE TABLE IF NOT EXISTS `FAQ` (
   `ID_FAQ` int(11) NOT NULL,
-  `Domanda` varchar(50) NOT NULL,
+  `Domanda` text NOT NULL,
   `Risposta` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `FAQ`
+--
+
+INSERT INTO `FAQ` (`ID_FAQ`, `Domanda`, `Risposta`) VALUES
+(1, 'Siete attrezzati per preparare piatti senza glutine?', 'Si, nella nostra cucina abbiamo un locale apposito dedicato alla preparazione dei piatti senza glutine. Ovviamente anche la pizza!'),
+(2, 'Fate pizza da asporto?', 'Si, ma ve va venite a prendere!'),
+(3, 'Ci sono accessi per persone disabili?', 'Si, il nostro locale è privo di barriere architettoniche. Siano preparati per qualsiasi evenienza!');
 
 -- --------------------------------------------------------
 
@@ -148,6 +157,13 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(10) unsigned NOT NULL,
   `name1` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `groups`
+--
+
+INSERT INTO `groups` (`id`, `name1`) VALUES
+(1, 'adminer');
 
 -- --------------------------------------------------------
 
@@ -251,6 +267,7 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/drinks/7.jpg', 0),
 ('Img/evento.jpg', 1),
 ('Img/eventospecial.jpg', 1),
+('Img/faq.jpg', 1),
 ('Img/FILE-BLOG-2.jpg', 0),
 ('Img/food/1.jpg', 1),
 ('Img/food/2.jpg', 0),
@@ -551,6 +568,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `surname` varchar(100) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `users`
+--
+
+INSERT INTO `users` (`username`, `password1`, `name1`, `surname`, `email`) VALUES
+('admin', 'admin', NULL, NULL, NULL),
+('root', 'root', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
