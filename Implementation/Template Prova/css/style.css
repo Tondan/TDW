@@ -1,5 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic&subset=latin,latin-ext,cyrillic);
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic&subset=latin,latin-ext);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=latin-ext');
 /*
   Theme Name: FlyCoffee
   Theme URI: http://html.flytemplates.com/flycoffee/
@@ -205,16 +206,17 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: subpixel-antialiased;
 }
-@font-face {
+
+@font-face{
   font-family: 'flyicon';
   src: url('../fonts/flyicon.eot?-xsv1uf');
   src: url('../fonts/flyicon.eot?#iefix-xsv1uf') format('embedded-opentype'), url('../fonts/flyicon.woff?-xsv1uf') format('woff'), url('../fonts/flyicon.ttf?-xsv1uf') format('truetype'), url('../fonts/flyicon.svg?-xsv1uf#flyicon') format('svg');
+      }
+ [class^="flyicon-"],
+ [class*=" flyicon-"] {
+  font-family: 'flyicon';
   font-weight: normal;
   font-style: normal;
-}
-[class^="flyicon-"],
-[class*=" flyicon-"] {
-  font-family: 'flyicon';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -225,6 +227,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .flyicon-cutlery:before {
   content: "\e60a";
 }
@@ -271,7 +274,7 @@ html {
 /*         General Styles            */
 /*-----------------------------------*/
 body {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: 1.8em;
   font-weight: 300;
@@ -537,7 +540,7 @@ h6 a:hover {
   color: #333333;
 }
 a {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: #e8e6bd;
 }
 a:hover {
@@ -713,7 +716,7 @@ p {
   top: -34px;
 }
 .fly-header-site .fly-site-navigation {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 12px;
 }
 .fly-header-site .fly-site-navigation .fly-nav-menu {
@@ -1134,7 +1137,7 @@ textarea:focus {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: #333333;
@@ -1312,10 +1315,10 @@ textarea:focus {
   font-family: 'Lato', sans-serif;
   font-size: 50.358px;
   line-height: 75.03342px;
-  letter-spacing: 8px;
+  letter-spacing: 7px;
 }
 .fly-slider-full .item .fly-wrap-text-slider .fly-slider-title-after {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: 25px;
   font-weight: bold;
@@ -1520,7 +1523,7 @@ textarea:focus {
   color: #ffffff;
 }
 .fly-wrap-slider-special-offers .fly-slider-special-offers .fly-offers-slider-control .fly-slider-control-wrap-title .fly-slider-control-title-before {
-  font-family: 'Playfair Display', serif;
+  font-family: 'open sans', sans-serif;
   font-size: 14px;
   font-weight: bold;
   position: relative;
@@ -1834,7 +1837,7 @@ textarea:focus {
 .fly-story-box .fly-info-box-header .fly-info-box-before-title,
 .fly-home-gallery .fly-home-gallery-col .fly-home-gallery-block-title .fly-home-gallery-before-title,
 .fly-section-image .fly-section-image-title-before {
-  font-family: 'Playfair Display', serif;
+  font-family: 'open sans', sans-serif;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 35px;
@@ -2234,7 +2237,7 @@ textarea:focus {
 }
 .fly-dish-menu .fly-dish-menu-content li .fly-dish-menu-description span {
   font-size: 14px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'open sans', sans-serif;
   color: #333333;
 }
 .fly-dish-menu .fly-dish-menu-content li .fly-dish-menu-price {
@@ -2479,7 +2482,7 @@ textarea:focus {
 .fly-wrap-reservation-form .fly-contact-form .fly-reservation-title,
 .fly-wrap-contact-form .fly-reservation-form .fly-reservation-title,
 .fly-wrap-reservation-form .fly-reservation-form .fly-reservation-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'open sans', sans-serif;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: normal;
@@ -3924,7 +3927,7 @@ textarea:focus {
 .widget_categories ul li a,
 .widget_recent_post ul li a {
   color: #333333;
-  font-family: 'Playfair Display', serif;
+  font-family: 'open sans', sans-serif;
 }
 .widget_categories ul li a:hover,
 .widget_recent_post ul li a:hover {
@@ -3950,7 +3953,7 @@ textarea:focus {
 /*         Widget Tag Cloud          */
 /*-----------------------------------*/
 .widget_tag_cloud .tagcloud a {
-  font-family: 'Playfair Display', serif;
+  font-family: 'open sans', sans-serif;
   line-height: 10.22px;
   color: #333333;
   border: 2px solid #666666;
@@ -3975,7 +3978,7 @@ textarea:focus {
   color: #333333;
 }
 .widget_recent_comments ul li a {
-  font-family: 'Playfair Display', serif;
+  font-family: 'open sans', sans-serif;
 }
 .widget_recent_comments ul li a:hover {
   color: #e8e6bd;
@@ -3997,7 +4000,7 @@ textarea:focus {
   margin: 0;
 }
 .widget_archive ul li a {
-  font-family: 'Playfair Display', serif;
+  font-family: 'open sans', sans-serif;
   color: #333333;
 }
 .widget_archive ul li a:hover {
@@ -4010,7 +4013,7 @@ textarea:focus {
   padding: 10px 0;
 }
 .widget_meta ul li a {
-  font-family: 'Playfair Display', serif;
+  font-family: 'open sans', sans-serif;
   color: #333333;
 }
 .widget_meta ul li a:hover {
@@ -4031,7 +4034,7 @@ textarea:focus {
 }
 .widget_calendar #calendar_wrap #wp-calendar {
   text-align: center;
-  font-family: 'Playfair Display', serif;
+  font-family: 'open sans', sans-serif;
   font-weight: 400;
   font-style: normal;
   border: none;
