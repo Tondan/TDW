@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 16, 2017 alle 15:24
+-- Creato il: Lug 16, 2017 alle 19:20
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -113,6 +113,26 @@ INSERT INTO `FAQ` (`ID_FAQ`, `Domanda`, `Risposta`) VALUES
 (1, 'Siete attrezzati per preparare piatti senza glutine?', 'Si, nella nostra cucina abbiamo un locale apposito dedicato alla preparazione dei piatti senza glutine. Ovviamente anche la pizza!'),
 (2, 'Fate pizza da asporto?', 'Si, ma ve va venite a prendere!'),
 (3, 'Ci sono accessi per persone disabili?', 'Si, il nostro locale è privo di barriere architettoniche. Siano preparati per qualsiasi evenienza!');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `Footer`
+--
+
+CREATE TABLE IF NOT EXISTS `Footer` (
+  `ID_Foot` int(11) NOT NULL,
+  `Titoletto` varchar(50) DEFAULT NULL,
+  `Indirizzo` varchar(100) DEFAULT NULL,
+  `Tel` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Footer`
+--
+
+INSERT INTO `Footer` (`ID_Foot`, `Titoletto`, `Indirizzo`, `Tel`) VALUES
+(1, 'bar, bistro & restaurant', '41126 Oxford Road - england', '44 023 642 124');
 
 -- --------------------------------------------------------
 
@@ -304,6 +324,7 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/LGallery/Prosciutto.jpg', 1),
 ('Img/Loghi/bestlogo.png', 1),
 ('Img/Loghi/logopiccolo.ico', 1),
+('Img/misenati24.jpg', 1),
 ('Img/natale.jpg', 1),
 ('Img/pasqua.jpg', 1),
 ('Img/pizza bella.jpg', 1),
@@ -558,6 +579,17 @@ INSERT INTO `Storia` (`ID_Storia`, `Titolo`, `Descrizione`, `Img`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `usergroups`
+--
+
+CREATE TABLE IF NOT EXISTS `usergroups` (
+  `username` varchar(30) NOT NULL,
+  `id_group` int(10) unsigned NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `users`
 --
 
@@ -575,18 +607,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`username`, `password1`, `name1`, `surname`, `email`) VALUES
 ('admin', 'admin', NULL, NULL, NULL),
-('root', 'root', NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `users_groups`
---
-
-CREATE TABLE IF NOT EXISTS `users_groups` (
-  `username` varchar(30) NOT NULL,
-  `id_group` int(10) unsigned NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+('root', '63a9f0ea7bb98050796b649e85481845', NULL, NULL, NULL);
 
 --
 -- Indici per le tabelle scaricate
@@ -617,6 +638,12 @@ ALTER TABLE `Evento`
 --
 ALTER TABLE `FAQ`
   ADD PRIMARY KEY (`ID_FAQ`);
+
+--
+-- Indici per le tabelle `Footer`
+--
+ALTER TABLE `Footer`
+  ADD PRIMARY KEY (`ID_Foot`);
 
 --
 -- Indici per le tabelle `Gallery`
@@ -733,18 +760,18 @@ ALTER TABLE `Storia`
   ADD KEY `Img` (`Img`);
 
 --
+-- Indici per le tabelle `usergroups`
+--
+ALTER TABLE `usergroups`
+  ADD PRIMARY KEY (`username`,`id_group`),
+  ADD KEY `username` (`username`),
+  ADD KEY `id_group` (`id_group`);
+
+--
 -- Indici per le tabelle `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`username`);
-
---
--- Indici per le tabelle `users_groups`
---
-ALTER TABLE `users_groups`
-  ADD PRIMARY KEY (`username`,`id_group`),
-  ADD KEY `username` (`username`),
-  ADD KEY `id_group` (`id_group`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
@@ -839,11 +866,11 @@ ALTER TABLE `Storia`
   ADD CONSTRAINT `storia_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
 
 --
--- Limiti per la tabella `users_groups`
+-- Limiti per la tabella `usergroups`
 --
-ALTER TABLE `users_groups`
-  ADD CONSTRAINT `users_groups_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`),
-  ADD CONSTRAINT `users_groups_ibfk_2` FOREIGN KEY (`id_group`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `usergroups`
+  ADD CONSTRAINT `usergroups_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`),
+  ADD CONSTRAINT `usergroups_ibfk_2` FOREIGN KEY (`id_group`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
