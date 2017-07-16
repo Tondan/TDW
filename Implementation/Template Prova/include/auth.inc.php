@@ -6,18 +6,19 @@
      
             global $db, $data; 
               
-            if (isset($_SESSION['auth'])) { 
-                 
+           if (isset($_SESSION['auth'])) {
                 /* user already authenticated */ 
                  
-            } else { 
+          } else { 
                 
                 
                      
                     $db->query("SELECT * FROM tdw.users WHERE username ='{$_POST['username']}' AND password1 = MD5('{$_POST['password']}')"); 
                    
                 
-                    if (!$db->isError()) { 
+                
+                
+                    if (!$db->isError()){ 
                           
                         if ($db->getNumRows() == 1) { 
                             $data = $db->getResult(); 
@@ -56,7 +57,7 @@
                         } 
                      
          
-                } else { 
+                } else {                       
                     Header("Location: error.php?error=system"); 
                     exit; 
                 } 
@@ -70,7 +71,7 @@
              *       
              */ 
              
-             
+        
             if (!isset($_SESSION['auth']['service'][basename($_SERVER['SCRIPT_NAME'])])) { 
                 Header("Location: error.php?error=permission"); 
                 exit; 
