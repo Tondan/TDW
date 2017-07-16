@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 16, 2017 alle 19:20
+-- Creato il: Lug 16, 2017 alle 21:17
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -175,14 +175,14 @@ INSERT INTO `Gallery` (`ID_Gallery`, `Img`, `Categoria`) VALUES
 
 CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(10) unsigned NOT NULL,
-  `name1` varchar(100) NOT NULL
+  `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `groups`
 --
 
-INSERT INTO `groups` (`id`, `name1`) VALUES
+INSERT INTO `groups` (`id`, `name`) VALUES
 (1, 'adminer');
 
 -- --------------------------------------------------------
@@ -192,9 +192,17 @@ INSERT INTO `groups` (`id`, `name1`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `groupservices` (
-  `id_group` int(10) unsigned NOT NULL,
-  `id_service` int(10) unsigned NOT NULL
+  `script` varchar(255) NOT NULL,
+  `id` int(10) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `groupservices`
+--
+
+INSERT INTO `groupservices` (`script`, `id`) VALUES
+('admin.php', 1),
+('dashboard.php', 1);
 
 -- --------------------------------------------------------
 
@@ -371,14 +379,35 @@ CREATE TABLE IF NOT EXISTS `Messaggi` (
   `Phone` varchar(20) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Message` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `Messaggi`
 --
 
 INSERT INTO `Messaggi` (`ID_Messaggio`, `Nome`, `Cognome`, `Phone`, `Email`, `Message`) VALUES
-(1, 'Gatto', 'Sul Tubo', '5522545655', 'mfkdsfk@mmfkl.dkkd', ', vflermjwogfrnwgkljr mnglr moklirÃ²jsg\n');
+(1, 'Gatto', 'Sul Tubo', '5522545655', 'mfkdsfk@mmfkl.dkkd', ', vflermjwogfrnwgkljr mnglr moklirÃ²jsg\n'),
+(2, 'fdfdf', '', '554125', 'fgmkdf@dggdf.df', 'gdegdlfgdÃ²f\n');
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `Newsletter`
+--
+
+CREATE TABLE IF NOT EXISTS `Newsletter` (
+  `ID_Mail` int(11) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Data` date DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Newsletter`
+--
+
+INSERT INTO `Newsletter` (`ID_Mail`, `Email`, `Data`) VALUES
+(1, '', '2017-07-16'),
+(2, '', '2017-07-16');
 
 -- --------------------------------------------------------
 
@@ -445,7 +474,7 @@ CREATE TABLE IF NOT EXISTS `Prenotazione` (
   `Tel` varchar(15) DEFAULT NULL,
   `Email` varchar(50) NOT NULL,
   `Notice` text
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `Prenotazione`
@@ -453,7 +482,10 @@ CREATE TABLE IF NOT EXISTS `Prenotazione` (
 
 INSERT INTO `Prenotazione` (`ID_Prenotazione`, `Data`, `Persone`, `Time`, `Nome_Cl`, `Tel`, `Email`, `Notice`) VALUES
 (25, '2017-07-12', 10, '20:00:00', 'Gatto', '88554411255', 'gatto@mask.vom', 'Mi Raccomando!'),
-(26, '2017-12-18', 150, '06:00:00', 'Hawkeye', '0255514222556', 'hawkeye@fjjjfol.stronzo', 'siamo tantissimi');
+(26, '2017-12-18', 150, '06:00:00', 'Hawkeye', '0255514222556', 'hawkeye@fjjjfol.stronzo', 'siamo tantissimi'),
+(27, '2017-12-18', 10, '15:00:00', 'Vddjo', '55212154', 'dffdff@fmdm.fd', 'jdsjkjkdfd'),
+(28, '2018-12-22', 20, '20:00:00', 'Ciao', '55225', 'vhjhjjd@dfjdjk.iy', 'jjdjdjoovv'),
+(29, '2017-11-15', 25, '20:00:00', 'Bestuia', '554447711', 'vhhdsdd@dsj.dd', 'dfdfdgdfvg');
 
 -- --------------------------------------------------------
 
@@ -528,9 +560,18 @@ INSERT INTO `Rist_Pizz` (`ID_Rist_Pizz`, `Titolo`, `Descrizione`, `Img`, `Catego
 CREATE TABLE IF NOT EXISTS `services` (
   `id` int(10) unsigned NOT NULL,
   `script` varchar(255) NOT NULL,
-  `name1` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
   `description` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `services`
+--
+
+INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
+(1, 'admin.php', 'script dashboard admin', NULL),
+(2, 'dashboard.php', NULL, NULL),
+(3, 'home.php\r\n', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -587,6 +628,13 @@ CREATE TABLE IF NOT EXISTS `usergroups` (
   `id_group` int(10) unsigned NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `usergroups`
+--
+
+INSERT INTO `usergroups` (`username`, `id_group`) VALUES
+('admin', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -595,8 +643,8 @@ CREATE TABLE IF NOT EXISTS `usergroups` (
 
 CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(30) NOT NULL,
-  `password1` varchar(32) NOT NULL,
-  `name1` varchar(100) DEFAULT NULL,
+  `password` varchar(32) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
   `surname` varchar(100) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -605,8 +653,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dump dei dati per la tabella `users`
 --
 
-INSERT INTO `users` (`username`, `password1`, `name1`, `surname`, `email`) VALUES
-('admin', 'admin', NULL, NULL, NULL),
+INSERT INTO `users` (`username`, `password`, `name`, `surname`, `email`) VALUES
+('admin', '21232f297a57a5a743894a0e4a801fc3', NULL, NULL, NULL),
 ('root', '63a9f0ea7bb98050796b649e85481845', NULL, NULL, NULL);
 
 --
@@ -662,9 +710,8 @@ ALTER TABLE `groups`
 -- Indici per le tabelle `groupservices`
 --
 ALTER TABLE `groupservices`
-  ADD PRIMARY KEY (`id_group`,`id_service`),
-  ADD KEY `id_group` (`id_group`),
-  ADD KEY `id_service` (`id_service`);
+  ADD PRIMARY KEY (`script`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indici per le tabelle `Header`
@@ -698,6 +745,12 @@ ALTER TABLE `Logo`
 --
 ALTER TABLE `Messaggi`
   ADD PRIMARY KEY (`ID_Messaggio`);
+
+--
+-- Indici per le tabelle `Newsletter`
+--
+ALTER TABLE `Newsletter`
+  ADD PRIMARY KEY (`ID_Mail`);
 
 --
 -- Indici per le tabelle `Orario`
@@ -743,7 +796,7 @@ ALTER TABLE `Rist_Pizz`
 -- Indici per le tabelle `services`
 --
 ALTER TABLE `services`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`script`);
 
 --
 -- Indici per le tabelle `Slider`
@@ -781,12 +834,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `Messaggi`
 --
 ALTER TABLE `Messaggi`
-  MODIFY `ID_Messaggio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `ID_Messaggio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT per la tabella `Newsletter`
+--
+ALTER TABLE `Newsletter`
+  MODIFY `ID_Mail` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT per la tabella `Prenotazione`
 --
 ALTER TABLE `Prenotazione`
-  MODIFY `ID_Prenotazione` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `ID_Prenotazione` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- Limiti per le tabelle scaricate
 --
@@ -813,8 +871,8 @@ ALTER TABLE `Gallery`
 -- Limiti per la tabella `groupservices`
 --
 ALTER TABLE `groupservices`
-  ADD CONSTRAINT `groupservices_ibfk_1` FOREIGN KEY (`id_group`) REFERENCES `groups` (`id`),
-  ADD CONSTRAINT `groupservices_ibfk_2` FOREIGN KEY (`id_service`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `groupservices_ibfk_1` FOREIGN KEY (`script`) REFERENCES `services` (`script`),
+  ADD CONSTRAINT `groupservices_ibfk_2` FOREIGN KEY (`id`) REFERENCES `groups` (`id`);
 
 --
 -- Limiti per la tabella `Home`
