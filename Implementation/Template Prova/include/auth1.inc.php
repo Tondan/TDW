@@ -25,7 +25,7 @@
 	if (!isset($_SESSION['user'])) {
 	
 	
-		$oid = mysql_query("SELECT * FROM tdw.users WHERE username = '{$_POST['username']}'AND password1 = MD5('{$_POST['password']}')");
+		$oid = mysql_query("SELECT * FROM tdw.users WHERE username='{$_POST['username']}'AND password = MD5('{$_POST['password']}')");
 		
 		if (!$oid) {
 			echo "Error_query";
@@ -41,26 +41,25 @@
 		$_SESSION['user'] = $data;
 	
 		$oid = mysql_query("
-				SELECT groups_services.script
-				FROM users
-			 LEFT JOIN users_groups
-			 ON users.username = users_groups.username
-			 LEFT JOIN groups
-			 ON users_groups.id_group = groups.id
-			 LEFT JOIN groups_services
-			 ON groups_services.id_group = groups.id
-			 LEFT JOIN services
-			 ON services.script = groups_services.script
-			 WHERE groups_services.script IS NOT NULL
-			 AND users.username = '{$_POST['username']}'
-			 AND users.password = md5('{$_POST['password']}')
+				SELECT tdw.groupservices.script
+				FROM tdw.users
+			 LEFT JOIN tdw.usergroups
+			 ON tdw.users.username = tdw.usergroups.username
+			 LEFT JOIN tdw.groups
+			 ON tdw.usergroups.id_group = tdw.groups.id
+			 LEFT JOIN tdw.groupservices
+			 ON tdw.groupservices.id = tdw.groups.id
+			 LEFT JOIN tdw.services
+			 ON tdw.services.script = groupservices.script
+			 WHERE tdw.groupservices.script IS NOT NULL
+			 AND tdw.users.username = '{$_POST['username']}'
+			 AND tdw.users.password = md5('{$_POST['password']}')
 			 ");
-		
+        
 		if (!$oid) {
-			echo "Error";
+			echo "Error_query2";
 			exit;
-		}
-		
+        }
 		do {
 			$data = mysql_fetch_assoc($oid);
 			if ($data) {
@@ -74,7 +73,7 @@
 	
 	if (!isset($_SESSION['user']['permission'][basename($_SERVER['SCRIPT_NAME'])])) {
 		print_r($_SERVER['SCRIPT_NAME']);
-		echo "Warning: non sei autorizzato";
+		echo "Warning: non sei autorizzato a visualizzare questa pagina";
 		exit;
 	} 
 	
