@@ -166,6 +166,24 @@
                 $home->setContent("Descrizione2",$data['Descrizione']);
                 $home->setContent("Img2",$data['Img']);
             }
+            
+            
+            $oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/misenati24.jpg'");
+			if (!$oid) {
+				trigger_error("Menu error");
+			}
+			
+			do {
+				$data = mysql_fetch_array($oid);
+				
+				if ($data) {
+					$home->setContent("ImgGrande",$data['Link']);
+					//$menu->setContent("link", $data['link']);
+					//$menu->setContent("entry", $data['entry']);
+				}
+			} while ($data);
+            
+            
             return $home->get();
         
             

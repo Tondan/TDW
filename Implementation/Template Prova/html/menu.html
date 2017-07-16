@@ -149,7 +149,7 @@
         
         <!--End Section Go To Top-->
         <!-- Section quick nav -->
-        <section class="fly-quick-nav">
+  <!--      <section class="fly-quick-nav">
             <div class="container-fluid">
                 <div class="row">
                     <div class="fly-quick-nav-item col-sm-6" style="background-image: url('images/Quick-Menu/bg-1.jpg')">
@@ -169,48 +169,36 @@
         </section>
         <!-- End Section quick nav -->
         <!--Reservation Form in HomePage -->
-        <section class="fly-wrap-home-reservation-form fly-wrap-reservation-form fly-form-light-style container-min" style="background-image: url(images/Reservation/reservation-bg.jpg)">
-            <div class="container">
-                <div class="fly-divider-space space-sm"></div>
-                <div class="row">
-                    <i class="fly-form-icon-title flyicon-calendar"></i>
-                    <h4 class="fly-reservation-form-before-info-title">TELL US</h4>
-                    <h2 class="fly-reservation-form-info-title">WHEN YOU WANT TO VISIT US</h2>
-                    <div class="fly-reservation-form-title-divider"></div>
-                    <div class="fly-reservation-form-info-block">
-                        <p class="fly-reservation-info">
-                            Fill in here to reserve a table
-                        </p>
-                    </div>
+        <[getres::getreservation template="little_res_img" library="reservation"]>
                     <!--Contact Form-->
                     <div class="fly-reservation-form">
-                        <form action="send-reservation.php" class="fly-form-reservation" method="post">
+                        <form action="reservation_add.php" class="fly-form-reservation" method="post">
                             <!-- Col Left-->
                             <div class="fly-form-col-left">
                                 <div class="fly-form-inner-col-left">
                                     <div class="field-text">
-                                        <input type="text" name="date" id="reservation-date" placeholder="Date">
+                                        <input type="text" name="date" id="reservation-date" placeholder="Year-Month-Day">
                                     </div>
                                 </div>
                                 <div class="fly-form-inner-col-right">
                                     <div class="field-text">
-                                        <input type="text" name="persone" id="persone" placeholder="Pers">
+                                        <input type="text" name="persone" id="persone" placeholder="Numero Persone">
                                     </div>
                                 </div>
                                 <div class="field-text">
-                                    <input type="text" name="phone" id="phone" placeholder="Phone">
+                                    <input type="text" name="phone" id="phone" placeholder="Telefono">
                                 </div>
                             </div>
                             <!--Col Right-->
                             <div class="fly-form-col-right">
                                 <div class="fly-form-inner-col-left">
                                     <div class="field-text">
-                                        <input type="text" name="time" id="reservation-time" placeholder="Time">
+                                        <input type="text" name="time" id="reservation-time" placeholder="--:--">
                                     </div>
                                 </div>
                                 <div class="fly-form-inner-col-right">
                                     <div class="field-text">
-                                        <input type="text" name="name" id="name" placeholder="Name">
+                                        <input type="text" name="name" id="name" placeholder="Nome">
                                     </div>
                                 </div>
                                 <div class="field-text">
@@ -218,7 +206,7 @@
                                 </div>
                             </div>
                             <div class="field-text">
-                                <textarea name="notice" id="notice" placeholder="Notice"></textarea>
+                                <textarea name="notice" id="notice" placeholder="Note"></textarea>
                             </div>
                             <div class="field-submit">
                                 <input type="submit" value="Book!">
