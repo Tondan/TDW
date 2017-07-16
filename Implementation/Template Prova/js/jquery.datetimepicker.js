@@ -434,11 +434,11 @@
             }
 		},
 		value: '',
-		lang: 'en',
+		lang: 'it',
 
-		format:	'Y/m/d H:i',
+		format:	'dd/mm/YYYY H:i',
 		formatTime:	'H:i',
-		formatDate:	'Y/m/d',
+		formatDate:	'dd/mm/YYYY',
 
 		startDate:	false, // new Date(), '1986/12/08', '-1970/01/05','-1970/01/05',
 		step: 60,

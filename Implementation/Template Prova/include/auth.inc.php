@@ -11,11 +11,12 @@
                 /* user already authenticated */ 
                  
             } else { 
-              
-               
-                 
-                    $db->query("SELECT * FROM tdw.users WHERE username = '{$_POST['username']}' AND password1 = MD5('{$_POST['password']}')"); 
-                  
+                
+                
+                     
+                    $db->query("SELECT * FROM tdw.users WHERE username ='{$_POST['username']}' AND password1 = MD5('{$_POST['password']}')"); 
+                   
+                
                     if (!$db->isError()) { 
                           
                         if ($db->getNumRows() == 1) { 
