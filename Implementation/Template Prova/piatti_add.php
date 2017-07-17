@@ -12,26 +12,25 @@ $tipo_file = $_FILES["file_inviato"]["type"];*/
 $nome          = $_POST['nome'];
 $descrizione   = $_POST['descrizione'];
 $ingredienti   = $_POST['ingredienti'];
-$prezzo         =$_POST['prezzo'];
-$orario_pasto  = $_POST['tipo'];
-$presentazione = $_POST['presentazione'];
-$piattodelgiorno = $_POST['piattodelgiorno'];
+$prezzo        =$_POST['prezzo'];
+$tipo_piatto   =$_POST['pasto']; 
 
 
-echo $nome,"<br>\n";
+
+/*echo $nome,"<br>\n";
 echo $descrizione,"<br>\n";
 echo $ingredienti,"<br>\n";
 echo $prezzo,"<br>\n";
 echo $orario_pasto,"<br>\n";
 echo $presentazione,"<br>\n";
-echo $piattodelgiorno,"<br>\n";
+echo $piattodelgiorno,"<br>\n";*/
 
 /*
 if(file_exists($nome_file_temporaneo)){
 	$percorso="skins/images/piatti/".$nome_file;
 	move_uploaded_file($nome_file_temporaneo,$percorso);*/
 
-$oid = mysql_query(" INSERT INTO  tdw.piatto (Nome_piatto, Descrizione, Ingredienti, Prezzo) VALUES ('$nome',  '$descrizione',  '$ingredienti', '$prezzo');");
+$oid = mysql_query(" INSERT INTO  tdw.piatto (Nome_piatto, Descrizione, Ingredienti, Prezzo,tipo_piatto) VALUES ('$nome',  '$descrizione',  '$ingredienti', '$prezzo', '$tipo_piatto');");
     //}
 /*
 else{
