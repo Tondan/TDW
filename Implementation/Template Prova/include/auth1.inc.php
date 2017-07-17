@@ -60,20 +60,27 @@
 			echo "Error_query2";
 			exit;
         }
-		do {
+        
+        
+        
+		do { 
 			$data = mysql_fetch_assoc($oid);
 			if ($data) {
 				$script[$data['script']] = $data;
             }
 		} while ($data);
+        
+        
 		
 		$_SESSION['user']['permission'] = $script;
-	
+	    
 	}
 	
 	if (!isset($_SESSION['user']['permission'][basename($_SERVER['SCRIPT_NAME'])])) {
 		print_r($_SERVER['SCRIPT_NAME']);
         echo var_dump($_SESSION);
+        echo var_dump ($_SERVER);
+       
 		echo "Warning: non sei autorizzato a visualizzare questa pagina";
 		exit;
 	} 
