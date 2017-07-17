@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 require ("include/dbms.inc.php");
 require ("include/system.inc.php");

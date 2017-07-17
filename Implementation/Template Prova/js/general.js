@@ -102,6 +102,15 @@ jQuery(document).ready(function() {
         });
         return false;
     });
+    
+    
+
+    
+    
+    
+    
+    
+    
 
     // send reservation data with ajax
     jQuery('.fly-form-reservation').on("submit", function(){
