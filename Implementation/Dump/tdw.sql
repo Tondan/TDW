@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 17, 2017 alle 13:15
+-- Creato il: Lug 17, 2017 alle 15:52
 -- Versione del server: 5.7.14
 -- Versione PHP: 5.6.25
 
@@ -203,7 +203,10 @@ CREATE TABLE `groupservices` (
 INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('admin.php', 1),
 ('dashboard.php', 1),
-('piatti_manager.php', 1);
+('piatti_add.php', 1),
+('piatti_delete.php', 1),
+('piatti_manager.php', 1),
+('piatti_update.php', 1);
 
 -- --------------------------------------------------------
 
@@ -388,7 +391,8 @@ CREATE TABLE `messaggi` (
 
 INSERT INTO `messaggi` (`ID_Messaggio`, `Nome`, `Cognome`, `Phone`, `Email`, `Message`) VALUES
 (1, 'Gatto', 'Sul Tubo', '5522545655', 'mfkdsfk@mmfkl.dkkd', ', vflermjwogfrnwgkljr mnglr moklirÃ²jsg\n'),
-(2, 'fdfdf', '', '554125', 'fgmkdf@dggdf.df', 'gdegdlfgdÃ²f\n');
+(2, 'fdfdf', '', '554125', 'fgmkdf@dggdf.df', 'gdegdlfgdÃ²f\n'),
+(3, '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -410,7 +414,11 @@ INSERT INTO `newsletter` (`ID_Mail`, `Email`, `Data`) VALUES
 (1, '', 0x323031372d30372d3136),
 (2, '', 0x323031372d30372d3136),
 (3, '', 0x323031372d30372d3136),
-(4, 'aaa@a.it', 0x323031372d30372d3136);
+(4, 'aaa@a.it', 0x323031372d30372d3136),
+(5, '', 0x323031372d30372d3137),
+(6, '', 0x323031372d30372d3137),
+(7, 'super.game@hotmail.it', 0x323031372d30372d3137),
+(8, 'super.game@hotmail.it', 0x323031372d30372d3137);
 
 -- --------------------------------------------------------
 
@@ -575,8 +583,10 @@ CREATE TABLE `services` (
 INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (1, 'admin.php', 'script dashboard admin', NULL),
 (2, 'dashboard.php', NULL, NULL),
-(3, 'home.php\r\n', NULL, NULL),
-(4, 'piatti_manager.php', NULL, NULL);
+(6, 'piatti_add.php', NULL, NULL),
+(6, 'piatti_delete.php', NULL, NULL),
+(4, 'piatti_manager.php', NULL, NULL),
+(5, 'piatti_update.php', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -638,7 +648,8 @@ CREATE TABLE `usergroups` (
 --
 
 INSERT INTO `usergroups` (`username`, `id_group`) VALUES
-('admin', 1);
+('admin', 1),
+('root', 1);
 
 -- --------------------------------------------------------
 
@@ -839,12 +850,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `messaggi`
 --
 ALTER TABLE `messaggi`
-  MODIFY `ID_Messaggio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Messaggio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT per la tabella `newsletter`
 --
 ALTER TABLE `newsletter`
-  MODIFY `ID_Mail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_Mail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT per la tabella `prenotazione`
 --
