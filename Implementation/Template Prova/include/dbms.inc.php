@@ -48,7 +48,7 @@
          
         function query($query) {
              
-            $this->handle = mysql_query($this->link, $query);
+            $this->handle = mysql_query($query,$this->link);
              
             if (!$this->handle) {
                 $this->status = ERROR;
@@ -81,6 +81,14 @@
             return $result;
              
         }
+        
+        
+        
+        function getNumRows(){
+            return mysql_num_rows($this->handle);
+        }
+        
+        
          
     }
 
