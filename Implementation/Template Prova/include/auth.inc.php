@@ -13,7 +13,7 @@
                 
                 
                      
-                    $db->query("SELECT * FROM tdw.users WHERE username ='{$_POST['username']}' AND password1 = MD5('{$_POST['password']}')"); 
+                    $db->query("SELECT * FROM tdw.users WHERE username ='{$_POST['username']}' AND password = MD5('{$_POST['password']}')"); 
                    
                 
                 
@@ -73,7 +73,9 @@
              
         
             if (!isset($_SESSION['auth']['service'][basename($_SERVER['SCRIPT_NAME'])])) { 
-                Header("Location: error.php?error=permission"); 
+                //Header("Location: error.php?error=permission");
+                print_r($_SERVER['SCRIPT_NAME']);
+        echo var_dump($_SESSION);
                 exit; 
             } 
              
