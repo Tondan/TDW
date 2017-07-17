@@ -29,18 +29,7 @@ echo $piattodelgiorno,"<br>\n";
 if(file_exists($nome_file_temporaneo)){
     $percorso="skins/images/piatti/".$nome_file;
     move_uploaded_file($nome_file_temporaneo,$percorso);*/
-	$oid = mysql_query(" 
-         UPDATE  tdw.piatto SET  
-                 `Nome_Piatto` =  '$nome',
-                 `Descrizione` =  '$descrizione',
-                 `Ingredienti` =  '$ingredienti',
-                 `Prezzo` =  '$prezzo',
-                 `image_filename`= '$percorso',
-                 `orario_pasto` =  '$orario_pasto',
-                 `flag_presentazione` =  '$presentazione',
-                 `flag_del_giorno` =  '$piattodelgiorno' 
-                 WHERE  `piatti`.`ID` ='$id';
-   ");
+	$oid = mysql_query(" UPDATE  tdw.piatto SET  Nome_Piatto =  '$nome', Descrizione =  '$descrizione', Ingredienti = '$ingredienti', Prezzo =  '$prezzo' WHERE Nome_Piatto ='$nome';");
 // }
 /*
 else{
