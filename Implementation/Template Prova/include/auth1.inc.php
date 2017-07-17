@@ -41,20 +41,20 @@
 		$_SESSION['user'] = $data;
 	
 		$oid = mysql_query("
-				SELECT tdw.groupservices.script
-				FROM tdw.users
-			 LEFT JOIN tdw.usergroups
-			 ON tdw.users.username = tdw.usergroups.username
-			 LEFT JOIN tdw.groups
-			 ON tdw.usergroups.id_group = tdw.groups.id
-			 LEFT JOIN tdw.groupservices
-			 ON tdw.groupservices.id = tdw.groups.id
-			 LEFT JOIN tdw.services
-			 ON tdw.services.script = groupservices.script
-			 WHERE tdw.groupservices.script IS NOT NULL
-			 AND tdw.users.username = '{$_POST['username']}'
-			 AND tdw.users.password = md5('{$_POST['password']}')
-			 ");
+            SELECT tdw.groupservices.script
+            FROM tdw.users
+            LEFT JOIN tdw.usergroups
+            ON tdw.users.username = tdw.usergroups.username
+            LEFT JOIN tdw.groups
+            ON tdw.usergroups.id_group = tdw.groups.id
+            LEFT JOIN tdw.groupservices
+            ON tdw.groupservices.id = tdw.groups.id
+            LEFT JOIN tdw.services
+            ON tdw.services.script = groupservices.script
+            WHERE tdw.groupservices.script IS NOT NULL
+            AND tdw.users.username = '{$_POST['username']}'
+            AND tdw.users.password = md5('{$_POST['password']}')
+            ");
         
 		if (!$oid) {
 			echo "Error_query2";
@@ -64,7 +64,7 @@
 			$data = mysql_fetch_assoc($oid);
 			if ($data) {
 				$script[$data['script']] = $data;
-			}
+            }
 		} while ($data);
 		
 		$_SESSION['user']['permission'] = $script;
@@ -73,6 +73,7 @@
 	
 	if (!isset($_SESSION['user']['permission'][basename($_SERVER['SCRIPT_NAME'])])) {
 		print_r($_SERVER['SCRIPT_NAME']);
+        echo var_dump($_SESSION);
 		echo "Warning: non sei autorizzato a visualizzare questa pagina";
 		exit;
 	} 
