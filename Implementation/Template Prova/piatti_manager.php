@@ -9,7 +9,7 @@ require "include/auth1.inc.php";
 
 
     
-    $main = new Template("html/index.html");
+    $main = new Template("html/indexin.html");
     $body = new Template("html/piatti_manager.html");
 
      
