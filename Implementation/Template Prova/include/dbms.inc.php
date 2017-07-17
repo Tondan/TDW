@@ -83,7 +83,8 @@
         }
          
     }
-
+    
     $db = new DBMS("localhost", "tdw", "tdw", "tdw");
     $db->connect();
+    mysql_query("set names 'utf8'"); 
 ?>
