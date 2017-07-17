@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Lug 17, 2017 alle 15:52
+-- Creato il: Lug 17, 2017 alle 20:50
 -- Versione del server: 5.7.14
 -- Versione PHP: 5.6.25
 
@@ -202,9 +202,7 @@ CREATE TABLE `groupservices` (
 
 INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('admin.php', 1),
-('dashboard.php', 1),
 ('piatti_add.php', 1),
-('piatti_delete.php', 1),
 ('piatti_manager.php', 1),
 ('piatti_update.php', 1);
 
@@ -465,7 +463,9 @@ CREATE TABLE `piatto` (
 --
 
 INSERT INTO `piatto` (`Nome_Piatto`, `Descrizione`, `Ingredienti`, `Prezzo`, `Img`, `tipo_piatto`) VALUES
+('AA', 'AA', 'SCEMO CHI LEGGE', 2.00, NULL, NULL),
 ('boh', 'boh', 'aaaaaaaaaa', 2.50, NULL, NULL),
+('DDDD', 'boh', 'Cacca, caciocavallo, letame', 12.90, NULL, NULL),
 ('funghi trifolati', 'eh..sono funghi trifolati', 'funghi ehm ehm', 12.90, NULL, 'primo'),
 ('panna cotta', 'panna cottissima (alla vaniglia)', 'gelatine in foglie, panna, zucchero, vaniglia', 3.20, 'Img/desserts/3.jpg', 'dessert'),
 ('Pizza Bella', 'Sei tu la più bellaaaa', 'Cacca, caciocavallo, letame', 250.00, 'Img/pizza bella.jpg', 'pizza'),
@@ -584,7 +584,7 @@ INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (1, 'admin.php', 'script dashboard admin', NULL),
 (2, 'dashboard.php', NULL, NULL),
 (6, 'piatti_add.php', NULL, NULL),
-(6, 'piatti_delete.php', NULL, NULL),
+(3, 'piatti_delete.php', NULL, NULL),
 (4, 'piatti_manager.php', NULL, NULL),
 (5, 'piatti_update.php', NULL, NULL);
 
@@ -606,7 +606,7 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`ID_Slider`, `Img`, `SliderTitle`, `SliderText`) VALUES
-(1, 'Img/2-1.jpg', 'Aperitivi a Volonta\'', 'Cocktail preparati sul momento e cibi sfiziosi rendono i nostri aperitivi un\'ottima scelta\r\n'),
+(1, 'Img/2-1.jpg', 'Aperitivi a Volontà', 'Cocktail preparati sul momento e cibi sfiziosi rendono i nostri aperitivi un\'ottima scelta\r\n'),
 (2, 'Img/FILE-BLOG-2.jpg', 'Aperitivi in Compagnia', 'Chi non canta in compagnia e\' un ladro o una spia!');
 
 -- --------------------------------------------------------
@@ -812,7 +812,8 @@ ALTER TABLE `rist_pizz`
 -- Indici per le tabelle `services`
 --
 ALTER TABLE `services`
-  ADD PRIMARY KEY (`script`);
+  ADD PRIMARY KEY (`script`),
+  ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indici per le tabelle `slider`
