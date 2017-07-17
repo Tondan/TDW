@@ -1,0 +1,71 @@
+<section class="accordion">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="accordion-box">
+
+                    <[foreach]>
+                        <div class="accordion-slide">
+                            <div class="title"><[Nome_Piatto]>
+                                <div class="icon fa">
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                            
+                                <form enctype="multipart/form-data" action="piatti_update.php" method="POST">
+                                	<input type="hidden" name="key" value="<[ID_Piatto]>" />
+				                	<div>
+                                        <label class="border" for="nome">nome</label>
+                                        <input class="mandatory" type="text" name="nome" id="nome" value="<[Nome_Piatto]>" errormessage="Pippo!"/>
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="descrizione">descrizione</label>
+                                        <input class="mandatory" type="text" name="descrizione" id="descrizione" value="<[Descrizione]>" errormessage="Pippo!"/>
+                                    </div>
+                                        
+                                    <div>
+                                        <label class="border" for="ingredienti">ingredienti</label>
+                                        <input class="mandatory" type="text" name="ingredienti" id="ingredienti" value="<[Ingredienti]>" errormessage="Pippo!"/>
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="prezzo">prezzo</label>
+                                        <input class="mandatory" type="text" name="prezzo" id="prezzo" value="<[Prezzo]>"errormessage="Pippo!"/>
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="immagine">immagine</label>
+                                        <img class="left" src="<[Img]>"  height="100" width="100" >
+                                        <input type="file" name="file_inviato" id="immagine">
+                                    </div>
+
+                                    <div>
+                                        <label class="border" for="pasto">pasto</label>
+                                        <select class="selectpicker" name="pasto" id="pasto">
+                                            <option value="<[tipo_piatto]>" selected="selected"><[tipo_piatto]></option>
+                                            <option value="antipasto" > antipasto </option>
+                                            <option value="primo" > primo </option>
+                                            <option value="secondo" > secondo </option>
+                                        </select>
+                                    </div> 
+
+
+				                	<div class="btn-box2">
+                                        <label class="border"></label>
+                                        <input type="submit" class="commonbtn style13 small" id="submit" value="Aggiorna" />
+                                        <a href="piatti_delete.php?key=<[ID]>"> 
+                                            <div  class="commonbtn style13 small" >Elimina</div>
+                                        </a>
+                                    </div>
+                                   
+				                </form>
+                            </div>
+                        </div>
+                    <[/foreach]>	
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
