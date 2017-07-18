@@ -1,13 +1,19 @@
-<!--<section class="news">  
-<div class="container">
+<section class="accordion">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-6">-->
-                
+            <div class="col-sm-6">
+                <div class="accordion-box">
+
                     <[foreach]>
-                         <button class="accordion"><[Nome_Piatto]></button> 
-                             
-                                <div class="panel"> 
-                                 <form enctype="multipart/form-data" action="piatti_update.php" method="POST">
+                        <div class="accordion-slide">
+                            <div class="title"><[Nome_Piatto]>
+                                <div class="icon fa">
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                
+                                
+                                <form enctype="multipart/form-data" action="piatti_update.php" method="POST">
                                 	<input type="hidden" name="key" value="<[Nome_Piatto]>"/>
 				                	<div>
                                         <label class="border" for="nome">nome</label>
@@ -34,6 +40,12 @@
                                         <img class="left" src="<[Img]>"  height="100" width="100" >
                                         <input class="mandatory" type="text" name="img" id="img" value="<[Img]>"errormessage="Pippo!"/>
                                     </div>
+                                    
+                                   <!-- <div>
+                                        <label class="border" for="immagine">immagine</label>
+                                        <img class="left" src="<[Img]>"  height="100" width="100" >
+                                        <input type="file" name="file_inviato" id="immagine">
+                                    </div>-->
 
                                     <div>
                                         <label class="border" for="pasto">pasto</label>
