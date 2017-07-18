@@ -13,7 +13,7 @@ $nome          = mysql_real_escape_string($_POST['nome']);
 $descrizione   = mysql_real_escape_string($_POST['descrizione']);
 $ingredienti   = mysql_real_escape_string($_POST['ingredienti']);
 $prezzo        = mysql_real_escape_string($_POST['prezzo']);
-$tipo_piatto   = mysql_real_escape_string($_POST['pasto']);
+$tipo_piatto   = mysql_real_escape_string($_POST['tipo_piatto']);
 $img           = mysql_real_escape_string($_POST['img']);
 
 

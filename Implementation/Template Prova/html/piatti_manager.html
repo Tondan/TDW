@@ -16,79 +16,124 @@
             <div class="row">
                 <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
 
-                    <div class="col-md-8 rightBar">
-                        <fieldset>
-                            <legend>Piatti: </legend>
-                            <div class="crea">
-                                <h3 id="METTIQUALCOSAQUI">Aggiungi un piatto</h3><br/>
-                                <section id="contact">
-                                    <form enctype="multipart/form-data" action="piatti_add.php" method="POST">
-
-
-                                        <fieldset>
-
-                                            <div>
-                                                <label class="border" for="nome">nome</label>
-                                                <input class="mandatory" type="text" name="nome" id="nome" errormessage="Pippo!" />
-                                            </div>
-                                            <div>
-                                                <label class="border" for="descrizione">descrizione</label>
-                                                <input class="mandatory" type="text" name="descrizione" id="descrizione" errormessage="Pippo!" />
-                                            </div>
-                                            <div>
-                                                <div>
-                                                    <label class="border" for="ingredienti">ingredienti</label>
-                                                    <input class="mandatory" type="text" name="ingredienti" id="ingredienti" errormessage="Pippo!" />
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <label class="border" for="prezzo">prezzo</label>
-                                                <input class="mandatory" type="text" name="prezzo" id="prezzo" errormessage="Pippo!" />
-                                            </div>
-
-                                            <div>
-                                            <label class="border" for="prezzo">immagine</label>
-                                                <input class="mandatory" type="text" name="img" id="img" errormessage="Pippo!"/>
-                                            </div>
-
-
-                                            <div>
-                                                <label class="border" for="pasto">tipo piatto</label>
-                                                <select class="selectpicker" name="pasto" id="pasto">
-                                            <option value="primo" > primo </option>
-                                            <option value="secondo" > secondo </option>
-                                            <option value="contorno" > contorno </option>
-                                            <option value="dessert" > dessert </option>
-                                            <option value="drink" > drink </option>
-                                            <option value="pizza" > pizza </option>
-                                        </select>
-                                            </div>
-
-
-                            </div>
-
-                            </fieldset>
-
-                            <div class="btn-box">
-                                <label class="border"></label>
-                                <input type="submit" class="commonbtn style1 small" id="submit" value="Aggiungi" />
-                            </div>
-                            <div class="clearfix"></div>
-                            </form>
-                            </section>
+                    <div class="container col-sm-8">
+    <div class="accordion" id="searchAccordion">
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseOne">Aggiungi Un Piatto</a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse in">
+          <div class="accordion-inner">
+            <form class="form-inline" action="piatti_add.php">
+              <div class="row-fluid">
+                <div class="span4">
+                  <label>Nome</label> <input class="input-medium" type="text" name="nome" id="nome"/>
+                </div>
+                <div class="span4">
+                  <label>Descrizione</label> <input class="input-medium" type="text" name="descrizione" id="descrizione" />
+                </div>
+                <div class="span4">
+                  <label>Ingredienti</label> <input class="input-medium" type="text" name="ingredienti" id="ingredienti" />
+                </div>
+                <div class="span4">
+                  <label>Prezzo</label> <input class="input-medium" type="text" name="prezzo" id="prezzo" />
+                </div>
+                <div class="span4">
+                  <label>Immagine</label> <input class="input-medium" type="text" name="img" id="img" />
+                </div>
+                <legend>Tipo Piatto</legend>
+                <select name="tipo_piatto" id="tipo_piatto">
+                    <option value="primo">Primo</option>
+                    <option value="secondo">Secondo</option>
+                    <option value="contorno">Contorno</option>
+                    <option value="dessert">Dessert</option>
+                    <option value="drink">Drink</option>
+                    <option value="pizza">Pizza</option>
+                </select>
+              </div>
+              <div class="row-fluid">
+                <div class="span3 offset1">
+                  <label class="checkbox"> <input type="checkbox" />Include
+                    completed?
+                  </label>
+                </div>
+                <div class="span3">
+                  <label class="checkbox"> <input type="checkbox" />Include
+                    cancelled?
+                  </label>
+                </div>
+              </div>
+                <input type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseTwo">Advanced
+            Options</a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline">
+              <div class="row-fluid">
+                <div class="span4">
+                  <label>Address</label> <input class="input-large" type="text" />
+                </div>
+                <div class="span4">
+                  <label>Assessor</label> <input class="input-medium typeahead"
+                    id="taAssessor" type="text" data-provide="typeahead"
+                    autocomplete="off" />
+                </div>
+                <div class="span4">
+                  <label>Client</label> <input class="input-large typeahead"
+                    id="taClient" type="text" data-provide="typeahead"
+                    autocomplete="off" />
+                </div>
+              </div>
+              <div class="row-fluid">
+                <div class="span4">
+                  <label>Status</label> <input class="input-medium typeahead"
+                    id="taStatus" type="text" data-provide="typeahead"
+                    autocomplete="off" />
+                </div>
+                <div class="span4">
+                  <label>Type</label> <input class="input-large typeahead"
+                    id="taType" type="text" data-provide="typeahead"
+                    autocomplete="off" />
+                </div>
+                <div class="span4">
+                  <label>Department</label> <input class="input-medium typeahead"
+                    id="taDepartment" type="text" data-provide="typeahead"
+                    autocomplete="off" />
+                </div>
+              </div>
+              <div class="row-fluid">
+                <div class="span3">
+                  <label>Client Ref</label> <input class="input-small"
+                    type="text" />
+                </div>
+                <div class="span3">
+                  <label>PO Number</label> <input class="input-small" type="text" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+                    
+                    
+                    
+            
+                    
+                    
                     </div>
-                    <div class="btn-box" id="aggiungi">
-                        <a href="#" class="commonbtn style1 small">aggiungi un piatto</a>
-                    </div>
-
-
-                    <[eventi::getmenu template="tabella-piatti" library="tabella_piatti" ]>
-
-
-
-
-            </fieldset>
-                    </div>
+            </div>
+        </section>
         
 
 
