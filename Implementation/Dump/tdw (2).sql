@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 16, 2017 alle 21:17
+-- Creato il: Lug 18, 2017 alle 21:30
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Caffetteria`
+-- Struttura della tabella `caffetteria`
 --
 
-CREATE TABLE IF NOT EXISTS `Caffetteria` (
+CREATE TABLE IF NOT EXISTS `caffetteria` (
   `ID_Caffetteria` int(11) NOT NULL,
   `Descrizione` text,
   `Img` varchar(100) DEFAULT NULL,
@@ -34,10 +34,10 @@ CREATE TABLE IF NOT EXISTS `Caffetteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Caffetteria`
+-- Dump dei dati per la tabella `caffetteria`
 --
 
-INSERT INTO `Caffetteria` (`ID_Caffetteria`, `Descrizione`, `Img`, `Titolo`) VALUES
+INSERT INTO `caffetteria` (`ID_Caffetteria`, `Descrizione`, `Img`, `Titolo`) VALUES
 (1, 'Lasciati trasportare dal gusto inconfondibile del caffe'' Faraglia, l''unico in grado di farti iniziare la giornata nel migliore dei modi!', 'Img/caffe-faraglia.jpg', 'Una Carica Di Espresso!'),
 (2, 'Non lasciarti sfuggire l''occasione! Qui da noi la colazione sara'' un vero piacere! Lasciatevi tentare dal profumo dei nostri cornetti appena sfornati, e dalla vista di un ottimo cappuccino preparato per voi dalla mano esperta dei nostri maestri caffettieri!', 'Img/Gallery/colazione.jpg', 'Fai Colazione Insieme a Noi!'),
 (3, 'Che sia in tarda mattinata o in tardo pomeriggio, un aperitivo in compagnia e'' sempre una gran festa! Venite a provare la vasta gamma di aperitivi e cocktail che e'' in grado di preparare il nostro personale altamente qualificato! Ovviamente il tutto accompagnato da buona musica e cibo genuino!', 'Img/slide-aperitivo.jpg', 'Il Meglio Deve Ancora Arrivare!');
@@ -45,10 +45,10 @@ INSERT INTO `Caffetteria` (`ID_Caffetteria`, `Descrizione`, `Img`, `Titolo`) VAL
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Contatti`
+-- Struttura della tabella `contatti`
 --
 
-CREATE TABLE IF NOT EXISTS `Contatti` (
+CREATE TABLE IF NOT EXISTS `contatti` (
   `ID_Contatti` int(11) NOT NULL,
   `Titolo` varchar(50) NOT NULL,
   `Indirizzo` varchar(100) NOT NULL,
@@ -59,19 +59,19 @@ CREATE TABLE IF NOT EXISTS `Contatti` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Contatti`
+-- Dump dei dati per la tabella `contatti`
 --
 
-INSERT INTO `Contatti` (`ID_Contatti`, `Titolo`, `Indirizzo`, `Tel`, `Fax`, `Email`, `Descrizione`) VALUES
+INSERT INTO `contatti` (`ID_Contatti`, `Titolo`, `Indirizzo`, `Tel`, `Fax`, `Email`, `Descrizione`) VALUES
 (1, 'WE''D LOVE TO HEAR FROM YOU', '49 Chigwell Road - South Woodford, London E18 1NG - United Kingdom', '(020) 8989 3831', '(020) 8989 38 32', 'info@flycoffee.uk', 'WE ARE OPEN FOR YOU');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Evento`
+-- Struttura della tabella `evento`
 --
 
-CREATE TABLE IF NOT EXISTS `Evento` (
+CREATE TABLE IF NOT EXISTS `evento` (
   `ID_Evento` int(11) NOT NULL,
   `Data` date DEFAULT NULL,
   `Nome` varchar(50) DEFAULT NULL,
@@ -80,10 +80,10 @@ CREATE TABLE IF NOT EXISTS `Evento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Evento`
+-- Dump dei dati per la tabella `evento`
 --
 
-INSERT INTO `Evento` (`ID_Evento`, `Data`, `Nome`, `Descrizione`, `Img`) VALUES
+INSERT INTO `evento` (`ID_Evento`, `Data`, `Nome`, `Descrizione`, `Img`) VALUES
 (0, NULL, 'Abbiamo Molto In Serbo Per Voi!', 'Ogni anno organizziamo molti eventi di diversa natura. Che siano per una festivita'', per una giornata importante o anche semplicemente per divertimento, solo una cosa e'' certa: il tutto sara'' accompagnato dalle nostre prelibatezze e dalla buona musica.', NULL),
 (1, '2017-07-28', 'E'' IL MIO COMPLEANNO!', 'Festeggiamo tutti insieme!', 'Img/cheers.jpg'),
 (2, '2017-04-16', 'PASQUA', 'Venite a trovarci a Pasqua! Un menu speciale vi aspetta!', 'Img/pasqua.jpg'),
@@ -96,20 +96,20 @@ INSERT INTO `Evento` (`ID_Evento`, `Data`, `Nome`, `Descrizione`, `Img`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `FAQ`
+-- Struttura della tabella `faq`
 --
 
-CREATE TABLE IF NOT EXISTS `FAQ` (
+CREATE TABLE IF NOT EXISTS `faq` (
   `ID_FAQ` int(11) NOT NULL,
   `Domanda` text NOT NULL,
   `Risposta` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `FAQ`
+-- Dump dei dati per la tabella `faq`
 --
 
-INSERT INTO `FAQ` (`ID_FAQ`, `Domanda`, `Risposta`) VALUES
+INSERT INTO `faq` (`ID_FAQ`, `Domanda`, `Risposta`) VALUES
 (1, 'Siete attrezzati per preparare piatti senza glutine?', 'Si, nella nostra cucina abbiamo un locale apposito dedicato alla preparazione dei piatti senza glutine. Ovviamente anche la pizza!'),
 (2, 'Fate pizza da asporto?', 'Si, ma ve va venite a prendere!'),
 (3, 'Ci sono accessi per persone disabili?', 'Si, il nostro locale è privo di barriere architettoniche. Siano preparati per qualsiasi evenienza!');
@@ -117,10 +117,10 @@ INSERT INTO `FAQ` (`ID_FAQ`, `Domanda`, `Risposta`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Footer`
+-- Struttura della tabella `footer`
 --
 
-CREATE TABLE IF NOT EXISTS `Footer` (
+CREATE TABLE IF NOT EXISTS `footer` (
   `ID_Foot` int(11) NOT NULL,
   `Titoletto` varchar(50) DEFAULT NULL,
   `Indirizzo` varchar(100) DEFAULT NULL,
@@ -128,29 +128,29 @@ CREATE TABLE IF NOT EXISTS `Footer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Footer`
+-- Dump dei dati per la tabella `footer`
 --
 
-INSERT INTO `Footer` (`ID_Foot`, `Titoletto`, `Indirizzo`, `Tel`) VALUES
+INSERT INTO `footer` (`ID_Foot`, `Titoletto`, `Indirizzo`, `Tel`) VALUES
 (1, 'bar, bistro & restaurant', '41126 Oxford Road - england', '44 023 642 124');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Gallery`
+-- Struttura della tabella `gallery`
 --
 
-CREATE TABLE IF NOT EXISTS `Gallery` (
+CREATE TABLE IF NOT EXISTS `gallery` (
   `ID_Gallery` int(11) NOT NULL,
   `Img` varchar(100) DEFAULT NULL,
   `Categoria` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Gallery`
+-- Dump dei dati per la tabella `gallery`
 --
 
-INSERT INTO `Gallery` (`ID_Gallery`, `Img`, `Categoria`) VALUES
+INSERT INTO `gallery` (`ID_Gallery`, `Img`, `Categoria`) VALUES
 (1, 'Img/Gallery/colazione.jpg', 'drinks'),
 (2, 'Img/Gallery/profitteroles.jpg', 'desserts'),
 (3, 'Img/Gallery/pesto.jpg', 'food'),
@@ -202,15 +202,19 @@ CREATE TABLE IF NOT EXISTS `groupservices` (
 
 INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('admin.php', 1),
-('dashboard.php', 1);
+('dashboard.php', 1),
+('piatti_add.php', 1),
+('piatti_delete.php', 1),
+('piatti_manager.php', 1),
+('piatti_update.php', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Header`
+-- Struttura della tabella `header`
 --
 
-CREATE TABLE IF NOT EXISTS `Header` (
+CREATE TABLE IF NOT EXISTS `header` (
   `ID_Header` int(11) NOT NULL,
   `Nome` varchar(20) NOT NULL,
   `Link` varchar(40) NOT NULL,
@@ -218,10 +222,10 @@ CREATE TABLE IF NOT EXISTS `Header` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Header`
+-- Dump dei dati per la tabella `header`
 --
 
-INSERT INTO `Header` (`ID_Header`, `Nome`, `Link`, `Posizione`) VALUES
+INSERT INTO `header` (`ID_Header`, `Nome`, `Link`, `Posizione`) VALUES
 (1, 'Home', 'home.php', 'Sx'),
 (2, 'Storia', 'story.php', 'Sx'),
 (3, 'Ristorante', 'rist_pizz.php', 'Sx'),
@@ -234,10 +238,10 @@ INSERT INTO `Header` (`ID_Header`, `Nome`, `Link`, `Posizione`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Home`
+-- Struttura della tabella `home`
 --
 
-CREATE TABLE IF NOT EXISTS `Home` (
+CREATE TABLE IF NOT EXISTS `home` (
   `ID_Home` int(11) NOT NULL,
   `Titolo` varchar(20) NOT NULL,
   `Descrizione` text,
@@ -246,39 +250,40 @@ CREATE TABLE IF NOT EXISTS `Home` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Home`
+-- Dump dei dati per la tabella `home`
 --
 
-INSERT INTO `Home` (`ID_Home`, `Titolo`, `Descrizione`, `Img`, `Icona`) VALUES
+INSERT INTO `home` (`ID_Home`, `Titolo`, `Descrizione`, `Img`, `Icona`) VALUES
 (1, 'Chi Siamo Noi?', 'Siamo due scemi che giocano a creare un sito internet di un bar/ristorante/pizzeria.\r\n\r\nIl nostro motto e'':\r\n\r\nRISTORIA PIZZORANTE, SE NON CI VIENI SEI IGNORANTE!', 'Img/saro.jpg', 'Img/Loghi/logopiccolo.ico'),
 (2, 'Il Nostro Chef', 'Chef Tony gia'' all''eta'' di 15 anni dimostrava un grande talento nel tagliare le cose, e quando conobbe Edward mani di forbice e Jason di Venerdi'' 13 la sua vita comincio'' ad avere un senso. Infatti Jason lo introdusse nell''arte bellica insegnandoli a tagliare ananas al volo oppure cemento utilizzando un semplice coltello. Un giorno trovo'' un coltello pieno di energia chiamato Miracle Blade e senti'' subito la vocazione "Va'' per il mondo e divulgalo". Da quel giorno la sua vita fu segnata dal Miracle Blade, comincio'' infatti a produrre spot assieme al suo maestro di vita Jason (che in seguito lo lascio'' per dedicarsi al cinema, ma nei film usa ancora i Miracle Blade come ricordo).', 'Img/cheftony.jpg', 'Img/Loghi/logopiccolo.ico');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Immagine`
+-- Struttura della tabella `immagine`
 --
 
-CREATE TABLE IF NOT EXISTS `Immagine` (
+CREATE TABLE IF NOT EXISTS `immagine` (
   `Link` varchar(100) NOT NULL,
   `Attivo` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Immagine`
+-- Dump dei dati per la tabella `immagine`
 --
 
-INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
+INSERT INTO `immagine` (`Link`, `Attivo`) VALUES
 ('Img/2-1.jpg', 0),
-('Img/avatars/avatar-1.jpg', 1),
-('Img/avatars/avatar-2.jpg', 1),
-('Img/avatars/avatar-3.jpg', 1),
-('Img/caffe-faraglia.jpg', 1),
-('Img/caffetteria.jpg', 1),
-('Img/carote.jpg', 1),
-('Img/cheers.jpg', 1),
-('Img/cheftony.jpg', 1),
-('Img/contact.jpg', 1),
+('Img/avatars/avatar-1.jpg', 0),
+('Img/avatars/avatar-2.jpg', 0),
+('Img/avatars/avatar-3.jpg', 0),
+('Img/caffe-faraglia.jpg', 0),
+('Img/caffetteria.jpg', 0),
+('Img/carote.jpg', 0),
+('Img/cazzafà.jpg', 0),
+('Img/cheers.jpg', 0),
+('Img/cheftony.jpg', 0),
+('Img/contact.jpg', 0),
 ('Img/desserts/1.jpg', 1),
 ('Img/desserts/2.jpg', 0),
 ('Img/desserts/3.jpg', 0),
@@ -293,9 +298,9 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/drinks/5.jpg', 0),
 ('Img/drinks/6.jpg', 0),
 ('Img/drinks/7.jpg', 0),
-('Img/evento.jpg', 1),
-('Img/eventospecial.jpg', 1),
-('Img/faq.jpg', 1),
+('Img/evento.jpg', 0),
+('Img/eventospecial.jpg', 0),
+('Img/faq.jpg', 0),
 ('Img/FILE-BLOG-2.jpg', 0),
 ('Img/food/1.jpg', 1),
 ('Img/food/2.jpg', 0),
@@ -304,128 +309,135 @@ INSERT INTO `Immagine` (`Link`, `Attivo`) VALUES
 ('Img/food/5.jpg', 0),
 ('Img/food/6.jpg', 0),
 ('Img/food/7.jpg', 0),
-('Img/gallery.jpg', 1),
-('Img/Gallery/cappuccino.jpg', 1),
-('Img/Gallery/cheesecake.jpg', 1),
-('Img/Gallery/colazione.jpg', 1),
-('Img/Gallery/dolci.jpg', 1),
-('Img/Gallery/drink1.jpg', 1),
-('Img/Gallery/drink2.jpg', 1),
-('Img/Gallery/panna-cotta.jpg', 1),
-('Img/Gallery/pasta.jpg', 1),
-('Img/Gallery/pesto.jpg', 1),
-('Img/Gallery/pizza1.jpg', 1),
-('Img/Gallery/pizza2.jpg', 1),
-('Img/Gallery/profitteroles.jpg', 1),
-('Img/Gallery/tagliata.jpg', 1),
-('Img/Gallery/tappi.jpg', 1),
-('Img/Gallery/tortafrutta.jpg', 1),
-('Img/gunther.jpg', 1),
-('Img/happyhour.jpg', 1),
-('Img/impasto.jpg', 1),
-('Img/labamba.jpg', 1),
-('Img/LGallery/AP1.jpg', 1),
-('Img/LGallery/Ap2.jpg', 1),
-('Img/LGallery/Baba.jpg', 1),
-('Img/LGallery/Cappuccino.jpg', 1),
-('Img/LGallery/Flambe.jpg', 1),
-('Img/LGallery/Prosciutto.jpg', 1),
-('Img/Loghi/bestlogo.png', 1),
-('Img/Loghi/logopiccolo.ico', 1),
-('Img/misenati24.jpg', 1),
-('Img/natale.jpg', 1),
-('Img/pasqua.jpg', 1),
-('Img/pizza bella.jpg', 1),
-('Img/reservation.jpg', 1),
-('Img/ristpizz.jpg', 1),
-('Img/rocco.jpg', 1),
-('Img/saro.jpg', 1),
-('Img/slide-aperitivo.jpg', 1),
-('Img/story.jpg', 1),
-('Img/story1.jpg', 1),
-('Img/story2.jpg', 1),
-('Img/story3.jpg', 1),
-('Img/story4.jpg', 1),
-('Img/tricolore.jpg', 1);
+('Img/gallery.jpg', 0),
+('Img/Gallery/cappuccino.jpg', 0),
+('Img/Gallery/cheesecake.jpg', 0),
+('Img/Gallery/colazione.jpg', 0),
+('Img/Gallery/dolci.jpg', 0),
+('Img/Gallery/drink1.jpg', 0),
+('Img/Gallery/drink2.jpg', 0),
+('Img/Gallery/panna-cotta.jpg', 0),
+('Img/Gallery/pasta.jpg', 0),
+('Img/Gallery/pesto.jpg', 0),
+('Img/Gallery/pizza1.jpg', 0),
+('Img/Gallery/pizza2.jpg', 0),
+('Img/Gallery/profitteroles.jpg', 0),
+('Img/Gallery/tagliata.jpg', 0),
+('Img/Gallery/tappi.jpg', 0),
+('Img/Gallery/tortafrutta.jpg', 0),
+('Img/gunther.jpg', 0),
+('Img/happyhour.jpg', 0),
+('Img/impasto.jpg', 0),
+('Img/labamba.jpg', 0),
+('Img/LGallery/AP1.jpg', 0),
+('Img/LGallery/Ap2.jpg', 0),
+('Img/LGallery/Baba.jpg', 0),
+('Img/LGallery/Cappuccino.jpg', 0),
+('Img/LGallery/Flambe.jpg', 0),
+('Img/LGallery/Prosciutto.jpg', 0),
+('Img/Loghi/bestlogo.png', 0),
+('Img/Loghi/logopiccolo.ico', 0),
+('Img/misenati24.jpg', 0),
+('Img/natale.jpg', 0),
+('Img/pasqua.jpg', 0),
+('Img/pizza bella.jpg', 0),
+('Img/reservation.jpg', 0),
+('Img/ristpizz.jpg', 0),
+('Img/rocco.jpg', 0),
+('Img/saro.jpg', 0),
+('Img/slide-aperitivo.jpg', 0),
+('Img/story.jpg', 0),
+('Img/story1.jpg', 0),
+('Img/story2.jpg', 0),
+('Img/story3.jpg', 0),
+('Img/story4.jpg', 0),
+('Img/tricolore.jpg', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Logo`
+-- Struttura della tabella `logo`
 --
 
-CREATE TABLE IF NOT EXISTS `Logo` (
+CREATE TABLE IF NOT EXISTS `logo` (
   `Logo` varchar(100) NOT NULL,
   `Path` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Logo`
+-- Dump dei dati per la tabella `logo`
 --
 
-INSERT INTO `Logo` (`Logo`, `Path`) VALUES
+INSERT INTO `logo` (`Logo`, `Path`) VALUES
 ('Img/Loghi/bestlogo.png', 'home.php');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Messaggi`
+-- Struttura della tabella `messaggi`
 --
 
-CREATE TABLE IF NOT EXISTS `Messaggi` (
+CREATE TABLE IF NOT EXISTS `messaggi` (
   `ID_Messaggio` int(11) NOT NULL,
   `Nome` text NOT NULL,
   `Cognome` text NOT NULL,
   `Phone` varchar(20) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Message` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Messaggi`
+-- Dump dei dati per la tabella `messaggi`
 --
 
-INSERT INTO `Messaggi` (`ID_Messaggio`, `Nome`, `Cognome`, `Phone`, `Email`, `Message`) VALUES
+INSERT INTO `messaggi` (`ID_Messaggio`, `Nome`, `Cognome`, `Phone`, `Email`, `Message`) VALUES
 (1, 'Gatto', 'Sul Tubo', '5522545655', 'mfkdsfk@mmfkl.dkkd', ', vflermjwogfrnwgkljr mnglr moklirÃ²jsg\n'),
-(2, 'fdfdf', '', '554125', 'fgmkdf@dggdf.df', 'gdegdlfgdÃ²f\n');
+(2, 'fdfdf', '', '554125', 'fgmkdf@dggdf.df', 'gdegdlfgdÃ²f\n'),
+(3, '', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Newsletter`
+-- Struttura della tabella `newsletter`
 --
 
-CREATE TABLE IF NOT EXISTS `Newsletter` (
+CREATE TABLE IF NOT EXISTS `newsletter` (
   `ID_Mail` int(11) NOT NULL,
   `Email` varchar(100) NOT NULL,
   `Data` date DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Newsletter`
+-- Dump dei dati per la tabella `newsletter`
 --
 
-INSERT INTO `Newsletter` (`ID_Mail`, `Email`, `Data`) VALUES
+INSERT INTO `newsletter` (`ID_Mail`, `Email`, `Data`) VALUES
 (1, '', '2017-07-16'),
-(2, '', '2017-07-16');
+(2, '', '2017-07-16'),
+(3, '', '2017-07-16'),
+(4, 'aaa@a.it', '2017-07-16'),
+(5, '', '2017-07-17'),
+(6, '', '2017-07-17'),
+(7, 'super.game@hotmail.it', '2017-07-17'),
+(8, 'super.game@hotmail.it', '2017-07-17');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Orario`
+-- Struttura della tabella `orario`
 --
 
-CREATE TABLE IF NOT EXISTS `Orario` (
+CREATE TABLE IF NOT EXISTS `orario` (
   `ID_Giorno` int(3) NOT NULL,
   `Giorno` varchar(10) NOT NULL,
   `Orario` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Orario`
+-- Dump dei dati per la tabella `orario`
 --
 
-INSERT INTO `Orario` (`ID_Giorno`, `Giorno`, `Orario`) VALUES
+INSERT INTO `orario` (`ID_Giorno`, `Giorno`, `Orario`) VALUES
 (1, 'Lunedi', '7:30 - 15:30 / 18:00 - 01:00'),
 (2, 'Martedi', '7:30 - 15:30 / 18:00 - 01:00'),
 (3, 'Mercoledi', 'Chiuso'),
@@ -437,35 +449,47 @@ INSERT INTO `Orario` (`ID_Giorno`, `Giorno`, `Orario`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Piatto`
+-- Struttura della tabella `piatto`
 --
 
-CREATE TABLE IF NOT EXISTS `Piatto` (
+CREATE TABLE IF NOT EXISTS `piatto` (
   `Nome_Piatto` varchar(20) NOT NULL,
   `Descrizione` text,
   `Ingredienti` varchar(50) NOT NULL,
   `Prezzo` decimal(8,2) NOT NULL,
   `Img` varchar(100) DEFAULT NULL,
-  `tipo_piatto` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `tipo_piatto` varchar(20) DEFAULT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Piatto`
+-- Dump dei dati per la tabella `piatto`
 --
 
-INSERT INTO `Piatto` (`Nome_Piatto`, `Descrizione`, `Ingredienti`, `Prezzo`, `Img`, `tipo_piatto`) VALUES
-('funghi trifolati', 'eh..sono funghi trifolati', 'funghi ehm ehm', '12.69', NULL, 'primo'),
-('panna cotta', 'panna cottissima (alla vaniglia)', 'gelatine in foglie, panna, zucchero, vaniglia', '3.20', 'Img/desserts/3.jpg', 'dessert'),
-('Pizza Bella', 'Sei tu la più bellaaaa', 'Cacca, caciocavallo, letame', '250.00', 'Img/pizza bella.jpg', 'pizza'),
-('Pizza brutta', 'questa l''hai cucinata tu', 'pepperoni suggo', '25.19', 'Img/food/1.jpg', 'primo');
+INSERT INTO `piatto` (`Nome_Piatto`, `Descrizione`, `Ingredienti`, `Prezzo`, `Img`, `tipo_piatto`, `id`) VALUES
+('aura', 'la bamba', 'cannabis', '150.00', NULL, 'primo', 1),
+('aureer', 'ffff', 'gdggfd', '0.00', NULL, '', 2),
+('auretta', 'la bamba', 'cannabis', '250.00', NULL, '', 3),
+('boh', 'boh', 'aaaaaaaaaa', '2.50', NULL, NULL, 4),
+('Cazzafà', 'UltraPowerBeast', 'Cazzinculo', '250000.00', 'Img/cazzafà.jpg', 'dessert', 5),
+('dddsss', 'ffff', 'gggghh', '25.00', NULL, '', 6),
+('dfdff', 'gf', 'sgg', '0.00', NULL, NULL, 7),
+('funghi trifolati', 'eh..sono funghi trifolati', 'funghi ehm ehm', '12.90', NULL, 'primo', 8),
+('ggg', 'alto alto', 'grande gigante gentile', '250000.00', 'Img/cheftony.jpg', 'dessert', 9),
+('gggg', 'fffff', 'gggggg', '25.00', NULL, 'contorno', 10),
+('merda', 'cacarella', 'cacca, letame', '25.00', NULL, NULL, 11),
+('panna cotta', 'panna cottissima (alla vaniglia)', 'gelatine in foglie, panna, zucchero, vaniglia', '3.20', 'Img/desserts/3.jpg', 'dessert', 12),
+('Pizza Bella', 'Sei tu la più bellaaaa', 'Cacca, caciocavallo, letame', '250.00', 'Img/pizza bella.jpg', 'pizza', 13),
+('Pizza brutta', 'questa l''hai cucinata tu', 'pepperoni suggo', '25.19', 'Img/food/1.jpg', 'primo', 14),
+('Roba Bella', 'Bella Roba', 'Roba, Roba, Roba', '10.00', 'Img/cheers.jpg', 'drink', 15);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Prenotazione`
+-- Struttura della tabella `prenotazione`
 --
 
-CREATE TABLE IF NOT EXISTS `Prenotazione` (
+CREATE TABLE IF NOT EXISTS `prenotazione` (
   `ID_Prenotazione` int(11) NOT NULL,
   `Data` date NOT NULL,
   `Persone` int(11) NOT NULL,
@@ -477,10 +501,10 @@ CREATE TABLE IF NOT EXISTS `Prenotazione` (
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Prenotazione`
+-- Dump dei dati per la tabella `prenotazione`
 --
 
-INSERT INTO `Prenotazione` (`ID_Prenotazione`, `Data`, `Persone`, `Time`, `Nome_Cl`, `Tel`, `Email`, `Notice`) VALUES
+INSERT INTO `prenotazione` (`ID_Prenotazione`, `Data`, `Persone`, `Time`, `Nome_Cl`, `Tel`, `Email`, `Notice`) VALUES
 (25, '2017-07-12', 10, '20:00:00', 'Gatto', '88554411255', 'gatto@mask.vom', 'Mi Raccomando!'),
 (26, '2017-12-18', 150, '06:00:00', 'Hawkeye', '0255514222556', 'hawkeye@fjjjfol.stronzo', 'siamo tantissimi'),
 (27, '2017-12-18', 10, '15:00:00', 'Vddjo', '55212154', 'dffdff@fmdm.fd', 'jdsjkjkdfd'),
@@ -490,39 +514,39 @@ INSERT INTO `Prenotazione` (`ID_Prenotazione`, `Data`, `Persone`, `Time`, `Nome_
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Presentazione_Reservation`
+-- Struttura della tabella `presentazione_reservation`
 --
 
-CREATE TABLE IF NOT EXISTS `Presentazione_Reservation` (
+CREATE TABLE IF NOT EXISTS `presentazione_reservation` (
   `Img` varchar(100) DEFAULT NULL,
   `Titolo` varchar(50) NOT NULL,
   `Descrizione` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Presentazione_Reservation`
+-- Dump dei dati per la tabella `presentazione_reservation`
 --
 
-INSERT INTO `Presentazione_Reservation` (`Img`, `Titolo`, `Descrizione`) VALUES
+INSERT INTO `presentazione_reservation` (`Img`, `Titolo`, `Descrizione`) VALUES
 ('Img/reservation.jpg', 'COME AND ENJOY THE HOSPITALITY & FOOD', 'Most of the tables in our restaurants are kept unreserved so we can accommodate\r\nanyone who visits us. You may have to wait, depending on what time of day\r\nyou visit, but we''ll be able to find you a table.');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Recensione`
+-- Struttura della tabella `recensione`
 --
 
-CREATE TABLE IF NOT EXISTS `Recensione` (
+CREATE TABLE IF NOT EXISTS `recensione` (
   `Nome` varchar(20) NOT NULL,
   `Avatar` varchar(100) DEFAULT NULL,
   `Testo` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Recensione`
+-- Dump dei dati per la tabella `recensione`
 --
 
-INSERT INTO `Recensione` (`Nome`, `Avatar`, `Testo`) VALUES
+INSERT INTO `recensione` (`Nome`, `Avatar`, `Testo`) VALUES
 ('Bryan Nylson', 'Img/avatars/avatar-1.jpg', 'When arriving in town, this is one of the first stops for something interesting and amazing to eat. The menu has choices for everyone and it is the kind of place you want to come back to. I love the fish and chips there as well.'),
 ('Lisa Petterson', 'Img/avatars/avatar-3.jpg', 'I just wanted to thank you for providing a great birthday celebration for me. Your staff did an excellent job and the food was superb. Everyone was impressed. I will recommend your expertise to my friends for an event such as this. Thanks again!'),
 ('Thomas Jefferson', 'Img/avatars/avatar-2.jpg', 'I wanted to write to say thank you for an amazing experience and delicious dinner tonight. You made my baby daughter and I feel very welcome! I look forward to coming back. Jenny was so wonderful with my daughter too and had her laughing most of the night. Best regards, Allison');
@@ -530,10 +554,10 @@ INSERT INTO `Recensione` (`Nome`, `Avatar`, `Testo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Rist_Pizz`
+-- Struttura della tabella `rist_pizz`
 --
 
-CREATE TABLE IF NOT EXISTS `Rist_Pizz` (
+CREATE TABLE IF NOT EXISTS `rist_pizz` (
   `ID_Rist_Pizz` int(11) NOT NULL DEFAULT '0',
   `Titolo` varchar(50) DEFAULT NULL,
   `Descrizione` text,
@@ -542,10 +566,10 @@ CREATE TABLE IF NOT EXISTS `Rist_Pizz` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Rist_Pizz`
+-- Dump dei dati per la tabella `rist_pizz`
 --
 
-INSERT INTO `Rist_Pizz` (`ID_Rist_Pizz`, `Titolo`, `Descrizione`, `Img`, `Categoria`) VALUES
+INSERT INTO `rist_pizz` (`ID_Rist_Pizz`, `Titolo`, `Descrizione`, `Img`, `Categoria`) VALUES
 (1, 'Vieni ad assaporare la genuinita''!', 'I nostri chef utilizzano solo ingredienti naturali di primissima qualita'', forniti da persone affidabili e che mettono il cuore nel loro lavoro!', 'Img/carote.jpg', 'ristorante'),
 (2, 'La Cucina', 'I nostri piatti sono ineguagliabili! I nostri chef hanno una fantasia incredibile e creano nuovi piatti sani e genuini ogni giorno, senza però rinunciare a lasciare la clientela senza parole per il sapore squisito!', 'Img/tricolore.jpg', 'ristorante'),
 (3, 'La Nostra Pizza', 'Si, facciamo anche la pizza! Ma, soprattutto, la impastiamo a mano!\r\nLa nostra pizza e'' preparata soltanto con ingredienti naturali, senza additivi ed è cotta nel forno a legna!', 'Img/impasto.jpg', 'pizzeria'),
@@ -571,15 +595,18 @@ CREATE TABLE IF NOT EXISTS `services` (
 INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (1, 'admin.php', 'script dashboard admin', NULL),
 (2, 'dashboard.php', NULL, NULL),
-(3, 'home.php\r\n', NULL, NULL);
+(6, 'piatti_add.php', NULL, NULL),
+(6, 'piatti_delete.php', NULL, NULL),
+(4, 'piatti_manager.php', NULL, NULL),
+(5, 'piatti_update.php', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Slider`
+-- Struttura della tabella `slider`
 --
 
-CREATE TABLE IF NOT EXISTS `Slider` (
+CREATE TABLE IF NOT EXISTS `slider` (
   `ID_Slider` int(11) NOT NULL,
   `Img` varchar(100) DEFAULT NULL,
   `SliderTitle` varchar(30) DEFAULT NULL,
@@ -587,20 +614,20 @@ CREATE TABLE IF NOT EXISTS `Slider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Slider`
+-- Dump dei dati per la tabella `slider`
 --
 
-INSERT INTO `Slider` (`ID_Slider`, `Img`, `SliderTitle`, `SliderText`) VALUES
+INSERT INTO `slider` (`ID_Slider`, `Img`, `SliderTitle`, `SliderText`) VALUES
 (1, 'Img/2-1.jpg', 'Aperitivi a Volonta''', 'Cocktail preparati sul momento e cibi sfiziosi rendono i nostri aperitivi un''ottima scelta\r\n'),
 (2, 'Img/FILE-BLOG-2.jpg', 'Aperitivi in Compagnia', 'Chi non canta in compagnia e'' un ladro o una spia!');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `Storia`
+-- Struttura della tabella `storia`
 --
 
-CREATE TABLE IF NOT EXISTS `Storia` (
+CREATE TABLE IF NOT EXISTS `storia` (
   `ID_Storia` int(11) NOT NULL,
   `Titolo` varchar(30) NOT NULL,
   `Descrizione` text NOT NULL,
@@ -608,10 +635,10 @@ CREATE TABLE IF NOT EXISTS `Storia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `Storia`
+-- Dump dei dati per la tabella `storia`
 --
 
-INSERT INTO `Storia` (`ID_Storia`, `Titolo`, `Descrizione`, `Img`) VALUES
+INSERT INTO `storia` (`ID_Storia`, `Titolo`, `Descrizione`, `Img`) VALUES
 (1, 'E Siamo Noi!', 'Siamo noi, a far casino SEMPRE NOI!', 'Img/story1.jpg'),
 (2, 'Siamo Ancora Noi!', 'E ci risiamo, stessa gente, stesso posto e stesso bar', 'Img/story2.jpg'),
 (3, 'Nobody cares about us', 'Solo te, che sei scemo e hai letto fino a qui XD', 'Img/story3.jpg'),
@@ -633,7 +660,8 @@ CREATE TABLE IF NOT EXISTS `usergroups` (
 --
 
 INSERT INTO `usergroups` (`username`, `id_group`) VALUES
-('admin', 1);
+('admin', 1),
+('root', 1);
 
 -- --------------------------------------------------------
 
@@ -662,41 +690,41 @@ INSERT INTO `users` (`username`, `password`, `name`, `surname`, `email`) VALUES
 --
 
 --
--- Indici per le tabelle `Caffetteria`
+-- Indici per le tabelle `caffetteria`
 --
-ALTER TABLE `Caffetteria`
+ALTER TABLE `caffetteria`
   ADD PRIMARY KEY (`ID_Caffetteria`),
   ADD KEY `Img` (`Img`);
 
 --
--- Indici per le tabelle `Contatti`
+-- Indici per le tabelle `contatti`
 --
-ALTER TABLE `Contatti`
+ALTER TABLE `contatti`
   ADD PRIMARY KEY (`ID_Contatti`);
 
 --
--- Indici per le tabelle `Evento`
+-- Indici per le tabelle `evento`
 --
-ALTER TABLE `Evento`
+ALTER TABLE `evento`
   ADD PRIMARY KEY (`ID_Evento`),
   ADD KEY `Img` (`Img`);
 
 --
--- Indici per le tabelle `FAQ`
+-- Indici per le tabelle `faq`
 --
-ALTER TABLE `FAQ`
+ALTER TABLE `faq`
   ADD PRIMARY KEY (`ID_FAQ`);
 
 --
--- Indici per le tabelle `Footer`
+-- Indici per le tabelle `footer`
 --
-ALTER TABLE `Footer`
+ALTER TABLE `footer`
   ADD PRIMARY KEY (`ID_Foot`);
 
 --
--- Indici per le tabelle `Gallery`
+-- Indici per le tabelle `gallery`
 --
-ALTER TABLE `Gallery`
+ALTER TABLE `gallery`
   ADD PRIMARY KEY (`ID_Gallery`),
   ADD KEY `Img` (`Img`);
 
@@ -714,81 +742,82 @@ ALTER TABLE `groupservices`
   ADD KEY `id` (`id`);
 
 --
--- Indici per le tabelle `Header`
+-- Indici per le tabelle `header`
 --
-ALTER TABLE `Header`
+ALTER TABLE `header`
   ADD PRIMARY KEY (`ID_Header`);
 
 --
--- Indici per le tabelle `Home`
+-- Indici per le tabelle `home`
 --
-ALTER TABLE `Home`
+ALTER TABLE `home`
   ADD PRIMARY KEY (`ID_Home`),
   ADD UNIQUE KEY `Titolo` (`Titolo`),
   ADD KEY `Img` (`Img`),
   ADD KEY `Icona` (`Icona`);
 
 --
--- Indici per le tabelle `Immagine`
+-- Indici per le tabelle `immagine`
 --
-ALTER TABLE `Immagine`
+ALTER TABLE `immagine`
   ADD PRIMARY KEY (`Link`);
 
 --
--- Indici per le tabelle `Logo`
+-- Indici per le tabelle `logo`
 --
-ALTER TABLE `Logo`
+ALTER TABLE `logo`
   ADD PRIMARY KEY (`Logo`);
 
 --
--- Indici per le tabelle `Messaggi`
+-- Indici per le tabelle `messaggi`
 --
-ALTER TABLE `Messaggi`
+ALTER TABLE `messaggi`
   ADD PRIMARY KEY (`ID_Messaggio`);
 
 --
--- Indici per le tabelle `Newsletter`
+-- Indici per le tabelle `newsletter`
 --
-ALTER TABLE `Newsletter`
+ALTER TABLE `newsletter`
   ADD PRIMARY KEY (`ID_Mail`);
 
 --
--- Indici per le tabelle `Orario`
+-- Indici per le tabelle `orario`
 --
-ALTER TABLE `Orario`
+ALTER TABLE `orario`
   ADD PRIMARY KEY (`ID_Giorno`);
 
 --
--- Indici per le tabelle `Piatto`
+-- Indici per le tabelle `piatto`
 --
-ALTER TABLE `Piatto`
+ALTER TABLE `piatto`
   ADD PRIMARY KEY (`Nome_Piatto`),
+  ADD UNIQUE KEY `id` (`id`),
   ADD KEY `Img` (`Img`);
 
 --
--- Indici per le tabelle `Prenotazione`
+-- Indici per le tabelle `prenotazione`
 --
-ALTER TABLE `Prenotazione`
+ALTER TABLE `prenotazione`
   ADD PRIMARY KEY (`ID_Prenotazione`);
 
 --
--- Indici per le tabelle `Presentazione_Reservation`
+-- Indici per le tabelle `presentazione_reservation`
 --
-ALTER TABLE `Presentazione_Reservation`
+ALTER TABLE `presentazione_reservation`
   ADD PRIMARY KEY (`Titolo`),
   ADD KEY `Img` (`Img`);
 
 --
--- Indici per le tabelle `Recensione`
+-- Indici per le tabelle `recensione`
 --
-ALTER TABLE `Recensione`
+ALTER TABLE `recensione`
   ADD PRIMARY KEY (`Nome`),
   ADD KEY `Avatar` (`Avatar`);
 
 --
--- Indici per le tabelle `Rist_Pizz`
+-- Indici per le tabelle `rist_pizz`
 --
-ALTER TABLE `Rist_Pizz`
+ALTER TABLE `rist_pizz`
   ADD PRIMARY KEY (`ID_Rist_Pizz`),
   ADD KEY `Img` (`Img`);
 
@@ -799,16 +828,16 @@ ALTER TABLE `services`
   ADD PRIMARY KEY (`script`);
 
 --
--- Indici per le tabelle `Slider`
+-- Indici per le tabelle `slider`
 --
-ALTER TABLE `Slider`
+ALTER TABLE `slider`
   ADD PRIMARY KEY (`ID_Slider`),
   ADD KEY `Img` (`Img`);
 
 --
--- Indici per le tabelle `Storia`
+-- Indici per le tabelle `storia`
 --
-ALTER TABLE `Storia`
+ALTER TABLE `storia`
   ADD PRIMARY KEY (`ID_Storia`),
   ADD KEY `Img` (`Img`);
 
@@ -831,41 +860,46 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT per la tabella `Messaggi`
+-- AUTO_INCREMENT per la tabella `messaggi`
 --
-ALTER TABLE `Messaggi`
-  MODIFY `ID_Messaggio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+ALTER TABLE `messaggi`
+  MODIFY `ID_Messaggio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT per la tabella `Newsletter`
+-- AUTO_INCREMENT per la tabella `newsletter`
 --
-ALTER TABLE `Newsletter`
-  MODIFY `ID_Mail` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+ALTER TABLE `newsletter`
+  MODIFY `ID_Mail` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT per la tabella `Prenotazione`
+-- AUTO_INCREMENT per la tabella `piatto`
 --
-ALTER TABLE `Prenotazione`
+ALTER TABLE `piatto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT per la tabella `prenotazione`
+--
+ALTER TABLE `prenotazione`
   MODIFY `ID_Prenotazione` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
 --
 -- Limiti per le tabelle scaricate
 --
 
 --
--- Limiti per la tabella `Caffetteria`
+-- Limiti per la tabella `caffetteria`
 --
-ALTER TABLE `Caffetteria`
-  ADD CONSTRAINT `caffetteria_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+ALTER TABLE `caffetteria`
+  ADD CONSTRAINT `caffetteria_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `immagine` (`Link`);
 
 --
--- Limiti per la tabella `Evento`
+-- Limiti per la tabella `evento`
 --
-ALTER TABLE `Evento`
-  ADD CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+ALTER TABLE `evento`
+  ADD CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `immagine` (`Link`);
 
 --
--- Limiti per la tabella `Gallery`
+-- Limiti per la tabella `gallery`
 --
-ALTER TABLE `Gallery`
-  ADD CONSTRAINT `gallery_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+ALTER TABLE `gallery`
+  ADD CONSTRAINT `gallery_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `immagine` (`Link`);
 
 --
 -- Limiti per la tabella `groupservices`
@@ -875,53 +909,53 @@ ALTER TABLE `groupservices`
   ADD CONSTRAINT `groupservices_ibfk_2` FOREIGN KEY (`id`) REFERENCES `groups` (`id`);
 
 --
--- Limiti per la tabella `Home`
+-- Limiti per la tabella `home`
 --
-ALTER TABLE `Home`
-  ADD CONSTRAINT `home_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`),
-  ADD CONSTRAINT `home_ibfk_2` FOREIGN KEY (`Icona`) REFERENCES `Immagine` (`Link`);
+ALTER TABLE `home`
+  ADD CONSTRAINT `home_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `immagine` (`Link`),
+  ADD CONSTRAINT `home_ibfk_2` FOREIGN KEY (`Icona`) REFERENCES `immagine` (`Link`);
 
 --
--- Limiti per la tabella `Logo`
+-- Limiti per la tabella `logo`
 --
-ALTER TABLE `Logo`
-  ADD CONSTRAINT `logo_ibfk_1` FOREIGN KEY (`Logo`) REFERENCES `Immagine` (`Link`);
+ALTER TABLE `logo`
+  ADD CONSTRAINT `logo_ibfk_1` FOREIGN KEY (`Logo`) REFERENCES `immagine` (`Link`);
 
 --
--- Limiti per la tabella `Piatto`
+-- Limiti per la tabella `piatto`
 --
-ALTER TABLE `Piatto`
-  ADD CONSTRAINT `piatto_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+ALTER TABLE `piatto`
+  ADD CONSTRAINT `piatto_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `immagine` (`Link`);
 
 --
--- Limiti per la tabella `Presentazione_Reservation`
+-- Limiti per la tabella `presentazione_reservation`
 --
-ALTER TABLE `Presentazione_Reservation`
-  ADD CONSTRAINT `presentazione_reservation_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+ALTER TABLE `presentazione_reservation`
+  ADD CONSTRAINT `presentazione_reservation_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `immagine` (`Link`);
 
 --
--- Limiti per la tabella `Recensione`
+-- Limiti per la tabella `recensione`
 --
-ALTER TABLE `Recensione`
-  ADD CONSTRAINT `recensione_ibfk_1` FOREIGN KEY (`Avatar`) REFERENCES `Immagine` (`Link`);
+ALTER TABLE `recensione`
+  ADD CONSTRAINT `recensione_ibfk_1` FOREIGN KEY (`Avatar`) REFERENCES `immagine` (`Link`);
 
 --
--- Limiti per la tabella `Rist_Pizz`
+-- Limiti per la tabella `rist_pizz`
 --
-ALTER TABLE `Rist_Pizz`
-  ADD CONSTRAINT `rist_pizz_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+ALTER TABLE `rist_pizz`
+  ADD CONSTRAINT `rist_pizz_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `immagine` (`Link`);
 
 --
--- Limiti per la tabella `Slider`
+-- Limiti per la tabella `slider`
 --
-ALTER TABLE `Slider`
-  ADD CONSTRAINT `slider_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+ALTER TABLE `slider`
+  ADD CONSTRAINT `slider_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `immagine` (`Link`);
 
 --
--- Limiti per la tabella `Storia`
+-- Limiti per la tabella `storia`
 --
-ALTER TABLE `Storia`
-  ADD CONSTRAINT `storia_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
+ALTER TABLE `storia`
+  ADD CONSTRAINT `storia_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `immagine` (`Link`);
 
 --
 -- Limiti per la tabella `usergroups`
