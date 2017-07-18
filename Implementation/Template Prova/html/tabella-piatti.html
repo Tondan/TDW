@@ -1,19 +1,15 @@
-<section class="accordion">
+<section class="news">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <div class="accordion-box">
+                
 
                     <[foreach]>
-                        <div class="accordion-slide">
-                            <div class="title"><[Nome_Piatto]>
-                                <div class="icon fa">
-                                </div>
-                            </div>
-                            <div class="accordion-content">
+                        <button class="accordion"><[Nome_Piatto]></button>
                             
+                                <div class="panel">
                                 <form enctype="multipart/form-data" action="piatti_update.php" method="POST">
-                                	<input type="hidden" name="key" value="<[ID_Piatto]>" />
+                                	<input type="hidden" name="key" value="<[Nome_Piatto]>"/>
 				                	<div>
                                         <label class="border" for="nome">nome</label>
                                         <input class="mandatory" type="text" name="nome" id="nome" value="<[Nome_Piatto]>" errormessage="Pippo!"/>
@@ -54,7 +50,7 @@
 				                	<div class="btn-box2">
                                         <label class="border"></label>
                                         <input type="submit" class="commonbtn style13 small" id="submit" value="Aggiorna" />
-                                        <a href="piatti_delete.php?key=<[ID]>"> 
+                                        <a href="piatti_delete.php"> 
                                             <div  class="commonbtn style13 small" >Elimina</div>
                                         </a>
                                     </div>

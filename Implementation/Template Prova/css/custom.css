@@ -1,4 +1,4 @@
-#immaginepiccola{
+#immaginepiccola {
     max-width: 120px;
     max-height: 120px;
     height: auto;
@@ -8,12 +8,13 @@
 .personal-color {
     background-color: gainsboro;
 }
+
 .presonal-color2 {
     background-color: aqua;
 }
 
-#menufont{
-     font-size: 1.2em;
+#menufont {
+    font-size: 1.2em;
 }
 
 button.accordion {
@@ -28,8 +29,9 @@ button.accordion {
     transition: 0.4s;
 }
 
-button.accordion.active, button.accordion:hover {
-    background-color: #ddd; 
+button.accordion.active,
+button.accordion:hover {
+    background-color: #ddd;
 }
 
 div.panel {
@@ -41,7 +43,8 @@ div.panel {
 }
 
 button.accordion:after {
-    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
     font-size: 13px;
     color: #777;
     float: right;
@@ -49,5 +52,64 @@ button.accordion:after {
 }
 
 button.accordion.active:after {
-    content: "\2796"; /* Unicode character for "minus" sign (-) */
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
+
+.vertical-menu {
+    padding: 0px;
+    margin: 50px 10px;
+    float: left;
+    border-left: 6px solid #e8e6bd;
+    width: 270px;
+    /* Set a width if you like */
+}
+
+.vertical-menu a {
+    background-color: #eee;
+    /* Grey background color */
+    color: black;
+    /* Black text color */
+    display: block;
+    /* Make the links appear below each other */
+    padding: 7px;
+    /* Add some padding */
+    text-decoration: none;
+    /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc;
+    /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50;
+    /* Add a green color to the "active/current" link */
+    color: white;
+}
+
+div.form {
+    border: 2px solid grey;
+    padding: 10px 30px 10px 30px;
+    height: 50px;
+    overflow-y: scroll;
+}
+
+label.border {
+    width: 100px;
+}
+
+label.bord {
+    width: 100px;
+}
+
+div.crea {
+    display:none;
+}
+
+div.btn-box {}
+
+div.contact-detail {
+    align-items: center;
 }

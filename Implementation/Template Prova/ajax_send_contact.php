@@ -5,11 +5,11 @@ require "include/dbms.inc.php";
 
 
      
-$nome           =$_POST['name'];     
-$lastname       =$_POST['last-name'];
-$phone          =$_POST['phone'];
-$email          =$_POST['email'];
-$message        =$_POST['message'];
+$nome           =mysql_real_escape_string($_POST['name']);     
+$lastname       =mysql_real_escape_string($_POST['last-name']);
+$phone          =mysql_real_escape_string($_POST['phone']);
+$email          =mysql_real_escape_string($_POST['email']);
+$message        =mysql_real_escape_string($_POST['message']);
 
 echo $data;
 /*
