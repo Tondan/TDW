@@ -1,13 +1,18 @@
-<section class="news">
+<section class="accordion">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                
+                <div class="accordion-box">
 
                     <[foreach]>
-                        <button class="accordion"><[Nome_Piatto]></button>
-                            
-                                <div class="panel">
+                        <div class="accordion-slide">
+                            <div class="title"><[Nome_Piatto]>
+                                <div class="icon fa">
+                                </div>
+                            </div>
+                            <div class="accordion-content">
+                                
+                                
                                 <form enctype="multipart/form-data" action="piatti_update.php" method="POST">
                                 	<input type="hidden" name="key" value="<[Nome_Piatto]>"/>
 				                	<div>
@@ -40,9 +45,9 @@
                                         <label class="border" for="pasto">pasto</label>
                                         <select class="selectpicker" name="pasto" id="pasto">
                                             <option value="<[tipo_piatto]>" selected="selected"><[tipo_piatto]></option>
-                                            <option value="antipasto" > antipasto </option>
-                                            <option value="primo" > primo </option>
-                                            <option value="secondo" > secondo </option>
+                                            <option value="antipasto"> antipasto </option>
+                                            <option value="primo" >primo</option>
+                                            <option value="secondo" >secondo</option>
                                         </select>
                                     </div> 
 
