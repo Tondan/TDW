@@ -18,20 +18,26 @@ $img           = mysql_real_escape_string($_POST['img']);
 
 
 
-echo $nome,"<br>\n";
+/*echo $nome,"<br>\n";
 echo $descrizione,"<br>\n";
 echo $ingredienti,"<br>\n";
 echo $prezzo,"<br>\n";
 echo $tipo_piatto,"<br>\n";
-echo $img,"<br>\n";
+echo $img,"<br>\n";*/
 
 
 /*
 if(file_exists($nome_file_temporaneo)){
 	$percorso="skins/images/piatti/".$nome_file;
 	move_uploaded_file($nome_file_temporaneo,$percorso);*/
-
-$oid = mysql_query(" INSERT INTO  tdw.piatto (Nome_piatto, Descrizione, Ingredienti, Prezzo,Img,tipo_piatto) VALUES ('$nome',  '$descrizione',  '$ingredienti', '$prezzo', '$img', '$tipo_piatto');");
+$imdb= mysql_query("SELECT Link FROM tdw.Immagine WHERE Link='Img/$img'");
+if(mysql_num_rows($imdb)==1)
+    $oid = mysql_query(" INSERT INTO  tdw.piatto (Nome_piatto, Descrizione, Ingredienti, Prezzo,Img,tipo_piatto) VALUES ('$nome',  '$descrizione',  '$ingredienti', '$prezzo', 'Img/$img', '$tipo_piatto');");
+else{
+    $oid=mysql_query(" INSERT INTO tdw.Immagine(Link) VALUES ('Img/$img')");
+    if($oid)
+        $oid = mysql_query(" INSERT INTO  tdw.piatto (Nome_piatto, Descrizione, Ingredienti, Prezzo,Img,tipo_piatto) VALUES ('$nome',  '$descrizione',  '$ingredienti', '$prezzo', 'Img/$img', '$tipo_piatto');");
+}
     //}
 /*
 else{

@@ -16,15 +16,17 @@
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
-			
+			$i=0;
 			do {
 				$data = mysql_fetch_array($oid);
 				
 				if ($data) {
 					$menu->setContent($data);
+                    $menu->setContent("id",$i);
 					//$menu->setContent("link", $data['link']);
 					//$menu->setContent("entry", $data['entry']);
 				}
+                i++;
 			} while ($data);
 			
 			return $menu->get();

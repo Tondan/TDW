@@ -23,24 +23,24 @@
           <a class="accordion-toggle" data-toggle="collapse"
             data-parent="#searchAccordion" href="#collapseOne">Aggiungi Un Piatto</a>
         </div>
-        <div id="collapseOne" class="accordion-body collapse in">
+        <div id="collapseOne" class="accordion-body collapse">
           <div class="accordion-inner">
             <form class="form-inline" action="piatti_add.php" method="post">
               <div class="row-fluid">
                 <div class="span4">
-                  <label>Nome</label> <input class="input-medium" type="text" name="nome" id="nome"/>
+                  <label>Nome</label> <input class="input-medium" type="text" name="nome" id="nome" placeholder="Nome Piatto"/>
                 </div>
                 <div class="span4">
-                  <label>Descrizione</label> <input class="input-medium" type="text" name="descrizione" id="descrizione" />
+                  <label>Descrizione</label> <input class="input-medium" type="text" name="descrizione" id="descrizione" placeholder="Descrizione Piatto"/>
                 </div>
                 <div class="span4">
-                  <label>Ingredienti</label> <input class="input-medium" type="text" name="ingredienti" id="ingredienti" />
+                  <label>Ingredienti</label> <input class="input-medium" type="text" name="ingredienti" id="ingredienti" placeholder="Ingredienti Piatto"/>
                 </div>
                 <div class="span4">
-                  <label>Prezzo</label> <input class="input-medium" type="text" name="prezzo" id="prezzo" />
+                  <label>Prezzo</label> <input class="input-medium" type="text" name="prezzo" id="prezzo" placeholder="Prezzo Piatto"/>
                 </div>
                 <div class="span4">
-                  <label>Immagine</label> <input class="input-medium" type="text" name="img" id="img" />
+                  <label>Immagine</label> <input class="input-medium" type="text" name="img" id="img" placeholder="Immagine Piatto (Solo 'Nome.jpg')"/>
                 </div>
                 <legend>Tipo Piatto</legend>
                 <select name="tipo_piatto" id="tipo_piatto">
@@ -72,8 +72,7 @@
       <div class="accordion-group">
         <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" href="#collapseTwo">Advanced
-            Options</a>
+            data-parent="#searchAccordion" href="#collapseTwo">Modifica Un Piatto</a>
         </div>
         <div id="collapseTwo" class="accordion-body collapse">
           <div class="accordion-inner">
