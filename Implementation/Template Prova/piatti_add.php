@@ -13,7 +13,8 @@ $nome          = mysql_real_escape_string($_POST['nome']);
 $descrizione   = mysql_real_escape_string($_POST['descrizione']);
 $ingredienti   = mysql_real_escape_string($_POST['ingredienti']);
 $prezzo        = mysql_real_escape_string($_POST['prezzo']);
-$tipo_piatto   = mysql_real_escape_string($_POST['pasto']); 
+$tipo_piatto   = mysql_real_escape_string($_POST['pasto']);
+$img           = mysql_real_escape_string($_POST['img']);
 
 
 
@@ -30,7 +31,7 @@ if(file_exists($nome_file_temporaneo)){
 	$percorso="skins/images/piatti/".$nome_file;
 	move_uploaded_file($nome_file_temporaneo,$percorso);*/
 
-$oid = mysql_query(" INSERT INTO  tdw.piatto (Nome_piatto, Descrizione, Ingredienti, Prezzo,tipo_piatto) VALUES ('$nome',  '$descrizione',  '$ingredienti', '$prezzo', '$tipo_piatto');");
+$oid = mysql_query(" INSERT INTO  tdw.piatto (Nome_piatto, Descrizione, Ingredienti, Prezzo,Img,tipo_piatto) VALUES ('$nome',  '$descrizione',  '$ingredienti', '$prezzo', '$img', '$tipo_piatto');");
     //}
 /*
 else{

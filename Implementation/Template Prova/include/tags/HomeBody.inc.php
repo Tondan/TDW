@@ -209,7 +209,7 @@
 			}
 			
               
-			$oid = mysql_query("SELECT * FROM tdw.Immagine WHERE SUBSTRING(Link,5,8)='LGallery' AND Attivo=1 LIMIT 6");
+			$oid = mysql_query("SELECT * FROM tdw.Immagine WHERE SUBSTRING(Link,5,8)='LGallery' LIMIT 6");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
