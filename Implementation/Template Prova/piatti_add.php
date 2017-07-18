@@ -18,13 +18,13 @@ $img           = mysql_real_escape_string($_POST['img']);
 
 
 
-/*echo $nome,"<br>\n";
+echo $nome,"<br>\n";
 echo $descrizione,"<br>\n";
 echo $ingredienti,"<br>\n";
 echo $prezzo,"<br>\n";
-echo $orario_pasto,"<br>\n";
-echo $presentazione,"<br>\n";
-echo $piattodelgiorno,"<br>\n";*/
+echo $tipo_piatto,"<br>\n";
+echo $img,"<br>\n";
+
 
 /*
 if(file_exists($nome_file_temporaneo)){
