@@ -27,11 +27,14 @@
                                         <form enctype="multipart/form-data" class="form-inline" action="upload_in.php" method="post">
                                             <div class="row-fluid">
                                                 <div class="span4">
-                                                <input type="file" name="fileToUpload" id="fileToUpload" class="btn btn-default"><br/><br/>
-                                                </div>
-
+                                                    <div class="form-group">
+                                                <label for="InputFile">File input</label>
+    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
+    <small id="fileHelp" class="form-text text-muted">Per favore carica le tue immagini</small>
+                                               </div><br/><br/>
                                             </div>
-                                            <input type="submit" value="Upload Image" name="submit" class="btn btn-default">
+                                            <input type="submit" value="Upload Image" name="submit" class="btn btn-primary">
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
