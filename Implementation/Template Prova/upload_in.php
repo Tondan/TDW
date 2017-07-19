@@ -21,7 +21,7 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }
 // Controlla grandezza file
-if ($_FILES["fileToUpload"]["size"] > 900000) {
+if ($_FILES["fileToUpload"]["size"] > 9000000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
@@ -38,7 +38,11 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-        header("refresh:2; admin.php");
+        $oid=mysql_query("INSERT INTO tdw.immagine(Link) VALUES('$target_file')");
+        if($oid)
+            header("refresh:2; admin.php");
+        else
+            echo("<br>Inserimento non avvenuto correttamente");
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
