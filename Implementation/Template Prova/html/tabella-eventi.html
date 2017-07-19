@@ -6,10 +6,16 @@
         </div>
         <div id="collapse<[id]>" class="accordion-body collapse">
           <div class="accordion-inner">
-            <form class="form-inline" action="eventi_add.php" method="post">
+            <form class="form-inline" action="eventi_update.php" method="post">
               <div class="row-fluid">
+                  
+                   <input class="input-medium" type="hidden" name="key" id="key" key="<[ID]>"/>
+                
+                  <div class="span4">
+                  <label>Data</label> <input class="input-medium" type="text" name="data" id="data"  value="<[Data]>"/>
+                </div>
                 <div class="span4">
-                  <label>Nome</label> <input class="input-medium" type="text" name="nome" id="nome" key="<[Nome]>" value="<[Nome]>"/>
+                  <label>Nome</label> <input class="input-medium" type="text" name="nome" id="nome" value="<[Nome]>"/>
                 </div>
                 <div class="span4">
                   <label>Descrizione</label> <input class="input-medium" type="text" name="descrizione" id="descrizione" value="<[Descrizione]>"/>
@@ -25,10 +31,8 @@
                   </label>
                 </div>
                 <div class="span3">
-                  <label class="checkbox"> <input type="checkbox" />Include
-                    cancelled?
-                  </label>
-                </div>
+                  <input type="radio" name="switch" value="update" checked/>Update<br>
+                  <input type="radio" name="switch" value="delete"/>Delete<br>
               </div>
                 <input type="submit" value="Submit">
             </form>
