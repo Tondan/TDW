@@ -1,9 +1,15 @@
 <?php
 
+session_start();
+
+require "include/dbms.inc.php";
+require "include/auth1.inc.php";
+
 $target_dir = "Img/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+$pic=(mysql_real_escape_string($_FILES['photo']['name']));
 // CONTROLLO IMMAGINE
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -43,6 +49,7 @@ if ($uploadOk == 0) {
             header("refresh:2; admin.php");
         else
             echo("<br>Inserimento non avvenuto correttamente");
+        echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
