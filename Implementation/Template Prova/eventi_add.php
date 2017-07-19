@@ -9,14 +9,12 @@ require "include/auth1.inc.php";
 $nome          = mysql_real_escape_string($_POST['nome']);
 $descrizione   = mysql_real_escape_string($_POST['descrizione']);
 $img           = mysql_real_escape_string($_POST['img']);
-
+$data          = mysql_real_escape_string($_POST['data']);
 
 
 /*echo $nome,"<br>\n";
 echo $descrizione,"<br>\n";
 echo $ingredienti,"<br>\n";
-echo $prezzo,"<br>\n";
-echo $tipo_piatto,"<br>\n";
 echo $img,"<br>\n";*/
 
 
@@ -36,7 +34,7 @@ else{
 */
 if($oid){
     echo("<br>Inserimento avvenuto correttamente");
-    header("location: piatti_manager.php");
+    header("location: eventi_manager.php");
 } else{
     echo("<br>Inserimento non eseguito<br>");
      echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());

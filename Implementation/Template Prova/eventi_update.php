@@ -8,10 +8,7 @@ require "include/auth1.inc.php";
 
 $nome          = mysql_real_escape_string($_POST['nome']);
 $descrizione   = mysql_real_escape_string($_POST['descrizione']);
-$ingredienti   = mysql_real_escape_string($_POST['ingredienti']);
-$prezzo        = mysql_real_escape_string($_POST['prezzo']);
-$tipo_piatto   = mysql_real_escape_string($_POST['pasto']);
-$img           = mysql_real_escape_string($_POST['img']);
+$data          = mysql_real_escape_string($_POST['data']);
 $key           = mysql_real_escape_string($_POST['key']);
 
 $switch = $_POST['switch'];  //radio button
