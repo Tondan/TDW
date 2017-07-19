@@ -12,9 +12,9 @@
 			
 			
 			
-			$oid = mysql_query("SELECT * FROM tdw.prenotazione ORDER BY ID_Prenotazione ASC");
+			$oid = mysql_query("SELECT * FROM tdw.prenotazione");
 			if (!$oid) {
-				trigger_error("evento error");
+				trigger_error("error");
 			}
 			
 			do {
