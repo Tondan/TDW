@@ -53,11 +53,11 @@ if($oid){
 
 else if($switch=="delete"){
     
-    $idd = mysql_query("DELETE FROM tdw.piatto WHERE Nome_Piatto='$key'");
+    $idd = mysql_query("DELETE FROM tdw.evento WHERE ID_Evento='$key'");
        
 if($idd){
     echo("<br>delete avvenuto correttamente");
-    header("location: piatti_manager.php");
+    header("refresh:2; admin.php");
 } else{
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
   }

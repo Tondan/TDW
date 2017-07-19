@@ -88,3 +88,9 @@ button.accordion.active:after {
     /* Add a green color to the "active/current" link */
     color: white;
 }
+
+.accordion-toggle{
+    color:grey;
+    font-size:1.3em;
+    
+}

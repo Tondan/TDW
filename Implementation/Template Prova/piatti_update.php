@@ -44,7 +44,7 @@ if($switch=="update"){
 
 if($oid){
     echo("<br>update avvenuto correttamente");
-    header("location:piatti_manager.php");
+    header("refresh:2; admin.php");
 } else{
 
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
@@ -60,7 +60,7 @@ else if($switch=="delete"){
        
 if($idd){
     echo("<br>delete avvenuto correttamente");
-    header("location: piatti_manager.php");
+    header("refresh:2; admin.php");
 } else{
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
   }
