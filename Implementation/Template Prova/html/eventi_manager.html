@@ -1,0 +1,89 @@
+<div id="main" class="site-main" role="main">
+    <!--Header Image-->
+    <section class="fly-section-image fly-header-image fly-section-overlay fly-section-height-md parallax" style="background-image: url('<[Link]>')">
+        <div class="container">
+            <div class="row">
+                <h3 class="fly-section-image-title-before"></h3>
+
+                <h2 class="fly-section-image-title-after">ADMIN</h2>
+            </div>
+        </div>
+    </section>
+    <!--End Header Image-->
+
+    <section class="news">
+        <div class="container">
+            <div class="row">
+                <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+
+                    <div class="container col-sm-8">
+    <div class="accordion" id="searchAccordion">
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseOne">Aggiungi Un Evento</a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline" action="piatti_add.php" method="post">
+              <div class="row-fluid">
+                  <div class="span4">
+                  <label>Data evento</label><input class="input-medium" type="text" name="data" id="data" placeholder="GG/MM/YYYY"/>
+                  </div>
+                <div class="span4">
+                  <label>Nome Evento</label> <input class="input-medium" type="text" name="nome" id="nome" placeholder="Nome Evento"/>
+                </div>
+                <div class="span4">
+                  <label>Descrizione Evento</label> <input class="input-medium" type="text" name="descrizione" id="descrizione" placeholder="Descrizione Evento"/>
+                </div>
+                <div class="span4">
+                  <label>Immagine</label> <input class="input-medium" type="text" name="img" id="img" placeholder="Immagine Evento (Solo 'Nome.jpg')"/>
+                </div>
+                
+              </div>
+              <div class="row-fluid">
+                <div class="span3 offset1">
+                  
+                </div>
+                <div class="span3">
+                  
+                </div>
+              </div>
+                <input type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+      </div>
+        
+        
+        
+        
+      <div class="accordion-group">
+          <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseTwo">Modifica un evento</a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+          
+          
+          
+          
+          
+        <[eventi::getevento template="tabella-eventi" library="tabella_eventi"]>
+            </div>    
+            
+      </div>
+    </div>
+  </div>
+                    
+                    
+                    
+            
+                    
+                    
+                    </div>
+            </div>
+        </section>
+        
+
+
