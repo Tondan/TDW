@@ -35,10 +35,6 @@ else{
 
 
 
-<<<<<<< HEAD
- 
-=======
->>>>>>> origin/master
 if($oid){
     echo("<br>Inserimento avvenuto correttamente");
     header("refresh:2; admin.php");

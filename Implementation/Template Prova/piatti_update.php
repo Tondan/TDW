@@ -59,7 +59,7 @@ else if($switch=="delete"){
     $idd = mysql_query("DELETE FROM tdw.piatto WHERE Nome_Piatto='$key'");
        
 if($idd){
-    mysql_query("DELETE FROM tdw.piatto WHERE Link='$img'");
+    mysql_query("DELETE FROM tdw.Immagine WHERE Link='$img'");
     echo("<br>delete avvenuto correttamente");
     header("refresh:2; admin.php");
 } else{
