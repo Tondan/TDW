@@ -6,13 +6,13 @@
 			
 		}
 		
-		function getprenotazioni($name, $data, $pars) {
+		function getmenu($name, $data, $pars) {
 			
 			$menu = new Template("html/{$pars['template']}.html");
 			
 			
 			
-			$oid = mysql_query("SELECT * FROM tdw.prenotazione ORDER BY ID_Prenotazione DESC");
+			$oid = mysql_query("SELECT * FROM tdw.prenotazione ORDER BY Data DESC, Time DESC");
 			if (!$oid) {
 				trigger_error("error");
 			}

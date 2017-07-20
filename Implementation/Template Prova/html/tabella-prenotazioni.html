@@ -2,35 +2,35 @@
 
     <div class="accordion-heading">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#searchAccordion" href="#collapse<[ID_Prenotazione]>">
-            <[Data]>
+            <[Data]>&nbsp;<[Time]>
         </a>
     </div>
     <div id="collapse<[ID_Prenotazione]>" class="accordion-body collapse">
         <div class="accordion-inner">
                 <div class="row-fluid">
                     <div class="span4">
-                   <label>Prenotazione N.</label> <input class="input-medium" type="hidden" name="key" id="key" key="<[ID_Prenotazioni]>" readonly/>
+                    <label>Data</label> <input class="input-medium" type="text" name="data" id="data" value="<[Data]>" readonly />
                     </div>
                     <div class="span4">
-                        <label>Data</label> <input class="input-medium" type="text" name="data" id="data" value="<[Data]>" readonly />
+                        <label>Persone</label> <input class="input-medium" type="text" name="persone" id="persone" value="<[Persone]>" readonly />
                     </div>
                     <div class="span4">
-                        <label>Persone</label> <input class="input-medium" type="text" name="nome" id="nome" value="<[Persone]>" readonly />
+                        <label>Time</label> <input class="input-medium" type="text" name="time" id="time" value="<[Time]>" readonly />
                     </div>
                     <div class="span4">
-                        <label>Time</label> <input class="input-medium" type="text" name="descrizione" id="descrizione" value="<[Time]>" readonly />
+                        <label>Nome Cliente</label> <input class="input-medium" type="text" name="nome" id="nome" value="<[Nome_Cl]>" readonly />
+                    </div>
+                     <div class="span4">
+                        <label>N.Telefono</label> <input class="input-medium" type="text" name="tel" id="tel" value="<[Tel]>" readonly />
                     </div>
                     <div class="span4">
-                        <label>Nome Cliente</label> <input class="input-medium" type="text" name="img" id="img" value="<[Tel]>" readonly />
+                        <label>Email Cliente</label> <input class="input-medium" type="text" name="email" id="email" value="<[Email]>" readonly />
                     </div>
                     <div class="span4">
-                        <label>Email Cliente</label> <input class="input-medium" type="text" name="img" id="img" value="<[Email]>" readonly />
+                        <label for="Textarea">Note extra</label>
+                        <textarea class="form-control" id="Textarea" rows="4" readonly><[Notice]></textarea>
                     </div>
-                    <div class="span4">
-                        <label>Nome Cliente</label> <input class="input-medium" type="textarea" name="img" id="img" value="<[Notice]>" readonly />
-                    </div>
-                    
-            </div>
+                </div>
         
             </div>
         </div>
