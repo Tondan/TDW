@@ -25,7 +25,7 @@
         </div>
         <div id="collapseOne" class="accordion-body collapse">
           <div class="accordion-inner">
-            <form class="form-inline" action="eventi_add.php" method="post">
+            <form class="form-inline" action="eventi_add.php" method="post" enctype="multipart/form-data">
               <div class="row-fluid">
                   <div class="span4">
                   <label>Data Evento</label><input class="input-medium" type="text" name="data" id="data" placeholder="YYYY-MM-GG"/>
@@ -36,9 +36,14 @@
                 <div class="span4">
                   <label>Descrizione Evento</label> <input class="input-medium" type="text" name="descrizione" id="descrizione" placeholder="Descrizione Evento"/>
                 </div>
-                <div class="span4">
+                <!--<div class="span4">
                   <label>Immagine</label> <input class="input-medium" type="text" name="img" id="img" placeholder="Immagine Evento (Solo'Nome.jpg')"/>
-                </div>
+                </div>-->
+                  <div class="span4">
+                  <label for="InputFile">File input</label>
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Per favore carica le tue immagini</small>
+                  </div>
                 
               </div>
               <div class="row-fluid">

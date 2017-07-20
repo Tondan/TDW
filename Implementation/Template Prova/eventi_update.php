@@ -10,7 +10,7 @@ $nome          = mysql_real_escape_string($_POST['nome']);
 $descrizione   = mysql_real_escape_string($_POST['descrizione']);
 $data          = mysql_real_escape_string($_POST['data']);
 $key           = mysql_real_escape_string($_POST['key']);
-$img           = mysql_real_escape_string($_POST['img']);
+$keyImg        = mysql_real_escape_string($_POST['keyImg']);
 
 $switch = $_POST['switch'];  //radio button
 
@@ -26,23 +26,20 @@ echo $piattodelgiorno,"<br>\n";*/
 
 
 if($switch=="update"){   
-    
-    $imdb= mysql_query("SELECT Link FROM tdw.Immagine WHERE Link='$img'");
-    if(mysql_num_rows($imdb)==1)
-	   $oid = mysql_query(" UPDATE  tdw.evento SET  Nome =  '$nome', Descrizione =  '$descrizione', Data='$data', Img= '$img' WHERE ID_Evento ='$key';");
-    else{
-        $oid = mysql_query(" INSERT INTO tdw.Immagine(Link) VALUES ('$img')");
-        if($oid)
-            $oid = mysql_query(" UPDATE  tdw.evento SET  Nome =  '$nome', Descrizione =  '$descrizione', Data='$data', Img= '$img' WHERE ID_Evento ='$key';");
+    require "upload_in_Img.php";
+    $oid = mysql_query(" UPDATE  tdw.evento SET  Nome =  '$nome', Descrizione =  '$descrizione', Data='$data', Img= '$target_file' WHERE ID_Evento ='$key';");
+
+    if($oid){
+        $idd=mysql_query("DELETE FROM tdw.immagine WHERE Link='$keyImg'");
+        if($idd)
+            unlink($keyImg);
     }
-
-
 
 
 
 if($oid){
     echo("<br>update avvenuto correttamente");
-    header("location:piatti_manager.php");
+    header("location:eventi_manager.php");
 } else{
 
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
@@ -57,8 +54,11 @@ else if($switch=="delete"){
     $idd = mysql_query("DELETE FROM tdw.evento WHERE ID_Evento='$key'");
        
 if($idd){
+    $idd=mysql_query("DELETE FROM tdw.Immagine WHERE Link='$keyImg'");
+        if($idd)
+            unlink($keyImg);
     echo("<br>delete avvenuto correttamente");
-    header("refresh:2; admin.php");
+    header("refresh:2; eventi_manager.php");
 } else{
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
   }

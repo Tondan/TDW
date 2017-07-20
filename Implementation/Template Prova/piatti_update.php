@@ -39,7 +39,7 @@ if($switch=="update"){
 
 if($oid){
     echo("<br>update avvenuto correttamente");
-    header("refresh:2; admin.php");
+    header("refresh:2; piatti_manager.php");
 } else{
 
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
@@ -58,7 +58,7 @@ if($idd){
         if($idd)
             unlink($keyImg);
     echo("<br>delete avvenuto correttamente");
-    header("refresh:2; admin.php");
+    header("refresh:2; piatti_manager.php");
 } else{
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
   }
