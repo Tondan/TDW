@@ -1,6 +1,6 @@
 <?php
 
-	Class tabella_prenotazioni extends TagLibrary {
+	Class tabella_messaggi extends TagLibrary {
 		
 		function dummy() {
 			
@@ -12,7 +12,7 @@
 			
 			
 			
-			$oid = mysql_query("SELECT * FROM tdw.prenotazione ORDER BY Data ASC, Time ASC");
+			$oid = mysql_query("SELECT * FROM tdw.messaggi");
 			if (!$oid) {
 				trigger_error("error");
 			}

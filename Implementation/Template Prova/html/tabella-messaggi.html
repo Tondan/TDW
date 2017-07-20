@@ -1,0 +1,33 @@
+<[foreach]>
+
+    <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#searchAccordion" href="#collapse<[ID_Messaggio]>">
+            <[Nome]>&nbsp;<[Cognome]>
+        </a>
+    </div>
+    <div id="collapse<[ID_Messaggio]>" class="accordion-body collapse">
+        <div class="accordion-inner">
+                <div class="row-fluid">
+                    <div class="span4">
+                    <label>Nome</label> <input class="input-medium" type="text" name="nome" id="nome" value="<[Nome]>" readonly />
+                    </div>
+                    <div class="span4">
+                        <label>Cognome</label> <input class="input-medium" type="text" name="cognome" id="cognome" value="<[Cognome]>" readonly />
+                    </div>
+                    <div class="span4">
+                        <label>Phone</label> <input class="input-medium" type="text" name="phone" id="phone" value="<[Phone]>" readonly />
+                    </div>
+                    <div class="span4">
+                        <label>Email</label> <input class="input-medium" type="text" name="email" id="email" value="<[Email]>" readonly />
+                    </div>
+                     <div class="span4">
+                        <label>Message</label> <input class="input-medium" type="text" name="message" id="message" value="<[Message]>" readonly />
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+
+
+
+<[/foreach]>
