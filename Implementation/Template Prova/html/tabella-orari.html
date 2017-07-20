@@ -7,22 +7,27 @@
     </div>
     <div id="collapse<[ID]>" class="accordion-body collapse">
         <div class="accordion-inner">
+            
             <form class="form-inline" action="orario_update.php" method="post">
                 <div class="row-fluid">
                     <[foreach]>
                     <div class="span4">  
-                    <input class="hidden" name="ngiorno" id="ngiorno" value="<[ID_Giorno]>"/>
+                    <input class="hidden" name="giorno" id="giorno" value="<[ID_Giorno]>"/>
                     </div>
                         <div class="span4">  
-                            <h3><[Giorno]></h3>
+                        <h3><[Giorno]></h3>
                     </div>
                     <div class="span4">
                         <label>Orario</label><input class="input-medium" type="text" name="orario" id="orario" value="<[Orario]>"/>
                     </div><br/>
-                    <[/foreach]>
+                            <[/foreach]>
+                            
+                    
                     
             </div>
             <input type="submit" value="Submit" class="btn btn-primary">
+                            </form>
+                    
             </div>
         </div>
 
