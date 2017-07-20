@@ -21,17 +21,16 @@ echo $img,"<br>\n";*/
 
 $imdb= mysql_query("SELECT Link FROM tdw.Immagine WHERE Link='Img/$img'");
 if(mysql_num_rows($imdb)==1)
-    $oid = mysql_query(" INSERT INTO  tdw.piatto (Nome_piatto, Descrizione, Ingredienti, Prezzo,Img,tipo_piatto) VALUES ('$nome',  '$descrizione',  '$ingredienti', '$prezzo', 'Img/$img', '$tipo_piatto');");
+    $oid = mysql_query(" INSERT INTO  tdw.evento (Data,Nome,Descrizione,Img) VALUES ('$data','$nome','$descrizione','Img/$img');");
 else{
     $oid=mysql_query(" INSERT INTO tdw.Immagine(Link) VALUES ('Img/$img')");
     if($oid)
-        $oid = mysql_query(" INSERT INTO  tdw.piatto (Nome_piatto, Descrizione, Ingredienti, Prezzo,Img,tipo_piatto) VALUES ('$nome',  '$descrizione',  '$ingredienti', '$prezzo', 'Img/$img', '$tipo_piatto');");
+        $oid = mysql_query(" INSERT INTO  tdw.evento (Data,Nome,Descrizione,Img) VALUES ('$data','$nome','$descrizione','Img/$img');");
 }
 
 
 
  
-*/
 if($oid){
     echo("<br>Inserimento avvenuto correttamente");
     header("refresh:2; admin.php");

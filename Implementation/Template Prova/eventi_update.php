@@ -28,11 +28,11 @@ if($switch=="update"){
     
     $imdb= mysql_query("SELECT Link FROM tdw.Immagine WHERE Link='$img'");
     if(mysql_num_rows($imdb)==1)
-	   $oid = mysql_query(" UPDATE  tdw.piatto SET  Nome_Piatto =  '$nome', Descrizione =  '$descrizione', Ingredienti = '$ingredienti', Prezzo =  '$prezzo', Img= '$img', tipo_piatto='$tipo_piatto' WHERE Nome_Piatto ='$key';");
+	   $oid = mysql_query(" UPDATE  tdw.evento SET  Nome =  '$nome', Descrizione =  '$descrizione', Data='$data', Img= '$img' WHERE ID_Evento ='$key';");
     else{
         $oid = mysql_query(" INSERT INTO tdw.Immagine(Link) VALUES ('$img')");
         if($oid)
-            $oid = mysql_query(" UPDATE  tdw.piatto SET  Nome_Piatto =  '$nome',    Descrizione =  '$descrizione', Ingredienti = '$ingredienti', Prezzo =  '$prezzo', Img= '$img', tipo_piatto='$tipo_piatto' WHERE Nome_Piatto ='$key';");
+            $oid = mysql_query(" UPDATE  tdw.evento SET  Nome =  '$nome', Descrizione =  '$descrizione', Data='$data', Img= '$img' WHERE ID_Evento ='$key';");
     }
 
 
