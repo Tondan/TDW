@@ -1,24 +1,13 @@
 
-
-    <div class="accordion-heading">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#searchAccordion" href="#collapse<[ID]>">
-        Giorni
-        </a>
-    </div>
-    <div id="collapse<[ID]>" class="accordion-body collapse">
         <div class="accordion-inner">
             
             <form class="form-inline" action="orario_update.php" method="post">
                 <div class="row-fluid">
                     <[foreach]>
                     <div class="span4">  
-                    <input class="hidden" name="giorno" id="giorno" value="<[ID_Giorno]>"/>
-                    </div>
-                        <div class="span4">  
-                        <h3><[Giorno]></h3>
-                    </div>
+                    <input class="hidden" name="giorno<[ID_Giorno]>" id="giorno<[ID_Giorno]>" value="<[ID_Giorno]>"/>
                     <div class="span4">
-                        <label>Orario</label><input class="input-medium" type="text" name="orario" id="orario" value="<[Orario]>"/>
+                        <label><[Giorno]></label><input class="input-medium" type="text" name="orario<[ID_Giorno]>" id="orario<[ID_Giorno]>" value="<[Orario]>"/>
                     </div><br/>
                             <[/foreach]>
                             
@@ -26,7 +15,7 @@
                     
             </div>
             <input type="submit" value="Submit" class="btn btn-primary">
-                            </form>
+            </form>
                     
             </div>
         </div>
