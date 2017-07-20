@@ -1,0 +1,74 @@
+<div id="main" class="site-main" role="main">
+    <!--Header Image-->
+    <section class="fly-section-image fly-header-image fly-section-overlay fly-section-height-md parallax" style="background-image: url('<[Link]>')">
+        <div class="container">
+            <div class="row">
+                <h3 class="fly-section-image-title-before"></h3>
+
+                <h2 class="fly-section-image-title-after">ADMIN</h2>
+            </div>
+        </div>
+    </section>
+    <!--End Header Image-->
+
+    <section class="news">
+        <div class="container">
+            <div class="row">
+                <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+
+                    <div class="container col-sm-8">
+    <div class="accordion" id="searchAccordion">
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseOne">Aggiungi Un Utente</a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline" action="utenti_add.php" method="post">
+              <div class="row-fluid">
+                <div class="span4">
+                  <label>Username</label> <input class="input-medium" type="text" name="username" id="username" placeholder="Username"/>
+                </div>
+                <div class="span4">
+                  <label>Password</label> <input class="input-medium" type="password" name="password" id="password" placeholder="Password"/>
+              </div>
+                <div class="span4">
+                  <label>Ripeti Password</label> <input class="input-medium" type="password" name="passwordRip" id="passwordRip" placeholder="Password"/>
+              </div>
+                </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+      </div>
+        
+        
+        
+        
+      <div class="accordion-group">
+          <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseTwo">Modifica Un Utente</a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+          
+          
+          
+          
+          
+        <[utenti::getmenu template="tabella-utenti" library="tabella_utenti"]>
+            </div>    
+            
+      </div>
+    </div>
+  </div>
+                    
+                    
+                    
+            
+                    
+                    
+                    </div>
+            </div>
+        </section>

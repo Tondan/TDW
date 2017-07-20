@@ -54,9 +54,10 @@ if($oid){
 
 else if($switch=="delete"){
     
-    $idd = mysql_query("DELETE FROM tdw.evento WHERE ID_Evento='$key'");
+    $idd = mysql_query("DELETE FROM tdw.users WHERE username='$key'");
        
 if($idd){
+    $idd = mysql_query("DELETE FROM tdw.usergroups WHERE username='$key'");
     echo("<br>delete avvenuto correttamente");
     header("refresh:2; admin.php");
 } else{
