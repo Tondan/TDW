@@ -14,35 +14,32 @@
     <section class="news">
         <div class="container">
             <div class="row">
-                
                 <[menu::getleftmenu template="leftmenu" library="leftmenu"]>
 
                     <div class="container col-sm-8">
     <div class="accordion" id="searchAccordion">
-      <div class="accordion-group">
-        <div class="accordion-heading">
-            
-            <div class="accordion-group">
+      
+        <div class="accordion-group">
           <div class="accordion-heading">
-          <a class="accordion-toggle hidden" data-toggle="collapse"
-            data-parent="#searchAccordion" href="#collapseTwo">Visualizza Prenotazioni</a>
+              <br/>
+              <br/>
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseTwo">Modifica Header</a>
         </div>
-        <div id="collapseTwo" class="accordion-body collapse in">
+        <div id="collapseTwo" class="accordion-body collapse">
           
-          
-          
-          
-          
-        <[prenotazioni::getmenu template="tabella-prenotazioni" library="tabella_prenotazioni"]>
-            
+          <[orari::getmenu template="tabella-header" library="tabella_header"]>
             </div>    
             
       </div>
     </div>
   </div>
-   </div>
+                    
+                    
+                    
+            
+                    
+                    
+                    </div>
             </div>
         </section>
-        
-
-

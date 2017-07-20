@@ -10,12 +10,10 @@ require "include/auth1.inc.php";
 
     
     $main = new Template("html/indexin.html");
-    $body = new Template("html/utenti-manager.html");
+    $body = new Template("html/header-manager.html");
 
      
     $main->setContent("body", $body->get());
     $main->close();
     
 ?>
-
-
