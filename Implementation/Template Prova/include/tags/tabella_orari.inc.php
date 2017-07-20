@@ -12,7 +12,7 @@
 			
 			
 			
-			$oid = mysql_query("SELECT * FROM tdw.orario ORDER BY ID_Giorno DESC");
+			$oid = mysql_query("SELECT * FROM tdw.orario ORDER BY ID_Giorno");
 			if (!$oid) {
 				trigger_error("error");
 			}

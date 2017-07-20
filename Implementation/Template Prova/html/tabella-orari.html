@@ -1,28 +1,31 @@
-<[foreach]>
+
 
     <div class="accordion-heading">
-        <a class="accordion-toggle" data-toggle="collapse" data-parent="#searchAccordion" href="#collapse<[ID_Prenotazione]>">
-            <[Data]>
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#searchAccordion" href="#collapse<[ID]>">
+        Giorni
         </a>
     </div>
-    <div id="collapse<[ID_Prenotazione]>" class="accordion-body collapse">
+    <div id="collapse<[ID]>" class="accordion-body collapse">
         <div class="accordion-inner">
+            <form class="form-inline" action="orario_update.php" method="post">
                 <div class="row-fluid">
-                    <div class="span4">
-                   <label>Prenotazione N.</label> <input class="input-medium" type="hidden" name="key" id="key" key="<[ID_Prenotazioni]>" readonly/>
+                    <[foreach]>
+                    <div class="span4">  
+                    <input class="hidden" name="ngiorno" id="ngiorno" value="<[ID_Giorno]>"/>
+                    </div>
+                        <div class="span4">  
+                            <h3><[Giorno]></h3>
                     </div>
                     <div class="span4">
-                        <label>Data</label> <input class="input-medium" type="text" name="data" id="data" value="<[Data]>" readonly />
-                    </div>
-                    <div class="span4">
-                        <label>Persone</label> <input class="input-medium" type="text" name="nome" id="nome" value="<[Persone]>" readonly />
-                    </div>
+                        <label>Orario</label><input class="input-medium" type="text" name="orario" id="orario" value="<[Orario]>"/>
+                    </div><br/>
+                    <[/foreach]>
                     
             </div>
-        
+            <input type="submit" value="Submit" class="btn btn-primary">
             </div>
         </div>
 
 
 
-<[/foreach]>
+
