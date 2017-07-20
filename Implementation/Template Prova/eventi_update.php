@@ -10,6 +10,7 @@ $nome          = mysql_real_escape_string($_POST['nome']);
 $descrizione   = mysql_real_escape_string($_POST['descrizione']);
 $data          = mysql_real_escape_string($_POST['data']);
 $key           = mysql_real_escape_string($_POST['key']);
+$img           = mysql_real_escape_string($_POST['img']);
 
 $switch = $_POST['switch'];  //radio button
 
