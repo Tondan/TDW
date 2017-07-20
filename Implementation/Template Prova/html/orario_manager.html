@@ -1,0 +1,50 @@
+<div id="main" class="site-main" role="main">
+    <!--Header Image-->
+    <section class="fly-section-image fly-header-image fly-section-overlay fly-section-height-md parallax" style="background-image: url('<[Link]>')">
+        <div class="container">
+            <div class="row">
+                <h3 class="fly-section-image-title-before"></h3>
+
+                <h2 class="fly-section-image-title-after">ADMIN</h2>
+            </div>
+        </div>
+    </section>
+    <!--End Header Image-->
+
+    <section class="news">
+        <div class="container">
+            <div class="row">
+                <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+
+                    <div class="container col-sm-8">
+    <div class="accordion" id="searchAccordion">
+      
+        <div class="accordion-group">
+          <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseTwo">Modifica Orario</a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+          
+          
+          
+          
+          
+        <[orari::getmenu template="tabella-orari" library="tabella_orari"]>
+            </div>    
+            
+      </div>
+    </div>
+  </div>
+                    
+                    
+                    
+            
+                    
+                    
+                    </div>
+            </div>
+        </section>
+        
+
+

@@ -1,6 +1,6 @@
 <?php
 
-	Class tabella_prenotazioni extends TagLibrary {
+	Class tabella_orari extends TagLibrary {
 		
 		function dummy() {
 			
@@ -12,7 +12,7 @@
 			
 			
 			
-			$oid = mysql_query("SELECT * FROM tdw.prenotazione");
+			$oid = mysql_query("SELECT * FROM tdw.orario ORDER BY ID_Giorno DESC");
 			if (!$oid) {
 				trigger_error("error");
 			}

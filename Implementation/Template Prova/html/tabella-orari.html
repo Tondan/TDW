@@ -1,0 +1,28 @@
+[foreach]>
+
+    <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#searchAccordion" href="#collapse<[ID_Prenotazione]>">
+            <[Data]>
+        </a>
+    </div>
+    <div id="collapse<[ID_Prenotazione]>" class="accordion-body collapse">
+        <div class="accordion-inner">
+                <div class="row-fluid">
+                    <div class="span4">
+                   <label>Prenotazione N.</label> <input class="input-medium" type="hidden" name="key" id="key" key="<[ID_Prenotazioni]>" readonly/>
+                    </div>
+                    <div class="span4">
+                        <label>Data</label> <input class="input-medium" type="text" name="data" id="data" value="<[Data]>" readonly />
+                    </div>
+                    <div class="span4">
+                        <label>Persone</label> <input class="input-medium" type="text" name="nome" id="nome" value="<[Persone]>" readonly />
+                    </div>
+                    
+            </div>
+        
+            </div>
+        </div>
+
+
+
+<[/foreach]>
