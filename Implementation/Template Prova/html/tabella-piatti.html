@@ -6,10 +6,11 @@
         </div>
         <div id="collapse<[id]>" class="accordion-body collapse">
           <div class="accordion-inner">
-            <form class="form-inline" action="piatti_update.php" method="post">
+            <form class="form-inline" action="piatti_update.php" method="post" enctype="multipart/form-data">
               <div class="row-fluid">
                 <div class="span4">
                 <input class="hidden" name="key" id="key" value="<[Nome_Piatto]>"/>
+                <input class="hidden" name="keyImg" id="keyImg" value="<[Img]>"/>
                   <label>Nome</label> <input class="input-medium" type="text" name="nome" id="nome" value="<[Nome_Piatto]>"/>
                 </div>
                 <div class="span4">
@@ -21,9 +22,9 @@
                 <div class="span4">
                   <label>Prezzo</label> <input class="input-medium" type="text" name="prezzo" id="prezzo" value="<[Prezzo]>"/>
                 </div>
-                <div class="span4">
+                <!--<div class="span4">
                   <label>Immagine</label> <input class="input-medium" type="text" name="img" id="img" value="<[Img]>"/>
-                </div>
+                </div>-->
                 <legend>Tipo Piatto</legend>
                 <select name="tipo_piatto" id="tipo_piatto" value="<[tipo_piatto]>">
                     <option value="primo">Primo</option>
@@ -33,6 +34,11 @@
                     <option value="drink">Drink</option>
                     <option value="pizza">Pizza</option>
                 </select>
+                  <div class="span4">
+                  <label for="InputFile">File input</label>
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Immagine attuale: <[Img]></small>
+                  </div>
               </div>
               <div class="row-fluid">
                 <div class="span3 offset1">

@@ -5,14 +5,13 @@ session_start();
 require "include/dbms.inc.php";
 require "include/auth1.inc.php";
 
-
 $nome          = mysql_real_escape_string($_POST['nome']);
 $descrizione   = mysql_real_escape_string($_POST['descrizione']);
 $ingredienti   = mysql_real_escape_string($_POST['ingredienti']);
 $prezzo        = mysql_real_escape_string($_POST['prezzo']);
 $tipo_piatto   = mysql_real_escape_string($_POST['pasto']);
-$img           = mysql_real_escape_string($_POST['img']);
 $key           = mysql_real_escape_string($_POST['key']);
+$keyImg        = mysql_real_escape_string($_POST['keyImg']);
 
 $switch = $_POST['switch'];  //radio button
 
@@ -27,19 +26,15 @@ echo $presentazione,"<br>\n";
 echo $piattodelgiorno,"<br>\n";*/
 
 
-if($switch=="update"){   
+if($switch=="update"){ 
+    require "upload_in_Img.php";
+    $oid = mysql_query(" UPDATE  tdw.piatto SET  Nome_Piatto =  '$nome', Descrizione =  '$descrizione', Ingredienti = '$ingredienti', Prezzo =  '$prezzo', Img= '$target_file', tipo_piatto='$tipo_piatto' WHERE Nome_Piatto ='$key';");
     
-    $imdb= mysql_query("SELECT Link FROM tdw.Immagine WHERE Link='$img'");
-    if(mysql_num_rows($imdb)==1)
-	   $oid = mysql_query(" UPDATE  tdw.piatto SET  Nome_Piatto =  '$nome', Descrizione =  '$descrizione', Ingredienti = '$ingredienti', Prezzo =  '$prezzo', Img= '$img', tipo_piatto='$tipo_piatto' WHERE Nome_Piatto ='$key';");
-    else{
-        $oid = mysql_query(" INSERT INTO tdw.Immagine(Link) VALUES ('$img')");
-        if($oid)
-            $oid = mysql_query(" UPDATE  tdw.piatto SET  Nome_Piatto =  '$nome',    Descrizione =  '$descrizione', Ingredienti = '$ingredienti', Prezzo =  '$prezzo', Img= '$img', tipo_piatto='$tipo_piatto' WHERE Nome_Piatto ='$key';");
+    if($oid){
+        $idd=mysql_query("DELETE FROM tdw.immagine WHERE Link='$keyImg'");
+        if($idd)
+            unlink($keyImg);
     }
-
-
-
 
 
 if($oid){
@@ -59,7 +54,9 @@ else if($switch=="delete"){
     $idd = mysql_query("DELETE FROM tdw.piatto WHERE Nome_Piatto='$key'");
        
 if($idd){
-    mysql_query("DELETE FROM tdw.Immagine WHERE Link='$img'");
+    $idd=mysql_query("DELETE FROM tdw.Immagine WHERE Link='$keyImg'");
+        if($idd)
+            unlink($keyImg);
     echo("<br>delete avvenuto correttamente");
     header("refresh:2; admin.php");
 } else{
