@@ -1,0 +1,63 @@
+
+
+<div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseOne">Aggiungi Un'Immagine</a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline" action="food_add.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                  <div class="span4">
+                  <label for="InputFile">File input</label>
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Per favore carica le tue immagini</small>
+                  </div>
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+
+
+
+
+<div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseTwo">Cancella Un'Immagine</a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline" action="food_delete.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                <div class="span3 offset1">
+                <[foreach]>
+                  <input type="radio" name="switch" value="<[Link]>"/><[Link]><br>
+                <[/foreach]>
+                </div>
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+    
+    
+<div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseThree">Scegli L'Immagine Attiva</a>
+        </div>
+        <div id="collapseThree" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline" action="food_active.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                <div class="span3 offset1">
+                    <input type="radio" name="switch-active" value="<[First]>" checked/><[First]><br>
+                <[foreach]>
+                  <input type="radio" name="switch" value="<[Link]>"/><[Link]><br>
+                <[/foreach]>
+                </div>
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+        </div>  
