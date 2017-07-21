@@ -1,6 +1,6 @@
 <?php
 
-	Class tabella_faq extends TagLibrary {
+	Class tabella_story extends TagLibrary {
 		
 		function dummy() {
 			
@@ -12,7 +12,7 @@
 			
 			
 			
-			$oid = mysql_query("SELECT * FROM tdw.faq");
+			$oid = mysql_query("SELECT * FROM tdw.storia");
 			if (!$oid) {
 				trigger_error("error");
 			}

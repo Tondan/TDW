@@ -25,7 +25,7 @@ echo $piattodelgiorno,"<br>\n";*/
 
 
 if($switch=="update"){   
-    $oid = mysql_query(" UPDATE tdw.faq SET  Domanda =  '$domanda', Risposta =  '$risposta' WHERE ID_FAQ ='$key';");
+    $oid = mysql_query(" UPDATE tdw.faq SET Domanda =  '$domanda', Risposta =  '$risposta' WHERE ID_FAQ ='$key';");
 
 
 if($oid){

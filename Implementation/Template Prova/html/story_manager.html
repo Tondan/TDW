@@ -14,24 +14,24 @@
     <section class="news">
         <div class="container">
             <div class="row">
-                <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
+                <[menu::getleftmenu template="leftmenu" library="leftmenu"]>
 
                     <div class="container col-sm-8">
     <div class="accordion" id="searchAccordion">
+        
+        
       <div class="accordion-group">
-        <div class="accordion-heading">
+          <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" href="#collapseFood">Food</a>
+            data-parent="#searchAccordion" href="#collapseTwo">Modifica Story</a>
         </div>
-        <div id="collapseFood" class="accordion-body collapse">
+        <div id="collapseTwo" class="accordion-body collapse">
           
-            <[food::getfoodmenu template="tabella-array" library="tabella_array"]>
-        </div>
+            <[story::getmenu template="tabella-story" library="tabella_story"]>
+                
+            </div>    
+            
       </div>
-        
-        
-        
-
     </div>
   </div>
                     

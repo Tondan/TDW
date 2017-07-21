@@ -1,0 +1,38 @@
+<[foreach]>
+
+<div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapse<[ID_Storia]>"><[Nome_Piatto]></a>
+        </div>
+        <div id="collapse<[ID_Storia]>" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline" action="story_update.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                <div class="span4">
+                <input class="hidden" name="key" id="key" value="<[ID_Storia]>"/>
+                <input class="hidden" name="keyImg" id="keyImg" value="<[Img]>"/>
+                  <label>Titolo Paragrafo</label><input class="input-medium" type="text" name="titolo" id="titolo" value="<[Titolo]>"/>
+                </div>
+                <div class="span4">
+                  <label>Descrizione</label><input class="input-medium" type="text" name="descrizione" id="descrizione" value="<[Descrizione]>"/>
+                </div>
+                  <div class="span4">
+                  <label for="InputFile">File input</label>
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Immagine attuale: <[Img]></small>
+                  </div>
+              </div>
+              <div class="row-fluid">
+                <div class="span3 offset1">
+                  <input type="radio" name="switch" value="update" checked/>Update<br>
+                  <input type="radio" name="switch" value="delete"/>Delete<br>
+                </div>
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+    
+    
+    
+<[/foreach]>
