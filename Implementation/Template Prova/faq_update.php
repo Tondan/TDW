@@ -30,7 +30,7 @@ if($switch=="update"){
 
 if($oid){
     echo("<br>update avvenuto correttamente");
-    header("location:faq_manager.php");
+    header("refresh:2; faq_manager.php");
 } else{
 
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
