@@ -4,8 +4,7 @@ session_start();
 
 require "include/dbms.inc.php";
 require "include/auth1.inc.php";
-$dir="Img/";
-require "upload_in_Img.php";
+
 
 $nome          = mysql_real_escape_string($_POST['nome']);
 $descrizione   = mysql_real_escape_string($_POST['descrizione']);
@@ -35,4 +34,6 @@ if($oid){
   }
   
 ?>
+
+
 
