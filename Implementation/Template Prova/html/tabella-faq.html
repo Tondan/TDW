@@ -1,0 +1,32 @@
+<[foreach]>
+
+<div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapse<[id]>"></a>
+        </div>
+        <div id="collapse<[id]>" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline" action="faq_update.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                <div class="span4">
+                <input class="hidden" name="key" id="key" value="<[ID_FAQ]>"/>
+                  <label>Domanda</label> <input class="input-medium" type="text" name="nome" id="nome" value="<[Domanda]>"/>
+                </div>
+                <div class="span4">
+                  <label>Risposta</label> <input class="input-medium" type="text" name="descrizione" id="descrizione" value="<[Risposta]>"/>
+                  </div>
+              </div>
+              <div class="row-fluid">
+                <div class="span3 offset1">
+                  <input type="radio" name="switch" value="update" checked/>Update<br>
+                  <input type="radio" name="switch" value="delete"/>Delete<br>
+                </div>
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+    
+    
+    
+<[/foreach]>
