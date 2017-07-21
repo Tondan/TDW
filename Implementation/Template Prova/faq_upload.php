@@ -6,10 +6,9 @@ require "include/dbms.inc.php";
 require "include/auth1.inc.php";
 
 
-$nome          = mysql_real_escape_string($_POST['key']);
-$descrizione   = mysql_real_escape_string($_POST['domanda']);
-
-$key           = mysql_real_escape_string($_POST['risposta']);
+$key            = mysql_real_escape_string($_POST['key']);
+$domanda        = mysql_real_escape_string($_POST['domanda']);
+$risposta       = mysql_real_escape_string($_POST['risposta']);
 
 
 $switch = $_POST['switch'];  //radio button
@@ -26,7 +25,7 @@ echo $piattodelgiorno,"<br>\n";*/
 
 
 if($switch=="update"){   
-    $oid = mysql_query(" UPDATE  tdw.evento SET  Nome =  '$nome', Descrizione =  '$descrizione', Data='$data', Img= '$target_file' WHERE ID_Evento ='$key';");
+    $oid = mysql_query(" UPDATE tdw.faq SET  Domanda =  '$domanda', Risposta =  '$risposta' WHERE ID_FAQ ='$key';");
 
 
 if($oid){
@@ -43,7 +42,7 @@ if($oid){
 
 else if($switch=="delete"){
     
-    $idd = mysql_query("DELETE FROM tdw.evento WHERE ID_Evento='$key'");
+    $idd = mysql_query("DELETE FROM tdw.faq WHERE ID_FAQ='$key'");
        
     echo("<br>delete avvenuto correttamente");
     header("refresh:2; faq_manager.php");

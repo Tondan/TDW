@@ -6,9 +6,9 @@ require "include/dbms.inc.php";
 require "include/auth1.inc.php";
 
 
-$nome          = mysql_real_escape_string($_POST['nome']);
-$descrizione   = mysql_real_escape_string($_POST['descrizione']);
-$data          = mysql_real_escape_string($_POST['data']);
+$key            = mysql_real_escape_string($_POST['key']);
+$domanda        = mysql_real_escape_string($_POST['domanda']);
+$risposta       = mysql_real_escape_string($_POST['risposta']);
 
 
 /*echo $nome,"<br>\n";
@@ -19,7 +19,7 @@ echo $img,"<br>\n";*/
 
 
 
-$oid = mysql_query(" INSERT INTO  tdw.evento (Data,Nome,Descrizione,Img) VALUES ('$data','$nome','$descrizione','$target_file');");
+$oid = mysql_query(" INSERT INTO  tdw.faq (ID_FAQ, Domanda, Risposta) VALUES (null,'$domanda','$risposta');");
 
 
 
@@ -27,7 +27,7 @@ $oid = mysql_query(" INSERT INTO  tdw.evento (Data,Nome,Descrizione,Img) VALUES 
  
 if($oid){
     echo("<br>Inserimento avvenuto correttamente");
-    header("refresh:2; eventi_manager.php");
+    header("refresh:2; faq_manager.php");
 } else{
     echo("<br>Inserimento non eseguito<br>");
      echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());

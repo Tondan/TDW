@@ -1,16 +1,16 @@
 <[foreach]>
 
-<div class="accordion-heading">
+          <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" href="#collapse<[a]>"></a>
+            data-parent="#searchAccordion" href="#collapse<[ID_FAQ]>"></a>
         </div>
-        <div id="collapse<[a]>" class="accordion-body collapse">
+        <div id="collapse<[ID_FAQ]>" class="accordion-body collapse">
           <div class="accordion-inner">
             <form class="form-inline" action="faq_update.php" method="post">
               <div class="row-fluid">
                 <div class="span4">
                 <input class="hidden" name="key" id="key" value="<[ID_FAQ]>"/>
-                  <label>Domanda</label> <input class="input-medium" type="text" name="nome" id="nome" value="<[Domanda]>"/>
+                  <label>Domanda</label> <input class="input-medium" type="text" name="domanda" id="domanda" value="<[Domanda]>"/>
                 </div>
                 <div class="span4">
                    <label for="Textarea">Risposte</label>
