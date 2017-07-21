@@ -148,7 +148,7 @@
 			}
 			
               
-			$oid = mysql_query("SELECT * FROM tdw.Home LIMIT 2");
+			$oid = mysql_query("SELECT * FROM tdw.Home WHERE ID_Home>0 LIMIT 2");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
@@ -168,7 +168,7 @@
             }
             
             
-            $oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/misenati24.jpg'");
+            $oid = mysql_query("SELECT Img FROM tdw.home WHERE ID_Home=0");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
@@ -177,7 +177,7 @@
 				$data = mysql_fetch_array($oid);
 				
 				if ($data) {
-					$home->setContent("ImgGrande",$data['Link']);
+					$home->setContent("ImgGrande",$data['Img']);
 					//$menu->setContent("link", $data['link']);
 					//$menu->setContent("entry", $data['entry']);
 				}

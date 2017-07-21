@@ -1,0 +1,133 @@
+ <div class="accordion-inner">
+            <form class="form-inline" action="home_update.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                  <div class="span4">
+                      <input class="hidden" name="key" value="1"/>
+                      <input class="hidden" name="keyImg" value="<[Img1]>"/>
+                      <input class="hidden" name="keyIcona" value="<[Icona1]>"/>
+                    <label>Titolo</label> <input class="input-medium" type="text" name="titolo" id="titolo" value="<[Titolo1]>" />
+                  </div>
+                  <div class="span4">
+                      <label for="text">Testo</label> <textarea class="form-control" type="text" name="text" cols=89 rows=10 id="text"><[Descrizione1]></textarea>
+                  </div>
+                  <div class="span4">
+                  <label for="InputFile">File input</label>
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Immagine attuale: <[Img1]></small>
+                  </div>
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+
+
+
+
+
+
+</div>
+      </div>
+          
+
+
+        </div>
+
+
+
+
+          
+
+
+        
+        <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseImg">Immagine Grande</a>
+        </div>
+        <div id="collapseImg" class="accordion-body collapse">
+        <div class="accordion-inner">
+            <form class="form-inline" action="img_grande_update.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+          <div class="span4">
+                <input class="hidden" nome="keyImgGrande" value="<[ImgGrande]>"/>
+                  <label for="InputFile">File input</label>
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Immagine attuale: <[ImgGrande]></small>
+                  </div>
+        
+        </div>
+            <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+      </div>
+          
+        </div>
+            </div>
+        
+            
+            
+ <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseTwo">Sezione 2</a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+<div class="accordion-inner">
+            <form class="form-inline" action="icona_update.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                  <div class="span4">
+                      <input class="hidden" name="key" value="2"/>
+                      <input class="hidden" name="keyImg" value="<[Img2]>"/>
+                      <input class="hidden" name="keyIcona" value="<[Icona2]>"/>
+                    <label>Titolo</label> <input class="input-medium" type="text" name="titolo" id="titolo" value="<[Titolo2]>" />
+                  </div>
+                  <div class="span4">
+                    <label for="text">Testo</label> <textarea class="form-control" type="text" name="text" cols=89 rows=10 id="text"><[Descrizione2]></textarea>
+                  </div>
+                  <div class="span4">
+                  <label for="InputFile">File input</label>
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Immagine attuale: <[Img2]></small>
+                  </div>
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+    </div>
+      </div>
+            
+            
+     
+     
+     
+<div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseIcona">Icona</a>
+        </div>
+        <div id="collapseIcona" class="accordion-body collapse">
+<div class="accordion-inner">
+            <form class="form-inline" action="icona_update.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                  <div class="span4">
+                      <input class="hidden" name="key" value="1"/>
+                      <input class="hidden" name="keyIcona1" value="<[Icona1]>"/>
+                      <input class="hidden" name="keyIcona2" value="<[Icona2]>"/>
+                  </div>
+                  <div class="span4">
+                  <label for="InputFile">File input</label>
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Icona attuale: <[Icona1]></small>
+                  </div>
+              </div>
+                  <div class="row-fluid">
+                <div class="span3 offset1">
+                    <legend>Scegli la sezione dove cambiare l'icona</legend>
+                  <input type="radio" name="switch" value="sezione1" checked/>Sezione 1<br>
+                  <input type="radio" name="switch" value="sezione2"/>Sezione 2<br>
+                </div>
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+    </div>
+      </div>
