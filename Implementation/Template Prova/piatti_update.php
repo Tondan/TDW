@@ -29,12 +29,17 @@ echo $piattodelgiorno,"<br>\n";*/
 
 if($switch=="update"){ 
     require "upload_in_Img.php";
-    $oid = mysql_query(" UPDATE  tdw.piatto SET  Nome_Piatto =  '$nome', Descrizione =  '$descrizione', Ingredienti = '$ingredienti', Prezzo =  '$prezzo', Img= '$target_file', tipo_piatto='$tipo_piatto' WHERE Nome_Piatto ='$key';");
-    
-    if($oid){
-        $idd=mysql_query("DELETE FROM tdw.immagine WHERE Link='$keyImg'");
-        if($idd)
-            unlink($keyImg);
+    if(strcmp($target_file,$dir)==0){
+        $target_file=$keyImg;
+        $oid = mysql_query(" UPDATE  tdw.piatto SET  Nome_Piatto =  '$nome', Descrizione =  '$descrizione', Ingredienti = '$ingredienti', Prezzo =  '$prezzo', Img= '$target_file', tipo_piatto='$tipo_piatto' WHERE Nome_Piatto ='$key';");
+    }
+    else{
+        $oid = mysql_query(" UPDATE  tdw.piatto SET  Nome_Piatto =  '$nome', Descrizione =  '$descrizione', Ingredienti = '$ingredienti', Prezzo =  '$prezzo', Img= '$target_file', tipo_piatto='$tipo_piatto' WHERE Nome_Piatto ='$key';");
+        if($oid){
+            $idd=mysql_query("DELETE FROM tdw.immagine WHERE Link='$keyImg'");
+            if($idd)
+                unlink($keyImg);
+        }
     }
 
 

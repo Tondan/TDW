@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 21, 2017 alle 17:52
+-- Creato il: Lug 21, 2017 alle 19:48
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -90,7 +90,7 @@ INSERT INTO `evento` (`ID_Evento`, `Data`, `Nome`, `Descrizione`, `Img`) VALUES
 (3, '2017-12-25', 'NATALE', 'Venite a trovarci a Natale! Un menu speciale vi aspetta!', 'Img/natale.jpg'),
 (4, '2017-07-20', 'HAPPY HOUR!', 'Abbiamo organizzato un happy hour solo per voi!', 'Img/happyhour.jpg'),
 (5, '2017-07-20', 'LA BAMBAAAAA', NULL, 'Img/labamba.jpg'),
-(6, '2017-07-26', 'ROCCO E'' TRA NOI', NULL, 'Img/rocco.jpg'),
+(6, '2017-07-26', 'ROCCO E'' TRA NOI', '', 'Img/rocco.jpg'),
 (7, '2017-07-26', 'OOOOH YOU TOUCH MY TRALALA', NULL, 'Img/gunther.jpg'),
 (17, '2018-12-15', 'cazzarola', 'cazzarole in testa', 'Img/cazzarola.jpg');
 
@@ -221,6 +221,8 @@ INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('piatti_add.php', 1),
 ('piatti_manager.php', 1),
 ('piatti_update.php', 1),
+('slider_manager.php', 1),
+('slider_update.php', 1),
 ('upload.php', 1),
 ('upload_in.php', 1),
 ('utenti_add.php', 1),
@@ -297,10 +299,10 @@ CREATE TABLE IF NOT EXISTS `immagine` (
 INSERT INTO `immagine` (`Link`, `Attivo`) VALUES
 ('', 0),
 ('Img/', 0),
-('Img/2-1.jpg', 0),
 ('Img/avatars/avatar-1.jpg', 0),
 ('Img/avatars/avatar-2.jpg', 0),
 ('Img/avatars/avatar-3.jpg', 0),
+('Img/baby_groot-2560x1440.jpg', 0),
 ('Img/caffe-faraglia.jpg', 0),
 ('Img/caffetteria.jpg', 0),
 ('Img/carote.jpg', 0),
@@ -353,7 +355,6 @@ INSERT INTO `immagine` (`Link`, `Attivo`) VALUES
 ('Img/Gallery/tortafrutta.jpg', 0),
 ('Img/gunther.jpg', 0),
 ('Img/happyhour.jpg', 0),
-('Img/Img/', 0),
 ('Img/Img/cheers.jpg', 0),
 ('Img/Img/desserts/3.jpg', 0),
 ('Img/impasto.jpg', 0),
@@ -508,7 +509,7 @@ INSERT INTO `piatto` (`Nome_Piatto`, `Descrizione`, `Ingredienti`, `Prezzo`, `Im
 ('ggg', 'alto alto', 'grande gigante gentile', '250000.00', 'Img/cheftony.jpg', 'dessert', 9),
 ('gggg', 'fffff', 'gggggg', '25.00', NULL, 'contorno', 10),
 ('ggggg', 'gggggg', 'gggggg', '22222.00', '', 'primo', 30),
-('kristor', 'kristore', 'un po'' di cazzafa', '25.20', 'Img/Img/', 'primo', 22),
+('kristor', 'kristore', 'un po'' di cazzafa', '25.20', 'Img/cheers.jpg', '', 22),
 ('merda', 'cacarella', 'cacca, letame', '25.00', NULL, NULL, 11),
 ('panna cotta', 'panna cottissima (alla vaniglia)', 'gelatine in foglie, panna, zucchero, vaniglia', '3.20', 'Img/desserts/3.jpg', 'dessert', 12),
 ('Pizza Bella', 'Sei tu la più bellaaaa', 'Cacca, caciocavallo, letame', '250.00', 'Img/pizza bella.jpg', 'pizza', 13),
@@ -645,6 +646,8 @@ INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (6, 'piatti_add.php', NULL, NULL),
 (4, 'piatti_manager.php', NULL, NULL),
 (5, 'piatti_update.php', NULL, NULL),
+(29, 'slider_manager.php', NULL, NULL),
+(30, 'slider_update.php', NULL, NULL),
 (10, 'upload.php', NULL, NULL),
 (11, 'upload_in.php', NULL, NULL),
 (16, 'utenti_add.php', NULL, NULL),
@@ -672,7 +675,7 @@ CREATE TABLE IF NOT EXISTS `slider` (
 --
 
 INSERT INTO `slider` (`ID_Slider`, `Img`, `SliderTitle`, `SliderText`) VALUES
-(1, 'Img/2-1.jpg', 'Aperitivi a Volonta''', 'Cocktail preparati sul momento e cibi sfiziosi rendono i nostri aperitivi un''ottima scelta\r\n'),
+(1, 'Img/baby_groot-2560x1440.jpg', 'MOOSECA', 'Cocktail preparati sul momento e cibi sfiziosi rendono i nostri aperitivi un''ottima scelta'),
 (2, 'Img/FILE-BLOG-2.jpg', 'Aperitivi in Compagnia', 'Chi non canta in compagnia e'' un ladro o una spia!'),
 (3, 'Img/pizza2.jpg', 'Assaggia La Nostra Pizza', 'La pizza cotta nel forno a legna non ha paragoni!');
 

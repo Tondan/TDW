@@ -1,0 +1,29 @@
+<[foreach]>
+<div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapse<[ID_Slider]>">Slider <[ID_Slider]></a>
+        </div>
+        <div id="collapse<[ID_Slider]>" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline" action="slider_update.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                  <div class="span4">
+                      <input class="hidden" name="key" value="<[ID_Slider]>"/>
+                      <input class="hidden" name="keyImg" value="<[Img]>"/>
+                    <label>Titolo</label> <input class="input-medium" type="text" name="titolo" id="titolo" value="<[SliderTitle]>" />
+                  </div>
+                  <div class="span4">
+                    <label>Testo</label> <input class="input-medium" type="text" name="text" id="text" value="<[SliderText]>" />
+                  </div>
+                  <div class="span4">
+                  <label for="InputFile">File input</label>
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Immagine attuale: <[Img]></small>
+                  </div>
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+            
+<[/foreach]>

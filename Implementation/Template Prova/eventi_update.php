@@ -28,12 +28,17 @@ echo $piattodelgiorno,"<br>\n";*/
 
 if($switch=="update"){   
     require "upload_in_Img.php";
-    $oid = mysql_query(" UPDATE  tdw.evento SET  Nome =  '$nome', Descrizione =  '$descrizione', Data='$data', Img= '$target_file' WHERE ID_Evento ='$key';");
-
-    if($oid){
-        $idd=mysql_query("DELETE FROM tdw.immagine WHERE Link='$keyImg'");
-        if($idd)
-            unlink($keyImg);
+    if(strcmp($target_file,$dir)==0){
+        $target_file=$keyImg;
+        $oid = mysql_query(" UPDATE  tdw.evento SET  Nome =  '$nome', Descrizione =  '$descrizione', Data='$data', Img= '$target_file' WHERE ID_Evento ='$key';");
+    }
+    else{
+        $oid = mysql_query(" UPDATE  tdw.evento SET  Nome =  '$nome', Descrizione =  '$descrizione', Data='$data', Img= '$target_file' WHERE ID_Evento ='$key';");
+        if($oid){
+            $idd=mysql_query("DELETE FROM tdw.immagine WHERE Link='$keyImg'");
+            if($idd)
+                unlink($keyImg);
+        }
     }
 
 

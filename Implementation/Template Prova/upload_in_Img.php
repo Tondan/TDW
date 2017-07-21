@@ -3,6 +3,10 @@
 
 $target_dir = $dir;
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+if(strcmp($target_file,$target_dir)==0){
+    echo "No Image Selected";
+    goto JUMP;
+}
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
@@ -38,4 +42,5 @@ if ($uploadOk == 0) {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+JUMP:
 ?>
