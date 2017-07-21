@@ -1769,8 +1769,8 @@ textarea:focus {
 }
 .fly-restaurant-menu .fly-menu-category .fly-menu-image-array img {
   display: none;
-  width: 100%;
-  height: 100%;
+  width: 700px;
+  height: 360px;
 }
 .fly-restaurant-menu .fly-menu-category .fly-menu-image-array img.active-image {
   display: block;
