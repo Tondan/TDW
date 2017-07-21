@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 21, 2017 alle 16:45
+-- Creato il: Lug 21, 2017 alle 17:52
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -203,6 +203,9 @@ CREATE TABLE IF NOT EXISTS `groupservices` (
 
 INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('admin.php', 1),
+('array_active.php', 1),
+('array_add.php', 1),
+('array_delete.php', 1),
 ('array_manager.php', 1),
 ('dashboard.php', 1),
 ('eventi_add.php', 1),
@@ -210,9 +213,6 @@ INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('eventi_update.php', 1),
 ('faq_add.php', 1),
 ('faq_manager.php', 1),
-('food_active.php', 1),
-('food_add.php', 1),
-('food_delete.php', 1),
 ('footer_update.php', 1),
 ('header_manager.php', 1),
 ('header_update.php', 1),
@@ -335,7 +335,6 @@ INSERT INTO `immagine` (`Link`, `Attivo`) VALUES
 ('Img/food/5.jpg', 0),
 ('Img/food/6.jpg', 0),
 ('Img/food/7.jpg', 0),
-('Img/food/baby_groot-2560x1440.jpg', 0),
 ('Img/gallery.jpg', 0),
 ('Img/Gallery/cappuccino.jpg', 0),
 ('Img/Gallery/cheesecake.jpg', 0),
@@ -628,6 +627,9 @@ CREATE TABLE IF NOT EXISTS `services` (
 
 INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (1, 'admin.php', 'script dashboard admin', NULL),
+(28, 'array_active.php', NULL, NULL),
+(26, 'array_add.php', NULL, NULL),
+(27, 'array_delete.php', NULL, NULL),
 (25, 'array_manager.php', NULL, NULL),
 (2, 'dashboard.php', NULL, NULL),
 (8, 'eventi_add.php', NULL, NULL),
@@ -635,9 +637,6 @@ INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (9, 'eventi_update.php', NULL, NULL),
 (22, 'faq_add.php', NULL, NULL),
 (23, 'faq_manager.php', NULL, NULL),
-(28, 'food_active.php', NULL, NULL),
-(26, 'food_add.php', NULL, NULL),
-(27, 'food_delete.php', NULL, NULL),
 (24, 'footer_update.php', NULL, NULL),
 (20, 'header_manager.php', NULL, NULL),
 (21, 'header_update.php', NULL, NULL),

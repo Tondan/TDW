@@ -2,14 +2,15 @@
 
 <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" href="#collapseOne">Aggiungi Un'Immagine</a>
+            data-parent="#searchAccordion" href="#collapse<[Key]>One">Aggiungi Un'Immagine</a>
         </div>
-        <div id="collapseOne" class="accordion-body collapse">
+        <div id="collapse<[Key]>One" class="accordion-body collapse">
           <div class="accordion-inner">
-            <form class="form-inline" action="food_add.php" method="post" enctype="multipart/form-data">
+            <form class="form-inline" action="array_add.php" method="post" enctype="multipart/form-data">
               <div class="row-fluid">
                   <div class="span4">
                   <label for="InputFile">File input</label>
+                    <input class="hidden" name="key" value="<[Key]>">
                     <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
                     <small id="fileHelp" class="form-text text-muted">Per favore carica le tue immagini</small>
                   </div>
@@ -24,11 +25,11 @@
 
 <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" href="#collapseTwo">Cancella Un'Immagine</a>
+            data-parent="#searchAccordion" href="#collapse<[Key]>Two">Cancella Un'Immagine</a>
         </div>
-        <div id="collapseTwo" class="accordion-body collapse">
+        <div id="collapse<[Key]>Two" class="accordion-body collapse">
           <div class="accordion-inner">
-            <form class="form-inline" action="food_delete.php" method="post" enctype="multipart/form-data">
+            <form class="form-inline" action="array_delete.php" method="post" enctype="multipart/form-data">
               <div class="row-fluid">
                 <div class="span3 offset1">
                 <[foreach]>
@@ -44,11 +45,11 @@
     
 <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" href="#collapseThree">Scegli L'Immagine Attiva</a>
+            data-parent="#searchAccordion" href="#collapse<[Key]>Three">Scegli L'Immagine Attiva</a>
         </div>
-        <div id="collapseThree" class="accordion-body collapse">
+        <div id="collapse<[Key]>Three" class="accordion-body collapse">
           <div class="accordion-inner">
-            <form class="form-inline" action="food_active.php" method="post" enctype="multipart/form-data">
+            <form class="form-inline" action="array_active.php" method="post" enctype="multipart/form-data">
               <div class="row-fluid">
                 <div class="span3 offset1">
                     <input class="hidden" name="switch-active" value="<[First]>"/>

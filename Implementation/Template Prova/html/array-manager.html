@@ -18,6 +18,7 @@
 
                     <div class="container col-sm-8">
     <div class="accordion" id="searchAccordion">
+        
       <div class="accordion-group">
         <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse"
@@ -25,7 +26,33 @@
         </div>
         <div id="collapseFood" class="accordion-body collapse">
           
-            <[food::getfoodmenu template="tabella-array" library="tabella_array"]>
+            <[food::getfoodmenu key="food" template="tabella-array" library="tabella_array"]>
+        </div>
+      </div>
+          
+          
+          
+        <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseDesserts">Desserts</a>
+        </div>
+        <div id="collapseDesserts" class="accordion-body collapse">
+          
+            <[desserts::getdessertsmenu key="desserts" template="tabella-array" library="tabella_array"]>
+        </div>
+      </div>
+            
+            
+    
+            <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseDrinks">Drinks</a>
+        </div>
+        <div id="collapseDrinks" class="accordion-body collapse">
+          
+            <[drinks::getdrinksmenu key="drinks" template="tabella-array" library="tabella_array"]>
         </div>
       </div>
         
