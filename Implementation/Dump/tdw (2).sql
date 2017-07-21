@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 20, 2017 alle 17:54
+-- Creato il: Lug 21, 2017 alle 16:45
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `faq` (
   `ID_FAQ` int(11) NOT NULL,
   `Domanda` text NOT NULL,
   `Risposta` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `faq`
@@ -203,10 +203,17 @@ CREATE TABLE IF NOT EXISTS `groupservices` (
 
 INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('admin.php', 1),
+('array_manager.php', 1),
 ('dashboard.php', 1),
 ('eventi_add.php', 1),
 ('eventi_manager.php', 1),
 ('eventi_update.php', 1),
+('faq_add.php', 1),
+('faq_manager.php', 1),
+('food_active.php', 1),
+('food_add.php', 1),
+('food_delete.php', 1),
+('footer_update.php', 1),
 ('header_manager.php', 1),
 ('header_update.php', 1),
 ('orario_manager.php', 1),
@@ -294,7 +301,6 @@ INSERT INTO `immagine` (`Link`, `Attivo`) VALUES
 ('Img/avatars/avatar-1.jpg', 0),
 ('Img/avatars/avatar-2.jpg', 0),
 ('Img/avatars/avatar-3.jpg', 0),
-('Img/baby_groot-2560x1440.jpg', 0),
 ('Img/caffe-faraglia.jpg', 0),
 ('Img/caffetteria.jpg', 0),
 ('Img/carote.jpg', 0),
@@ -329,6 +335,7 @@ INSERT INTO `immagine` (`Link`, `Attivo`) VALUES
 ('Img/food/5.jpg', 0),
 ('Img/food/6.jpg', 0),
 ('Img/food/7.jpg', 0),
+('Img/food/baby_groot-2560x1440.jpg', 0),
 ('Img/gallery.jpg', 0),
 ('Img/Gallery/cappuccino.jpg', 0),
 ('Img/Gallery/cheesecake.jpg', 0),
@@ -364,6 +371,7 @@ INSERT INTO `immagine` (`Link`, `Attivo`) VALUES
 ('Img/natale.jpg', 0),
 ('Img/pasqua.jpg', 0),
 ('Img/pizza bella.jpg', 0),
+('Img/pizza2.jpg', 0),
 ('Img/reservation.jpg', 0),
 ('Img/ristpizz.jpg', 0),
 ('Img/rocco.jpg', 0),
@@ -407,7 +415,7 @@ CREATE TABLE IF NOT EXISTS `messaggi` (
   `Phone` varchar(20) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Message` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `messaggi`
@@ -482,7 +490,7 @@ CREATE TABLE IF NOT EXISTS `piatto` (
   `Img` varchar(100) DEFAULT NULL,
   `tipo_piatto` varchar(20) DEFAULT NULL,
   `id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `piatto`
@@ -500,8 +508,8 @@ INSERT INTO `piatto` (`Nome_Piatto`, `Descrizione`, `Ingredienti`, `Prezzo`, `Im
 ('funghi trifolati', 'eh..sono funghi trifolati', 'funghi ehm ehm', '12.90', NULL, 'primo', 8),
 ('ggg', 'alto alto', 'grande gigante gentile', '250000.00', 'Img/cheftony.jpg', 'dessert', 9),
 ('gggg', 'fffff', 'gggggg', '25.00', NULL, 'contorno', 10),
+('ggggg', 'gggggg', 'gggggg', '22222.00', '', 'primo', 30),
 ('kristor', 'kristore', 'un po'' di cazzafa', '25.20', 'Img/Img/', 'primo', 22),
-('kristore', 'kristore', 'un po'' di cazzafa', '25.20', 'Img/', 'primo', 17),
 ('merda', 'cacarella', 'cacca, letame', '25.00', NULL, NULL, 11),
 ('panna cotta', 'panna cottissima (alla vaniglia)', 'gelatine in foglie, panna, zucchero, vaniglia', '3.20', 'Img/desserts/3.jpg', 'dessert', 12),
 ('Pizza Bella', 'Sei tu la più bellaaaa', 'Cacca, caciocavallo, letame', '250.00', 'Img/pizza bella.jpg', 'pizza', 13),
@@ -620,10 +628,17 @@ CREATE TABLE IF NOT EXISTS `services` (
 
 INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (1, 'admin.php', 'script dashboard admin', NULL),
+(25, 'array_manager.php', NULL, NULL),
 (2, 'dashboard.php', NULL, NULL),
 (8, 'eventi_add.php', NULL, NULL),
 (7, 'eventi_manager.php', NULL, NULL),
 (9, 'eventi_update.php', NULL, NULL),
+(22, 'faq_add.php', NULL, NULL),
+(23, 'faq_manager.php', NULL, NULL),
+(28, 'food_active.php', NULL, NULL),
+(26, 'food_add.php', NULL, NULL),
+(27, 'food_delete.php', NULL, NULL),
+(24, 'footer_update.php', NULL, NULL),
 (20, 'header_manager.php', NULL, NULL),
 (21, 'header_update.php', NULL, NULL),
 (13, 'orario_manager.php', NULL, NULL),
@@ -659,7 +674,8 @@ CREATE TABLE IF NOT EXISTS `slider` (
 
 INSERT INTO `slider` (`ID_Slider`, `Img`, `SliderTitle`, `SliderText`) VALUES
 (1, 'Img/2-1.jpg', 'Aperitivi a Volonta''', 'Cocktail preparati sul momento e cibi sfiziosi rendono i nostri aperitivi un''ottima scelta\r\n'),
-(2, 'Img/FILE-BLOG-2.jpg', 'Aperitivi in Compagnia', 'Chi non canta in compagnia e'' un ladro o una spia!');
+(2, 'Img/FILE-BLOG-2.jpg', 'Aperitivi in Compagnia', 'Chi non canta in compagnia e'' un ladro o una spia!'),
+(3, 'Img/pizza2.jpg', 'Assaggia La Nostra Pizza', 'La pizza cotta nel forno a legna non ha paragoni!');
 
 -- --------------------------------------------------------
 
@@ -716,7 +732,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `surname` varchar(100) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `users`
@@ -907,10 +923,15 @@ ALTER TABLE `users`
 ALTER TABLE `evento`
   MODIFY `ID_Evento` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
+-- AUTO_INCREMENT per la tabella `faq`
+--
+ALTER TABLE `faq`
+  MODIFY `ID_FAQ` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT per la tabella `messaggi`
 --
 ALTER TABLE `messaggi`
-  MODIFY `ID_Messaggio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `ID_Messaggio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT per la tabella `newsletter`
 --
@@ -920,7 +941,7 @@ ALTER TABLE `newsletter`
 -- AUTO_INCREMENT per la tabella `piatto`
 --
 ALTER TABLE `piatto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT per la tabella `prenotazione`
 --
@@ -930,7 +951,7 @@ ALTER TABLE `prenotazione`
 -- AUTO_INCREMENT per la tabella `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- Limiti per le tabelle scaricate
 --
