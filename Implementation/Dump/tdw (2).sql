@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 21, 2017 alle 19:48
+-- Creato il: Lug 21, 2017 alle 21:59
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -207,6 +207,8 @@ INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('array_add.php', 1),
 ('array_delete.php', 1),
 ('array_manager.php', 1),
+('caffetteria_manager.php', 1),
+('caffetteria_update.php', 1),
 ('dashboard.php', 1),
 ('eventi_add.php', 1),
 ('eventi_manager.php', 1),
@@ -216,6 +218,10 @@ INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('footer_update.php', 1),
 ('header_manager.php', 1),
 ('header_update.php', 1),
+('home_manager.php', 1),
+('home_update.php', 1),
+('icona_update.php', 1),
+('img_grande_update.php', 1),
 ('orario_manager.php', 1),
 ('orario_update.php', 1),
 ('piatti_add.php', 1),
@@ -223,6 +229,8 @@ INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('piatti_update.php', 1),
 ('slider_manager.php', 1),
 ('slider_update.php', 1),
+('story_manager.php', 1),
+('story_update.php', 1),
 ('upload.php', 1),
 ('upload_in.php', 1),
 ('utenti_add.php', 1),
@@ -267,7 +275,7 @@ INSERT INTO `header` (`ID_Header`, `Nome`, `Link`, `Posizione`) VALUES
 
 CREATE TABLE IF NOT EXISTS `home` (
   `ID_Home` int(11) NOT NULL,
-  `Titolo` varchar(20) NOT NULL,
+  `Titolo` varchar(20) DEFAULT NULL,
   `Descrizione` text,
   `Img` varchar(100) DEFAULT NULL,
   `Icona` varchar(100) DEFAULT NULL
@@ -278,6 +286,7 @@ CREATE TABLE IF NOT EXISTS `home` (
 --
 
 INSERT INTO `home` (`ID_Home`, `Titolo`, `Descrizione`, `Img`, `Icona`) VALUES
+(0, NULL, NULL, 'Img/baby_groot-2560x1440.jpg', NULL),
 (1, 'Chi Siamo Noi?', 'Siamo due scemi che giocano a creare un sito internet di un bar/ristorante/pizzeria.\r\n\r\nIl nostro motto e'':\r\n\r\nRISTORIA PIZZORANTE, SE NON CI VIENI SEI IGNORANTE!', 'Img/saro.jpg', 'Img/Loghi/logopiccolo.ico'),
 (2, 'Il Nostro Chef', 'Chef Tony gia'' all''eta'' di 15 anni dimostrava un grande talento nel tagliare le cose, e quando conobbe Edward mani di forbice e Jason di Venerdi'' 13 la sua vita comincio'' ad avere un senso. Infatti Jason lo introdusse nell''arte bellica insegnandoli a tagliare ananas al volo oppure cemento utilizzando un semplice coltello. Un giorno trovo'' un coltello pieno di energia chiamato Miracle Blade e senti'' subito la vocazione "Va'' per il mondo e divulgalo". Da quel giorno la sua vita fu segnata dal Miracle Blade, comincio'' infatti a produrre spot assieme al suo maestro di vita Jason (che in seguito lo lascio'' per dedicarsi al cinema, ma nei film usa ancora i Miracle Blade come ricordo).', 'Img/cheftony.jpg', 'Img/Loghi/logopiccolo.ico');
 
@@ -632,6 +641,8 @@ INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (26, 'array_add.php', NULL, NULL),
 (27, 'array_delete.php', NULL, NULL),
 (25, 'array_manager.php', NULL, NULL),
+(33, 'caffetteria_manager.php', NULL, NULL),
+(34, 'caffetteria_update.php', NULL, NULL),
 (2, 'dashboard.php', NULL, NULL),
 (8, 'eventi_add.php', NULL, NULL),
 (7, 'eventi_manager.php', NULL, NULL),
@@ -641,6 +652,10 @@ INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (24, 'footer_update.php', NULL, NULL),
 (20, 'header_manager.php', NULL, NULL),
 (21, 'header_update.php', NULL, NULL),
+(35, 'home_manager.php', NULL, NULL),
+(36, 'home_update.php', NULL, NULL),
+(38, 'icona_update.php', NULL, NULL),
+(37, 'img_grande_update.php', NULL, NULL),
 (13, 'orario_manager.php', NULL, NULL),
 (14, 'orario_update.php', NULL, NULL),
 (6, 'piatti_add.php', NULL, NULL),
@@ -648,6 +663,8 @@ INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (5, 'piatti_update.php', NULL, NULL),
 (29, 'slider_manager.php', NULL, NULL),
 (30, 'slider_update.php', NULL, NULL),
+(31, 'story_manager.php', NULL, NULL),
+(32, 'story_update.php', NULL, NULL),
 (10, 'upload.php', NULL, NULL),
 (11, 'upload_in.php', NULL, NULL),
 (16, 'utenti_add.php', NULL, NULL),

@@ -23,8 +23,8 @@ if ($_FILES["fileToUpload"]["size"] > 9000000) {
 }
 // controlla tipo file es:gif ecc ecc
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+&& $imageFileType != "gif" && $imageFileType != "ico") {
+    echo "Sorry, only JPG, JPEG, PNG, ICO & GIF files are allowed.";
     $uploadOk = 0;
 }
 // se ok=0 ERRORE
