@@ -24,14 +24,33 @@
               <br/>
               <br/>
           <a class="accordion-toggle" data-toggle="collapse"
-            data-parent="#searchAccordion" href="#collapseTwo">Modifica Header</a>
+            data-parent="#searchAccordion" href="#collapseOne">Modifica Header</a>
         </div>
-        <div id="collapseTwo" class="accordion-body collapse">
+        <div id="collapseOne" class="accordion-body collapse">
           
-          <[orari::getmenu template="tabella-header" library="tabella_header"]>
+          <[header::getheader template="tabella-header" library="tabella_header"]>
             </div>    
             
       </div>
+            <div class="accordion-group">
+          <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseTwo">Modifica Footer</a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+          
+          
+          
+          
+          
+        <[footer::getfooter template="tabella-footer" library="tabella_header"]>
+            </div>    
+            
+      </div>
+    </div>
+  </div>
+            
+            
     </div>
   </div>
                     
@@ -40,6 +59,5 @@
             
                     
                     
-                    </div>
-            </div>
+                   
         </section>
