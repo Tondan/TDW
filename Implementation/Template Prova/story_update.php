@@ -25,42 +25,28 @@ echo $presentazione,"<br>\n";
 echo $piattodelgiorno,"<br>\n";*/
 
 
-if($switch=="update"){   
+
     require "upload_in_Img.php";
-    $oid = mysql_query(" UPDATE  tdw.storia SET  Nome =  '$nome', Descrizione =  '$descrizione', Data='$data', Img= '$target_file' WHERE ID_Evento ='$key';");
-
-    if($oid){
-        $idd=mysql_query("DELETE FROM tdw.immagine WHERE Link='$keyImg'");
-        if($idd)
-            unlink($keyImg);
-    }
-
+    if(strcmp($target_file,$dir)==0){
+        $target_file=$keyImg;
+        
+        $oid = mysql_query("UPDATE tdw.storia SET Titolo = '$nome', Descrizione = '$descrizione', Img = '$target_file' WHERE ID_Storia = '$key';");
+                                    }
+    else{
+        $oid = mysql_query(" UPDATE tdw.storia SET Titolo =  '$nome', Descrizione =  '$descrizione', Img ='$target_file' WHERE ID_Storia = '$key';");
+        if($oid){
+            $idd=mysql_query("DELETE FROM tdw.immagine WHERE Link='$keyImg'");
+            if($idd)
+                unlink($keyImg);}
+        }
 
 
 if($oid){
     echo("<br>update avvenuto correttamente");
-    header("location:eventi_manager.php");
+    header("refresh:2; story_manager.php");
 } else{
 
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
   }
-
-    
-        } //fine switch==1  
-
-
-else if($switch=="delete"){
-    
-    $idd = mysql_query("DELETE FROM tdw.evento WHERE ID_Evento='$key'");
-       
-if($idd){
-    $idd=mysql_query("DELETE FROM tdw.Immagine WHERE Link='$keyImg'");
-        if($idd)
-            unlink($keyImg);
-    echo("<br>delete avvenuto correttamente");
-    header("refresh:2; eventi_manager.php");
-} else{
-    echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
-  }
-}     
+     
 ?>
