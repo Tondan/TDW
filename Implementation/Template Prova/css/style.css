@@ -3888,7 +3888,8 @@ textarea:focus {
   display: none;
 }
 .widget-newsletter.widget-newsletter-footer .newsletter-form {
-  padding: 0 140px;
+  padding: 0 15px;
+    width: 100%;
 }
 .widget-newsletter.widget-newsletter-footer .newsletter-form input {
   font-size: 12px;
