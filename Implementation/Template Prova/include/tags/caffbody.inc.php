@@ -14,17 +14,17 @@ class caffbody extends TagLibrary {
 				$pars['parent'] = $data;
 			}
             
-            $oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/caffetteria.jpg'");
+            $oid = mysql_query("SELECT * FROM tdw.Caffetteria WHERE ID_Caffetteria=0");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
 			
 				$data = mysql_fetch_array($oid);
                 if ($data) 
-					$caff->setContent($data);
+					$caff->setContent("Link",$data['Img']);
 			
               
-			$oid = mysql_query("SELECT * FROM tdw.Caffetteria");
+			$oid = mysql_query("SELECT * FROM tdw.Caffetteria WHERE ID_Caffetteria>0");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}

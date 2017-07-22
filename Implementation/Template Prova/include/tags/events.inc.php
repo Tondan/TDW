@@ -71,19 +71,6 @@ function getimage($name, $data, $pars) {
 			}
 			
               
-			$oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/evento.jpg'");
-			if (!$oid) {
-				trigger_error("Menu error");
-			}
-			
-			
-				$data = mysql_fetch_array($oid);
-				
-				if ($data) {
-					$all->setContent("Img1",$data['Link']);
-					//$menu->setContent("link", $data['link']);
-					//$menu->setContent("entry", $data['entry']);
-				}
 			
             
             $oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/eventospecial.jpg'");
@@ -108,6 +95,7 @@ function getimage($name, $data, $pars) {
 				$data = mysql_fetch_array($oid);
 				
 				if ($data) {
+                    $all->setContent("Img1",$data['Img']);
 					$all->setContent("TitoloP",$data['Nome']);
                     $all->setContent("DescrizioneP",$data['Descrizione']);
 				}

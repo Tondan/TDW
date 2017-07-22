@@ -14,28 +14,23 @@
     <section class="news">
         <div class="container">
             <div class="row">
-                <[menu::getleftmenu template="leftmenu" library="leftmenu"]>
+                <[menu::getleftmenu template="leftmenu" library="leftmenu" ]>
 
                     <div class="container col-sm-8">
     <div class="accordion" id="searchAccordion">
- 
         
-      
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseOne">Cambia Un'Immagine</a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse">
           
-
-        <[caffetteria::getmenu template="tabella-caffetteria" library="tabella_caffetteria"]>
-            
-    </div>
-  </div>
-                    
-                    
-                    
-            
-                    
-                    
+            <[lgallery::getmenu template="tabella-lgallery" library="tabella_lgallery"]>
+       
+          
+        </div>
+                        </div>
                     </div>
-            </div>
-        </section>
-        
-
-
+                    </div>
+            </section>

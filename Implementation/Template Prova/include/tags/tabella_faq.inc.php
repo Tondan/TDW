@@ -8,26 +8,39 @@
 		
 		function getmenu($name, $data, $pars) {
 			
-			$menu = new Template("html/{$pars['template']}.html");
+			$faq = new Template("html/{$pars['template']}.html");
 			
 			
 			
-			$oid = mysql_query("SELECT * FROM tdw.faq");
+			$oid = mysql_query("SELECT * FROM tdw.FAQ WHERE ID_FAQ=0");
 			if (!$oid) {
-				trigger_error("error");
+				trigger_error("Menu error");
+			}
+			
+			
+            $data = mysql_fetch_array($oid);
+				
+            if ($data) {
+				$faq->setContent("ImgUp",$data['Img']);
+
+			} 
+              
+			$oid = mysql_query("SELECT * FROM tdw.FAQ WHERE ID_FAQ>0");
+			if (!$oid) {
+				trigger_error("Menu error");
 			}
 			
 			do {
 				$data = mysql_fetch_array($oid);
 				
 				if ($data) {
-					$menu->setContent($data);
+					$faq->setContent($data);
 					//$menu->setContent("link", $data['link']);
 					//$menu->setContent("entry", $data['entry']);
 				}
 			} while ($data);
 			
-			return $menu->get();
+			return $faq->get();
 		}
 		
 	}

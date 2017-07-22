@@ -15,22 +15,20 @@
 				$pars['parent'] = $data;
 			}
 			
-            $oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/faq.jpg'");
+            $oid = mysql_query("SELECT * FROM tdw.FAQ WHERE ID_FAQ=0");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
 			
-			do {
-				$data = mysql_fetch_array($oid);
+			
+            $data = mysql_fetch_array($oid);
 				
-				if ($data) {
-					$faq->setContent($data);
-					//$menu->setContent("link", $data['link']);
-					//$menu->setContent("entry", $data['entry']);
-				}
-			} while ($data);
+            if ($data) {
+				$faq->setContent("Link",$data['Img']);
+
+			} 
               
-			$oid = mysql_query("SELECT * FROM tdw.FAQ");
+			$oid = mysql_query("SELECT * FROM tdw.FAQ WHERE ID_FAQ>0");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
