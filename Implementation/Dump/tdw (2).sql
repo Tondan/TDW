@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 22, 2017 alle 20:11
+-- Creato il: Lug 22, 2017 alle 21:22
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -146,30 +146,30 @@ INSERT INTO `footer` (`ID_Foot`, `Titoletto`, `Indirizzo`, `Tel`) VALUES
 
 CREATE TABLE IF NOT EXISTS `gallery` (
   `ID_Gallery` int(11) NOT NULL,
-  `Img` varchar(100) DEFAULT NULL,
-  `Categoria` varchar(20) NOT NULL
+  `Img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `gallery`
 --
 
-INSERT INTO `gallery` (`ID_Gallery`, `Img`, `Categoria`) VALUES
-(1, 'Img/Gallery/colazione.jpg', 'drinks'),
-(2, 'Img/Gallery/profitteroles.jpg', 'desserts'),
-(3, 'Img/Gallery/pesto.jpg', 'food'),
-(4, 'Img/Gallery/tortafrutta.jpg', 'desserts'),
-(5, 'Img/Gallery/tagliata.jpg', 'food'),
-(6, 'Img/Gallery/drink1.jpg', 'drinks'),
-(7, 'Img/Gallery/cappuccino.jpg', 'drinks'),
-(8, 'Img/Gallery/pizza1.jpg', 'food'),
-(9, 'Img/Gallery/cheesecake.jpg', 'desserts'),
-(10, 'Img/Gallery/pasta.jpg', 'food'),
-(11, 'Img/Gallery/tappi.jpg', 'drinks'),
-(12, 'Img/Gallery/panna-cotta.jpg', 'desserts'),
-(13, 'Img/Gallery/pizza2.jpg', 'food'),
-(14, 'Img/Gallery/drink2.jpg', 'drinks'),
-(15, 'Img/Gallery/dolci.jpg', 'desserts');
+INSERT INTO `gallery` (`ID_Gallery`, `Img`) VALUES
+(7, 'Img/Gallery/cappuccino.jpg'),
+(9, 'Img/Gallery/cheesecake.jpg'),
+(1, 'Img/Gallery/colazione.jpg'),
+(15, 'Img/Gallery/dolci.jpg'),
+(6, 'Img/Gallery/drink1.jpg'),
+(14, 'Img/Gallery/drink2.jpg'),
+(0, 'Img/Gallery/gallery.jpg'),
+(12, 'Img/Gallery/panna-cotta.jpg'),
+(10, 'Img/Gallery/pasta.jpg'),
+(3, 'Img/Gallery/pesto.jpg'),
+(8, 'Img/Gallery/pizza1.jpg'),
+(13, 'Img/Gallery/pizza2.jpg'),
+(2, 'Img/Gallery/profitteroles.jpg'),
+(5, 'Img/Gallery/tagliata.jpg'),
+(11, 'Img/Gallery/tappi.jpg'),
+(4, 'Img/Gallery/tortafrutta.jpg');
 
 -- --------------------------------------------------------
 
@@ -220,6 +220,8 @@ INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('faq_manager.php', 1),
 ('faq_update.php', 1),
 ('footer_update.php', 1),
+('gallery_manager.php', 1),
+('gallery_update.php', 1),
 ('header_manager.php', 1),
 ('header_update.php', 1),
 ('home_manager.php', 1),
@@ -357,13 +359,13 @@ INSERT INTO `immagine` (`Link`, `Attivo`) VALUES
 ('Img/food/5.jpg', 0),
 ('Img/food/6.jpg', 0),
 ('Img/food/7.jpg', 0),
-('Img/gallery.jpg', 0),
 ('Img/Gallery/cappuccino.jpg', 0),
 ('Img/Gallery/cheesecake.jpg', 0),
 ('Img/Gallery/colazione.jpg', 0),
 ('Img/Gallery/dolci.jpg', 0),
 ('Img/Gallery/drink1.jpg', 0),
 ('Img/Gallery/drink2.jpg', 0),
+('Img/Gallery/gallery.jpg', 0),
 ('Img/Gallery/panna-cotta.jpg', 0),
 ('Img/Gallery/pasta.jpg', 0),
 ('Img/Gallery/pesto.jpg', 0),
@@ -664,6 +666,8 @@ INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (23, 'faq_manager.php', NULL, NULL),
 (39, 'faq_update.php', NULL, NULL),
 (24, 'footer_update.php', NULL, NULL),
+(48, 'gallery_manager.php', NULL, NULL),
+(49, 'gallery_update.php', NULL, NULL),
 (20, 'header_manager.php', NULL, NULL),
 (21, 'header_update.php', NULL, NULL),
 (35, 'home_manager.php', NULL, NULL),
