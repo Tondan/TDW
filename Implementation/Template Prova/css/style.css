@@ -3904,7 +3904,7 @@ textarea:focus {
 /*Screen 768px*/
 @media (max-width: 991px) {
   .widget-newsletter.widget-newsletter-footer .newsletter-form {
-    padding: 0 75px;
+    padding: 0 15px;
   }
 }
 /*Screen 320px*/
