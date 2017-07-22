@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 21, 2017 alle 21:59
+-- Creato il: Lug 22, 2017 alle 20:11
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `caffetteria` (
 --
 
 INSERT INTO `caffetteria` (`ID_Caffetteria`, `Descrizione`, `Img`, `Titolo`) VALUES
+(0, '', 'Img/caffetteria.jpg', ''),
 (1, 'Lasciati trasportare dal gusto inconfondibile del caffe'' Faraglia, l''unico in grado di farti iniziare la giornata nel migliore dei modi!', 'Img/caffe-faraglia.jpg', 'Una Carica Di Espresso!'),
 (2, 'Non lasciarti sfuggire l''occasione! Qui da noi la colazione sara'' un vero piacere! Lasciatevi tentare dal profumo dei nostri cornetti appena sfornati, e dalla vista di un ottimo cappuccino preparato per voi dalla mano esperta dei nostri maestri caffettieri!', 'Img/Gallery/colazione.jpg', 'Fai Colazione Insieme a Noi!'),
 (3, 'Che sia in tarda mattinata o in tardo pomeriggio, un aperitivo in compagnia e'' sempre una gran festa! Venite a provare la vasta gamma di aperitivi e cocktail che e'' in grado di preparare il nostro personale altamente qualificato! Ovviamente il tutto accompagnato da buona musica e cibo genuino!', 'Img/slide-aperitivo.jpg', 'Il Meglio Deve Ancora Arrivare!');
@@ -84,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `evento` (
 --
 
 INSERT INTO `evento` (`ID_Evento`, `Data`, `Nome`, `Descrizione`, `Img`) VALUES
-(0, NULL, 'ABBIAMO MOLTO IN SERBO PER VOI!', 'Ogni anno organizziamo molti eventi di diversa natura. Che siano per una festivita'', per una giornata importante o anche semplicemente per divertimento, solo una cosa e'' certa: il tutto sara'' accompagnato dalle nostre prelibatezze e dalla buona musica.', NULL),
+(0, '0000-00-00', 'ABBIAMO MOLTO IN SERBO PER VOI!!!', 'Ogni anno organizziamo molti eventi di diversa natura. Che siano per una festivita'', per una giornata importante o anche semplicemente per divertimento, solo una cosa e'' certa: il tutto sara'' accompagnato dalle nostre prelibatezze e dalla buona musica.', 'Img/evento.jpg'),
 (1, '2017-07-28', 'E'' IL MIO COMPLEANNO!', 'Festeggiamo tutti insieme!', 'Img/cheers.jpg'),
 (2, '2017-04-16', 'PASQUA', 'Venite a trovarci a Pasqua! Un menu speciale vi aspetta!', 'Img/pasqua.jpg'),
 (3, '2017-12-25', 'NATALE', 'Venite a trovarci a Natale! Un menu speciale vi aspetta!', 'Img/natale.jpg'),
@@ -92,7 +93,7 @@ INSERT INTO `evento` (`ID_Evento`, `Data`, `Nome`, `Descrizione`, `Img`) VALUES
 (5, '2017-07-20', 'LA BAMBAAAAA', NULL, 'Img/labamba.jpg'),
 (6, '2017-07-26', 'ROCCO E'' TRA NOI', '', 'Img/rocco.jpg'),
 (7, '2017-07-26', 'OOOOH YOU TOUCH MY TRALALA', NULL, 'Img/gunther.jpg'),
-(17, '2018-12-15', 'cazzarola', 'cazzarole in testa', 'Img/cazzarola.jpg');
+(17, '2018-12-15', 'cazzarola', 'cazzarole in testa', 'Img/rocco.jpg');
 
 -- --------------------------------------------------------
 
@@ -102,18 +103,20 @@ INSERT INTO `evento` (`ID_Evento`, `Data`, `Nome`, `Descrizione`, `Img`) VALUES
 
 CREATE TABLE IF NOT EXISTS `faq` (
   `ID_FAQ` int(11) NOT NULL,
-  `Domanda` text NOT NULL,
-  `Risposta` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `Domanda` text,
+  `Risposta` text,
+  `Img` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `faq`
 --
 
-INSERT INTO `faq` (`ID_FAQ`, `Domanda`, `Risposta`) VALUES
-(1, 'Siete attrezzati per preparare piatti senza glutine?', 'Si, nella nostra cucina abbiamo un locale apposito dedicato alla preparazione dei piatti senza glutine. Ovviamente anche la pizza!'),
-(2, 'Fate pizza da asporto?', 'Si, ma ve va venite a prendere!'),
-(3, 'Ci sono accessi per persone disabili?', 'Si, il nostro locale è privo di barriere architettoniche. Siano preparati per qualsiasi evenienza!');
+INSERT INTO `faq` (`ID_FAQ`, `Domanda`, `Risposta`, `Img`) VALUES
+(0, NULL, NULL, 'Img/faq.jpg'),
+(1, 'Siete attrezzati per preparare piatti senza glutine?', 'Si, nella nostra cucina abbiamo un locale apposito dedicato alla preparazione dei piatti senza glutine. Ovviamente anche la pizza!', NULL),
+(2, 'Fate pizza da asporto?', 'Si, ma ve va venite a prendere!', NULL),
+(3, 'Ci sono accessi per persone disabili?', 'Si, il nostro locale è privo di barriere architettoniche. Siano preparati per qualsiasi evenienza!', NULL);
 
 -- --------------------------------------------------------
 
@@ -215,6 +218,7 @@ INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('eventi_update.php', 1),
 ('faq_add.php', 1),
 ('faq_manager.php', 1),
+('faq_update.php', 1),
 ('footer_update.php', 1),
 ('header_manager.php', 1),
 ('header_update.php', 1),
@@ -222,11 +226,19 @@ INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('home_update.php', 1),
 ('icona_update.php', 1),
 ('img_grande_update.php', 1),
+('lgallery_manager.php', 1),
+('lgallery_update.php', 1),
 ('orario_manager.php', 1),
 ('orario_update.php', 1),
 ('piatti_add.php', 1),
 ('piatti_manager.php', 1),
 ('piatti_update.php', 1),
+('recensioni_manager.php', 1),
+('recensioni_update.php', 1),
+('reservation_manager.php', 1),
+('reservation_update.php', 1),
+('ristorante_manager.php', 1),
+('ristorante_update.php', 1),
 ('slider_manager.php', 1),
 ('slider_update.php', 1),
 ('story_manager.php', 1),
@@ -317,7 +329,6 @@ INSERT INTO `immagine` (`Link`, `Attivo`) VALUES
 ('Img/carote.jpg', 0),
 ('Img/cazz.jpg', 0),
 ('Img/cazzafà.jpg', 0),
-('Img/cazzarola.jpg', 0),
 ('Img/cheers.jpg', 0),
 ('Img/cheftony.jpg', 0),
 ('Img/contact.jpg', 0),
@@ -368,12 +379,12 @@ INSERT INTO `immagine` (`Link`, `Attivo`) VALUES
 ('Img/Img/desserts/3.jpg', 0),
 ('Img/impasto.jpg', 0),
 ('Img/labamba.jpg', 0),
-('Img/LGallery/AP1.jpg', 0),
-('Img/LGallery/Ap2.jpg', 0),
-('Img/LGallery/Baba.jpg', 0),
-('Img/LGallery/Cappuccino.jpg', 0),
-('Img/LGallery/Flambe.jpg', 0),
-('Img/LGallery/Prosciutto.jpg', 0),
+('Img/LGallery/1.jpg', 0),
+('Img/LGallery/2.jpg', 0),
+('Img/LGallery/3.jpg', 0),
+('Img/LGallery/4.jpg', 0),
+('Img/LGallery/5.jpg', 0),
+('Img/LGallery/6.jpg', 0),
 ('Img/Loghi/bestlogo.png', 0),
 ('Img/Loghi/logopiccolo.ico', 0),
 ('Img/misenati24.jpg', 0),
@@ -580,6 +591,7 @@ INSERT INTO `presentazione_reservation` (`Img`, `Titolo`, `Descrizione`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `recensione` (
+  `ID_Recensione` int(11) NOT NULL,
   `Nome` varchar(20) NOT NULL,
   `Avatar` varchar(100) DEFAULT NULL,
   `Testo` text
@@ -589,10 +601,10 @@ CREATE TABLE IF NOT EXISTS `recensione` (
 -- Dump dei dati per la tabella `recensione`
 --
 
-INSERT INTO `recensione` (`Nome`, `Avatar`, `Testo`) VALUES
-('Bryan Nylson', 'Img/avatars/avatar-1.jpg', 'When arriving in town, this is one of the first stops for something interesting and amazing to eat. The menu has choices for everyone and it is the kind of place you want to come back to. I love the fish and chips there as well.'),
-('Lisa Petterson', 'Img/avatars/avatar-3.jpg', 'I just wanted to thank you for providing a great birthday celebration for me. Your staff did an excellent job and the food was superb. Everyone was impressed. I will recommend your expertise to my friends for an event such as this. Thanks again!'),
-('Thomas Jefferson', 'Img/avatars/avatar-2.jpg', 'I wanted to write to say thank you for an amazing experience and delicious dinner tonight. You made my baby daughter and I feel very welcome! I look forward to coming back. Jenny was so wonderful with my daughter too and had her laughing most of the night. Best regards, Allison');
+INSERT INTO `recensione` (`ID_Recensione`, `Nome`, `Avatar`, `Testo`) VALUES
+(1, 'Bryan Nylson', 'Img/avatars/avatar-1.jpg', 'When arriving in town, this is one of the first stops for something interesting and amazing to eat. The menu has choices for everyone and it is the kind of place you want to come back to. I love the fish and chips there as well.'),
+(2, 'Lisa Petterson', 'Img/avatars/avatar-3.jpg', 'I just wanted to thank you for providing a great birthday celebration for me. Your staff did an excellent job and the food was superb. Everyone was impressed. I will recommend your expertise to my friends for an event such as this. Thanks again!'),
+(3, 'Thomas Jefferson', 'Img/avatars/avatar-2.jpg', 'I wanted to write to say thank you for an amazing experience and delicious dinner tonight. You made my baby daughter and I feel very welcome! I look forward to coming back. Jenny was so wonderful with my daughter too and had her laughing most of the night. Best regards, Allison');
 
 -- --------------------------------------------------------
 
@@ -605,7 +617,7 @@ CREATE TABLE IF NOT EXISTS `rist_pizz` (
   `Titolo` varchar(50) DEFAULT NULL,
   `Descrizione` text,
   `Img` varchar(100) DEFAULT NULL,
-  `Categoria` varchar(20) NOT NULL
+  `Categoria` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -613,6 +625,7 @@ CREATE TABLE IF NOT EXISTS `rist_pizz` (
 --
 
 INSERT INTO `rist_pizz` (`ID_Rist_Pizz`, `Titolo`, `Descrizione`, `Img`, `Categoria`) VALUES
+(0, '', '', 'Img/ristpizz.jpg', NULL),
 (1, 'Vieni ad assaporare la genuinita''!', 'I nostri chef utilizzano solo ingredienti naturali di primissima qualita'', forniti da persone affidabili e che mettono il cuore nel loro lavoro!', 'Img/carote.jpg', 'ristorante'),
 (2, 'La Cucina', 'I nostri piatti sono ineguagliabili! I nostri chef hanno una fantasia incredibile e creano nuovi piatti sani e genuini ogni giorno, senza però rinunciare a lasciare la clientela senza parole per il sapore squisito!', 'Img/tricolore.jpg', 'ristorante'),
 (3, 'La Nostra Pizza', 'Si, facciamo anche la pizza! Ma, soprattutto, la impastiamo a mano!\r\nLa nostra pizza e'' preparata soltanto con ingredienti naturali, senza additivi ed è cotta nel forno a legna!', 'Img/impasto.jpg', 'pizzeria'),
@@ -649,6 +662,7 @@ INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (9, 'eventi_update.php', NULL, NULL),
 (22, 'faq_add.php', NULL, NULL),
 (23, 'faq_manager.php', NULL, NULL),
+(39, 'faq_update.php', NULL, NULL),
 (24, 'footer_update.php', NULL, NULL),
 (20, 'header_manager.php', NULL, NULL),
 (21, 'header_update.php', NULL, NULL),
@@ -656,11 +670,19 @@ INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (36, 'home_update.php', NULL, NULL),
 (38, 'icona_update.php', NULL, NULL),
 (37, 'img_grande_update.php', NULL, NULL),
+(40, 'lgallery_manager.php', NULL, NULL),
+(41, 'lgallery_update.php', NULL, NULL),
 (13, 'orario_manager.php', NULL, NULL),
 (14, 'orario_update.php', NULL, NULL),
 (6, 'piatti_add.php', NULL, NULL),
 (4, 'piatti_manager.php', NULL, NULL),
 (5, 'piatti_update.php', NULL, NULL),
+(42, 'recensioni_manager.php', NULL, NULL),
+(43, 'recensioni_update.php', NULL, NULL),
+(46, 'reservation_manager.php', NULL, NULL),
+(47, 'reservation_update.php', NULL, NULL),
+(44, 'ristorante_manager.php', NULL, NULL),
+(45, 'ristorante_update.php', NULL, NULL),
 (29, 'slider_manager.php', NULL, NULL),
 (30, 'slider_update.php', NULL, NULL),
 (31, 'story_manager.php', NULL, NULL),
@@ -704,8 +726,8 @@ INSERT INTO `slider` (`ID_Slider`, `Img`, `SliderTitle`, `SliderText`) VALUES
 
 CREATE TABLE IF NOT EXISTS `storia` (
   `ID_Storia` int(11) NOT NULL,
-  `Titolo` varchar(30) NOT NULL,
-  `Descrizione` text NOT NULL,
+  `Titolo` varchar(30) DEFAULT NULL,
+  `Descrizione` text,
   `Img` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -714,6 +736,7 @@ CREATE TABLE IF NOT EXISTS `storia` (
 --
 
 INSERT INTO `storia` (`ID_Storia`, `Titolo`, `Descrizione`, `Img`) VALUES
+(0, '', '', 'Img/story.jpg'),
 (1, 'E Siamo Noi!', 'Siamo noi, a far casino SEMPRE NOI!', 'Img/story1.jpg'),
 (2, 'Siamo Ancora Noi!', 'E ci risiamo, stessa gente, stesso posto e stesso bar', 'Img/story2.jpg'),
 (3, 'Nobody cares about us', 'Solo te, che sei scemo e hai letto fino a qui XD', 'Img/story3.jpg'),
@@ -789,7 +812,8 @@ ALTER TABLE `evento`
 -- Indici per le tabelle `faq`
 --
 ALTER TABLE `faq`
-  ADD PRIMARY KEY (`ID_FAQ`);
+  ADD PRIMARY KEY (`ID_FAQ`),
+  ADD KEY `Img` (`Img`);
 
 --
 -- Indici per le tabelle `footer`
@@ -887,7 +911,7 @@ ALTER TABLE `presentazione_reservation`
 -- Indici per le tabelle `recensione`
 --
 ALTER TABLE `recensione`
-  ADD PRIMARY KEY (`Nome`),
+  ADD PRIMARY KEY (`ID_Recensione`),
   ADD KEY `Avatar` (`Avatar`);
 
 --
@@ -945,7 +969,7 @@ ALTER TABLE `evento`
 -- AUTO_INCREMENT per la tabella `faq`
 --
 ALTER TABLE `faq`
-  MODIFY `ID_FAQ` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `ID_FAQ` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT per la tabella `messaggi`
 --
@@ -986,6 +1010,12 @@ ALTER TABLE `caffetteria`
 --
 ALTER TABLE `evento`
   ADD CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `immagine` (`Link`);
+
+--
+-- Limiti per la tabella `faq`
+--
+ALTER TABLE `faq`
+  ADD CONSTRAINT `faq_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
 
 --
 -- Limiti per la tabella `gallery`
@@ -1029,7 +1059,7 @@ ALTER TABLE `presentazione_reservation`
 -- Limiti per la tabella `recensione`
 --
 ALTER TABLE `recensione`
-  ADD CONSTRAINT `recensione_ibfk_1` FOREIGN KEY (`Avatar`) REFERENCES `immagine` (`Link`);
+  ADD CONSTRAINT `recensione_ibfk_1` FOREIGN KEY (`Avatar`) REFERENCES `Immagine` (`Link`);
 
 --
 -- Limiti per la tabella `rist_pizz`
