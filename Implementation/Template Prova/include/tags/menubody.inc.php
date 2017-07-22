@@ -16,7 +16,7 @@
 			}
 			
               
-			$oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/ristpizz.jpg'");
+			$oid = mysql_query("SELECT * FROM tdw.Rist_Pizz WHERE ID_Rist_Pizz=0");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
@@ -25,7 +25,7 @@
 				$data = mysql_fetch_array($oid);
 				
 				if ($data) {
-					$img->setContent($data);
+					$img->setContent("Link",$data['Img']);
 				}
 			} while ($data);
             
