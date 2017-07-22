@@ -1,0 +1,45 @@
+<div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#searchAccordion" href="#collapseTwo">Modifica Una Recensione</a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+
+
+
+<[foreach]>
+
+          <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapse<[ID_Recensione]>"><[Nome]></a>
+        </div>
+        <div id="collapse<[ID_Recensione]>" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline" action="recensioni_update.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                <div class="span4">
+                <input class="hidden" name="key" id="key" value="<[ID_Recensione]>"/>
+                  <label>Nome</label> <input class="input-medium" type="text" name="nome" id="nome" value="<[Nome]>"/>
+                </div>
+                <div class="span4">
+                   <label for="Textarea">Testo</label>
+                        <textarea class="form-control" id="Textarea" rows="4" cols="89" name="testo"><[Testo]></textarea>
+                  </div>
+                    <div class="span4">
+                  <label for="InputFile">File input</label>
+                    <input class="hidden" name="keyImg" value="<[Avatar]>">
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp" name="1">
+                    <small id="fileHelp" class="form-text text-muted">Avatar Corrente: <[Avatar]></small>
+                  </div>
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+    
+    
+    
+<[/foreach]>
+    
+</div>
+
+                            </div>

@@ -16,7 +16,7 @@
 			}
 			
               
-			$oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/story.jpg' ");
+			$oid = mysql_query("SELECT * FROM tdw.storia WHERE ID_Storia=0");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
@@ -25,11 +25,11 @@
 				$data = mysql_fetch_array($oid);
 				
 				if ($data) {
-					$story->setContent($data);
+					$story->setContent("Link",$data['Img']);
 				}
 			} while ($data);
             
-            $oid = mysql_query("SELECT * FROM tdw.Storia WHERE ID_Storia%2!=0 LIMIT 2");
+            $oid = mysql_query("SELECT * FROM tdw.Storia WHERE ID_Storia%2!=0 AND ID_Storia>0 LIMIT 2");
 			if (!$oid) {
 				trigger_error("Menu error");
             }
@@ -44,7 +44,7 @@
 				}
             } while ($data);
             
-            $oid = mysql_query("SELECT * FROM tdw.Storia WHERE ID_Storia%2=0 LIMIT 2");
+            $oid = mysql_query("SELECT * FROM tdw.Storia WHERE ID_Storia%2=0 AND ID_Storia>0 LIMIT 2");
 			if (!$oid) {
 				trigger_error("Menu error");
             }
