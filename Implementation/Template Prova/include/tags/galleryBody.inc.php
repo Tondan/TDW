@@ -16,7 +16,7 @@
 			}
 			
               
-			$oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/gallery.jpg'");
+			$oid = mysql_query("SELECT * FROM tdw.gallery WHERE ID_Gallery=0");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}
@@ -25,7 +25,7 @@
 				$data = mysql_fetch_array($oid);
 				
 				if ($data) {
-					$gallery->setContent($data);
+					$gallery->setContent("Link",$data['Img']);
 					//$menu->setContent("link", $data['link']);
 					//$menu->setContent("entry", $data['entry']);
 				}
@@ -41,7 +41,7 @@
                     $gallery->setContent("Cat".$i,$data['Categoria']); 
             }*/
             
-            $op=mysql_query("SELECT * FROM tdw.Gallery");
+            $op=mysql_query("SELECT * FROM tdw.Gallery WHERE ID_Gallery>0");
             if (!$op) {
 				trigger_error("Menu error");
             }

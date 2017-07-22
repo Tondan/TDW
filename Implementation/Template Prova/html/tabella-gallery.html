@@ -1,0 +1,71 @@
+<div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseImg">Cambia Immagine Pagina</a>
+        </div>
+        <div id="collapseImg" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline" action="gallery_update.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                  <div class="span4">
+                      <input class="hidden" name="key" id="key" value="0"/>
+                      <input class="hidden" name="switch" value="update"/>
+                      <input class="hidden" name="keyImg" value="<[ImgUp]>"/>
+                  <label for="InputFile">File input</label>
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Immagine corrente: <[ImgUp]></small>
+                  </div>
+                
+              </div>
+              <div class="row-fluid">
+                <div class="span3 offset1">
+                  
+                </div>
+                <div class="span3">
+                  
+                </div>
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+      </div>    
+
+
+
+
+<div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseOne">Cambia Un'Immagine</a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse">
+
+<[foreach]>
+
+<div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapse<[ID_Gallery]>">Immagine <[ID_Gallery]></a>
+        </div>
+        <div id="collapse<[ID_Gallery]>" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline" action="gallery_update.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                  <div class="span4">
+                  <label for="InputFile">File input</label>
+                      <input class="hidden" name="keyImg" value="<[Img]>">
+                    <input class="hidden" name="key" value="<[ID_Gallery]>">
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp" name="1">
+                    <small id="fileHelp" class="form-text text-muted">Immagine Corrente: <[Img]></small>
+                  </div>
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+
+<[/foreach]>
+    
+    
+     </div>
+                        </div>
