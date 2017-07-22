@@ -881,7 +881,7 @@ em.mm-counter {
     margin-left: 79.8px;
   }
   .fly-header-site.sticky-menu .fly-nav-menu li {
-    margin-left: 95.85px;
+    margin-left: 79.8px;
   }
   .fly-header-site .fly-wrap-logo {
     margin: 0 79.8px;
@@ -893,7 +893,7 @@ em.mm-counter {
     margin-left: 60.8px;
   }
   .fly-header-site.sticky-menu .fly-nav-menu li {
-    margin-left: 75.6px;
+    margin-left: 60.8px;
   }
   .fly-header-site .fly-wrap-logo {
     margin: 0 55.1px;
@@ -905,22 +905,23 @@ em.mm-counter {
     margin-left: 50.35px;
   }
   .fly-header-site.sticky-menu .fly-nav-menu li {
-    margin-left: 60.75px;
+    margin-left: 25.35px;
   }
   .fly-header-site .fly-wrap-logo {
     margin: 0 50.35px;
   }
 }
+
 /*Screen 1024px*/
 @media (max-width: 1199px) {
   .fly-header-site .fly-site-navigation .fly-nav-menu li {
     margin-left: 30.4px;
   }
   .fly-header-site.sticky-menu .fly-nav-menu li {
-    margin-left: 35.1px;
+    margin-left: 15.4px;
   }
   .fly-header-site .fly-wrap-logo {
-    margin: 0 40.85px;
+    margin: 0 30.85px;
   }
   .fly-header-type-2 .fly-wrap-logo {
     margin: 0 30px;
