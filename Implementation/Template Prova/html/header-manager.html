@@ -18,11 +18,24 @@
 
                     <div class="container col-sm-8">
     <div class="accordion" id="searchAccordion">
-      
+        
         <div class="accordion-group">
           <div class="accordion-heading">
               <br/>
               <br/>
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseLogo">Cambia Logo</a>
+        </div>
+        <div id="collapseLogo" class="accordion-body collapse">
+          
+          <[logo::getlogo template="tabella-logo" library="tabella_header"]>
+            </div>    
+            
+      </div>
+      
+        <div class="accordion-group">
+          <div class="accordion-heading">
+              
           <a class="accordion-toggle" data-toggle="collapse"
             data-parent="#searchAccordion" href="#collapseOne">Modifica Header</a>
         </div>

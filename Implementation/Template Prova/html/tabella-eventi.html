@@ -8,11 +8,12 @@
             <form class="form-inline" action="eventi_update.php" method="post" enctype="multipart/form-data">
               <div class="row-fluid">
                   <div class="span4">
-                      <input class="hidden" name="key" id="key" value="0"/>
+                      <input class="hidden" name="key" id="key" value=0/>
                         <label>Titolo</label> <input class="input-medium" type="text" name="nome" id="nome" value="<[Titolo]>" />
                     </div>
                     <div class="span4">
-                        <label>Descrizione</label> <input class="input-medium" type="text" name="descrizione" id="descrizione" value="<[DescrizioneTitolo]>" />
+                        <label for="Textarea">Testo</label>
+                        <textarea class="form-control" id="Textarea" rows="4" cols="89" name="descrizione"><[DescrizioneTitolo]></textarea>
                     </div>
                   <div class="span4">
                       <input class="hidden" name="switch" value="update"/>
@@ -23,20 +24,37 @@
                   </div>
                 
               </div>
-              <div class="row-fluid">
-                <div class="span3 offset1">
-                  
-                </div>
-                <div class="span3">
-                  
-                </div>
-              </div>
                 <input type="submit" value="Submit" class="btn btn-primary">
             </form>
           </div>
         </div>
       </div>    
         
+            
+<div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse"
+            data-parent="#searchAccordion" href="#collapseImgC">Cambia Immagine Centrale</a>
+        </div>
+        <div id="collapseImgC" class="accordion-body collapse">
+          <div class="accordion-inner">
+            <form class="form-inline" action="eventi_update.php" method="post" enctype="multipart/form-data">
+              <div class="row-fluid">
+                  <div class="span4">
+                      <input class="hidden" name="key" id="key" value=1/>
+                      <input class="hidden" name="switch" value="update"/>
+                      <input class="hidden" name="keyImg" value="<[ImgC]>"/>
+                  <label for="InputFile">File input</label>
+                    <input type="file" name="fileToUpload" class="form-control-file" id="InputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">Immagine corrente: <[ImgC]></small>
+                  </div>
+                
+              </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+      </div>                
         
         
       <div class="accordion-group">

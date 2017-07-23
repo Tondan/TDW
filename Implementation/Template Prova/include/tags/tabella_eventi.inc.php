@@ -18,8 +18,15 @@
             $menu->setContent("ImgUp",$data['Img']);
             $menu->setContent("Titolo",$data['Nome']);
             $menu->setContent("DescrizioneTitolo",$data['Descrizione']);
+            
+            $oid = mysql_query("SELECT * FROM tdw.evento WHERE ID_Evento=1");
+			if (!$oid) {
+				trigger_error("evento error");
+			}
+            $data = mysql_fetch_array($oid);
+            $menu->setContent("ImgC",$data['Img']);
 			
-			$oid = mysql_query("SELECT * FROM tdw.evento WHERE ID_Evento>0");
+			$oid = mysql_query("SELECT * FROM tdw.evento WHERE ID_Evento>1");
 			if (!$oid) {
 				trigger_error("evento error");
 			}

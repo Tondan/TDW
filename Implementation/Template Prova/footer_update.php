@@ -19,7 +19,7 @@ $tel             = mysql_real_escape_string($_POST['tel']);
 
 if($oid){
     echo("<br>update avvenuto correttamente");
-    header("refresh:2; admin.php");
+    header("refresh:2; header_manager.php");
 } else{
 
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());

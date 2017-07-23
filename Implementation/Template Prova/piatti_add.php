@@ -30,7 +30,7 @@ $oid = mysql_query(" INSERT INTO  tdw.piatto (Nome_piatto, Descrizione, Ingredie
 
 if($oid){
     echo("<br>Inserimento avvenuto correttamente");
-    header("refresh:2; admin.php");
+    header("refresh:2; piatti_manager.php");
 } else{
     echo("<br>Inserimento non eseguito<br>");
      echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());

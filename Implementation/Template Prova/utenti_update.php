@@ -42,7 +42,7 @@ if($switch=="update"){
 
 if($oid){
     echo("<br>update avvenuto correttamente");
-    header("refresh:2; admin.php");
+    header("refresh:2; utenti_manager.php");
 } else{
 
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
@@ -59,7 +59,7 @@ else if($switch=="delete"){
 if($idd){
     mysql_query("DELETE FROM tdw.users WHERE username='$key'");
     echo("<br>delete avvenuto correttamente");
-    header("refresh:2; admin.php");
+    header("refresh:2; logout.php");
 } else{
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
   }

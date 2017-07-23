@@ -73,19 +73,6 @@ function getimage($name, $data, $pars) {
               
 			
             
-            $oid = mysql_query("SELECT * FROM tdw.Immagine WHERE Link='Img/eventospecial.jpg'");
-			if (!$oid) {
-				trigger_error("Menu error");
-			}
-			
-			
-				$data = mysql_fetch_array($oid);
-				
-				if ($data) {
-					$all->setContent("ImgSpecial",$data['Link']);
-					//$menu->setContent("link", $data['link']);
-					//$menu->setContent("entry", $data['entry']);
-				}
             
             $oid = mysql_query("SELECT * FROM tdw.Evento WHERE ID_Evento=0");
 			if (!$oid) {
@@ -99,10 +86,17 @@ function getimage($name, $data, $pars) {
 					$all->setContent("TitoloP",$data['Nome']);
                     $all->setContent("DescrizioneP",$data['Descrizione']);
 				}
+            
+            $oid = mysql_query("SELECT * FROM tdw.evento WHERE ID_Evento=1");
+			if (!$oid) {
+				trigger_error("evento error");
+			}
+            $data = mysql_fetch_array($oid);
+            $all->setContent("ImgC",$data['Img']);
 			
             
             
-            $oid = mysql_query("SELECT * FROM tdw.Evento WHERE ID_Evento<>0");
+            $oid = mysql_query("SELECT * FROM tdw.Evento WHERE ID_Evento>1");
 			if (!$oid) {
 				trigger_error("Menu error");
 			}

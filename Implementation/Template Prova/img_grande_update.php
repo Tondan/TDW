@@ -5,7 +5,7 @@ session_start();
 require "include/dbms.inc.php";
 require "include/auth1.inc.php";
 $dir="Img/";
-
+$change_name=0;
 
 $key           = mysql_real_escape_string($_POST['key']);
 $keyImg        = mysql_real_escape_string($_POST['keyImgGrande']);
@@ -35,6 +35,8 @@ else{
         if($idd)
             unlink($keyImg);
     }
+    else
+        echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
 }
 
 if($oid){

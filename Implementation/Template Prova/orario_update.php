@@ -18,7 +18,7 @@ $giorno          = mysql_real_escape_string($_POST['giorno'.$i]);
 
 if($oid){
     echo("<br>update avvenuto correttamente");
-    header("refresh:2; admin.php");
+    header("refresh:2; oraio_manager.php");
 } else{
 
     echo("Errore Numero: ".mysql_errno()." - Descrizione: ".mysql_error());
