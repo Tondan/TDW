@@ -10,7 +10,7 @@ $nome          = mysql_real_escape_string($_POST['nome']);
 $descrizione   = mysql_real_escape_string($_POST['descrizione']);
 $ingredienti   = mysql_real_escape_string($_POST['ingredienti']);
 $prezzo        = mysql_real_escape_string($_POST['prezzo']);
-$tipo_piatto   = mysql_real_escape_string($_POST['pasto']);
+$tipo_piatto   = mysql_real_escape_string($_POST['tipo_piatto']);
 $key           = mysql_real_escape_string($_POST['key']);
 $keyImg        = mysql_real_escape_string($_POST['keyImg']);
 
