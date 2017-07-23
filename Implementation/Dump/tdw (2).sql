@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 23, 2017 alle 17:15
+-- Creato il: Lug 23, 2017 alle 18:42
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -508,21 +508,21 @@ CREATE TABLE IF NOT EXISTS `Piatto` (
   `Prezzo` decimal(8,2) NOT NULL,
   `Img` varchar(100) NOT NULL,
   `tipo_piatto` varchar(20) NOT NULL,
-  `id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `Piatto`
 --
 
 INSERT INTO `Piatto` (`Nome_Piatto`, `Descrizione`, `Ingredienti`, `Prezzo`, `Img`, `tipo_piatto`, `id`) VALUES
-('Carbonara', 'Classica carbonara', 'Uovo, Guanciale, Pecorino, Pepe', '6.00', 'Img/hd450x300.jpg', 'primo', NULL),
-('Gewurtztraminer', 'Ottimo vino bianco da gustare con il pesce', 'Uva di Traminer', '15.00', 'Img/adrian-gemuztraminer.jpg', 'drink', NULL),
-('Insalatona', 'Una bella insalata salutare', 'Insalata, Pomodori, Olive, Cipolla, Cetrioli', '5.00', 'Img/insalatona2.jpg', 'contorno', NULL),
-('Pasta Al Pesto', 'Pasta con pesto fatto in casa', 'Basilico, Pinoli, Olio', '6.00', 'Img/pesto.jpg', 'primo', NULL),
-('Pizza Margherita', 'La Classica Immortale', 'Pomodoro, Mozzarella, Basilico', '4.50', 'Img/pizza bella.jpg', 'pizza', NULL),
-('Tagliata', 'Ottima Tagliata in Agrodolce', 'Tagliata, Rucola, Sciroppo di aceto balsamico', '10.00', 'Img/tagliata.jpg', 'secondo', NULL),
-('Torta Di Frutta', 'Torta di frutta fresca', 'Kiwi, Fragole, Frutti di bosco', '5.00', 'Img/tortafrutta.jpg', 'dessert', NULL);
+('Carbonara', 'Classica carbonara', 'Uovo, Guanciale, Pecorino, Pepe', '6.00', 'Img/hd450x300.jpg', 'primo', 1),
+('Gewurtztraminer', 'Ottimo vino bianco da gustare con il pesce', 'Uva di Traminer', '15.00', 'Img/adrian-gemuztraminer.jpg', 'drink', 2),
+('Insalatona', 'Una bella insalata salutare', 'Insalata, Pomodori, Olive, Cipolla, Cetrioli', '5.00', 'Img/insalatona2.jpg', 'contorno', 3),
+('Pasta Al Pesto', 'Pasta con pesto fatto in casa', 'Basilico, Pinoli, Olio', '6.00', 'Img/pesto.jpg', 'primo', 4),
+('Pizza Margherita', 'La Classica Immortale', 'Pomodoro, Mozzarella, Basilico', '4.50', 'Img/pizza bella.jpg', 'pizza', 5),
+('Tagliata', 'Ottima Tagliata in Agrodolce', 'Tagliata, Rucola, Sciroppo di aceto balsamico', '10.00', 'Img/tagliata.jpg', 'secondo', 6),
+('Torta Di Frutta', 'Torta di frutta fresca', 'Kiwi, Fragole, Frutti di bosco', '5.00', 'Img/tortafrutta.jpg', 'dessert', 7);
 
 -- --------------------------------------------------------
 
@@ -756,7 +756,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(30) NOT NULL,
   `password` varchar(32) NOT NULL,
   `id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `users`
@@ -961,6 +961,11 @@ ALTER TABLE `Messaggi`
 ALTER TABLE `Newsletter`
   MODIFY `ID_Mail` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT per la tabella `Piatto`
+--
+ALTER TABLE `Piatto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
 -- AUTO_INCREMENT per la tabella `Prenotazione`
 --
 ALTER TABLE `Prenotazione`
@@ -969,7 +974,7 @@ ALTER TABLE `Prenotazione`
 -- AUTO_INCREMENT per la tabella `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- Limiti per le tabelle scaricate
 --
