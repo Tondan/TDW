@@ -2226,12 +2226,12 @@ textarea:focus {
   border-radius: 50%;
   overflow: hidden;
   margin-right: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 .fly-dish-menu .fly-dish-menu-content li .fly-dish-menu-description h5 {
   font-family: 'Lato', sans-serif;
   font-size: 20px;
-  margin-top: 15px;
+  margin-top: 0px;
   font-weight: bold;
   color: #666666;
   letter-spacing: normal;
