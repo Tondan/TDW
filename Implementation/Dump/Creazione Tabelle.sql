@@ -1,181 +1,231 @@
-CREATE TABLE Utente
+CREATE TABLE IF NOT EXISTS users
 (
-	ID_Utente INT AUTO_INCREMENT PRIMARY KEY,
-    Nome_Utente VARCHAR(20) NOT NULL,
-    Password VARCHAR(20) NOT NULL,
-	Tipo_Utente VARCHAR(20) NOT NULL
+	username VARCHAR(30) PRIMARY KEY,
+    password VARCHAR(32) NOT NULL,
+    id INT UNIQUE NOT NULL AUTO_INCREMENT
 );
 
-CREATE TABLE Gruppo 
+CREATE TABLE IF NOT EXISTS groups
 (
-	ID_Gruppo INT auto_increment PRIMARY KEY,
-    Utente INT,
-		FOREIGN KEY (Utente)
-			REFERENCES Utente(ID_Utente)
+	id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Servizio
+CREATE TABLE IF NOT EXISTS services
 (
-	ID_Servizio INT auto_increment PRIMARY KEY,
-    Gruppo INT,
-		FOREIGN KEY (Gruppo)
-			REFERENCES Gruppo(ID_Gruppo),
-	Tipo_Servizio VARCHAR(20) not null
+	script VARCHAR(255) PRIMARY KEY,
+    description TEXT DEFAULT NULL
 );
 
-CREATE TABLE Header
+CREATE TABLE IF NOT EXISTS usergroups
+(
+	username VARCHAR(30),
+    id_group INT,
+    PRIMARY KEY(username,id_group),
+    FOREIGN KEY(username)
+		REFERENCES users(username),
+	FOREIGN KEY(id_group)
+		REFERENCES groups(id)
+);
+
+CREATE TABLE IF NOT EXISTS groupservices
+(
+	script VARCHAR(255),
+    id INT,
+    PRIMARY KEY(script,id),
+    FOREIGN KEY(script)
+		REFERENCES services(script),
+	FOREIGN KEY(id)
+		REFERENCES groups(id)
+);
+
+CREATE TABLE IF NOT EXISTS Immagine
+(
+	Link VARCHAR(100) PRIMARY KEY,
+    Attivo tinyint DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS Caffetteria
+(
+	ID_Caffetteria INT PRIMARY KEY,
+    Titolo VARCHAR(50) DEFAULT NULL,
+    Descrizione TEXT DEFAULT NULL,
+    Img VARCHAR(100) DEFAULT NULL,
+    FOREIGN KEY(Img)
+		REFERENCES Immagine(Link)
+);
+
+CREATE TABLE IF NOT EXISTS Contatti
+(
+	ID_Contatti INT PRIMARY KEY,
+    Titolo VARCHAR(50) NOT NULL,
+    Indirizzo VARCHAR(100) NOT NULL,
+    Tel VARCHAR(20) NOT NULL,
+    Fax VARCHAR(20) DEFAULT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Descrizione TEXT DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Evento
+(
+	ID_Evento INT AUTO_INCREMENT PRIMARY KEY,
+    Data Date DEFAULT NULL,
+    Nome VARCHAR(50) DEFAULT NULL,
+    Descrizione TEXT DEFAULT NULL,
+    Img VARCHAR(100) DEFAULT NULL,
+    FOREIGN KEY(Img)
+		REFERENCES Immagine(Link)
+);
+
+CREATE TABLE IF NOT EXISTS Faq
+(
+	ID_FAQ INT AUTO_INCREMENT PRIMARY KEY,
+    Domanda TEXT DEFAULT NULL,
+    Risposta TEXT DEFAULT NULL,
+    Img VARCHAR(100) DEFAULT NULL,
+    FOREIGN KEY(Img)
+		REFERENCES Immagine(Link)
+);
+
+CREATE TABLE IF NOT EXISTS Footer
+(
+	ID_Foot INT PRIMARY KEY,
+    Titoletto VARCHAR(50) DEFAULT NULL,
+    Indirizzo VARCHAR(100) DEFAULT NULL,
+    Tel VARCHAR(20) DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Gallery
+(
+	ID_Gallery INT PRIMARY KEY,
+    Img VARCHAR(100) NOT NULL,
+    FOREIGN KEY(Img)
+		REFERENCES Immagine(Link)
+);
+
+CREATE TABLE IF NOT EXISTS Header
 (
 	ID_Header INT PRIMARY KEY,
     Nome VARCHAR(20) NOT NULL,
-    Link VARCHAR(40) NOT NULL,
-	Posizione VARCHAR(2) NOT NULL
+    Link VARCHAR(100) NOT NULL,
+    Posizione VARCHAR(2) NOT NULL
 );
 
-CREATE TABLE Immagine
-(
-	Link VARCHAR(50) PRIMARY KEY
-);
-
-CREATE TABLE Slider
-(
-	ID_Slider INT PRIMARY KEY,
-    Img VARCHAR(50),
-		FOREIGN KEY(Img)
-			REFERENCES Immagine(Link)
-);
-
-CREATE TABLE Home
+CREATE TABLE IF NOT EXISTS Home
 (
 	ID_Home INT PRIMARY KEY,
-    Titolo VARCHAR(20) UNIQUE NOT NULL,
-    Descrizione TEXT,
-    Img VARCHAR(100),
-		FOREIGN KEY(Img)
-			REFERENCES Immagine(Link),
-	Icona VARCHAR(100),
-		FOREIGN KEY(Icona)
-			REFERENCES Immagine(Link)
+    Titolo VARCHAR(50) DEFAULT NULL,
+    Descrizione TEXT DEFAULT NULL,
+    Img VARCHAR(100) DEFAULT NULL,
+    FOREIGN KEY(Img)
+		REFERENCES Immagine(Link),
+	Icona VARCHAR(100) DEFAULT NULL,
+    FOREIGN KEY(Icona)
+		REFERENCES Immagine(Link)
 );
 
-CREATE TABLE Gallery
+CREATE TABLE IF NOT EXISTS Logo
 (
-	ID_Gallery INT PRIMARY KEY,
-    Img VARCHAR(50),
-		FOREIGN KEY(Img)
-			REFERENCES Immagine(Link)
+	Logo VARCHAR(100) PRIMARY KEY,
+    Path VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Caffetteria
+CREATE TABLE IF NOT EXISTS Messaggi
 (
-	ID_Caffetteria INT PRIMARY KEY,
-    Descrizione TEXT,
-    Img VARCHAR(50),
-		FOREIGN KEY(Img)
-			REFERENCES Immagine(Link)
+	ID_Messaggio INT PRIMARY KEY AUTO_INCREMENT,
+    Nome TEXT NOT NULL,
+    Cognome TEXT NOT NULL,
+    Phone VARCHAR(20),
+    Email VARCHAR(100) NOT NULL,
+    Message TEXT NOT NULL
 );
 
-CREATE TABLE Storia
+CREATE TABLE IF NOT EXISTS Newsletter
 (
-	ID_Storia INT PRIMARY KEY,
-    Titolo VARCHAR(30) NOT NULL,
-	Descrizione TEXT NOT NULL,
-    Img VARCHAR(50),
-		FOREIGN KEY(Img)
-			REFERENCES Immagine(Link)
+	ID_Mail INT PRIMARY KEY AUTO_INCREMENT,
+    Email VARCHAR(100) NOT NULL,
+	Data DATE NOT NULL
 );
 
-CREATE TABLE Piatto
+CREATE TABLE IF NOT EXISTS Orario
 (
-	Nome_Piatto VARCHAR(20) PRIMARY KEY,
-    Descrizione TEXT,
-    Ingredienti VARCHAR(50) NOT NULL,
-    Prezzo NUMERIC(8,2) NOT NULL,
-    Img VARCHAR(50),
-		FOREIGN KEY(Img)
-			REFERENCES Immagine(Link)
+	ID_Giorno INT PRIMARY KEY,
+    Giorno VARCHAR(10) NOT NULL,
+    Orario TEXT NOT NULL
 );
 
-CREATE TABLE Menu
+CREATE TABLE IF NOT EXISTS Piatto
 (
-	Nome_Menu VARCHAR(20) PRIMARY KEY,
-    Piatto VARCHAR(20),
-		FOREIGN KEY (Piatto)
-			REFERENCES Piatto(Nome_Piatto),
-	Img VARCHAR(50),
-		FOREIGN KEY(Img)
-			REFERENCES Immagine(Link)
+	Nome_Piatto VARCHAR(30) PRIMARY KEY,
+    Descrizione TEXT NOT NULL,
+    Ingredienti TEXT NOT NULL,
+    Prezzo DECIMAL(8,2) NOT NULL,
+    Img VARCHAR(100) NOT NULL,
+    FOREIGN KEY(Img)
+		REFERENCES Immagine(Link),
+	tipo_piatto VARCHAR(20) NOT NULL,
+    id INT UNIQUE
 );
 
-CREATE TABLE Rist_Pizz
+CREATE TABLE IF NOT EXISTS Prenotazione
+(
+	ID_Prenotazione INT PRIMARY KEY AUTO_INCREMENT,
+    Data DATE NOT NULL,
+    Persone INT NOT NULL,
+    Time TIME NOT NULL,
+    Nome_Cl VARCHAR(50) NOT NULL,
+    Tel VARCHAR(20) NOT NULL,
+    Email VARCHAR(100) DEFAULT NULL,
+	Notice TEXT DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Presentazione_Reservation
+(
+	Titolo VARCHAR(50) PRIMARY KEY,
+    Descrizione TEXT DEFAULT NULL,
+    Img VARCHAR(100) DEFAULT NULL,
+    FOREIGN KEY(Img)
+		REFERENCES Immagine(Link)
+);
+
+CREATE TABLE IF NOT EXISTS Recensione
+(
+	ID_Recensione INT PRIMARY KEY,
+    Nome VARCHAR(50) NOT NULL,
+    Avatar VARCHAR(100) NOT NULL,
+    FOREIGN KEY(Avatar) 
+		REFERENCES Immagine(Link),
+	Testo TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Rist_Pizz
 (
 	ID_Rist_Pizz INT PRIMARY KEY,
-    Descrizione TEXT,
-	Menu VARCHAR(20),
-		FOREIGN KEY (Menu)
-			REFERENCES Menu(Nome_Menu)
+    Titolo TEXT DEFAULT NULL,
+    Descrizione TEXT DEFAULT NULL,
+    Img VARCHAR(100) DEFAULT NULL,
+    FOREIGN KEY(Img)
+		REFERENCES Immagine(Link),
+	Categoria VARCHAR(20) DEFAULT NULL
 );
 
-CREATE TABLE FAQ
+CREATE TABLE IF NOT EXISTS Slider
 (
-	ID_FAQ INT PRIMARY KEY,
-	Domanda VARCHAR(50) NOT NULL,
-	Risposta TEXT NOT NULL
+	ID_Slider INT PRIMARY KEY,
+    Img VARCHAR(100) NOT NULL,
+    FOREIGN KEY(Img)
+		REFERENCES Immagine(Link),
+	SliderTitle VARCHAR(50) NOT NULL,
+	SliderText TEXT NOT NULL
 );
 
-CREATE TABLE Evento
+CREATE TABLE IF NOT EXISTS Storia
 (
-	ID_Evento INT auto_increment PRIMARY KEY,
-	Data Date NOT NULL,
-    Nome VARCHAR(20),
-    Descrizione TEXT,
-    Menu VARCHAR(20),
-		FOREIGN KEY (Menu)
-			REFERENCES Menu(Nome_Menu),
-	Img VARCHAR(50),
-		FOREIGN KEY (Img)
-			REFERENCES Immagine(Link)
+	ID_Storia INT PRIMARY KEY,
+    Titolo VARCHAR(50) DEFAULT NULL,
+    Descrizione TEXT DEFAULT NULL,
+    Img VARCHAR(100) DEFAULT NULL,
+    FOREIGN KEY(Img)
+		REFERENCES Immagine(Link)
 );
 
-CREATE TABLE Prenotazione
-(
-	ID_Prenotazione INT auto_increment PRIMARY KEY,
-	Nome_Cl VARCHAR(20) NOT NULL,
-    Data TIMESTAMP NOT NULL,
-    Evento INT,
-		FOREIGN KEY (Evento)
-			REFERENCES Evento(ID_Evento),
-	N_Presone INT NOT NULL
-);
-    
-
-CREATE TABLE Contatti
-(
-	ID_Contatti INT PRIMARY KEY,
-    Descrizione TEXT,
-    Indirizzo_Az VARCHAR(30),
-    Tel_Az VARCHAR(16),
-    E_Mail_Az VARCHAR(30),
-    Dscrizione TEXT,
-    E_Mail_Cl VARCHAR(30),
-    Nome_Cl VARCHAR(20),
-    Oggetto_Msg VARCHAR(20),
-    Messaggio TEXT
-);
-
-
-CREATE TABLE Orario
-(
-	Giorno VARCHAR(10) PRIMARY KEY,
-    Orario TIME,
-    Chiuso VARCHAR(20)
-);
-
-CREATE TABLE Footer
-(
-	ID_Footer INT PRIMARY KEY,
-    Orario VARCHAR(10),
-		FOREIGN KEY(Orario)
-			REFERENCES Orario(Giorno),
-	Nome_Az VARCHAR(20),
-    P_IVA VARCHAR(11)
-);
