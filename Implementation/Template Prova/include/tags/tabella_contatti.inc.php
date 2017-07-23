@@ -1,20 +1,18 @@
 <?php
 
-
-    class contatti extends TagLibrary {
+	Class tabella_contatti extends TagLibrary {
 		
 		function dummy() {
 			
 		}
 		
-		function getcontact($name, $data, $pars) {
+		function getmenu($name, $data, $pars) {
 			
 			$contact = new Template("html/{$pars['template']}.html");
 			
 			if (!isset($pars['parent'])) {
 				$pars['parent'] = $data;
 			}
-			
             
               
 			$oid = mysql_query("SELECT * FROM tdw.Contatti");
@@ -26,6 +24,7 @@
 				$data = mysql_fetch_array($oid);
 				
 				if ($data) {
+                    $contact->setContent("ID_Contatti",$data['ID_Contatti']);
 					$contact->setContent("Titolo",$data['Titolo']);
                     $contact->setContent("Indirizzo",$data['Indirizzo']);
                     $contact->setContent("Tel",$data['Tel']);
@@ -37,27 +36,10 @@
 				}
 			} while ($data);         
             
-           $oid = mysql_query("SELECT * FROM tdw.Orario");
-			if (!$oid) {
-				trigger_error("Menu error");
-			}
-			
-			do {
-				$data = mysql_fetch_array($oid);
-				
-				if ($data) {
-                    $contact->setContent($data);
-					
-                }
-			} while ($data);
-            
-            
-            
+             
             
 			return $contact->get();
-		}
-        
-        
-        
-        
-    }
+            
+        }
+		
+	}

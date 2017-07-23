@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Creato il: Lug 22, 2017 alle 21:22
+-- Creato il: Lug 23, 2017 alle 09:58
 -- Versione del server: 5.6.31
 -- Versione PHP: 5.5.38
 
@@ -51,20 +51,21 @@ INSERT INTO `caffetteria` (`ID_Caffetteria`, `Descrizione`, `Img`, `Titolo`) VAL
 
 CREATE TABLE IF NOT EXISTS `contatti` (
   `ID_Contatti` int(11) NOT NULL,
-  `Titolo` varchar(50) NOT NULL,
-  `Indirizzo` varchar(100) NOT NULL,
-  `Tel` varchar(20) NOT NULL,
+  `Titolo` varchar(50) DEFAULT NULL,
+  `Indirizzo` varchar(100) DEFAULT NULL,
+  `Tel` varchar(20) DEFAULT NULL,
   `Fax` varchar(20) DEFAULT NULL,
-  `Email` varchar(30) NOT NULL,
-  `Descrizione` varchar(50) DEFAULT NULL
+  `Email` varchar(30) DEFAULT NULL,
+  `Descrizione` varchar(50) DEFAULT NULL,
+  `Img` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `contatti`
 --
 
-INSERT INTO `contatti` (`ID_Contatti`, `Titolo`, `Indirizzo`, `Tel`, `Fax`, `Email`, `Descrizione`) VALUES
-(1, 'WE''D LOVE TO HEAR FROM YOU', '49 Chigwell Road - South Woodford, London E18 1NG - United Kingdom', '(020) 8989 3831', '(020) 8989 38 32', 'info@flycoffee.uk', 'WE ARE OPEN FOR YOU');
+INSERT INTO `contatti` (`ID_Contatti`, `Titolo`, `Indirizzo`, `Tel`, `Fax`, `Email`, `Descrizione`, `Img`) VALUES
+(1, 'WE''D LOVE TO HEAR FROM YOU', '49 Chigwell Road - South Woodford, London E18 1NG - United Kingdom', '(020) 8989 3831', '(020) 8989 38 32', 'info@flycoffee.uk', 'WE ARE OPEN FOR YOU', 'Img/contact.jpg');
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `faq` (
   `Domanda` text,
   `Risposta` text,
   `Img` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `faq`
@@ -212,6 +213,8 @@ INSERT INTO `groupservices` (`script`, `id`) VALUES
 ('array_manager.php', 1),
 ('caffetteria_manager.php', 1),
 ('caffetteria_update.php', 1),
+('contatti_manager.php', 1),
+('contatti_update.php', 1),
 ('dashboard.php', 1),
 ('eventi_add.php', 1),
 ('eventi_manager.php', 1),
@@ -658,6 +661,8 @@ INSERT INTO `services` (`id`, `script`, `name`, `description`) VALUES
 (25, 'array_manager.php', NULL, NULL),
 (33, 'caffetteria_manager.php', NULL, NULL),
 (34, 'caffetteria_update.php', NULL, NULL),
+(50, 'contatti_manager.php', NULL, NULL),
+(51, 'contatti_update.php', NULL, NULL),
 (2, 'dashboard.php', NULL, NULL),
 (8, 'eventi_add.php', NULL, NULL),
 (7, 'eventi_manager.php', NULL, NULL),
@@ -803,7 +808,8 @@ ALTER TABLE `caffetteria`
 -- Indici per le tabelle `contatti`
 --
 ALTER TABLE `contatti`
-  ADD PRIMARY KEY (`ID_Contatti`);
+  ADD PRIMARY KEY (`ID_Contatti`),
+  ADD KEY `Img` (`Img`);
 
 --
 -- Indici per le tabelle `evento`
@@ -973,7 +979,7 @@ ALTER TABLE `evento`
 -- AUTO_INCREMENT per la tabella `faq`
 --
 ALTER TABLE `faq`
-  MODIFY `ID_FAQ` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `ID_FAQ` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT per la tabella `messaggi`
 --
@@ -1008,6 +1014,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `caffetteria`
   ADD CONSTRAINT `caffetteria_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `immagine` (`Link`);
+
+--
+-- Limiti per la tabella `contatti`
+--
+ALTER TABLE `contatti`
+  ADD CONSTRAINT `contatti_ibfk_1` FOREIGN KEY (`Img`) REFERENCES `Immagine` (`Link`);
 
 --
 -- Limiti per la tabella `evento`
